@@ -33,11 +33,14 @@
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.选择路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEditMaster = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblPath = new System.Windows.Forms.Label();
             this.btnEditGundam = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSearchWeapon = new System.Windows.Forms.Button();
+            this.btnEditWeapon = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tslblDir = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -46,7 +49,7 @@
             this.文件ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(444, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(430, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,53 +79,75 @@
             this.btnEditMaster.UseVisualStyleBackColor = true;
             this.btnEditMaster.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 168);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "data路径:";
-            // 
-            // lblPath
-            // 
-            this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(75, 168);
-            this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(0, 12);
-            this.lblPath.TabIndex = 2;
-            // 
             // btnEditGundam
             // 
             this.btnEditGundam.Enabled = false;
             this.btnEditGundam.Location = new System.Drawing.Point(95, 28);
             this.btnEditGundam.Name = "btnEditGundam";
-            this.btnEditGundam.Size = new System.Drawing.Size(124, 54);
+            this.btnEditGundam.Size = new System.Drawing.Size(77, 54);
             this.btnEditGundam.TabIndex = 1;
-            this.btnEditGundam.Text = "修改机体(开发中)";
+            this.btnEditGundam.Text = "修改机体";
             this.btnEditGundam.UseVisualStyleBackColor = true;
             this.btnEditGundam.Click += new System.EventHandler(this.btnEditGundam_Click);
             // 
             // btnSearch
             // 
             this.btnSearch.Enabled = false;
-            this.btnSearch.Location = new System.Drawing.Point(225, 28);
+            this.btnSearch.Location = new System.Drawing.Point(178, 28);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(86, 54);
+            this.btnSearch.Size = new System.Drawing.Size(77, 54);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "机体搜索";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnSearchWeapon
+            // 
+            this.btnSearchWeapon.Enabled = false;
+            this.btnSearchWeapon.Location = new System.Drawing.Point(344, 28);
+            this.btnSearchWeapon.Name = "btnSearchWeapon";
+            this.btnSearchWeapon.Size = new System.Drawing.Size(77, 54);
+            this.btnSearchWeapon.TabIndex = 1;
+            this.btnSearchWeapon.Text = "武器搜索";
+            this.btnSearchWeapon.UseVisualStyleBackColor = true;
+            this.btnSearchWeapon.Click += new System.EventHandler(this.btnSearchWeapon_Click);
+            // 
+            // btnEditWeapon
+            // 
+            this.btnEditWeapon.Enabled = false;
+            this.btnEditWeapon.Location = new System.Drawing.Point(261, 28);
+            this.btnEditWeapon.Name = "btnEditWeapon";
+            this.btnEditWeapon.Size = new System.Drawing.Size(77, 54);
+            this.btnEditWeapon.TabIndex = 1;
+            this.btnEditWeapon.Text = "修改武器";
+            this.btnEditWeapon.UseVisualStyleBackColor = true;
+            this.btnEditWeapon.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslblDir});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 93);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(430, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tslblDir
+            // 
+            this.tslblDir.Name = "tslblDir";
+            this.tslblDir.Size = new System.Drawing.Size(131, 17);
+            this.tslblDir.Text = "toolStripStatusLabel1";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 189);
-            this.Controls.Add(this.lblPath);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(430, 115);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.btnSearchWeapon);
             this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnEditWeapon);
             this.Controls.Add(this.btnEditGundam);
             this.Controls.Add(this.btnEditMaster);
             this.Controls.Add(this.menuStrip1);
@@ -131,10 +156,12 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "火线纵横-静态修改器 v0.3 - Power By RenYueHD";
+            this.Text = "火线纵横-静态修改器 v0.4 - Power By RenYueHD";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,10 +173,12 @@
         private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 选择路径ToolStripMenuItem;
         private System.Windows.Forms.Button btnEditMaster;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.Button btnEditGundam;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnSearchWeapon;
+        private System.Windows.Forms.Button btnEditWeapon;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tslblDir;
     }
 }
 

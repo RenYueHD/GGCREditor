@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="ByteHelper.cs" />
     <Compile Include="GundamFile.cs" />
+    <Compile Include="WeaponInfo.cs" />
     <Compile Include="GundamInfo.cs" />
     <Compile Include="MasterFile.cs" />
     <Compile Include="MasterInfo.cs" />

@@ -41,6 +41,27 @@ namespace GGCREditorLib
         }
 
         /// <summary>
+        /// 通过地址获取武器信息
+        /// </summary>
+        /// <param name="addressHex"></param>
+        /// <returns></returns>
+        public WeaponInfo getWeapon(string addressHex)
+        {
+            int index = ByteHelper.Bytes2Int(ByteHelper.HexStringToByteArray(addressHex));
+            return getWeapon(index);
+        }
+
+        /// <summary>
+        /// 通过地址获取武器信息
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public WeaponInfo getWeapon(int index)
+        {
+            return new WeaponInfo(this, index);
+        }
+
+        /// <summary>
         /// 保存文件
         /// </summary>
         public void Save()

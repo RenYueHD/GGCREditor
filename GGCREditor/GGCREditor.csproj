@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmEditWeapon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditWeapon.Designer.cs">
+      <DependentUpon>FrmEditWeapon.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditGundam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSearchWeapon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchWeapon.Designer.cs">
+      <DependentUpon>FrmSearchWeapon.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSearchGundam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmEditWeapon.resx">
+      <DependentUpon>FrmEditWeapon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEditGundam.resx">
       <DependentUpon>FrmEditGundam.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchWeapon.resx">
+      <DependentUpon>FrmSearchWeapon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSearchGundam.resx">
       <DependentUpon>FrmSearchGundam.cs</DependentUpon>
@@ -118,6 +136,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="固有技能.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="武器数据.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

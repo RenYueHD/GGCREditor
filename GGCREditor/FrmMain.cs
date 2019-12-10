@@ -45,7 +45,7 @@ namespace GGCREditor
 
                     this.currentDir = dialog.SelectedPath;
                     enableAll();
-                    lblPath.Text = this.currentDir;
+                    tslblDir.Text = this.currentDir;
                 }
             }
         }
@@ -65,7 +65,7 @@ namespace GGCREditor
             if (config.AppSettings.Settings["path"] != null)
             {
                 this.currentDir = config.AppSettings.Settings["path"].Value;
-                lblPath.Text = this.currentDir;
+                tslblDir.Text = this.currentDir;
                 enableAll();
             }
         }
@@ -75,6 +75,8 @@ namespace GGCREditor
             btnEditMaster.Enabled = true;
             btnEditGundam.Enabled = true;
             btnSearch.Enabled = true;
+            btnSearchWeapon.Enabled = true;
+            btnEditWeapon.Enabled = true;
         }
 
         private void btnEditGundam_Click(object sender, EventArgs e)
@@ -91,6 +93,23 @@ namespace GGCREditor
             FrmSearchGundam form = FrmSearchGundam.CreateForm(url);
             form.Show();
             form.BringToFront();
+        }
+
+        private void btnSearchWeapon_Click(object sender, EventArgs e)
+        {
+            string url = this.currentDir + "\\resident\\MachineSpecList.pkd";
+
+            FrmSearchWeapon form = FrmSearchWeapon.CreateForm(url);
+            form.Show();
+            form.BringToFront();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string url = this.currentDir + "\\resident\\MachineSpecList.pkd";
+
+            FrmEditWeapon form = new FrmEditWeapon(url);
+            form.ShowDialog();
         }
     }
 }
