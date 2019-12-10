@@ -50,7 +50,7 @@
             this.文件ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(430, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(460, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,27 +85,27 @@
             this.btnEditGundam.Enabled = false;
             this.btnEditGundam.Location = new System.Drawing.Point(95, 28);
             this.btnEditGundam.Name = "btnEditGundam";
-            this.btnEditGundam.Size = new System.Drawing.Size(77, 54);
+            this.btnEditGundam.Size = new System.Drawing.Size(92, 54);
             this.btnEditGundam.TabIndex = 1;
-            this.btnEditGundam.Text = "修改机体";
+            this.btnEditGundam.Text = "修改机体/战舰";
             this.btnEditGundam.UseVisualStyleBackColor = true;
             this.btnEditGundam.Click += new System.EventHandler(this.btnEditGundam_Click);
             // 
             // btnSearch
             // 
             this.btnSearch.Enabled = false;
-            this.btnSearch.Location = new System.Drawing.Point(178, 28);
+            this.btnSearch.Location = new System.Drawing.Point(193, 28);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(77, 54);
+            this.btnSearch.Size = new System.Drawing.Size(92, 54);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "机体搜索";
+            this.btnSearch.Text = "机体/战舰搜索";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnSearchWeapon
             // 
             this.btnSearchWeapon.Enabled = false;
-            this.btnSearchWeapon.Location = new System.Drawing.Point(344, 28);
+            this.btnSearchWeapon.Location = new System.Drawing.Point(374, 28);
             this.btnSearchWeapon.Name = "btnSearchWeapon";
             this.btnSearchWeapon.Size = new System.Drawing.Size(77, 54);
             this.btnSearchWeapon.TabIndex = 1;
@@ -116,7 +116,7 @@
             // btnEditWeapon
             // 
             this.btnEditWeapon.Enabled = false;
-            this.btnEditWeapon.Location = new System.Drawing.Point(261, 28);
+            this.btnEditWeapon.Location = new System.Drawing.Point(291, 28);
             this.btnEditWeapon.Name = "btnEditWeapon";
             this.btnEditWeapon.Size = new System.Drawing.Size(77, 54);
             this.btnEditWeapon.TabIndex = 1;
@@ -128,9 +128,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblDir});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 116);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 120);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(430, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(460, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -153,7 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 138);
+            this.ClientSize = new System.Drawing.Size(460, 142);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnSearchWeapon);
@@ -167,7 +167,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "火线纵横-静态修改器 v0.5 - Power By RenYueHD";
+            this.Text = "火线纵横-静态修改器 v0.6 - Power By RenYueHD";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

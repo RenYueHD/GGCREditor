@@ -33,6 +33,11 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkUse5 = new System.Windows.Forms.CheckBox();
+            this.chkUse4 = new System.Windows.Forms.CheckBox();
+            this.chkUse3 = new System.Windows.Forms.CheckBox();
+            this.chkUse2 = new System.Windows.Forms.CheckBox();
+            this.chkUse1 = new System.Windows.Forms.CheckBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -42,9 +47,7 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtMpLimit = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.txtPower = new System.Windows.Forms.TextBox();
-            this.txtUseEarth = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEN = new System.Windows.Forms.TextBox();
             this.txtSpec = new System.Windows.Forms.TextBox();
@@ -58,6 +61,7 @@
             this.txtIco1 = new System.Windows.Forms.TextBox();
             this.txtMP = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -65,10 +69,19 @@
             this.txtHitRate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtActEarth = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cboAE1 = new System.Windows.Forms.ComboBox();
+            this.cboAE2 = new System.Windows.Forms.ComboBox();
+            this.cboAE3 = new System.Windows.Forms.ComboBox();
+            this.cboAE4 = new System.Windows.Forms.ComboBox();
+            this.cboAE5 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +118,21 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboAE1);
+            this.groupBox1.Controls.Add(this.cboAE2);
+            this.groupBox1.Controls.Add(this.cboAE3);
+            this.groupBox1.Controls.Add(this.cboAE4);
+            this.groupBox1.Controls.Add(this.cboAE5);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.chkUse5);
+            this.groupBox1.Controls.Add(this.chkUse4);
+            this.groupBox1.Controls.Add(this.chkUse3);
+            this.groupBox1.Controls.Add(this.chkUse2);
+            this.groupBox1.Controls.Add(this.chkUse1);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.lblAddress);
@@ -114,9 +142,7 @@
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.txtMpLimit);
-            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtPower);
-            this.groupBox1.Controls.Add(this.txtUseEarth);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtEN);
             this.groupBox1.Controls.Add(this.txtSpec);
@@ -130,6 +156,7 @@
             this.groupBox1.Controls.Add(this.txtIco1);
             this.groupBox1.Controls.Add(this.txtMP);
             this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label9);
@@ -137,7 +164,6 @@
             this.groupBox1.Controls.Add(this.txtHitRate);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtActEarth);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(266, 9);
             this.groupBox1.Name = "groupBox1";
@@ -145,6 +171,56 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // chkUse5
+            // 
+            this.chkUse5.AutoSize = true;
+            this.chkUse5.Location = new System.Drawing.Point(309, 283);
+            this.chkUse5.Name = "chkUse5";
+            this.chkUse5.Size = new System.Drawing.Size(48, 16);
+            this.chkUse5.TabIndex = 17;
+            this.chkUse5.Text = "水中";
+            this.chkUse5.UseVisualStyleBackColor = true;
+            // 
+            // chkUse4
+            // 
+            this.chkUse4.AutoSize = true;
+            this.chkUse4.Location = new System.Drawing.Point(243, 283);
+            this.chkUse4.Name = "chkUse4";
+            this.chkUse4.Size = new System.Drawing.Size(48, 16);
+            this.chkUse4.TabIndex = 17;
+            this.chkUse4.Text = "水面";
+            this.chkUse4.UseVisualStyleBackColor = true;
+            // 
+            // chkUse3
+            // 
+            this.chkUse3.AutoSize = true;
+            this.chkUse3.Location = new System.Drawing.Point(189, 283);
+            this.chkUse3.Name = "chkUse3";
+            this.chkUse3.Size = new System.Drawing.Size(36, 16);
+            this.chkUse3.TabIndex = 17;
+            this.chkUse3.Text = "地";
+            this.chkUse3.UseVisualStyleBackColor = true;
+            // 
+            // chkUse2
+            // 
+            this.chkUse2.AutoSize = true;
+            this.chkUse2.Location = new System.Drawing.Point(135, 283);
+            this.chkUse2.Name = "chkUse2";
+            this.chkUse2.Size = new System.Drawing.Size(36, 16);
+            this.chkUse2.TabIndex = 17;
+            this.chkUse2.Text = "空";
+            this.chkUse2.UseVisualStyleBackColor = true;
+            // 
+            // chkUse1
+            // 
+            this.chkUse1.AutoSize = true;
+            this.chkUse1.Location = new System.Drawing.Point(81, 283);
+            this.chkUse1.Name = "chkUse1";
+            this.chkUse1.Size = new System.Drawing.Size(36, 16);
+            this.chkUse1.TabIndex = 17;
+            this.chkUse1.Text = "宇";
+            this.chkUse1.UseVisualStyleBackColor = true;
             // 
             // label18
             // 
@@ -226,28 +302,12 @@
             this.txtMpLimit.Size = new System.Drawing.Size(144, 21);
             this.txtMpLimit.TabIndex = 0;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(251, 99);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 12);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "使用适性";
-            // 
             // txtPower
             // 
             this.txtPower.Location = new System.Drawing.Point(78, 58);
             this.txtPower.Name = "txtPower";
             this.txtPower.Size = new System.Drawing.Size(144, 21);
             this.txtPower.TabIndex = 0;
-            // 
-            // txtUseEarth
-            // 
-            this.txtUseEarth.Location = new System.Drawing.Point(309, 95);
-            this.txtUseEarth.Name = "txtUseEarth";
-            this.txtUseEarth.Size = new System.Drawing.Size(144, 21);
-            this.txtUseEarth.TabIndex = 1;
             // 
             // label2
             // 
@@ -267,7 +327,7 @@
             // 
             // txtSpec
             // 
-            this.txtSpec.Location = new System.Drawing.Point(78, 317);
+            this.txtSpec.Location = new System.Drawing.Point(309, 95);
             this.txtSpec.Name = "txtSpec";
             this.txtSpec.Size = new System.Drawing.Size(144, 21);
             this.txtSpec.TabIndex = 5;
@@ -283,7 +343,7 @@
             // 
             // txtIco2
             // 
-            this.txtIco2.Location = new System.Drawing.Point(78, 280);
+            this.txtIco2.Location = new System.Drawing.Point(78, 243);
             this.txtIco2.Name = "txtIco2";
             this.txtIco2.Size = new System.Drawing.Size(144, 21);
             this.txtIco2.TabIndex = 5;
@@ -313,7 +373,7 @@
             // 
             // txtMoveAct
             // 
-            this.txtMoveAct.Location = new System.Drawing.Point(78, 206);
+            this.txtMoveAct.Location = new System.Drawing.Point(78, 169);
             this.txtMoveAct.Name = "txtMoveAct";
             this.txtMoveAct.Size = new System.Drawing.Size(144, 21);
             this.txtMoveAct.TabIndex = 4;
@@ -327,7 +387,7 @@
             // 
             // txtIco1
             // 
-            this.txtIco1.Location = new System.Drawing.Point(78, 243);
+            this.txtIco1.Location = new System.Drawing.Point(78, 206);
             this.txtIco1.Name = "txtIco1";
             this.txtIco1.Size = new System.Drawing.Size(144, 21);
             this.txtIco1.TabIndex = 4;
@@ -348,10 +408,19 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "命中";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(20, 284);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 12);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "使用适性";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 321);
+            this.label6.Location = new System.Drawing.Point(251, 99);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 2;
@@ -360,11 +429,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 173);
+            this.label4.Location = new System.Drawing.Point(20, 310);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 2;
-            this.label4.Text = "适性";
+            this.label4.Text = "对应适性";
             // 
             // label9
             // 
@@ -378,7 +447,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(38, 284);
+            this.label12.Location = new System.Drawing.Point(38, 247);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 12);
             this.label12.TabIndex = 2;
@@ -394,7 +463,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 209);
+            this.label7.Location = new System.Drawing.Point(8, 172);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 12);
             this.label7.TabIndex = 2;
@@ -409,17 +478,10 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "HIT数";
             // 
-            // txtActEarth
-            // 
-            this.txtActEarth.Location = new System.Drawing.Point(78, 169);
-            this.txtActEarth.Name = "txtActEarth";
-            this.txtActEarth.Size = new System.Drawing.Size(144, 21);
-            this.txtActEarth.TabIndex = 3;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 247);
+            this.label5.Location = new System.Drawing.Point(38, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 12);
             this.label5.TabIndex = 2;
@@ -440,6 +502,96 @@
             this.tslblFile.Name = "tslblFile";
             this.tslblFile.Size = new System.Drawing.Size(131, 17);
             this.tslblFile.Text = "toolStripStatusLabel1";
+            // 
+            // cboAE1
+            // 
+            this.cboAE1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE1.FormattingEnabled = true;
+            this.cboAE1.Location = new System.Drawing.Point(116, 306);
+            this.cboAE1.Name = "cboAE1";
+            this.cboAE1.Size = new System.Drawing.Size(51, 20);
+            this.cboAE1.TabIndex = 25;
+            // 
+            // cboAE2
+            // 
+            this.cboAE2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE2.FormattingEnabled = true;
+            this.cboAE2.Location = new System.Drawing.Point(224, 306);
+            this.cboAE2.Name = "cboAE2";
+            this.cboAE2.Size = new System.Drawing.Size(51, 20);
+            this.cboAE2.TabIndex = 26;
+            // 
+            // cboAE3
+            // 
+            this.cboAE3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE3.FormattingEnabled = true;
+            this.cboAE3.Location = new System.Drawing.Point(332, 306);
+            this.cboAE3.Name = "cboAE3";
+            this.cboAE3.Size = new System.Drawing.Size(51, 20);
+            this.cboAE3.TabIndex = 27;
+            // 
+            // cboAE4
+            // 
+            this.cboAE4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE4.FormattingEnabled = true;
+            this.cboAE4.Location = new System.Drawing.Point(116, 337);
+            this.cboAE4.Name = "cboAE4";
+            this.cboAE4.Size = new System.Drawing.Size(51, 20);
+            this.cboAE4.TabIndex = 28;
+            // 
+            // cboAE5
+            // 
+            this.cboAE5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE5.FormattingEnabled = true;
+            this.cboAE5.Location = new System.Drawing.Point(224, 336);
+            this.cboAE5.Name = "cboAE5";
+            this.cboAE5.Size = new System.Drawing.Size(51, 20);
+            this.cboAE5.TabIndex = 29;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(91, 310);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 12);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "宇";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(201, 310);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(17, 12);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "空";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(307, 310);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(17, 12);
+            this.label20.TabIndex = 22;
+            this.label20.Text = "地";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(83, 340);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(29, 12);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "水上";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(189, 340);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(29, 12);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "水中";
             // 
             // FrmEditWeapon
             // 
@@ -487,7 +639,6 @@
         private System.Windows.Forms.TextBox txtMP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtActEarth;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSpec;
         private System.Windows.Forms.Label label6;
@@ -497,8 +648,6 @@
         private System.Windows.Forms.ToolStripStatusLabel tslblFile;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtMpLimit;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox txtUseEarth;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtCT;
         private System.Windows.Forms.TextBox txtHitCount;
@@ -507,5 +656,21 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtHitRate;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox chkUse2;
+        private System.Windows.Forms.CheckBox chkUse1;
+        private System.Windows.Forms.CheckBox chkUse3;
+        private System.Windows.Forms.CheckBox chkUse4;
+        private System.Windows.Forms.CheckBox chkUse5;
+        private System.Windows.Forms.ComboBox cboAE1;
+        private System.Windows.Forms.ComboBox cboAE2;
+        private System.Windows.Forms.ComboBox cboAE3;
+        private System.Windows.Forms.ComboBox cboAE4;
+        private System.Windows.Forms.ComboBox cboAE5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
     }
 }

@@ -74,15 +74,23 @@ namespace GGCREditorLib
             }
         }
 
-        public short ACTEarth
+        public string ActEarth
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + ACT_EARTH_IDX);
+                string shiyin = Convert.ToString(BitConverter.ToInt16(gundamFile.Data, Index + ACT_EARTH_IDX), 2);
+
+                int s = 10 - shiyin.Length;
+                for (int i = 0; i < s; i++)
+                {
+                    shiyin = "0" + shiyin;
+                }
+                return shiyin;
             }
             set
             {
-                save(Index + ACT_EARTH_IDX, value);
+                short v = Convert.ToInt16(value, 2);
+                save(Index + ACT_EARTH_IDX, v);
             }
         }
 
@@ -146,15 +154,23 @@ namespace GGCREditorLib
             }
         }
 
-        public short UseEarth
+        public string UseEarth
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + USE_EARTH_IDX);
+                string shiyin = Convert.ToString(BitConverter.ToInt16(gundamFile.Data, Index + USE_EARTH_IDX), 2);
+
+                int s = 5 - shiyin.Length;
+                for (int i = 0; i < s; i++)
+                {
+                    shiyin = "0" + shiyin;
+                }
+                return shiyin;
             }
             set
             {
-                save(Index + USE_EARTH_IDX, value);
+                short v = Convert.ToInt16(value, 2);
+                save(Index + USE_EARTH_IDX, v);
             }
         }
 
