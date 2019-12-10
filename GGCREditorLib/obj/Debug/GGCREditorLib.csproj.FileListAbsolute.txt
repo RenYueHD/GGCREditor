@@ -1,4 +1,0 @@
-E:\库\文档\个人学习研究\GGCREditor\GGCREditorLib\bin\Debug\GGCREditorLib.dll
-E:\库\文档\个人学习研究\GGCREditor\GGCREditorLib\bin\Debug\GGCREditorLib.pdb
-E:\库\文档\个人学习研究\GGCREditor\GGCREditorLib\obj\Debug\GGCREditorLib.dll
-E:\库\文档\个人学习研究\GGCREditor\GGCREditorLib\obj\Debug\GGCREditorLib.pdb
