@@ -27,6 +27,7 @@ namespace GGCREditor
         private List<KeyValuePair<string, string>> skill3 = new List<KeyValuePair<string, string>>();
         private List<KeyValuePair<string, string>> skill4 = new List<KeyValuePair<string, string>>();
         private List<KeyValuePair<string, string>> skill5 = new List<KeyValuePair<string, string>>();
+        private List<KeyValuePair<string, string>> size = new List<KeyValuePair<string, string>>();
 
         private void FrmEditGundam_Load(object sender, EventArgs e)
         {
@@ -35,6 +36,7 @@ namespace GGCREditor
             e3 = buildEarth();
             e4 = buildEarth();
             e5 = buildEarth();
+            size = buildSize();
 
             cboE1.DataSource = e1;
             cboE1.DisplayMember = "Value";
@@ -51,6 +53,10 @@ namespace GGCREditor
             cboE5.DataSource = e5;
             cboE5.DisplayMember = "Value";
             cboE5.ValueMember = "Key";
+
+            cboSize.DataSource = size;
+            cboSize.DisplayMember = "Value";
+            cboSize.ValueMember = "Key";
 
             using (StreamReader sr = new StreamReader("机体能力.txt"))
             {
@@ -110,6 +116,17 @@ namespace GGCREditor
             lsGundam.ValueMember = "Address";
         }
 
+        private List<KeyValuePair<string, string>> buildSize()
+        {
+            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
+            list.Add(new KeyValuePair<string, string>("1", "S"));
+            list.Add(new KeyValuePair<string, string>("2", "M"));
+            list.Add(new KeyValuePair<string, string>("3", "L"));
+            list.Add(new KeyValuePair<string, string>("5", "XL"));
+            list.Add(new KeyValuePair<string, string>("6", "XXL"));
+            return list;
+        }
+
         private List<KeyValuePair<string, string>> buildEarth()
         {
             List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
@@ -140,8 +157,8 @@ namespace GGCREditor
                 txtDef.Text = gundam.DEF.ToString();
                 txtSpd.Text = gundam.SPD.ToString();
                 txtMove.Text = gundam.Move.ToString();
-                txtSize.Text = gundam.Size.ToString();
-                txtTeamSize.Text = gundam.TeamSize.ToString();
+                txtEarthSize.Text = gundam.EarchSize.ToString();
+                cboSize.SelectedValue = gundam.Size.ToString();
 
                 string shiyin = gundam.Earch;
 
@@ -171,8 +188,8 @@ namespace GGCREditor
                 txtDef.Text = null;
                 txtSpd.Text = null;
                 txtMove.Text = null;
-                txtSize.Text = null;
-                txtTeamSize.Text = null;
+                txtEarthSize.Text = null;
+                cboSize.SelectedValue = "1";
 
                 cboE1.SelectedValue = "-1";
                 cboE2.SelectedValue = "-1";
@@ -233,8 +250,8 @@ namespace GGCREditor
                 gundam.DEF = short.Parse(txtDef.Text);
                 gundam.SPD = short.Parse(txtSpd.Text);
                 gundam.Move = byte.Parse(txtMove.Text);
-                gundam.Size = short.Parse(txtSize.Text);
-                gundam.TeamSize = byte.Parse(txtTeamSize.Text);
+                gundam.Size = byte.Parse(cboSize.SelectedValue.ToString());
+                gundam.EarchSize = short.Parse(txtEarthSize.Text);
 
                 gundam.Skill1 = short.Parse(cboSkill1.SelectedValue.ToString());
                 gundam.Skill2 = short.Parse(cboSkill2.SelectedValue.ToString());

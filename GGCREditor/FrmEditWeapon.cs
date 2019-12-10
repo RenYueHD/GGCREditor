@@ -127,23 +127,6 @@ namespace GGCREditor
             {
                 btnSave.Enabled = false;
 
-                txtName.Text = weapon.WeaponName;
-                txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(weapon.Index));
-                txtPower.Text = weapon.POWER.ToString();
-                txtEN.Text = weapon.EN.ToString();
-                txtMP.Text = weapon.MP.ToString();
-                txtActEarth.Text = weapon.ACTEarth.ToString();
-                txtMoveAct.Text = weapon.MoveACT.ToString();
-                txtIco1.Text = weapon.ICO.ToString();
-                txtIco2.Text = weapon.ICO2.ToString();
-                txtSpec.Text = weapon.Spec.ToString();
-                txtMpLimit.Text = weapon.MPLimit.ToString();
-                txtUseEarth.Text = weapon.UseEarth.ToString();
-                txtRange.Text = weapon.Range.ToString();
-                txtHitRate.Text = weapon.HitRate.ToString();
-                txtCT.Text = weapon.CT.ToString();
-                txtHitCount.Text = weapon.HitCount.ToString();
-
                 weapon.POWER = int.Parse(txtPower.Text);
                 weapon.EN = short.Parse(txtEN.Text);
                 weapon.MP = short.Parse(txtMP.Text);

@@ -341,6 +341,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtFuZuo);
@@ -379,7 +381,7 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtWeiXiu);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(195, 12);
+            this.groupBox1.Location = new System.Drawing.Point(227, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(470, 532);
             this.groupBox1.TabIndex = 5;
@@ -443,12 +445,15 @@
             // 
             // lsMasters
             // 
+            this.lsMasters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lsMasters.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.lsMasters.FormattingEnabled = true;
             this.lsMasters.ItemHeight = 16;
             this.lsMasters.Location = new System.Drawing.Point(12, 36);
             this.lsMasters.Name = "lsMasters";
-            this.lsMasters.Size = new System.Drawing.Size(177, 508);
+            this.lsMasters.Size = new System.Drawing.Size(209, 508);
             this.lsMasters.TabIndex = 6;
             this.lsMasters.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsMasters_DrawItem);
             this.lsMasters.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lsMasters_MeasureItem);
@@ -456,9 +461,12 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(33, 12);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(156, 21);
+            this.txtSearch.Size = new System.Drawing.Size(188, 21);
             this.txtSearch.TabIndex = 7;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -477,7 +485,7 @@
             this.tslblFIle});
             this.statusStrip1.Location = new System.Drawing.Point(0, 549);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(676, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(708, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -491,7 +499,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 571);
+            this.ClientSize = new System.Drawing.Size(708, 571);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lsMasters);

@@ -39,6 +39,7 @@
             this.btnEditWeapon = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblDir = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -127,7 +128,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblDir});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 93);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 116);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(430, 22);
             this.statusStrip1.TabIndex = 2;
@@ -139,11 +140,21 @@
             this.tslblDir.Size = new System.Drawing.Size(131, 17);
             this.tslblDir.Text = "toolStripStatusLabel1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(281, 12);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "感谢: 泷泽透明 lxdlxd99 gundamdxhk hgjzorro hj";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 115);
+            this.ClientSize = new System.Drawing.Size(430, 138);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnSearchWeapon);
             this.Controls.Add(this.btnSearch);
@@ -156,7 +167,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "火线纵横-静态修改器 v0.4 - Power By RenYueHD";
+            this.Text = "火线纵横-静态修改器 v0.5 - Power By RenYueHD";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -179,6 +190,7 @@
         private System.Windows.Forms.Button btnEditWeapon;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tslblDir;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -16,14 +16,14 @@ namespace GGCREditorLib
         private const int SPD_IDX = HP_IDX + 44;
         //地形适性 2byte
         private const int EARTH_IDX = HP_IDX + 52;
-        //大小 2byte
-        private const int SIZE_IDX = HP_IDX + 54;
+        //地图占用面积
+        private const int EARTH_SIZE_IDX = HP_IDX + 54;
         //技能 10byte
         private const int SKILL_IDX = HP_IDX + 56;
         //移动 1byte
         private const int MOVE_IDX = HP_IDX + 70;
         //编队体积 1byte
-        private const int TEAM_SIZE_IDX = HP_IDX + 71;
+        private const int SIZE_IDX = HP_IDX + 71;
 
 
         /// <summary>
@@ -111,27 +111,15 @@ namespace GGCREditorLib
             }
         }
 
-        public short Size
+        public byte Size
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + SIZE_IDX);
+                return gundamFile.Data[Index + SIZE_IDX];
             }
             set
             {
-                save(Index + SIZE_IDX, value);
-            }
-        }
-
-        public byte TeamSize
-        {
-            get
-            {
-                return gundamFile.Data[Index + TEAM_SIZE_IDX];
-            }
-            set
-            {
-                gundamFile.Data[Index + TEAM_SIZE_IDX] = value;
+                gundamFile.Data[Index + SIZE_IDX] = value;
             }
         }
 
@@ -152,6 +140,18 @@ namespace GGCREditorLib
             {
                 short v = Convert.ToInt16(value, 8);
                 save(Index + EARTH_IDX, v);
+            }
+        }
+
+        public short EarchSize
+        {
+            get
+            {
+                return BitConverter.ToInt16(gundamFile.Data, Index + EARTH_SIZE_IDX);
+            }
+            set
+            {
+                save(Index + EARTH_SIZE_IDX, value);
             }
         }
 

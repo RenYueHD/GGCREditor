@@ -34,6 +34,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboSkill5 = new System.Windows.Forms.ComboBox();
+            this.cboSize = new System.Windows.Forms.ComboBox();
             this.cboSkill4 = new System.Windows.Forms.ComboBox();
             this.cboSkill3 = new System.Windows.Forms.ComboBox();
             this.cboSkill2 = new System.Windows.Forms.ComboBox();
@@ -58,18 +59,17 @@
             this.txtHP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEN = new System.Windows.Forms.TextBox();
-            this.txtTeamSize = new System.Windows.Forms.TextBox();
-            this.txtSize = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSpd = new System.Windows.Forms.TextBox();
+            this.txtEarthSize = new System.Windows.Forms.TextBox();
             this.txtMove = new System.Windows.Forms.TextBox();
             this.txtAct = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -83,20 +83,26 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(33, 9);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(156, 21);
+            this.txtSearch.Size = new System.Drawing.Size(280, 21);
             this.txtSearch.TabIndex = 10;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // lsGundam
             // 
+            this.lsGundam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lsGundam.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.lsGundam.FormattingEnabled = true;
             this.lsGundam.ItemHeight = 16;
             this.lsGundam.Location = new System.Drawing.Point(12, 33);
             this.lsGundam.Name = "lsGundam";
-            this.lsGundam.Size = new System.Drawing.Size(177, 508);
+            this.lsGundam.Size = new System.Drawing.Size(301, 521);
             this.lsGundam.TabIndex = 9;
             this.lsGundam.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsGundam_DrawItem);
             this.lsGundam.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lsGundam_MeasureItem);
@@ -113,7 +119,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cboSkill5);
+            this.groupBox1.Controls.Add(this.cboSize);
             this.groupBox1.Controls.Add(this.cboSkill4);
             this.groupBox1.Controls.Add(this.cboSkill3);
             this.groupBox1.Controls.Add(this.cboSkill2);
@@ -138,26 +147,25 @@
             this.groupBox1.Controls.Add(this.txtHP);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtEN);
-            this.groupBox1.Controls.Add(this.txtTeamSize);
-            this.groupBox1.Controls.Add(this.txtSize);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSpd);
+            this.groupBox1.Controls.Add(this.txtEarthSize);
             this.groupBox1.Controls.Add(this.txtMove);
             this.groupBox1.Controls.Add(this.txtAct);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDef);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(195, 9);
+            this.groupBox1.Location = new System.Drawing.Point(319, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 532);
+            this.groupBox1.Size = new System.Drawing.Size(470, 545);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
@@ -170,6 +178,15 @@
             this.cboSkill5.Name = "cboSkill5";
             this.cboSkill5.Size = new System.Drawing.Size(144, 20);
             this.cboSkill5.TabIndex = 19;
+            // 
+            // cboSize
+            // 
+            this.cboSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSize.FormattingEnabled = true;
+            this.cboSize.Location = new System.Drawing.Point(78, 280);
+            this.cboSize.Name = "cboSize";
+            this.cboSize.Size = new System.Drawing.Size(144, 20);
+            this.cboSize.TabIndex = 19;
             // 
             // cboSkill4
             // 
@@ -384,20 +401,6 @@
             this.txtEN.Size = new System.Drawing.Size(144, 21);
             this.txtEN.TabIndex = 1;
             // 
-            // txtTeamSize
-            // 
-            this.txtTeamSize.Location = new System.Drawing.Point(78, 317);
-            this.txtTeamSize.Name = "txtTeamSize";
-            this.txtTeamSize.Size = new System.Drawing.Size(144, 21);
-            this.txtTeamSize.TabIndex = 5;
-            // 
-            // txtSize
-            // 
-            this.txtSize.Location = new System.Drawing.Point(78, 280);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(144, 21);
-            this.txtSize.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -414,6 +417,13 @@
             this.txtSpd.Size = new System.Drawing.Size(144, 21);
             this.txtSpd.TabIndex = 4;
             // 
+            // txtEarthSize
+            // 
+            this.txtEarthSize.Location = new System.Drawing.Point(78, 317);
+            this.txtEarthSize.Name = "txtEarthSize";
+            this.txtEarthSize.Size = new System.Drawing.Size(144, 21);
+            this.txtEarthSize.TabIndex = 4;
+            // 
             // txtMove
             // 
             this.txtMove.Location = new System.Drawing.Point(78, 243);
@@ -427,15 +437,6 @@
             this.txtAct.Name = "txtAct";
             this.txtAct.Size = new System.Drawing.Size(144, 21);
             this.txtAct.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 321);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "编队尺寸";
             // 
             // label21
             // 
@@ -481,6 +482,15 @@
             this.label14.Size = new System.Drawing.Size(35, 12);
             this.label14.TabIndex = 2;
             this.label14.Text = "能力1";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 320);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "占地图面积";
             // 
             // label4
             // 
@@ -529,9 +539,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblFile});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 544);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 557);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(795, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(796, 22);
             this.statusStrip1.TabIndex = 12;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -545,7 +555,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 566);
+            this.ClientSize = new System.Drawing.Size(796, 579);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtSearch);
@@ -581,7 +591,6 @@
         private System.Windows.Forms.TextBox txtHP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEN;
-        private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMove;
         private System.Windows.Forms.TextBox txtAct;
@@ -589,8 +598,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtDef;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtTeamSize;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSpd;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label13;
@@ -615,5 +622,8 @@
         private System.Windows.Forms.ComboBox cboSkill1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tslblFile;
+        private System.Windows.Forms.ComboBox cboSize;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtEarthSize;
     }
 }

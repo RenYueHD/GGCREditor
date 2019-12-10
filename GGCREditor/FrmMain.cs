@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace GGCREditor
 {
@@ -68,6 +70,7 @@ namespace GGCREditor
                 tslblDir.Text = this.currentDir;
                 enableAll();
             }
+
         }
 
         private void enableAll()
