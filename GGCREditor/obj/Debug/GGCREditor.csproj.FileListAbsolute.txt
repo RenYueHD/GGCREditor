@@ -1,0 +1,17 @@
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\bin\Debug\GGCREditor.exe
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\bin\Debug\GGCREditor.pdb
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\bin\Debug\GGCREditorLib.dll
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\bin\Debug\GGCREditorLib.pdb
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.csprojResolveAssemblyReference.cache
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.FrmMain.resources
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.Properties.Resources.resources
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.csproj.GenerateResource.Cache
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.exe
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.pdb
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.FrmEditPeople.resources
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\bin\Debug\固有技能.txt
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\bin\Debug\人物数据.txt
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.FrmEditGundam.resources
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\bin\Debug\机体数据.txt
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\obj\Debug\GGCREditor.FrmSearchGundam.resources
+E:\库\文档\个人学习研究\GGCREditor\GGCREditor\bin\Debug\机体能力.txt
