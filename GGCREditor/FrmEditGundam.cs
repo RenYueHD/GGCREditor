@@ -15,6 +15,7 @@ namespace GGCREditor
         public FrmEditGundam(string file)
         {
             InitializeComponent();
+            tslblFile.Text = file;
 
             this.gundamFile = new GundamFile(file);
         }

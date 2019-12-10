@@ -75,7 +75,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtDef = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -522,11 +525,28 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "移动";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslblFile});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 544);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(795, 22);
+            this.statusStrip1.TabIndex = 12;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tslblFile
+            // 
+            this.tslblFile.Name = "tslblFile";
+            this.tslblFile.Size = new System.Drawing.Size(131, 17);
+            this.tslblFile.Text = "toolStripStatusLabel1";
+            // 
             // FrmEditGundam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 548);
+            this.ClientSize = new System.Drawing.Size(795, 566);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lsGundam);
@@ -538,6 +558,8 @@
             this.Load += new System.EventHandler(this.FrmEditGundam_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -591,5 +613,7 @@
         private System.Windows.Forms.ComboBox cboSkill3;
         private System.Windows.Forms.ComboBox cboSkill2;
         private System.Windows.Forms.ComboBox cboSkill1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tslblFile;
     }
 }

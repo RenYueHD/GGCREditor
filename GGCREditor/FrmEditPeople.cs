@@ -17,7 +17,7 @@ namespace GGCREditor
         private FrmEditPeople(string file)
         {
             InitializeComponent();
-
+            tslblFIle.Text = file;
             masterFile = new MasterFile(file);
 
         }

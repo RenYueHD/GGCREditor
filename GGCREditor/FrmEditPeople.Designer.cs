@@ -71,7 +71,10 @@
             this.lsMasters = new System.Windows.Forms.ListBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -468,11 +471,28 @@
             this.label19.TabIndex = 2;
             this.label19.Text = "搜";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslblFIle});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 549);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(676, 22);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tslblFIle
+            // 
+            this.tslblFIle.Name = "tslblFIle";
+            this.tslblFIle.Size = new System.Drawing.Size(131, 17);
+            this.tslblFIle.Text = "toolStripStatusLabel1";
+            // 
             // FrmEditPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 556);
+            this.ClientSize = new System.Drawing.Size(676, 571);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lsMasters);
             this.Controls.Add(this.groupBox1);
@@ -485,6 +505,8 @@
             this.Load += new System.EventHandler(this.FrmEditPeople_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,5 +555,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tslblFIle;
     }
 }
