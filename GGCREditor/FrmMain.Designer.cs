@@ -86,7 +86,7 @@
             this.btnEditGundam.Location = new System.Drawing.Point(95, 28);
             this.btnEditGundam.Name = "btnEditGundam";
             this.btnEditGundam.Size = new System.Drawing.Size(92, 54);
-            this.btnEditGundam.TabIndex = 1;
+            this.btnEditGundam.TabIndex = 2;
             this.btnEditGundam.Text = "修改机体/战舰";
             this.btnEditGundam.UseVisualStyleBackColor = true;
             this.btnEditGundam.Click += new System.EventHandler(this.btnEditGundam_Click);
@@ -94,10 +94,10 @@
             // btnSearch
             // 
             this.btnSearch.Enabled = false;
-            this.btnSearch.Location = new System.Drawing.Point(193, 28);
+            this.btnSearch.Location = new System.Drawing.Point(276, 28);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(92, 54);
-            this.btnSearch.TabIndex = 1;
+            this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "机体/战舰搜索";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -108,7 +108,7 @@
             this.btnSearchWeapon.Location = new System.Drawing.Point(374, 28);
             this.btnSearchWeapon.Name = "btnSearchWeapon";
             this.btnSearchWeapon.Size = new System.Drawing.Size(77, 54);
-            this.btnSearchWeapon.TabIndex = 1;
+            this.btnSearchWeapon.TabIndex = 5;
             this.btnSearchWeapon.Text = "武器搜索";
             this.btnSearchWeapon.UseVisualStyleBackColor = true;
             this.btnSearchWeapon.Click += new System.EventHandler(this.btnSearchWeapon_Click);
@@ -116,10 +116,10 @@
             // btnEditWeapon
             // 
             this.btnEditWeapon.Enabled = false;
-            this.btnEditWeapon.Location = new System.Drawing.Point(291, 28);
+            this.btnEditWeapon.Location = new System.Drawing.Point(193, 28);
             this.btnEditWeapon.Name = "btnEditWeapon";
             this.btnEditWeapon.Size = new System.Drawing.Size(77, 54);
-            this.btnEditWeapon.TabIndex = 1;
+            this.btnEditWeapon.TabIndex = 3;
             this.btnEditWeapon.Text = "修改武器";
             this.btnEditWeapon.UseVisualStyleBackColor = true;
             this.btnEditWeapon.Click += new System.EventHandler(this.button1_Click);
@@ -167,7 +167,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "火线纵横-静态修改器 v0.6 - Power By RenYueHD";
+            this.Text = "火线纵横-静态修改器 v1.0 - Power By RenYueHD";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

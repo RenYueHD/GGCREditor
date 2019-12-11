@@ -220,11 +220,11 @@ namespace GGCREditorLib
             }
         }
 
-        public int WeaponIndex
+        public short WeaponId
         {
             get
             {
-                return BitConverter.ToInt32(gundamFile.Data, Index + WEAPON_IDX);
+                return BitConverter.ToInt16(gundamFile.Data, Index + WEAPON_IDX);
             }
             set
             {

@@ -160,6 +160,10 @@ namespace GGCREditor
                 txtEarthSize.Text = gundam.EarchSize.ToString();
                 cboSize.SelectedValue = gundam.Size.ToString();
 
+                txtWeapon1ID.Text = gundam.WeaponId.ToString();
+                txtWeaponCount.Text = gundam.WeaponCount.ToString();
+
+
                 string shiyin = gundam.Earch;
 
                 cboE1.SelectedValue = shiyin[0].ToString();
@@ -202,6 +206,10 @@ namespace GGCREditor
                 cboSkill3.SelectedValue = "-1";
                 cboSkill4.SelectedValue = "-1";
                 cboSkill5.SelectedValue = "-1";
+
+                txtWeapon1ID.Text = null;
+                txtWeaponCount.Text = null;
+
                 btnSave.Enabled = false;
             }
         }
@@ -291,6 +299,16 @@ namespace GGCREditor
                 lsGundam.DisplayMember = "GundamName";
                 lsGundam.ValueMember = "Address";
                 //lsGundam.SelectedItem = null;
+            }
+        }
+
+        private void btnEditWeapon_Click(object sender, EventArgs e)
+        {
+            GundamInfo info = lsGundam.SelectedItem as GundamInfo;
+            if (info != null)
+            {
+                FrmEditWeapon form = new FrmEditWeapon(gundamFile, info);
+                form.ShowDialog();
             }
         }
     }

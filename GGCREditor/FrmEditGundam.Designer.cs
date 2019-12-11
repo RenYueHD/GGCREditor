@@ -77,8 +77,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtWeapon1ID = new System.Windows.Forms.TextBox();
+            this.txtWeaponCount = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnEditWeapon = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -123,6 +128,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnEditWeapon);
             this.groupBox1.Controls.Add(this.cboSkill5);
             this.groupBox1.Controls.Add(this.cboSize);
             this.groupBox1.Controls.Add(this.cboSkill4);
@@ -136,7 +142,9 @@
             this.groupBox1.Controls.Add(this.cboE1);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.lblAddress);
+            this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label11);
@@ -144,6 +152,8 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtWeaponCount);
+            this.groupBox1.Controls.Add(this.txtWeapon1ID);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.txtHP);
@@ -555,17 +565,61 @@
             this.tslblFile.Size = new System.Drawing.Size(131, 17);
             this.tslblFile.Text = "toolStripStatusLabel1";
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(510, 17);
+            this.toolStripStatusLabel2.Spring = true;
+            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
             // 
-            // toolStripStatusLabel2
+            // txtWeapon1ID
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(479, 17);
-            this.toolStripStatusLabel2.Spring = true;
+            this.txtWeapon1ID.Location = new System.Drawing.Point(78, 355);
+            this.txtWeapon1ID.Name = "txtWeapon1ID";
+            this.txtWeapon1ID.ReadOnly = true;
+            this.txtWeapon1ID.Size = new System.Drawing.Size(144, 21);
+            this.txtWeapon1ID.TabIndex = 3;
+            // 
+            // txtWeaponCount
+            // 
+            this.txtWeaponCount.Location = new System.Drawing.Point(309, 355);
+            this.txtWeaponCount.Name = "txtWeaponCount";
+            this.txtWeaponCount.ReadOnly = true;
+            this.txtWeaponCount.Size = new System.Drawing.Size(144, 21);
+            this.txtWeaponCount.TabIndex = 3;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 358);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 12);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "第一武器ID";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(250, 358);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(53, 12);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "武器数量";
+            // 
+            // btnEditWeapon
+            // 
+            this.btnEditWeapon.Location = new System.Drawing.Point(10, 391);
+            this.btnEditWeapon.Name = "btnEditWeapon";
+            this.btnEditWeapon.Size = new System.Drawing.Size(443, 35);
+            this.btnEditWeapon.TabIndex = 20;
+            this.btnEditWeapon.Text = "拥有武器修改";
+            this.btnEditWeapon.UseVisualStyleBackColor = true;
+            this.btnEditWeapon.Click += new System.EventHandler(this.btnEditWeapon_Click);
             // 
             // FrmEditGundam
             // 
@@ -643,5 +697,10 @@
         private System.Windows.Forms.TextBox txtEarthSize;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtWeaponCount;
+        private System.Windows.Forms.TextBox txtWeapon1ID;
+        private System.Windows.Forms.Button btnEditWeapon;
     }
 }

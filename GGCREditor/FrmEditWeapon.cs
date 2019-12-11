@@ -20,6 +20,16 @@ namespace GGCREditor
             this.gundamFile = new GundamFile(file);
         }
 
+        public FrmEditWeapon(GundamFile gundanFile, GundamInfo gundamInfo)
+        {
+            InitializeComponent();
+            tslblFile.Text = gundanFile.FileName;
+
+            this.gundamFile = gundanFile;
+            this.gundamInfo = gundamInfo;
+        }
+
+        private GundamInfo gundamInfo;
         private GundamFile gundamFile;
         private List<WeaponInfo> weapons = new List<WeaponInfo>();
 
@@ -36,6 +46,20 @@ namespace GGCREditor
 
         private void FrmEditGundam_Load(object sender, EventArgs e)
         {
+            List<short> limit = null;
+            if (gundamInfo != null)
+            {
+                limit = new List<short>();
+                short wid = gundamInfo.WeaponId;
+                if (wid >= 0 && gundamInfo.WeaponCount > 0)
+                {
+                    for (short i = 0; i < gundamInfo.WeaponCount; i++)
+                    {
+                        limit.Add((short)(wid + i));
+                    }
+                }
+            }
+
 
             cboAE1.DataSource = buildActEarch();
             cboAE2.DataSource = buildActEarch();
@@ -109,8 +133,11 @@ namespace GGCREditor
                     {
                         string[] arr = line.Split(':');
                         WeaponInfo info = gundamFile.getWeapon(arr[1]);
-                        info.WeaponName = arr[0];
-                        weapons.Add(info);
+                        if (limit == null || limit.Contains(info.ID))
+                        {
+                            info.WeaponName = arr[0];
+                            weapons.Add(info);
+                        }
                     }
                 }
             }
