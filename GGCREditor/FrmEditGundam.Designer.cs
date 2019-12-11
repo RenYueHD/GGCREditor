@@ -77,6 +77,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -538,7 +540,9 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tslblFile});
+            this.tslblFile,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 557);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(796, 22);
@@ -550,6 +554,18 @@
             this.tslblFile.Name = "tslblFile";
             this.tslblFile.Size = new System.Drawing.Size(131, 17);
             this.tslblFile.Text = "toolStripStatusLabel1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
+            this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(479, 17);
+            this.toolStripStatusLabel2.Spring = true;
             // 
             // FrmEditGundam
             // 
@@ -625,5 +641,7 @@
         private System.Windows.Forms.ComboBox cboSize;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtEarthSize;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }

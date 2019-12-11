@@ -137,17 +137,17 @@
             // tslblDir
             // 
             this.tslblDir.Name = "tslblDir";
-            this.tslblDir.Size = new System.Drawing.Size(131, 17);
-            this.tslblDir.Text = "toolStripStatusLabel1";
+            this.tslblDir.Size = new System.Drawing.Size(188, 17);
+            this.tslblDir.Text = "请点击-文件-设置data文件夹路径";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(281, 12);
+            this.label1.Size = new System.Drawing.Size(323, 12);
             this.label1.TabIndex = 3;
-            this.label1.Text = "感谢: 泷泽透明 lxdlxd99 gundamdxhk hgjzorro hj";
+            this.label1.Text = "感谢: 泷泽透明 lxdlxd99 gundamdxhk hgjzorro hj mediar";
             // 
             // FrmMain
             // 

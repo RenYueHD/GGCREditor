@@ -33,6 +33,16 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboAE1 = new System.Windows.Forms.ComboBox();
+            this.cboAE2 = new System.Windows.Forms.ComboBox();
+            this.cboAE3 = new System.Windows.Forms.ComboBox();
+            this.cboAE4 = new System.Windows.Forms.ComboBox();
+            this.cboAE5 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.chkUse5 = new System.Windows.Forms.CheckBox();
             this.chkUse4 = new System.Windows.Forms.CheckBox();
             this.chkUse3 = new System.Windows.Forms.CheckBox();
@@ -72,16 +82,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cboAE1 = new System.Windows.Forms.ComboBox();
-            this.cboAE2 = new System.Windows.Forms.ComboBox();
-            this.cboAE3 = new System.Windows.Forms.ComboBox();
-            this.cboAE4 = new System.Windows.Forms.ComboBox();
-            this.cboAE5 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -171,6 +173,96 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // cboAE1
+            // 
+            this.cboAE1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE1.FormattingEnabled = true;
+            this.cboAE1.Location = new System.Drawing.Point(116, 306);
+            this.cboAE1.Name = "cboAE1";
+            this.cboAE1.Size = new System.Drawing.Size(51, 20);
+            this.cboAE1.TabIndex = 25;
+            // 
+            // cboAE2
+            // 
+            this.cboAE2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE2.FormattingEnabled = true;
+            this.cboAE2.Location = new System.Drawing.Point(224, 306);
+            this.cboAE2.Name = "cboAE2";
+            this.cboAE2.Size = new System.Drawing.Size(51, 20);
+            this.cboAE2.TabIndex = 26;
+            // 
+            // cboAE3
+            // 
+            this.cboAE3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE3.FormattingEnabled = true;
+            this.cboAE3.Location = new System.Drawing.Point(332, 306);
+            this.cboAE3.Name = "cboAE3";
+            this.cboAE3.Size = new System.Drawing.Size(51, 20);
+            this.cboAE3.TabIndex = 27;
+            // 
+            // cboAE4
+            // 
+            this.cboAE4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE4.FormattingEnabled = true;
+            this.cboAE4.Location = new System.Drawing.Point(116, 337);
+            this.cboAE4.Name = "cboAE4";
+            this.cboAE4.Size = new System.Drawing.Size(51, 20);
+            this.cboAE4.TabIndex = 28;
+            // 
+            // cboAE5
+            // 
+            this.cboAE5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAE5.FormattingEnabled = true;
+            this.cboAE5.Location = new System.Drawing.Point(224, 336);
+            this.cboAE5.Name = "cboAE5";
+            this.cboAE5.Size = new System.Drawing.Size(51, 20);
+            this.cboAE5.TabIndex = 29;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(91, 310);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(17, 12);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "宇";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(201, 310);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(17, 12);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "空";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(307, 310);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(17, 12);
+            this.label20.TabIndex = 22;
+            this.label20.Text = "地";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(83, 340);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(29, 12);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "水上";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(189, 340);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(29, 12);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "水中";
             // 
             // chkUse5
             // 
@@ -490,7 +582,9 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tslblFile});
+            this.tslblFile,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 544);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(745, 22);
@@ -503,95 +597,17 @@
             this.tslblFile.Size = new System.Drawing.Size(131, 17);
             this.tslblFile.Text = "toolStripStatusLabel1";
             // 
-            // cboAE1
+            // toolStripStatusLabel1
             // 
-            this.cboAE1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAE1.FormattingEnabled = true;
-            this.cboAE1.Location = new System.Drawing.Point(116, 306);
-            this.cboAE1.Name = "cboAE1";
-            this.cboAE1.Size = new System.Drawing.Size(51, 20);
-            this.cboAE1.TabIndex = 25;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(133, 17);
+            this.toolStripStatusLabel1.Text = "感谢mediar的武器数据";
             // 
-            // cboAE2
+            // toolStripStatusLabel2
             // 
-            this.cboAE2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAE2.FormattingEnabled = true;
-            this.cboAE2.Location = new System.Drawing.Point(224, 306);
-            this.cboAE2.Name = "cboAE2";
-            this.cboAE2.Size = new System.Drawing.Size(51, 20);
-            this.cboAE2.TabIndex = 26;
-            // 
-            // cboAE3
-            // 
-            this.cboAE3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAE3.FormattingEnabled = true;
-            this.cboAE3.Location = new System.Drawing.Point(332, 306);
-            this.cboAE3.Name = "cboAE3";
-            this.cboAE3.Size = new System.Drawing.Size(51, 20);
-            this.cboAE3.TabIndex = 27;
-            // 
-            // cboAE4
-            // 
-            this.cboAE4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAE4.FormattingEnabled = true;
-            this.cboAE4.Location = new System.Drawing.Point(116, 337);
-            this.cboAE4.Name = "cboAE4";
-            this.cboAE4.Size = new System.Drawing.Size(51, 20);
-            this.cboAE4.TabIndex = 28;
-            // 
-            // cboAE5
-            // 
-            this.cboAE5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAE5.FormattingEnabled = true;
-            this.cboAE5.Location = new System.Drawing.Point(224, 336);
-            this.cboAE5.Name = "cboAE5";
-            this.cboAE5.Size = new System.Drawing.Size(51, 20);
-            this.cboAE5.TabIndex = 29;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(91, 310);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(17, 12);
-            this.label13.TabIndex = 20;
-            this.label13.Text = "宇";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(201, 310);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(17, 12);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "空";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(307, 310);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(17, 12);
-            this.label20.TabIndex = 22;
-            this.label20.Text = "地";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(83, 340);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(29, 12);
-            this.label21.TabIndex = 23;
-            this.label21.Text = "水上";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(189, 340);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(29, 12);
-            this.label22.TabIndex = 24;
-            this.label22.Text = "水中";
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(435, 17);
+            this.toolStripStatusLabel2.Spring = true;
             // 
             // FrmEditWeapon
             // 
@@ -672,5 +688,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
