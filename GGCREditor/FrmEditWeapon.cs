@@ -123,7 +123,6 @@ namespace GGCREditor
             cboSpec.DisplayMember = "Value";
             cboSpec.ValueMember = "Key";
 
-
             using (StreamReader sr = new StreamReader("武器数据.txt"))
             {
                 string line = null;

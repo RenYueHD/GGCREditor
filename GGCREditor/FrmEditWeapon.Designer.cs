@@ -34,6 +34,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.cboMpLimit = new System.Windows.Forms.ComboBox();
             this.cboSpec = new System.Windows.Forms.ComboBox();
             this.cboIco = new System.Windows.Forms.ComboBox();
             this.cboProp = new System.Windows.Forms.ComboBox();
@@ -89,7 +90,6 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cboMpLimit = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -195,6 +195,15 @@
             this.label25.TabIndex = 30;
             this.label25.Text = "-";
             // 
+            // cboMpLimit
+            // 
+            this.cboMpLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMpLimit.FormattingEnabled = true;
+            this.cboMpLimit.Location = new System.Drawing.Point(310, 92);
+            this.cboMpLimit.Name = "cboMpLimit";
+            this.cboMpLimit.Size = new System.Drawing.Size(144, 20);
+            this.cboMpLimit.TabIndex = 25;
+            // 
             // cboSpec
             // 
             this.cboSpec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -208,7 +217,7 @@
             // 
             this.cboIco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboIco.FormattingEnabled = true;
-            this.cboIco.Location = new System.Drawing.Point(79, 236);
+            this.cboIco.Location = new System.Drawing.Point(80, 236);
             this.cboIco.Name = "cboIco";
             this.cboIco.Size = new System.Drawing.Size(144, 20);
             this.cboIco.TabIndex = 25;
@@ -386,7 +395,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(276, 24);
+            this.label24.Location = new System.Drawing.Point(276, 60);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(29, 12);
             this.label24.TabIndex = 2;
@@ -395,7 +404,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(276, 60);
+            this.lblAddress.Location = new System.Drawing.Point(276, 24);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(29, 12);
             this.lblAddress.TabIndex = 2;
@@ -404,7 +413,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(45, 24);
+            this.label12.Location = new System.Drawing.Point(45, 60);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(29, 12);
             this.label12.TabIndex = 2;
@@ -413,7 +422,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(33, 60);
+            this.label17.Location = new System.Drawing.Point(33, 24);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 12);
             this.label17.TabIndex = 2;
@@ -439,7 +448,7 @@
             // 
             // txtUnKnow
             // 
-            this.txtUnKnow.Location = new System.Drawing.Point(310, 20);
+            this.txtUnKnow.Location = new System.Drawing.Point(310, 56);
             this.txtUnKnow.Name = "txtUnKnow";
             this.txtUnKnow.ReadOnly = true;
             this.txtUnKnow.Size = new System.Drawing.Size(144, 21);
@@ -447,7 +456,7 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(310, 56);
+            this.txtAddress.Location = new System.Drawing.Point(310, 20);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ReadOnly = true;
             this.txtAddress.Size = new System.Drawing.Size(144, 21);
@@ -455,7 +464,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(79, 20);
+            this.txtId.Location = new System.Drawing.Point(80, 56);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(144, 21);
@@ -463,7 +472,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(79, 56);
+            this.txtName.Location = new System.Drawing.Point(80, 20);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(144, 21);
@@ -471,7 +480,7 @@
             // 
             // txtPower
             // 
-            this.txtPower.Location = new System.Drawing.Point(79, 92);
+            this.txtPower.Location = new System.Drawing.Point(80, 92);
             this.txtPower.Name = "txtPower";
             this.txtPower.Size = new System.Drawing.Size(144, 21);
             this.txtPower.TabIndex = 0;
@@ -487,7 +496,7 @@
             // 
             // txtEN
             // 
-            this.txtEN.Location = new System.Drawing.Point(79, 128);
+            this.txtEN.Location = new System.Drawing.Point(80, 128);
             this.txtEN.Name = "txtEN";
             this.txtEN.Size = new System.Drawing.Size(144, 21);
             this.txtEN.TabIndex = 1;
@@ -526,7 +535,7 @@
             // 
             // txtMoveAct
             // 
-            this.txtMoveAct.Location = new System.Drawing.Point(79, 200);
+            this.txtMoveAct.Location = new System.Drawing.Point(80, 200);
             this.txtMoveAct.Name = "txtMoveAct";
             this.txtMoveAct.Size = new System.Drawing.Size(144, 21);
             this.txtMoveAct.TabIndex = 4;
@@ -547,7 +556,7 @@
             // 
             // txtMP
             // 
-            this.txtMP.Location = new System.Drawing.Point(79, 164);
+            this.txtMP.Location = new System.Drawing.Point(80, 164);
             this.txtMP.Name = "txtMP";
             this.txtMP.Size = new System.Drawing.Size(144, 21);
             this.txtMP.TabIndex = 2;
@@ -670,15 +679,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(133, 17);
             this.toolStripStatusLabel1.Text = "感谢mediar的武器数据";
             // 
-            // cboMpLimit
-            // 
-            this.cboMpLimit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMpLimit.FormattingEnabled = true;
-            this.cboMpLimit.Location = new System.Drawing.Point(310, 93);
-            this.cboMpLimit.Name = "cboMpLimit";
-            this.cboMpLimit.Size = new System.Drawing.Size(144, 20);
-            this.cboMpLimit.TabIndex = 25;
-            // 
             // FrmEditWeapon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -692,7 +692,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditWeapon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "武器信息修改";
+            this.Text = "武器信息修改(每个武器占36byte)";
             this.Load += new System.EventHandler(this.FrmEditGundam_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
