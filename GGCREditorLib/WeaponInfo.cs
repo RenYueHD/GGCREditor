@@ -9,17 +9,20 @@ namespace GGCREditorLib
 
         private GundamFile gundamFile;
 
-        private const int POWER_IDX = 0;        //威力/100  2byte
+        private const int ID_IDX = 0;       //武器编号 2byte
+        private const int UNKONW_IDX = 2;       //未知 2byte
+        private const int POWER_IDX = 4;        //威力/100  2byte
         private const int EN_IDX = POWER_IDX + 2;   //EN消费 2byte
         private const int MP_IDX = POWER_IDX + 4;   //MP消费 2byte
         private const int ACT_EARTH_IDX = POWER_IDX + 6;    //武器对应适性 2byte
         private const int MOVE_ACT_IDX = POWER_IDX + 8;     //移动后攻击 1byte
         private const int ICO_IDX = POWER_IDX + 9;          //图标
-        private const int ICO2_IDX = POWER_IDX + 10;         //图标
+        private const int PROPER_IDX = POWER_IDX + 10;         //武器属性
         private const int SPEC_IDX = POWER_IDX + 11;        //武器特效 1byte
         private const int MP_LIMIT_IDX = POWER_IDX + 12;    //MP需求 2byte
         private const int USE_EARTH_IDX = POWER_IDX + 14;   //使用适性 1?2byte
-        private const int RANGE_IDX = POWER_IDX + 16;       //射程 2byte 修改无效???
+        private const int RANGE1_IDX = POWER_IDX + 16;       //射程 1byte 修改无效???
+        private const int RANGE2_IDX = POWER_IDX + 17;
         private const int HIT_RATE_IDX = POWER_IDX + 18;    //命中 1byte
         private const int CT_RATE_IDX = POWER_IDX + 19;     //暴击 1byte
         private const int HIT_COUNT_IDX = POWER_IDX + 20;   //Hit次数 1byte
@@ -36,6 +39,22 @@ namespace GGCREditorLib
         {
             this.gundamFile = gundamFile;
             this.Index = index;
+        }
+
+        public short ID
+        {
+            get
+            {
+                return BitConverter.ToInt16(gundamFile.Data, Index + ID_IDX);
+            }
+        }
+
+        public short Unknow
+        {
+            get
+            {
+                return BitConverter.ToInt16(gundamFile.Data, Index + UNKONW_IDX);
+            }
         }
 
         public int POWER
@@ -118,15 +137,15 @@ namespace GGCREditorLib
             }
         }
 
-        public byte ICO2
+        public byte PROPER
         {
             get
             {
-                return gundamFile.Data[Index + ICO2_IDX];
+                return gundamFile.Data[Index + PROPER_IDX];
             }
             set
             {
-                gundamFile.Data[Index + ICO2_IDX] = value;
+                gundamFile.Data[Index + PROPER_IDX] = value;
             }
         }
 
@@ -174,15 +193,27 @@ namespace GGCREditorLib
             }
         }
 
-        public short Range
+        public byte Range1
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + RANGE_IDX);
+                return gundamFile.Data[Index + RANGE1_IDX];
             }
             set
             {
-                save(Index + RANGE_IDX, value);
+                gundamFile.Data[Index + RANGE1_IDX] = value;
+            }
+        }
+
+        public byte Range2
+        {
+            get
+            {
+                return gundamFile.Data[Index + RANGE2_IDX];
+            }
+            set
+            {
+                gundamFile.Data[Index + RANGE2_IDX] = value;
             }
         }
 

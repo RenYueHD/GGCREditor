@@ -29,20 +29,19 @@ namespace GGCREditor
         List<KeyValuePair<string, string>> actEarch4;
         List<KeyValuePair<string, string>> actEarch5;
 
+        List<KeyValuePair<string, string>> icos = new List<KeyValuePair<string, string>>();
+        List<KeyValuePair<string, string>> prop = new List<KeyValuePair<string, string>>();
+        List<KeyValuePair<string, string>> spec = new List<KeyValuePair<string, string>>();
+        List<KeyValuePair<string, string>> mpLimit;
+
         private void FrmEditGundam_Load(object sender, EventArgs e)
         {
-            actEarch1 = buildActEarch();
-            actEarch2 = buildActEarch();
-            actEarch3 = buildActEarch();
-            actEarch4 = buildActEarch();
-            actEarch5 = buildActEarch();
 
-
-            cboAE1.DataSource = actEarch1;
-            cboAE2.DataSource = actEarch2;
-            cboAE3.DataSource = actEarch3;
-            cboAE4.DataSource = actEarch4;
-            cboAE5.DataSource = actEarch5;
+            cboAE1.DataSource = buildActEarch();
+            cboAE2.DataSource = buildActEarch();
+            cboAE3.DataSource = buildActEarch();
+            cboAE4.DataSource = buildActEarch();
+            cboAE5.DataSource = buildActEarch();
 
             cboAE1.DisplayMember = "Value";
             cboAE2.DisplayMember = "Value";
@@ -55,6 +54,50 @@ namespace GGCREditor
             cboAE3.ValueMember = "Key";
             cboAE4.ValueMember = "Key";
             cboAE5.ValueMember = "Key";
+
+            cboMpLimit.DataSource = buildMP();
+            cboMpLimit.DisplayMember = "Value";
+            cboMpLimit.ValueMember = "Key";
+
+            using (StreamReader sr = new StreamReader("武器属性.txt"))
+            {
+                string line = null;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
+                        prop.Add(kv);
+                        icos.Add(kv);
+                    }
+                }
+            }
+
+            cboProp.DataSource = prop;
+            cboProp.DisplayMember = "Value";
+            cboProp.ValueMember = "Key";
+            cboIco.DataSource = icos;
+            cboIco.DisplayMember = "Value";
+            cboIco.ValueMember = "Key";
+
+            using (StreamReader sr = new StreamReader("武器效果.txt"))
+            {
+                string line = null;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
+                        spec.Add(kv);
+                    }
+                }
+            }
+
+            cboSpec.DataSource = spec;
+            cboSpec.DisplayMember = "Value";
+            cboSpec.ValueMember = "Key";
 
 
             using (StreamReader sr = new StreamReader("武器数据.txt"))
@@ -87,24 +130,36 @@ namespace GGCREditor
             return list;
         }
 
+        private List<KeyValuePair<string, string>> buildMP()
+        {
+            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
+            list.Add(new KeyValuePair<string, string>("0", "普通"));
+            list.Add(new KeyValuePair<string, string>("4", "超强势"));
+            list.Add(new KeyValuePair<string, string>("5", "超一击"));
+            return list;
+        }
+
         private void LoadData(WeaponInfo weapon)
         {
             if (weapon != null)
             {
+                txtId.Text = weapon.ID.ToString();
+                txtUnKnow.Text = weapon.Unknow.ToString();
                 txtName.Text = weapon.WeaponName;
                 txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(weapon.Index));
                 txtPower.Text = weapon.POWER.ToString();
                 txtEN.Text = weapon.EN.ToString();
                 txtMP.Text = weapon.MP.ToString();
                 txtMoveAct.Text = weapon.MoveACT.ToString();
-                txtIco1.Text = weapon.ICO.ToString();
-                txtIco2.Text = weapon.ICO2.ToString();
-                txtSpec.Text = weapon.Spec.ToString();
-                txtMpLimit.Text = weapon.MPLimit.ToString();
-                txtRange.Text = weapon.Range.ToString();
+
+                cboMpLimit.SelectedValue = weapon.MPLimit.ToString();
+
                 txtHitRate.Text = weapon.HitRate.ToString();
                 txtCT.Text = weapon.CT.ToString();
                 txtHitCount.Text = weapon.HitCount.ToString();
+
+                txtRange1.Text = weapon.Range1.ToString();
+                txtRange2.Text = weapon.Range2.ToString();
 
                 string useEarth = weapon.UseEarth;
                 chkUse1.Checked = useEarth[4] == '1';
@@ -121,10 +176,18 @@ namespace GGCREditor
                 cboAE4.SelectedValue = "" + actEarch[2] + actEarch[3];
                 cboAE5.SelectedValue = "" + actEarch[0] + actEarch[1];
 
+                cboProp.SelectedValue = weapon.PROPER.ToString();
+                cboIco.SelectedValue = weapon.ICO.ToString();
+                cboSpec.SelectedValue = weapon.Spec.ToString();
+
+
+
                 btnSave.Enabled = true;
             }
             else
             {
+                txtId.Text = null;
+                txtUnKnow.Text = null;
 
                 txtName.Text = null;
                 txtAddress.Text = null;
@@ -132,9 +195,6 @@ namespace GGCREditor
                 txtEN.Text = null;
                 txtMP.Text = null;
                 txtMoveAct.Text = null;
-                txtIco1.Text = null;
-                txtIco2.Text = null;
-                txtSpec.Text = null;
 
                 chkUse1.Checked = false;
                 chkUse2.Checked = false;
@@ -188,16 +248,19 @@ namespace GGCREditor
                 weapon.EN = short.Parse(txtEN.Text);
                 weapon.MP = short.Parse(txtMP.Text);
                 weapon.MoveACT = byte.Parse(txtMoveAct.Text);
-                weapon.ICO = byte.Parse(txtIco1.Text);
-                weapon.ICO2 = byte.Parse(txtIco2.Text);
-                weapon.Spec = byte.Parse(txtSpec.Text);
-                weapon.MPLimit = short.Parse(txtMpLimit.Text);
+                weapon.MPLimit = short.Parse(cboMpLimit.SelectedValue.ToString());
                 weapon.UseEarth = (chkUse5.Checked ? "1" : "0") + (chkUse4.Checked ? "1" : "0") + (chkUse3.Checked ? "1" : "0") + (chkUse2.Checked ? "1" : "0") + (chkUse1.Checked ? "1" : "0");
                 weapon.ActEarth = cboAE5.SelectedValue.ToString() + cboAE4.SelectedValue.ToString() + cboAE3.SelectedValue.ToString() + cboAE2.SelectedValue.ToString() + cboAE1.SelectedValue.ToString();
-                weapon.Range = short.Parse(txtRange.Text);
                 weapon.HitRate = byte.Parse(txtHitRate.Text);
                 weapon.CT = byte.Parse(txtCT.Text);
                 weapon.HitCount = byte.Parse(txtHitCount.Text);
+                weapon.PROPER = byte.Parse(cboProp.SelectedValue.ToString());
+                weapon.ICO = byte.Parse(cboIco.SelectedValue.ToString());
+                weapon.Spec = byte.Parse(cboSpec.SelectedValue.ToString());
+
+                weapon.Range1 = byte.Parse(txtRange1.Text);
+                weapon.Range2 = byte.Parse(txtRange2.Text);
+
 
                 gundamFile.Save();
             }

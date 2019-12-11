@@ -138,6 +138,9 @@
     <Content Include="固有技能.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="武器属性.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="武器效果.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

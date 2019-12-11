@@ -20,10 +20,15 @@ namespace GGCREditorLib
         private const int EARTH_SIZE_IDX = HP_IDX + 54;
         //技能 10byte
         private const int SKILL_IDX = HP_IDX + 56;
-        //移动 1byte
+        //第一武器地址 4byte
+        private const int WEAPON_IDX = HP_IDX + 66;
+        //移动 2byte
         private const int MOVE_IDX = HP_IDX + 70;
-        //编队体积 1byte
+        //武器数量(MAP除外)
+        private const int WEAPON_COUNT_IDX = HP_IDX + 73;
+        //体积 1byte
         private const int SIZE_IDX = HP_IDX + 71;
+
 
 
         /// <summary>
@@ -212,6 +217,30 @@ namespace GGCREditorLib
             set
             {
                 save(Index + SKILL_IDX + 8, value);
+            }
+        }
+
+        public int WeaponIndex
+        {
+            get
+            {
+                return BitConverter.ToInt32(gundamFile.Data, Index + WEAPON_IDX);
+            }
+            set
+            {
+                save(Index + WEAPON_IDX, value);
+            }
+        }
+
+        public byte WeaponCount
+        {
+            get
+            {
+                return gundamFile.Data[Index + WEAPON_COUNT_IDX];
+            }
+            set
+            {
+                gundamFile.Data[Index + WEAPON_COUNT_IDX] = value;
             }
         }
 

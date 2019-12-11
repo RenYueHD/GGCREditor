@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GGCREditorLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -70,6 +71,28 @@ namespace GGCREditor
                 tslblDir.Text = this.currentDir;
                 enableAll();
             }
+
+            //GundamFile file = new GundamFile(this.currentDir + "\\resident\\MachineSpecList.pkd");
+
+            //int first = ByteHelper.Bytes2Int(ByteHelper.HexStringToByteArray("00096264"));
+            //WeaponInfo w = file.getWeapon(first);
+
+            //using (StreamWriter sw = new StreamWriter("武器数据.txt"))
+            //{
+            //    while (true)
+            //    {
+            //        try
+            //        {
+            //            sw.WriteLine("武器" + w.ID + ":" + ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(w.Index)).Replace(" ", ""));
+            //            w.Index += 36;
+            //        }
+            //        catch
+            //        {
+            //            sw.Flush();
+            //            break;
+            //        }
+            //    }
+            //}
 
         }
 
