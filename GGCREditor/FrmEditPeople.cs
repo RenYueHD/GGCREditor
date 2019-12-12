@@ -212,9 +212,30 @@ namespace GGCREditor
                 master.JinYan = short.Parse(txtJinYan.Text);
                 master.ChengZhang = short.Parse(txtChenZhang.Text);
 
-                master.GuYou1 = (short)cboGuYou1.SelectedValue;
-                master.GuYou2 = (short)cboGuYou2.SelectedValue;
-                master.GuYou3 = (short)cboGuYou3.SelectedValue;
+                try
+                {
+                    master.GuYou1 = short.Parse(cboGuYou1.SelectedValue.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("固有技能1编号未知,已使用原始能力" + master.GuYou1);
+                }
+                try
+                {
+                    master.GuYou2 = short.Parse(cboGuYou2.SelectedValue.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("固有技能2编号未知,已使用原始能力" + master.GuYou2);
+                }
+                try
+                {
+                    master.GuYou3 = short.Parse(cboGuYou3.SelectedValue.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("固有技能3编号未知,已使用原始能力" + master.GuYou3);
+                }
 
                 master.Last4 = short.Parse(txtLast4.Text);
 

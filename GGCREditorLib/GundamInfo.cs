@@ -49,7 +49,7 @@ namespace GGCREditorLib
                 }
                 else
                 {
-                    return "未知系列";
+                    return "未知系列" + this.Group;
                 }
             }
         }
@@ -58,13 +58,13 @@ namespace GGCREditorLib
         {
             get
             {
-                if (this.ID < 0 || PkdFile.gundamName[this.ID] == null || PkdFile.gundamName[this.ID].Trim().Length == 0)
+                if (PkdFile.gundamName[this.No] == null || PkdFile.gundamName[this.No].Trim().Length == 0)
                 {
                     return "未知";
                 }
                 else
                 {
-                    return PkdFile.gundamName[this.ID];
+                    return PkdFile.gundamName[this.No];
                 }
             }
         }

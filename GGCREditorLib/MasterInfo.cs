@@ -63,7 +63,7 @@ namespace GGCREditorLib
                 }
                 else
                 {
-                    return "未知系列";
+                    return "未知系列" + this.Group;
                 }
             }
         }

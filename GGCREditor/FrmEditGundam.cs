@@ -249,11 +249,46 @@ namespace GGCREditor
                 gundam.Size = byte.Parse(cboSize.SelectedValue.ToString());
                 gundam.EarchSize = short.Parse(txtEarthSize.Text);
 
-                gundam.Skill1 = short.Parse(cboSkill1.SelectedValue.ToString());
-                gundam.Skill2 = short.Parse(cboSkill2.SelectedValue.ToString());
-                gundam.Skill3 = short.Parse(cboSkill3.SelectedValue.ToString());
-                gundam.Skill4 = short.Parse(cboSkill4.SelectedValue.ToString());
-                gundam.Skill5 = short.Parse(cboSkill5.SelectedValue.ToString());
+                try
+                {
+                    gundam.Skill1 = short.Parse(cboSkill1.SelectedValue.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("能力1编号未知,已使用原始能力" + gundam.Skill1);
+                }
+                try
+                {
+                    gundam.Skill2 = short.Parse(cboSkill2.SelectedValue.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("能力2编号未知,已使用原始能力" + gundam.Skill2);
+                }
+                try
+                {
+                    gundam.Skill3 = short.Parse(cboSkill3.SelectedValue.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("能力3编号未知,已使用原始能力" + gundam.Skill3);
+                }
+                try
+                {
+                    gundam.Skill4 = short.Parse(cboSkill4.SelectedValue.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("能力4编号未知,已使用原始能力" + gundam.Skill4);
+                }
+                try
+                {
+                    gundam.Skill5 = short.Parse(cboSkill5.SelectedValue.ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("能力5编号未知,已使用原始能力" + gundam.Skill5);
+                }
 
                 string shiyin = cboE1.SelectedValue.ToString() + cboE2.SelectedValue.ToString() + cboE3.SelectedValue.ToString() + cboE4.SelectedValue.ToString() + cboE5.SelectedValue.ToString();
 
