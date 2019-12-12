@@ -142,6 +142,12 @@
     <Content Include="武器属性.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="PKD结构.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="系列代码.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="武器效果.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

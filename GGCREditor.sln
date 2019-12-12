@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGCREditor", "GGCREditor\GG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGCREditorLib", "GGCREditorLib\GGCREditorLib.csproj", "{2ED0051C-A593-4DC9-AF02-1D66FBE5AE36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PkdAnalysis", "PkdAnalysis\PkdAnalysis.csproj", "{B569C2B0-0B10-4FCA-9DD5-B9A26988D889}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2ED0051C-A593-4DC9-AF02-1D66FBE5AE36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ED0051C-A593-4DC9-AF02-1D66FBE5AE36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ED0051C-A593-4DC9-AF02-1D66FBE5AE36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B569C2B0-0B10-4FCA-9DD5-B9A26988D889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B569C2B0-0B10-4FCA-9DD5-B9A26988D889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B569C2B0-0B10-4FCA-9DD5-B9A26988D889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B569C2B0-0B10-4FCA-9DD5-B9A26988D889}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
