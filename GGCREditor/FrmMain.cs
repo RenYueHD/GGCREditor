@@ -47,6 +47,7 @@ namespace GGCREditor
                     config.Save();
 
                     this.currentDir = dialog.SelectedPath;
+                    GGCRStaticConfig.PATH = this.currentDir;
                     enableAll();
                     tslblDir.Text = this.currentDir;
                 }
@@ -69,6 +70,7 @@ namespace GGCREditor
             {
                 this.currentDir = config.AppSettings.Settings["path"].Value;
                 tslblDir.Text = this.currentDir;
+                GGCRStaticConfig.PATH = this.currentDir;
                 enableAll();
             }
 

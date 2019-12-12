@@ -413,11 +413,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(45, 60);
+            this.label12.Location = new System.Drawing.Point(57, 60);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 12);
+            this.label12.Size = new System.Drawing.Size(17, 12);
             this.label12.TabIndex = 2;
-            this.label12.Text = "编号";
+            this.label12.Text = "ID";
             // 
             // label17
             // 
@@ -692,7 +692,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditWeapon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "武器信息修改(每个武器占36byte)";
+            this.Text = "武器信息修改";
             this.Load += new System.EventHandler(this.FrmEditGundam_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

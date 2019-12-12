@@ -4,6 +4,9 @@ using System.Text;
 
 namespace GGCREditorLib
 {
+    /// <summary>
+    /// 武器信息(36Byte)
+    /// </summary>
     public class WeaponInfo : IComparable<WeaponInfo>
     {
 

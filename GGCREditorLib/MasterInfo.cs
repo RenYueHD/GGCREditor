@@ -5,7 +5,7 @@ using System.Text;
 namespace GGCREditorLib
 {
     /// <summary>
-    /// 角色信息
+    /// 角色信息(112Byte)
     /// </summary>
     public class MasterInfo : IComparable<MasterInfo>
     {
@@ -16,6 +16,8 @@ namespace GGCREditorLib
         /// </summary>
         public int Index { get; set; }
 
+        private const int ID_IDX = -4;
+        private const int UNKNOW_IDX = -2;
         private const int SHEJI_IDX = 0;
         private const int GEDOU_IDX = SHEJI_IDX + 2;
         private const int SHOUBEI_IDX = SHEJI_IDX + 4;
@@ -39,6 +41,22 @@ namespace GGCREditorLib
         {
             this.masterFile = masterFile;
             this.Index = index;
+        }
+
+        public short ID
+        {
+            get
+            {
+                return BitConverter.ToInt16(masterFile.Data, Index + ID_IDX);
+            }
+        }
+
+        public short Unknow
+        {
+            get
+            {
+                return BitConverter.ToInt16(masterFile.Data, Index + UNKNOW_IDX);
+            }
         }
 
         public short SheJi

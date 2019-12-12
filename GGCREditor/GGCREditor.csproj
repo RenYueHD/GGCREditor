@@ -79,6 +79,7 @@
     <Compile Include="FrmSearchGundam.Designer.cs">
       <DependentUpon>FrmSearchGundam.cs</DependentUpon>
     </Compile>
+    <Compile Include="GGCRStaticConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmEditWeapon.resx">

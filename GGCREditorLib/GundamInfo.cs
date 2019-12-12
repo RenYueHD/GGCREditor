@@ -4,11 +4,16 @@ using System.Text;
 
 namespace GGCREditorLib
 {
+    /// <summary>
+    /// 机体信息(108Byte)
+    /// </summary>
     public class GundamInfo : IComparable<GundamInfo>
     {
 
         private GundamFile gundamFile;
 
+
+        private const int ID_IDX = -2;
         private const int HP_IDX = 0;
         private const int EN_IDX = HP_IDX + 38;
         private const int ACT_IDX = HP_IDX + 40;
@@ -42,6 +47,22 @@ namespace GGCREditorLib
         {
             this.gundamFile = gundamFile;
             this.Index = index;
+        }
+
+        public short Group
+        {
+            get
+            {
+                return -1;
+            }
+        }
+
+        public short ID
+        {
+            get
+            {
+                return BitConverter.ToInt16(gundamFile.Data, Index + ID_IDX);
+            }
         }
 
         public short HP

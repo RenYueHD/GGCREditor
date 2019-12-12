@@ -43,6 +43,8 @@ namespace GGCREditor
         {
             if (master != null)
             {
+                txtId.Text = master.ID.ToString();
+                txtUnKnow.Text = master.Unknow.ToString();
                 txtName.Text = master.MasterName;
                 txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(master.Index));
                 txtSheJi.Text = master.SheJi.ToString();
@@ -67,6 +69,8 @@ namespace GGCREditor
             }
             else
             {
+                txtId.Text = null;
+                txtUnKnow.Text = null;
                 txtName.Text = null;
                 txtSheJi.Text = null;
                 txtGeDou.Text = null;
@@ -97,6 +101,12 @@ namespace GGCREditor
 
         private void FrmEditPeople_Load(object sender, EventArgs e)
         {
+            //读取姓名数据 00002cc0
+            int idx = ByteHelper.Bytes2Int(ByteHelper.HexStringToByteArray("00002cc0"));
+
+            byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + "\\language\\schinese\\CharacterSpecList.tbl");
+            string[] names = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+
             using (StreamReader sr = new StreamReader("固有技能.txt"))
             {
                 string line = null;
@@ -135,7 +145,7 @@ namespace GGCREditor
                     {
                         string[] arr = line.Split(':');
                         MasterInfo master = masterFile.getMaster(arr[1]);
-                        master.MasterName = arr[0];
+                        master.MasterName = names[master.ID] + ":" + arr[0];
                         masters.Add(master);
                     }
                 }

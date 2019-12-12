@@ -149,6 +149,8 @@ namespace GGCREditor
         {
             if (gundam != null)
             {
+                txtGroup.Text = gundam.Group.ToString();
+                txtId.Text = gundam.ID.ToString();
                 txtName.Text = gundam.GundamName;
                 txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(gundam.Index));
                 txtHP.Text = gundam.HP.ToString();
@@ -183,7 +185,8 @@ namespace GGCREditor
             }
             else
             {
-
+                txtId.Text = null;
+                txtGroup.Text = null;
                 txtName.Text = null;
                 txtAddress.Text = null;
                 txtHP.Text = null;
