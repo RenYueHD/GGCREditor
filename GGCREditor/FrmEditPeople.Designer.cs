@@ -79,6 +79,8 @@
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtLast4 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -278,7 +280,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(20, 331);
+            this.label13.Location = new System.Drawing.Point(20, 327);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 2;
@@ -295,7 +297,7 @@
             // 
             this.cboGuYou1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGuYou1.FormattingEnabled = true;
-            this.cboGuYou1.Location = new System.Drawing.Point(78, 368);
+            this.cboGuYou1.Location = new System.Drawing.Point(78, 361);
             this.cboGuYou1.Name = "cboGuYou1";
             this.cboGuYou1.Size = new System.Drawing.Size(144, 20);
             this.cboGuYou1.TabIndex = 13;
@@ -303,7 +305,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(14, 371);
+            this.label14.Location = new System.Drawing.Point(14, 364);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 12);
             this.label14.TabIndex = 2;
@@ -312,7 +314,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(244, 371);
+            this.label15.Location = new System.Drawing.Point(244, 364);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 12);
             this.label15.TabIndex = 2;
@@ -322,7 +324,7 @@
             // 
             this.cboGuYou2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGuYou2.FormattingEnabled = true;
-            this.cboGuYou2.Location = new System.Drawing.Point(309, 368);
+            this.cboGuYou2.Location = new System.Drawing.Point(309, 361);
             this.cboGuYou2.Name = "cboGuYou2";
             this.cboGuYou2.Size = new System.Drawing.Size(144, 20);
             this.cboGuYou2.TabIndex = 14;
@@ -330,7 +332,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(14, 409);
+            this.label16.Location = new System.Drawing.Point(14, 402);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(59, 12);
             this.label16.TabIndex = 2;
@@ -340,7 +342,7 @@
             // 
             this.cboGuYou3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGuYou3.FormattingEnabled = true;
-            this.cboGuYou3.Location = new System.Drawing.Point(78, 406);
+            this.cboGuYou3.Location = new System.Drawing.Point(78, 399);
             this.cboGuYou3.Name = "cboGuYou3";
             this.cboGuYou3.Size = new System.Drawing.Size(144, 20);
             this.cboGuYou3.TabIndex = 15;
@@ -349,8 +351,10 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.txtLast4);
             this.groupBox1.Controls.Add(this.txtUnKnow);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label18);
@@ -391,9 +395,9 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtWeiXiu);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(227, 12);
+            this.groupBox1.Location = new System.Drawing.Point(321, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 532);
+            this.groupBox1.Size = new System.Drawing.Size(470, 555);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
@@ -497,7 +501,7 @@
             this.lsMasters.ItemHeight = 16;
             this.lsMasters.Location = new System.Drawing.Point(12, 36);
             this.lsMasters.Name = "lsMasters";
-            this.lsMasters.Size = new System.Drawing.Size(209, 508);
+            this.lsMasters.Size = new System.Drawing.Size(303, 531);
             this.lsMasters.TabIndex = 6;
             this.lsMasters.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsMasters_DrawItem);
             this.lsMasters.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lsMasters_MeasureItem);
@@ -510,7 +514,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(33, 12);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(188, 21);
+            this.txtSearch.Size = new System.Drawing.Size(282, 21);
             this.txtSearch.TabIndex = 7;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -529,9 +533,9 @@
             this.tslblFIle,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 549);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 572);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(708, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(802, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -544,7 +548,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(422, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(516, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // toolStripStatusLabel1
@@ -554,11 +558,28 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 22);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的人物数据";
             // 
+            // txtLast4
+            // 
+            this.txtLast4.Location = new System.Drawing.Point(309, 399);
+            this.txtLast4.Name = "txtLast4";
+            this.txtLast4.ReadOnly = true;
+            this.txtLast4.Size = new System.Drawing.Size(144, 21);
+            this.txtLast4.TabIndex = 19;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(256, 402);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(47, 12);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "末尾4位";
+            // 
             // FrmEditPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 571);
+            this.ClientSize = new System.Drawing.Size(802, 594);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lsMasters);
@@ -630,5 +651,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtUnKnow;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtLast4;
     }
 }

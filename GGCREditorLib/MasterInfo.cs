@@ -16,9 +16,10 @@ namespace GGCREditorLib
         /// </summary>
         public int Index { get; set; }
 
-        private const int ID_IDX = -4;
-        private const int UNKNOW_IDX = -2;
-        private const int SHEJI_IDX = 0;
+        private const int GROUP_IDX = 0;
+        private const int ID_IDX = SHEJI_IDX - 4;
+        private const int UNKNOW_IDX = SHEJI_IDX - 2;
+        private const int SHEJI_IDX = GROUP_IDX + 32;
         private const int GEDOU_IDX = SHEJI_IDX + 2;
         private const int SHOUBEI_IDX = SHEJI_IDX + 4;
         private const int FANYIN_IDX = SHEJI_IDX + 6;
@@ -35,12 +36,23 @@ namespace GGCREditorLib
         private const int GUYOU2_IDX = SHEJI_IDX + 30;
         private const int GUYOU3_IDX = SHEJI_IDX + 32;
 
+        private const int LAST4_IDX = GROUP_IDX + 108;
+
         public string MasterName { get; set; }
+        public string GroupName { get; set; }
 
         public MasterInfo(MasterFile masterFile, int index)
         {
             this.masterFile = masterFile;
             this.Index = index;
+        }
+
+        public short Group
+        {
+            get
+            {
+                return BitConverter.ToInt16(masterFile.Data, Index + GROUP_IDX);
+            }
         }
 
         public short ID
@@ -252,6 +264,13 @@ namespace GGCREditorLib
             }
         }
 
+        public short Last4
+        {
+            get
+            {
+                return BitConverter.ToInt16(masterFile.Data, Index + LAST4_IDX);
+            }
+        }
 
 
         private void save(int index, short value)

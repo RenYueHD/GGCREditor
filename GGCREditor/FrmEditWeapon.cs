@@ -42,6 +42,7 @@ namespace GGCREditor
         List<KeyValuePair<string, string>> icos = new List<KeyValuePair<string, string>>();
         List<KeyValuePair<string, string>> prop = new List<KeyValuePair<string, string>>();
         List<KeyValuePair<string, string>> spec = new List<KeyValuePair<string, string>>();
+        List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
         List<KeyValuePair<string, string>> mpLimit;
 
         private void FrmEditGundam_Load(object sender, EventArgs e)
@@ -123,7 +124,7 @@ namespace GGCREditor
             cboSpec.DisplayMember = "Value";
             cboSpec.ValueMember = "Key";
 
-            using (StreamReader sr = new StreamReader("武器数据.txt"))
+            using (StreamReader sr = new StreamReader("射程代码.txt"))
             {
                 string line = null;
                 while ((line = sr.ReadLine()) != null)
@@ -131,16 +132,33 @@ namespace GGCREditor
                     if (line != "")
                     {
                         string[] arr = line.Split(':');
-                        WeaponInfo info = gundamFile.getWeapon(arr[1]);
-                        if (limit == null || limit.Contains(info.ID))
-                        {
-                            info.WeaponName = arr[0];
-                            weapons.Add(info);
-                        }
+                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
+                        range.Add(kv);
                     }
                 }
             }
-            weapons.Sort();
+
+            cboRange.DataSource = range;
+            cboRange.DisplayMember = "Value";
+            cboRange.ValueMember = "Key";
+
+            List<WeaponInfo> list = gundamFile.ListWeapons();
+            weapons = new List<WeaponInfo>();
+
+            byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + "\\language\\schinese\\MachineSpecList.tbl");
+            int idx = ByteHelper.FindFirstIndex(data, "C4 2A 01 00 00 00 00 00 00 00 00 00 00 00 00 00", 0) + 16;
+
+
+            string[] names = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+
+            foreach (WeaponInfo w in list)
+            {
+                if (limit == null || limit.Contains(w.ID))
+                {
+                    w.WeaponName = names[w.ID];
+                    weapons.Add(w);
+                }
+            }
 
             lsGundam.DataSource = weapons;
             lsGundam.DisplayMember = "WeaponName";
@@ -170,7 +188,7 @@ namespace GGCREditor
             if (weapon != null)
             {
                 txtId.Text = weapon.ID.ToString();
-                txtUnKnow.Text = weapon.Unknow.ToString();
+
                 txtName.Text = weapon.WeaponName;
                 txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(weapon.Index));
                 txtPower.Text = weapon.POWER.ToString();
@@ -183,9 +201,6 @@ namespace GGCREditor
                 txtHitRate.Text = weapon.HitRate.ToString();
                 txtCT.Text = weapon.CT.ToString();
                 txtHitCount.Text = weapon.HitCount.ToString();
-
-                txtRange1.Text = weapon.Range1.ToString();
-                txtRange2.Text = weapon.Range2.ToString();
 
                 string useEarth = weapon.UseEarth;
                 chkUse1.Checked = useEarth[4] == '1';
@@ -205,7 +220,9 @@ namespace GGCREditor
                 cboProp.SelectedValue = weapon.PROPER.ToString();
                 cboIco.SelectedValue = weapon.ICO.ToString();
                 cboSpec.SelectedValue = weapon.Spec.ToString();
+                cboRange.SelectedValue = weapon.Range.ToString();
 
+                txtUnKnow.Text = weapon.Range.ToString();
 
 
                 btnSave.Enabled = true;
@@ -284,9 +301,7 @@ namespace GGCREditor
                 weapon.ICO = byte.Parse(cboIco.SelectedValue.ToString());
                 weapon.Spec = byte.Parse(cboSpec.SelectedValue.ToString());
 
-                weapon.Range1 = byte.Parse(txtRange1.Text);
-                weapon.Range2 = byte.Parse(txtRange2.Text);
-
+                weapon.Range = short.Parse(cboRange.SelectedValue.ToString());
 
                 gundamFile.Save();
             }

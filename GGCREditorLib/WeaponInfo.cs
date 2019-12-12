@@ -12,9 +12,10 @@ namespace GGCREditorLib
 
         private GundamFile gundamFile;
 
-        private const int ID_IDX = 0;       //武器编号 2byte
-        private const int UNKONW_IDX = 2;       //未知 2byte
-        private const int POWER_IDX = 4;        //威力/100  2byte
+        private const int GROUP_IDX = 0;
+        private const int ID_IDX = GROUP_IDX + 8;       //武器编号 2byte
+        private const int RANGE = ID_IDX + 2;       //射程 2byte
+        private const int POWER_IDX = ID_IDX + 4;        //威力/100  2byte
         private const int EN_IDX = POWER_IDX + 2;   //EN消费 2byte
         private const int MP_IDX = POWER_IDX + 4;   //MP消费 2byte
         private const int ACT_EARTH_IDX = POWER_IDX + 6;    //武器对应适性 2byte
@@ -44,6 +45,17 @@ namespace GGCREditorLib
             this.Index = index;
         }
 
+        public string GroupName { get; set; }
+
+        public short Group
+        {
+            get
+            {
+                return BitConverter.ToInt16(gundamFile.Data, Index + GROUP_IDX);
+            }
+        }
+
+
         public short ID
         {
             get
@@ -52,11 +64,15 @@ namespace GGCREditorLib
             }
         }
 
-        public short Unknow
+        public short Range
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + UNKONW_IDX);
+                return BitConverter.ToInt16(gundamFile.Data, Index + RANGE);
+            }
+            set
+            {
+                save(Index + RANGE, value);
             }
         }
 

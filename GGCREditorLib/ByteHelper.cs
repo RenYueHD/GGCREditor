@@ -56,5 +56,49 @@ namespace GGCREditorLib
             return result;
         }
 
+
+        public static int FindFirstIndex(byte[] data, string hex, int startIndex)
+        {
+            return FindFirstIndex(data, HexStringToByteArray(hex), startIndex);
+        }
+
+        public static int FindFirstIndex(byte[] data, byte[] bt, int startIndex)
+        {
+            if (data == null)
+            {
+                throw new Exception("数据不存在");
+            }
+            if (bt == null || bt.Length == 0)
+            {
+                throw new Exception("不允许查找空数组");
+            }
+            if (data.Length < bt.Length)
+            {
+                throw new Exception("文件过短");
+            }
+
+            int index = -1;
+            for (int i = startIndex; i <= data.Length - bt.Length; i++)
+            {
+                for (int j = 0; j < bt.Length; j++)
+                {
+                    if (data[i + j] == bt[j])
+                    {
+                        index = i;
+                    }
+                    else
+                    {
+                        index = -1;
+                        break;
+                    }
+                }
+                if (index != -1)
+                {
+                    return index;
+                }
+            }
+            return index;
+        }
+
     }
 }

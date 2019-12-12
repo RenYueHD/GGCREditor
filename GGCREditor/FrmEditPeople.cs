@@ -65,6 +65,8 @@ namespace GGCREditor
                 cboGuYou2.SelectedValue = master.GuYou2;
                 cboGuYou3.SelectedValue = master.GuYou3;
 
+                txtLast4.Text = master.Last4.ToString();
+
                 btnSave.Enabled = true;
             }
             else
@@ -90,6 +92,8 @@ namespace GGCREditor
                 cboGuYou2.SelectedValue = -1;
                 cboGuYou3.SelectedValue = -1;
 
+                txtLast4.Text = null;
+
                 btnSave.Enabled = false;
             }
         }
@@ -102,9 +106,9 @@ namespace GGCREditor
         private void FrmEditPeople_Load(object sender, EventArgs e)
         {
             //读取姓名数据 00002cc0
-            int idx = ByteHelper.Bytes2Int(ByteHelper.HexStringToByteArray("00002cc0"));
-
             byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + "\\language\\schinese\\CharacterSpecList.tbl");
+            int idx = ByteHelper.FindFirstIndex(data, "2F 9F 00 00 00 00 00 00 00 00 00 00 00 00 00 00", 0) + 16;
+
             string[] names = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
 
             using (StreamReader sr = new StreamReader("固有技能.txt"))
@@ -135,8 +139,8 @@ namespace GGCREditor
             cboGuYou3.ValueMember = "SkillId";
             cboGuYou3.DisplayMember = "SkillName";
 
-
-            using (StreamReader sr = new StreamReader("人物数据.txt"))
+            Dictionary<string, string> groups = new Dictionary<string, string>();
+            using (StreamReader sr = new StreamReader("系列代码.txt"))
             {
                 string line = null;
                 while ((line = sr.ReadLine()) != null)
@@ -144,13 +148,33 @@ namespace GGCREditor
                     if (line != "")
                     {
                         string[] arr = line.Split(':');
-                        MasterInfo master = masterFile.getMaster(arr[1]);
-                        master.MasterName = names[master.ID] + ":" + arr[0];
-                        masters.Add(master);
+                        groups[arr[1]] = arr[0];
                     }
                 }
             }
-            masters.Sort();
+
+            masters = masterFile.ListMasters();
+            foreach (MasterInfo m in masters)
+            {
+                if (groups.ContainsKey(m.Group.ToString()))
+                {
+                    m.GroupName = groups[m.Group.ToString()];
+                }
+                else
+                {
+                    m.GroupName = "未知系列";
+                }
+
+                if (m.ID < 0 || names[m.ID] == null || names[m.ID].Trim().Length == 0)
+                {
+                    m.MasterName = "未知";
+                }
+                else
+                {
+                    m.MasterName = names[m.ID];
+                }
+            }
+
 
             lsMasters.DataSource = masters;
             lsMasters.DisplayMember = "MasterName";
@@ -231,7 +255,7 @@ namespace GGCREditor
                 MasterInfo master = ((ListBox)sender).Items[e.Index] as MasterInfo;
                 StringFormat sStringFormat = new StringFormat();
                 sStringFormat.LineAlignment = StringAlignment.Center;
-                e.Graphics.DrawString(master.MasterName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+                e.Graphics.DrawString(master.GroupName + "-" + master.MasterName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
             }
             e.DrawFocusRectangle();
         }

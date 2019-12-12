@@ -105,7 +105,7 @@
             this.txtFile.Name = "txtFile";
             this.txtFile.Size = new System.Drawing.Size(505, 21);
             this.txtFile.TabIndex = 1;
-            this.txtFile.Text = "D:\\ProjectsCSharp\\GGCR\\data\\CharacterSpecList.pkd";
+            this.txtFile.Text = "D:\\Games\\GGCR\\data\\resident\\CharacterSpecList.pkd";
             // 
             // label3
             // 
@@ -116,7 +116,7 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "文件";
             // 
-            // Form1
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -129,7 +129,7 @@
             this.Controls.Add(this.txtFile);
             this.Controls.Add(this.txtSkip);
             this.Controls.Add(this.txtData);
-            this.Name = "Form1";
+            this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);

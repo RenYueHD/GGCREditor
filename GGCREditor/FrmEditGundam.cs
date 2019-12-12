@@ -95,7 +95,15 @@ namespace GGCREditor
             cboSkill5.ValueMember = "Key";
 
 
-            using (StreamReader sr = new StreamReader("机体数据.txt"))
+            gundams = gundamFile.ListMachines();
+
+            byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + "\\language\\schinese\\MachineSpecList.tbl");
+            int idx = ByteHelper.FindFirstIndex(data, "E9 A3 9E E7 BF BC E9 AB", 0);
+
+            string[] names = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+
+            Dictionary<string, string> groups = new Dictionary<string, string>();
+            using (StreamReader sr = new StreamReader("系列代码.txt"))
             {
                 string line = null;
                 while ((line = sr.ReadLine()) != null)
@@ -103,13 +111,24 @@ namespace GGCREditor
                     if (line != "")
                     {
                         string[] arr = line.Split(':');
-                        GundamInfo info = gundamFile.getGundam(arr[1]);
-                        info.GundamName = arr[0];
-                        gundams.Add(info);
+                        groups[arr[1]] = arr[0];
                     }
                 }
             }
-            gundams.Sort();
+            int i = 0;
+            foreach (GundamInfo g in gundams)
+            {
+                if (groups.ContainsKey(g.Group.ToString()))
+                {
+                    g.GroupName = groups[g.Group.ToString()];
+                }
+                else
+                {
+                    g.GroupName = "未知系列";
+                }
+                g.GundamName = names[i];
+                i++;
+            }
 
             lsGundam.DataSource = gundams;
             lsGundam.DisplayMember = "GundamName";
@@ -149,7 +168,7 @@ namespace GGCREditor
         {
             if (gundam != null)
             {
-                txtGroup.Text = gundam.Group.ToString();
+                txtGroup.Text = gundam.GroupName;
                 txtId.Text = gundam.ID.ToString();
                 txtName.Text = gundam.GundamName;
                 txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(gundam.Index));
@@ -230,7 +249,7 @@ namespace GGCREditor
                 GundamInfo master = ((ListBox)sender).Items[e.Index] as GundamInfo;
                 StringFormat sStringFormat = new StringFormat();
                 sStringFormat.LineAlignment = StringAlignment.Center;
-                e.Graphics.DrawString(master.GundamName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+                e.Graphics.DrawString(master.GroupName + "-" + master.GundamName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
             }
             e.DrawFocusRectangle();
         }
