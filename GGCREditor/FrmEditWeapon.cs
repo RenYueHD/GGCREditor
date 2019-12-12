@@ -12,12 +12,13 @@ namespace GGCREditor
 {
     public partial class FrmEditWeapon : Form
     {
-        public FrmEditWeapon(string file)
+        public FrmEditWeapon()
         {
             InitializeComponent();
-            tslblFile.Text = file;
+            this.gundamFile = new GundamFile();
+            tslblFile.Text = gundamFile.FileName;
 
-            this.gundamFile = new GundamFile(file);
+
         }
 
         public FrmEditWeapon(GundamFile gundanFile, GundamInfo gundamInfo)
@@ -33,17 +34,10 @@ namespace GGCREditor
         private GundamFile gundamFile;
         private List<WeaponInfo> weapons = new List<WeaponInfo>();
 
-        List<KeyValuePair<string, string>> actEarch1;
-        List<KeyValuePair<string, string>> actEarch2;
-        List<KeyValuePair<string, string>> actEarch3;
-        List<KeyValuePair<string, string>> actEarch4;
-        List<KeyValuePair<string, string>> actEarch5;
-
         List<KeyValuePair<string, string>> icos = new List<KeyValuePair<string, string>>();
         List<KeyValuePair<string, string>> prop = new List<KeyValuePair<string, string>>();
         List<KeyValuePair<string, string>> spec = new List<KeyValuePair<string, string>>();
         List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
-        List<KeyValuePair<string, string>> mpLimit;
 
         private void FrmEditGundam_Load(object sender, EventArgs e)
         {
@@ -142,20 +136,12 @@ namespace GGCREditor
             cboRange.DisplayMember = "Value";
             cboRange.ValueMember = "Key";
 
-            List<WeaponInfo> list = gundamFile.ListWeapons();
             weapons = new List<WeaponInfo>();
 
-            byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + "\\language\\schinese\\MachineSpecList.tbl");
-            int idx = ByteHelper.FindFirstIndex(data, "C4 2A 01 00 00 00 00 00 00 00 00 00 00 00 00 00", 0) + 16;
-
-
-            string[] names = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
-
-            foreach (WeaponInfo w in list)
+            foreach (WeaponInfo w in gundamFile.ListWeapons())
             {
                 if (limit == null || limit.Contains(w.ID))
                 {
-                    w.WeaponName = names[w.ID];
                     weapons.Add(w);
                 }
             }

@@ -67,18 +67,6 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSearchWeapon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSearchWeapon.Designer.cs">
-      <DependentUpon>FrmSearchWeapon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSearchGundam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSearchGundam.Designer.cs">
-      <DependentUpon>FrmSearchGundam.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmEditWeapon.resx">
@@ -92,12 +80,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearchWeapon.resx">
-      <DependentUpon>FrmSearchWeapon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearchGundam.resx">
-      <DependentUpon>FrmSearchGundam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -133,9 +115,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="武器属性.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PKD结构.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="射程代码.txt">

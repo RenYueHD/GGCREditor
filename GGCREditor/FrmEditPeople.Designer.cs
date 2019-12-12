@@ -62,8 +62,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.cboGuYou3 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.txtLast4 = new System.Windows.Forms.TextBox();
             this.txtUnKnow = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -79,8 +81,6 @@
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtLast4 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -402,6 +402,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(256, 402);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(47, 12);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "末尾4位";
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -419,6 +428,14 @@
             this.label20.Size = new System.Drawing.Size(17, 12);
             this.label20.TabIndex = 18;
             this.label20.Text = "ID";
+            // 
+            // txtLast4
+            // 
+            this.txtLast4.Location = new System.Drawing.Point(309, 399);
+            this.txtLast4.Name = "txtLast4";
+            this.txtLast4.ReadOnly = true;
+            this.txtLast4.Size = new System.Drawing.Size(144, 21);
+            this.txtLast4.TabIndex = 19;
             // 
             // txtUnKnow
             // 
@@ -557,23 +574,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 22);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的人物数据";
-            // 
-            // txtLast4
-            // 
-            this.txtLast4.Location = new System.Drawing.Point(309, 399);
-            this.txtLast4.Name = "txtLast4";
-            this.txtLast4.ReadOnly = true;
-            this.txtLast4.Size = new System.Drawing.Size(144, 21);
-            this.txtLast4.TabIndex = 19;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(256, 402);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(47, 12);
-            this.label21.TabIndex = 17;
-            this.label21.Text = "末尾4位";
             // 
             // FrmEditPeople
             // 

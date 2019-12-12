@@ -34,12 +34,12 @@
             this.选择路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEditMaster = new System.Windows.Forms.Button();
             this.btnEditGundam = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnSearchWeapon = new System.Windows.Forms.Button();
             this.btnEditWeapon = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblDir = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -91,17 +91,6 @@
             this.btnEditGundam.UseVisualStyleBackColor = true;
             this.btnEditGundam.Click += new System.EventHandler(this.btnEditGundam_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Enabled = false;
-            this.btnSearch.Location = new System.Drawing.Point(276, 28);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(92, 54);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "机体/战舰搜索";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // btnSearchWeapon
             // 
             this.btnSearchWeapon.Enabled = false;
@@ -149,6 +138,17 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "感谢: 泷泽透明 lxdlxd99 gundamdxhk hgjzorro hj mediar";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Enabled = false;
+            this.btnSearch.Location = new System.Drawing.Point(276, 28);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(92, 54);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "机体/战舰搜索";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -167,7 +167,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "火线纵横-静态修改器 v1.01beta - Power By RenYueHD";
+            this.Text = "火线纵横-静态修改器 v1.2 - Power By RenYueHD";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -185,12 +185,12 @@
         private System.Windows.Forms.ToolStripMenuItem 选择路径ToolStripMenuItem;
         private System.Windows.Forms.Button btnEditMaster;
         private System.Windows.Forms.Button btnEditGundam;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnSearchWeapon;
         private System.Windows.Forms.Button btnEditWeapon;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tslblDir;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

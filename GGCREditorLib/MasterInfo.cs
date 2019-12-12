@@ -7,15 +7,8 @@ namespace GGCREditorLib
     /// <summary>
     /// 角色信息(112Byte)
     /// </summary>
-    public class MasterInfo : IComparable<MasterInfo>
+    public class MasterInfo : GGCRUnitInfo<MasterFile>, IComparable<MasterInfo>
     {
-        private MasterFile masterFile;
-
-        /// <summary>
-        /// 索引,以射击值为0
-        /// </summary>
-        public int Index { get; set; }
-
         private const int GROUP_IDX = 0;
         private const int ID_IDX = SHEJI_IDX - 4;
         private const int UNKNOW_IDX = SHEJI_IDX - 2;
@@ -38,20 +31,48 @@ namespace GGCREditorLib
 
         private const int LAST4_IDX = GROUP_IDX + 108;
 
-        public string MasterName { get; set; }
-        public string GroupName { get; set; }
 
-        public MasterInfo(MasterFile masterFile, int index)
+        public MasterInfo(MasterFile File, int index, int no)
+            : base(File, index, no)
         {
-            this.masterFile = masterFile;
-            this.Index = index;
+
+        }
+
+
+        public string MasterName
+        {
+            get
+            {
+                if (this.ID < 0 || PkdFile.masterNames[this.ID] == null || PkdFile.masterNames[this.ID].Trim().Length == 0)
+                {
+                    return "未知";
+                }
+                else
+                {
+                    return PkdFile.masterNames[this.ID];
+                }
+            }
+        }
+        public string GroupName
+        {
+            get
+            {
+                if (PkdFile.groups.ContainsKey(this.Group.ToString()))
+                {
+                    return PkdFile.groups[this.Group.ToString()];
+                }
+                else
+                {
+                    return "未知系列";
+                }
+            }
         }
 
         public short Group
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + GROUP_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + GROUP_IDX);
             }
         }
 
@@ -59,7 +80,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + ID_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + ID_IDX);
             }
         }
 
@@ -67,7 +88,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + UNKNOW_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + UNKNOW_IDX);
             }
         }
 
@@ -75,7 +96,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + SHEJI_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + SHEJI_IDX);
             }
             set
             {
@@ -87,7 +108,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + GEDOU_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + GEDOU_IDX);
             }
             set
             {
@@ -99,7 +120,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + SHOUBEI_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + SHOUBEI_IDX);
             }
             set
             {
@@ -111,7 +132,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + FANYIN_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + FANYIN_IDX);
             }
             set
             {
@@ -123,7 +144,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + JUEXIN_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + JUEXIN_IDX);
             }
             set
             {
@@ -135,7 +156,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + ZHIHUI_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + ZHIHUI_IDX);
             }
             set
             {
@@ -147,7 +168,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + FUZUO_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + FUZUO_IDX);
             }
             set
             {
@@ -159,7 +180,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + TONGXUN_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + TONGXUN_IDX);
             }
             set
             {
@@ -171,7 +192,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + CAODUO_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + CAODUO_IDX);
             }
             set
             {
@@ -183,7 +204,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + WEIXIU_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + WEIXIU_IDX);
             }
             set
             {
@@ -195,7 +216,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + MEILI_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + MEILI_IDX);
             }
             set
             {
@@ -207,7 +228,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + JINYAN_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + JINYAN_IDX);
             }
             set
             {
@@ -219,7 +240,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + CHENGZHANG_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + CHENGZHANG_IDX);
             }
             set
             {
@@ -231,7 +252,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + GUYOU1_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + GUYOU1_IDX);
             }
             set
             {
@@ -243,7 +264,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + GUYOU2_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + GUYOU2_IDX);
             }
             set
             {
@@ -256,7 +277,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + GUYOU3_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + GUYOU3_IDX);
             }
             set
             {
@@ -268,28 +289,14 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(masterFile.Data, Index + LAST4_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + LAST4_IDX);
             }
-        }
-
-
-        private void save(int index, short value)
-        {
-            byte[] arr = BitConverter.GetBytes(value);
-            for (int i = 0; i < arr.Length; i++)
+            set
             {
-                masterFile.Data[index + i] = arr[i];
+                save(Index + LAST4_IDX, value);
             }
         }
 
-        private void save(int index, int value)
-        {
-            byte[] arr = BitConverter.GetBytes(value);
-            for (int i = 0; i < arr.Length; i++)
-            {
-                masterFile.Data[index + i] = arr[i];
-            }
-        }
 
         public int CompareTo(MasterInfo other)
         {

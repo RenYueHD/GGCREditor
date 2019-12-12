@@ -7,11 +7,8 @@ namespace GGCREditorLib
     /// <summary>
     /// 机体信息(108Byte)
     /// </summary>
-    public class GundamInfo : IComparable<GundamInfo>
+    public class GundamInfo : GGCRUnitInfo<GundamFile>, IComparable<GundamInfo>
     {
-
-        private GundamFile gundamFile;
-
         private const int GROUP_IDX = 0;
         private const int HP_IDX = GROUP_IDX + 24;
         private const int ID_IDX = HP_IDX - 2;
@@ -34,34 +31,58 @@ namespace GGCREditorLib
         //体积 1byte
         private const int SIZE_IDX = HP_IDX + 71;
 
-        public string GroupName { get; set; }
+
+        public GundamInfo(GundamFile gundamFile, int index, int no)
+            : base(gundamFile, index, no)
+        {
+
+        }
+
+
+        public string GroupName
+        {
+            get
+            {
+                if (PkdFile.groups.ContainsKey(this.Group.ToString()))
+                {
+                    return PkdFile.groups[this.Group.ToString()];
+                }
+                else
+                {
+                    return "未知系列";
+                }
+            }
+        }
+
+        public string GundamName
+        {
+            get
+            {
+                if (this.ID < 0 || PkdFile.gundamName[this.ID] == null || PkdFile.gundamName[this.ID].Trim().Length == 0)
+                {
+                    return "未知";
+                }
+                else
+                {
+                    return PkdFile.gundamName[this.ID];
+                }
+            }
+        }
 
         public short Group
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + GROUP_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + GROUP_IDX);
             }
         }
 
-        /// <summary>
-        /// 索引,以HP值为0
-        /// </summary>
-        public int Index { get; set; }
-
-        public string GundamName { get; set; }
-
-        public GundamInfo(GundamFile gundamFile, int index)
-        {
-            this.gundamFile = gundamFile;
-            this.Index = index;
-        }
 
         public short ID
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + ID_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + ID_IDX);
             }
         }
 
@@ -69,7 +90,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + HP_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + HP_IDX);
             }
             set
             {
@@ -81,7 +102,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + EN_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + EN_IDX);
             }
             set
             {
@@ -93,7 +114,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + ACT_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + ACT_IDX);
             }
             set
             {
@@ -105,7 +126,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + DEF_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + DEF_IDX);
             }
             set
             {
@@ -117,7 +138,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + SPD_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + SPD_IDX);
             }
             set
             {
@@ -129,11 +150,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return gundamFile.Data[Index + MOVE_IDX];
+                return PkdFile.Data[Index + MOVE_IDX];
             }
             set
             {
-                gundamFile.Data[Index + MOVE_IDX] = value;
+                PkdFile.Data[Index + MOVE_IDX] = value;
             }
         }
 
@@ -141,11 +162,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return gundamFile.Data[Index + SIZE_IDX];
+                return PkdFile.Data[Index + SIZE_IDX];
             }
             set
             {
-                gundamFile.Data[Index + SIZE_IDX] = value;
+                PkdFile.Data[Index + SIZE_IDX] = value;
             }
         }
 
@@ -153,7 +174,7 @@ namespace GGCREditorLib
         {
             get
             {
-                string shiyin = Convert.ToString(BitConverter.ToInt16(gundamFile.Data, Index + EARTH_IDX), 8);
+                string shiyin = Convert.ToString(BitConverter.ToInt16(PkdFile.Data, Index + EARTH_IDX), 8);
 
                 int s = 5 - shiyin.Length;
                 for (int i = 0; i < s; i++)
@@ -173,7 +194,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + EARTH_SIZE_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + EARTH_SIZE_IDX);
             }
             set
             {
@@ -185,7 +206,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + SKILL_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX);
             }
             set
             {
@@ -197,7 +218,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + SKILL_IDX + 2);
+                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX + 2);
             }
             set
             {
@@ -209,7 +230,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + SKILL_IDX + 4);
+                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX + 4);
             }
             set
             {
@@ -221,7 +242,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + SKILL_IDX + 6);
+                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX + 6);
             }
             set
             {
@@ -233,7 +254,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + SKILL_IDX + 8);
+                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX + 8);
             }
             set
             {
@@ -245,7 +266,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(gundamFile.Data, Index + WEAPON_IDX);
+                return BitConverter.ToInt16(PkdFile.Data, Index + WEAPON_IDX);
             }
             set
             {
@@ -257,41 +278,16 @@ namespace GGCREditorLib
         {
             get
             {
-                return gundamFile.Data[Index + WEAPON_COUNT_IDX];
+                return PkdFile.Data[Index + WEAPON_COUNT_IDX];
             }
             set
             {
-                gundamFile.Data[Index + WEAPON_COUNT_IDX] = value;
+                PkdFile.Data[Index + WEAPON_COUNT_IDX] = value;
             }
         }
 
 
 
-        public string Address
-        {
-            get
-            {
-                return ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(this.Index));
-            }
-        }
-
-        private void save(int index, short value)
-        {
-            byte[] arr = BitConverter.GetBytes(value);
-            for (int i = 0; i < arr.Length; i++)
-            {
-                gundamFile.Data[index + i] = arr[i];
-            }
-        }
-
-        private void save(int index, int value)
-        {
-            byte[] arr = BitConverter.GetBytes(value);
-            for (int i = 0; i < arr.Length; i++)
-            {
-                gundamFile.Data[index + i] = arr[i];
-            }
-        }
 
         public int CompareTo(GundamInfo other)
         {

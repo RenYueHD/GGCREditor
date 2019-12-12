@@ -14,19 +14,18 @@ namespace GGCREditor
 {
     public partial class FrmEditPeople : Form
     {
-        private FrmEditPeople(string file)
+        private FrmEditPeople()
         {
             InitializeComponent();
-            tslblFIle.Text = file;
-            masterFile = new MasterFile(file);
-
+            masterFile = new MasterFile();
+            tslblFIle.Text = masterFile.FileName;
         }
 
-        public static FrmEditPeople CreateForm(string file)
+        public static FrmEditPeople CreateForm()
         {
             if (form == null)
             {
-                form = new FrmEditPeople(file);
+                form = new FrmEditPeople();
             }
             return form;
         }
@@ -105,11 +104,7 @@ namespace GGCREditor
 
         private void FrmEditPeople_Load(object sender, EventArgs e)
         {
-            //读取姓名数据 00002cc0
-            byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + "\\language\\schinese\\CharacterSpecList.tbl");
-            int idx = ByteHelper.FindFirstIndex(data, "2F 9F 00 00 00 00 00 00 00 00 00 00 00 00 00 00", 0) + 16;
 
-            string[] names = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
 
             using (StreamReader sr = new StreamReader("固有技能.txt"))
             {
@@ -154,27 +149,6 @@ namespace GGCREditor
             }
 
             masters = masterFile.ListMasters();
-            foreach (MasterInfo m in masters)
-            {
-                if (groups.ContainsKey(m.Group.ToString()))
-                {
-                    m.GroupName = groups[m.Group.ToString()];
-                }
-                else
-                {
-                    m.GroupName = "未知系列";
-                }
-
-                if (m.ID < 0 || names[m.ID] == null || names[m.ID].Trim().Length == 0)
-                {
-                    m.MasterName = "未知";
-                }
-                else
-                {
-                    m.MasterName = names[m.ID];
-                }
-            }
-
 
             lsMasters.DataSource = masters;
             lsMasters.DisplayMember = "MasterName";
@@ -206,7 +180,7 @@ namespace GGCREditor
                 List<MasterInfo> search = new List<MasterInfo>();
                 foreach (MasterInfo m in masters)
                 {
-                    if (m.MasterName.IndexOf(txtSearch.Text) >= 0)
+                    if ((m.GroupName + "-" + m.MasterName).IndexOf(txtSearch.Text) >= 0)
                     {
                         search.Add(m);
                     }
@@ -242,6 +216,7 @@ namespace GGCREditor
                 master.GuYou2 = (short)cboGuYou2.SelectedValue;
                 master.GuYou3 = (short)cboGuYou3.SelectedValue;
 
+                master.Last4 = short.Parse(txtLast4.Text);
 
                 masterFile.Save();
             }

@@ -9,16 +9,38 @@ namespace GGCREditorLib
     /// <summary>
     /// 机体文件数据
     /// </summary>
-    public class GundamFile
+    public class GundamFile : GGCRPkdFile
     {
-        public GundamFile(string file)
-        {
-            this.FileName = file;
-            this.Data = File.ReadAllBytes(file);
-        }
 
-        public byte[] Data { get; set; }
-        public string FileName { get; set; }
+        internal Dictionary<string, string> groups;
+        internal string[] weaponNames;
+        internal string[] gundamName;
+
+        public GundamFile()
+            : base(GGCRStaticConfig.MachineFile)
+        {
+            groups = new Dictionary<string, string>();
+            using (StreamReader sr = new StreamReader("系列代码.txt"))
+            {
+                string line = null;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        groups[arr[1]] = arr[0];
+                    }
+                }
+            }
+
+            byte[] data = File.ReadAllBytes(GGCRStaticConfig.MachineTxtFile);
+            int idx = ByteHelper.FindFirstIndex(data, "E5 85 89 E6 9D 9F E5 86", 0);
+
+            weaponNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+
+            idx = ByteHelper.FindFirstIndex(data, "E9 A3 9E E7 BF BC E9 AB", 0);
+            gundamName = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+        }
 
         /// <summary>
         /// 获取所有Master
@@ -38,30 +60,9 @@ namespace GGCREditorLib
             List<GundamInfo> list = new List<GundamInfo>();
             for (int i = 0; i < count + count2; i++)
             {
-                list.Add(getGundam(start + 32 + i * GGCRStaticConfig.GundamLength));
+                list.Add(new GundamInfo(this, start + 32 + i * GGCRStaticConfig.GundamLength, i));
             }
             return list;
-        }
-
-        /// <summary>
-        /// 通过地址获取机体信息
-        /// </summary>
-        /// <param name="addressHex"></param>
-        /// <returns></returns>
-        public GundamInfo getGundam(string addressHex)
-        {
-            int index = ByteHelper.Bytes2Int(ByteHelper.HexStringToByteArray(addressHex));
-            return getGundam(index);
-        }
-
-        /// <summary>
-        /// 通过索引获取机体信息
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public GundamInfo getGundam(int index)
-        {
-            return new GundamInfo(this, index);
         }
 
         public List<WeaponInfo> ListWeapons()
@@ -78,42 +79,10 @@ namespace GGCREditorLib
             List<WeaponInfo> list = new List<WeaponInfo>();
             for (int i = 0; i < count + count2; i++)
             {
-                list.Add(getWeapon(start + 28 + i * GGCRStaticConfig.WeaponLength));
+                list.Add(new WeaponInfo(this, start + 28 + i * GGCRStaticConfig.WeaponLength, i));
             }
             return list;
         }
 
-        /// <summary>
-        /// 通过地址获取武器信息
-        /// </summary>
-        /// <param name="addressHex"></param>
-        /// <returns></returns>
-        public WeaponInfo getWeapon(string addressHex)
-        {
-            int index = ByteHelper.Bytes2Int(ByteHelper.HexStringToByteArray(addressHex));
-            return getWeapon(index);
-        }
-
-        /// <summary>
-        /// 通过地址获取武器信息
-        /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
-        public WeaponInfo getWeapon(int index)
-        {
-            return new WeaponInfo(this, index);
-        }
-
-        /// <summary>
-        /// 保存文件
-        /// </summary>
-        public void Save()
-        {
-            using (FileStream fs = new FileStream(this.FileName, FileMode.Create, FileAccess.Write))
-            {
-                fs.Write(this.Data, 0, this.Data.Length);
-                fs.Flush();
-            }
-        }
     }
 }

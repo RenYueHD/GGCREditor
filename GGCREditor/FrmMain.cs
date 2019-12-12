@@ -56,8 +56,7 @@ namespace GGCREditor
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-            string url = this.currentDir + "\\resident\\CharacterSpecList.pkd";
-            FrmEditPeople form = FrmEditPeople.CreateForm(url);
+            FrmEditPeople form = FrmEditPeople.CreateForm();
             form.Show();
             form.BringToFront();
         }
@@ -74,69 +73,35 @@ namespace GGCREditor
                 enableAll();
             }
 
-            //GundamFile file = new GundamFile(this.currentDir + "\\resident\\MachineSpecList.pkd");
-
-            //int first = ByteHelper.Bytes2Int(ByteHelper.HexStringToByteArray("00096264"));
-            //WeaponInfo w = file.getWeapon(first);
-
-            //using (StreamWriter sw = new StreamWriter("武器数据.txt"))
-            //{
-            //    while (true)
-            //    {
-            //        try
-            //        {
-            //            sw.WriteLine("武器" + w.ID + ":" + ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(w.Index)).Replace(" ", ""));
-            //            w.Index += 36;
-            //        }
-            //        catch
-            //        {
-            //            sw.Flush();
-            //            break;
-            //        }
-            //    }
-            //}
-
         }
 
         private void enableAll()
         {
             btnEditMaster.Enabled = true;
             btnEditGundam.Enabled = true;
-            btnSearch.Enabled = true;
-            btnSearchWeapon.Enabled = true;
+            //btnSearch.Enabled = true;
+            //btnSearchWeapon.Enabled = true;
             btnEditWeapon.Enabled = true;
         }
 
         private void btnEditGundam_Click(object sender, EventArgs e)
         {
-            string url = this.currentDir + "\\resident\\MachineSpecList.pkd";
-
-            new FrmEditGundam(url).ShowDialog();
+            new FrmEditGundam().ShowDialog();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string url = this.currentDir + "\\resident\\MachineSpecList.pkd";
 
-            FrmSearchGundam form = FrmSearchGundam.CreateForm(url);
-            form.Show();
-            form.BringToFront();
         }
 
         private void btnSearchWeapon_Click(object sender, EventArgs e)
         {
-            string url = this.currentDir + "\\resident\\MachineSpecList.pkd";
 
-            FrmSearchWeapon form = FrmSearchWeapon.CreateForm(url);
-            form.Show();
-            form.BringToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string url = this.currentDir + "\\resident\\MachineSpecList.pkd";
-
-            FrmEditWeapon form = new FrmEditWeapon(url);
+            FrmEditWeapon form = new FrmEditWeapon();
             form.ShowDialog();
         }
     }

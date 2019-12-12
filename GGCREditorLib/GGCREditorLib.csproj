@@ -36,7 +36,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByteHelper.cs" />
+    <Compile Include="GGCRPkdFile.cs" />
     <Compile Include="GGCRStaticConfig.cs" />
+    <Compile Include="GGCRUnitInfo.cs" />
     <Compile Include="GundamFile.cs" />
     <Compile Include="WeaponInfo.cs" />
     <Compile Include="GundamInfo.cs" />

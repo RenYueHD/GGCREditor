@@ -12,12 +12,11 @@ namespace GGCREditor
 {
     public partial class FrmEditGundam : Form
     {
-        public FrmEditGundam(string file)
+        public FrmEditGundam()
         {
             InitializeComponent();
-            tslblFile.Text = file;
-
-            this.gundamFile = new GundamFile(file);
+            this.gundamFile = new GundamFile();
+            tslblFile.Text = gundamFile.FileName;
         }
 
         private GundamFile gundamFile;
@@ -96,39 +95,6 @@ namespace GGCREditor
 
 
             gundams = gundamFile.ListMachines();
-
-            byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + "\\language\\schinese\\MachineSpecList.tbl");
-            int idx = ByteHelper.FindFirstIndex(data, "E9 A3 9E E7 BF BC E9 AB", 0);
-
-            string[] names = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
-
-            Dictionary<string, string> groups = new Dictionary<string, string>();
-            using (StreamReader sr = new StreamReader("系列代码.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        groups[arr[1]] = arr[0];
-                    }
-                }
-            }
-            int i = 0;
-            foreach (GundamInfo g in gundams)
-            {
-                if (groups.ContainsKey(g.Group.ToString()))
-                {
-                    g.GroupName = groups[g.Group.ToString()];
-                }
-                else
-                {
-                    g.GroupName = "未知系列";
-                }
-                g.GundamName = names[i];
-                i++;
-            }
 
             lsGundam.DataSource = gundams;
             lsGundam.DisplayMember = "GundamName";
@@ -312,7 +278,7 @@ namespace GGCREditor
                 List<GundamInfo> search = new List<GundamInfo>();
                 foreach (GundamInfo m in gundams)
                 {
-                    if (m.GundamName.IndexOf(txtSearch.Text) >= 0)
+                    if ((m.GroupName + "-" + m.GundamName).IndexOf(txtSearch.Text) >= 0)
                     {
                         search.Add(m);
                     }
