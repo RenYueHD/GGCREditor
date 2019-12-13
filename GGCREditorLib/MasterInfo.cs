@@ -10,7 +10,7 @@ namespace GGCREditorLib
     public class MasterInfo : GGCRUnitInfo<MasterFile>, IComparable<MasterInfo>
     {
         private const int GROUP_IDX = 0;
-        private const int ID_IDX = SHEJI_IDX - 4;
+        private const int ID_IDX = GROUP_IDX + 28;
         private const int UNKNOW_IDX = SHEJI_IDX - 2;
         private const int SHEJI_IDX = GROUP_IDX + 32;
         private const int GEDOU_IDX = SHEJI_IDX + 2;
@@ -39,10 +39,15 @@ namespace GGCREditorLib
         }
 
 
+
         public string MasterName
         {
             get
             {
+                if (this.Group == 9990)
+                {
+                    return "生日月/日个位和=" + this.Data[6];
+                }
                 if (this.ID < 0 || PkdFile.masterNames[this.ID] == null || PkdFile.masterNames[this.ID].Trim().Length == 0)
                 {
                     return "未知";
@@ -72,7 +77,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + GROUP_IDX);
+                return BitConverter.ToInt16(this.Data, GROUP_IDX);
             }
         }
 
@@ -80,7 +85,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + ID_IDX);
+                return BitConverter.ToInt16(this.Data, ID_IDX);
             }
         }
 
@@ -88,7 +93,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + UNKNOW_IDX);
+                return BitConverter.ToInt16(this.Data, UNKNOW_IDX);
             }
         }
 
@@ -96,11 +101,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + SHEJI_IDX);
+                return BitConverter.ToInt16(this.Data, SHEJI_IDX);
             }
             set
             {
-                save(Index + SHEJI_IDX, value);
+                save(SHEJI_IDX, value);
             }
         }
 
@@ -108,11 +113,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + GEDOU_IDX);
+                return BitConverter.ToInt16(this.Data, GEDOU_IDX);
             }
             set
             {
-                save(Index + GEDOU_IDX, value);
+                save(GEDOU_IDX, value);
             }
         }
 
@@ -120,11 +125,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + SHOUBEI_IDX);
+                return BitConverter.ToInt16(this.Data, SHOUBEI_IDX);
             }
             set
             {
-                save(Index + SHOUBEI_IDX, value);
+                save(SHOUBEI_IDX, value);
             }
         }
 
@@ -132,11 +137,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + FANYIN_IDX);
+                return BitConverter.ToInt16(this.Data, FANYIN_IDX);
             }
             set
             {
-                save(Index + FANYIN_IDX, value);
+                save(FANYIN_IDX, value);
             }
         }
 
@@ -144,11 +149,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + JUEXIN_IDX);
+                return BitConverter.ToInt16(this.Data, JUEXIN_IDX);
             }
             set
             {
-                save(Index + JUEXIN_IDX, value);
+                save(JUEXIN_IDX, value);
             }
         }
 
@@ -156,11 +161,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + ZHIHUI_IDX);
+                return BitConverter.ToInt16(this.Data, ZHIHUI_IDX);
             }
             set
             {
-                save(Index + ZHIHUI_IDX, value);
+                save(ZHIHUI_IDX, value);
             }
         }
 
@@ -168,11 +173,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + FUZUO_IDX);
+                return BitConverter.ToInt16(this.Data, FUZUO_IDX);
             }
             set
             {
-                save(Index + FUZUO_IDX, value);
+                save(FUZUO_IDX, value);
             }
         }
 
@@ -180,11 +185,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + TONGXUN_IDX);
+                return BitConverter.ToInt16(this.Data, TONGXUN_IDX);
             }
             set
             {
-                save(Index + TONGXUN_IDX, value);
+                save(TONGXUN_IDX, value);
             }
         }
 
@@ -192,11 +197,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + CAODUO_IDX);
+                return BitConverter.ToInt16(this.Data, CAODUO_IDX);
             }
             set
             {
-                save(Index + CAODUO_IDX, value);
+                save(CAODUO_IDX, value);
             }
         }
 
@@ -204,11 +209,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + WEIXIU_IDX);
+                return BitConverter.ToInt16(this.Data, WEIXIU_IDX);
             }
             set
             {
-                save(Index + WEIXIU_IDX, value);
+                save(WEIXIU_IDX, value);
             }
         }
 
@@ -216,11 +221,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + MEILI_IDX);
+                return BitConverter.ToInt16(this.Data, MEILI_IDX);
             }
             set
             {
-                save(Index + MEILI_IDX, value);
+                save(MEILI_IDX, value);
             }
         }
 
@@ -228,11 +233,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + JINYAN_IDX);
+                return BitConverter.ToInt16(this.Data, JINYAN_IDX);
             }
             set
             {
-                save(Index + JINYAN_IDX, value);
+                save(JINYAN_IDX, value);
             }
         }
 
@@ -240,11 +245,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + CHENGZHANG_IDX);
+                return BitConverter.ToInt16(this.Data, CHENGZHANG_IDX);
             }
             set
             {
-                save(Index + CHENGZHANG_IDX, value);
+                save(CHENGZHANG_IDX, value);
             }
         }
 
@@ -252,11 +257,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + GUYOU1_IDX);
+                return BitConverter.ToInt16(this.Data, GUYOU1_IDX);
             }
             set
             {
-                save(Index + GUYOU1_IDX, value);
+                save(GUYOU1_IDX, value);
             }
         }
 
@@ -264,11 +269,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + GUYOU2_IDX);
+                return BitConverter.ToInt16(this.Data, GUYOU2_IDX);
             }
             set
             {
-                save(Index + GUYOU2_IDX, value);
+                save(GUYOU2_IDX, value);
             }
         }
 
@@ -277,11 +282,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + GUYOU3_IDX);
+                return BitConverter.ToInt16(this.Data, GUYOU3_IDX);
             }
             set
             {
-                save(Index + GUYOU3_IDX, value);
+                save(GUYOU3_IDX, value);
             }
         }
 
@@ -289,14 +294,37 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + LAST4_IDX);
+                return BitConverter.ToInt16(this.Data, LAST4_IDX);
             }
             set
             {
-                save(Index + LAST4_IDX, value);
+                save(LAST4_IDX, value);
             }
         }
 
+        public override int UnitLength
+        {
+            get
+            {
+                return 112;
+            }
+        }
+
+        public override int UUID_START
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public override int UUID_LENGTH
+        {
+            get
+            {
+                return 8;
+            }
+        }
 
         public int CompareTo(MasterInfo other)
         {

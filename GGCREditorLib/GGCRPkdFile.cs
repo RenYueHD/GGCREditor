@@ -14,18 +14,19 @@ namespace GGCREditorLib
             this.Data = File.ReadAllBytes(file);
         }
 
-        internal byte[] Data { get; set; }
+        internal byte[] Data { get; }
         public string FileName { get; set; }
 
 
         /// <summary>
         /// 保存文件
         /// </summary>
-        public void Save()
+        internal void Write(int index, byte[] data)
         {
-            using (FileStream fs = new FileStream(this.FileName, FileMode.Create, FileAccess.Write))
+            using (FileStream fs = new FileStream(this.FileName, FileMode.Open, FileAccess.Write))
             {
-                fs.Write(this.Data, 0, this.Data.Length);
+                fs.Position = index;
+                fs.Write(data, 0, data.Length);
                 fs.Flush();
             }
         }

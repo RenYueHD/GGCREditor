@@ -38,7 +38,6 @@ namespace GGCREditorLib
 
         }
 
-
         public string GroupName
         {
             get
@@ -73,7 +72,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + GROUP_IDX);
+                return BitConverter.ToInt16(this.Data, GROUP_IDX);
             }
         }
 
@@ -82,7 +81,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + ID_IDX);
+                return BitConverter.ToInt16(this.Data, ID_IDX);
             }
         }
 
@@ -90,11 +89,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + HP_IDX);
+                return BitConverter.ToInt16(this.Data, HP_IDX);
             }
             set
             {
-                save(Index + HP_IDX, value);
+                save(HP_IDX, value);
             }
         }
 
@@ -102,11 +101,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + EN_IDX);
+                return BitConverter.ToInt16(this.Data, EN_IDX);
             }
             set
             {
-                save(Index + EN_IDX, value);
+                save(EN_IDX, value);
             }
         }
 
@@ -114,11 +113,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + ACT_IDX);
+                return BitConverter.ToInt16(this.Data, ACT_IDX);
             }
             set
             {
-                save(Index + ACT_IDX, value);
+                save(ACT_IDX, value);
             }
         }
 
@@ -126,11 +125,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + DEF_IDX);
+                return BitConverter.ToInt16(this.Data, DEF_IDX);
             }
             set
             {
-                save(Index + DEF_IDX, value);
+                save(DEF_IDX, value);
             }
         }
 
@@ -138,11 +137,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + SPD_IDX);
+                return BitConverter.ToInt16(this.Data, SPD_IDX);
             }
             set
             {
-                save(Index + SPD_IDX, value);
+                save(SPD_IDX, value);
             }
         }
 
@@ -150,11 +149,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + MOVE_IDX];
+                return this.Data[MOVE_IDX];
             }
             set
             {
-                PkdFile.Data[Index + MOVE_IDX] = value;
+                save(MOVE_IDX, value);
             }
         }
 
@@ -162,11 +161,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + SIZE_IDX];
+                return this.Data[SIZE_IDX];
             }
             set
             {
-                PkdFile.Data[Index + SIZE_IDX] = value;
+                save(SIZE_IDX, value);
             }
         }
 
@@ -174,19 +173,11 @@ namespace GGCREditorLib
         {
             get
             {
-                string shiyin = Convert.ToString(BitConverter.ToInt16(PkdFile.Data, Index + EARTH_IDX), 8);
-
-                int s = 5 - shiyin.Length;
-                for (int i = 0; i < s; i++)
-                {
-                    shiyin = "0" + shiyin;
-                }
-                return shiyin;
+                return Convert.ToString(BitConverter.ToInt16(this.Data, EARTH_IDX), 8).PadLeft(5, '0');
             }
             set
             {
-                short v = Convert.ToInt16(value, 8);
-                save(Index + EARTH_IDX, v);
+                save(EARTH_IDX, Convert.ToInt16(value, 8));
             }
         }
 
@@ -194,11 +185,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + EARTH_SIZE_IDX);
+                return BitConverter.ToInt16(this.Data, EARTH_SIZE_IDX);
             }
             set
             {
-                save(Index + EARTH_SIZE_IDX, value);
+                save(EARTH_SIZE_IDX, value);
             }
         }
 
@@ -206,11 +197,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX);
+                return BitConverter.ToInt16(this.Data, SKILL_IDX);
             }
             set
             {
-                save(Index + SKILL_IDX, value);
+                save(SKILL_IDX, value);
             }
         }
 
@@ -218,11 +209,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX + 2);
+                return BitConverter.ToInt16(this.Data, SKILL_IDX + 2);
             }
             set
             {
-                save(Index + SKILL_IDX + 2, value);
+                save(SKILL_IDX + 2, value);
             }
         }
 
@@ -230,11 +221,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX + 4);
+                return BitConverter.ToInt16(this.Data, SKILL_IDX + 4);
             }
             set
             {
-                save(Index + SKILL_IDX + 4, value);
+                save(SKILL_IDX + 4, value);
             }
         }
 
@@ -242,11 +233,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX + 6);
+                return BitConverter.ToInt16(this.Data, SKILL_IDX + 6);
             }
             set
             {
-                save(Index + SKILL_IDX + 6, value);
+                save(SKILL_IDX + 6, value);
             }
         }
 
@@ -254,11 +245,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + SKILL_IDX + 8);
+                return BitConverter.ToInt16(this.Data, SKILL_IDX + 8);
             }
             set
             {
-                save(Index + SKILL_IDX + 8, value);
+                save(SKILL_IDX + 8, value);
             }
         }
 
@@ -266,11 +257,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + WEAPON_IDX);
+                return BitConverter.ToInt16(this.Data, WEAPON_IDX);
             }
             set
             {
-                save(Index + WEAPON_IDX, value);
+                save(WEAPON_IDX, value);
             }
         }
 
@@ -278,15 +269,38 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + WEAPON_COUNT_IDX];
+                return this.Data[WEAPON_COUNT_IDX];
             }
             set
             {
-                PkdFile.Data[Index + WEAPON_COUNT_IDX] = value;
+                save(WEAPON_COUNT_IDX, value);
             }
         }
 
 
+        public override int UnitLength
+        {
+            get
+            {
+                return 108;
+            }
+        }
+
+        public override int UUID_START
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public override int UUID_LENGTH
+        {
+            get
+            {
+                return 8;
+            }
+        }
 
 
         public int CompareTo(GundamInfo other)

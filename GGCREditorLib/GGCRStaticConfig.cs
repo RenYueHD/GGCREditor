@@ -42,6 +42,22 @@ namespace GGCREditor
             }
         }
 
+        public static string AbilityFile
+        {
+            get
+            {
+                return PATH + "\\resident\\AbilitySpecList.cdb";
+            }
+        }
+
+        public static string AbilityTxtFile
+        {
+            get
+            {
+                return PATH + @"\language\schinese\AbilitySpecList.tbl";
+            }
+        }
+
         public static string MachineTxtFile
         {
             get

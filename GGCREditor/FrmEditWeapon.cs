@@ -289,7 +289,7 @@ namespace GGCREditor
 
                 weapon.Range = short.Parse(cboRange.SelectedValue.ToString());
 
-                gundamFile.Save();
+                weapon.Save();
             }
         }
 

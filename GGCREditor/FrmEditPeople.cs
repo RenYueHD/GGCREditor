@@ -239,7 +239,7 @@ namespace GGCREditor
 
                 master.Last4 = short.Parse(txtLast4.Text);
 
-                masterFile.Save();
+                master.Save();
             }
         }
 

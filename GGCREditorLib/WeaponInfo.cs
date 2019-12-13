@@ -12,7 +12,7 @@ namespace GGCREditorLib
 
         private const int GROUP_IDX = 0;
         private const int ID_IDX = GROUP_IDX + 8;       //武器编号 2byte
-        private const int RANGE = ID_IDX + 2;       //射程 2byte
+        private const int RANGE_IDX = ID_IDX + 2;       //射程 2byte
         private const int POWER_IDX = ID_IDX + 4;        //威力/100  2byte
         private const int EN_IDX = POWER_IDX + 2;   //EN消费 2byte
         private const int MP_IDX = POWER_IDX + 4;   //MP消费 2byte
@@ -69,7 +69,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + GROUP_IDX);
+                return BitConverter.ToInt16(this.Data, GROUP_IDX);
             }
         }
 
@@ -78,7 +78,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + ID_IDX);
+                return BitConverter.ToInt16(this.Data, ID_IDX);
             }
         }
 
@@ -86,11 +86,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + RANGE);
+                return BitConverter.ToInt16(this.Data, RANGE_IDX);
             }
             set
             {
-                save(Index + RANGE, value);
+                save(RANGE_IDX, value);
             }
         }
 
@@ -98,11 +98,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + POWER_IDX) * 100;
+                return BitConverter.ToInt16(this.Data, POWER_IDX) * 100;
             }
             set
             {
-                save(Index + POWER_IDX, (short)value / 100);
+                save(POWER_IDX, (short)value / 100);
             }
         }
 
@@ -110,11 +110,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + EN_IDX);
+                return BitConverter.ToInt16(this.Data, EN_IDX);
             }
             set
             {
-                save(Index + EN_IDX, value);
+                save(EN_IDX, value);
             }
         }
 
@@ -122,11 +122,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + MP_IDX);
+                return BitConverter.ToInt16(this.Data, MP_IDX);
             }
             set
             {
-                save(Index + MP_IDX, value);
+                save(MP_IDX, value);
             }
         }
 
@@ -134,19 +134,11 @@ namespace GGCREditorLib
         {
             get
             {
-                string shiyin = Convert.ToString(BitConverter.ToInt16(PkdFile.Data, Index + ACT_EARTH_IDX), 2);
-
-                int s = 10 - shiyin.Length;
-                for (int i = 0; i < s; i++)
-                {
-                    shiyin = "0" + shiyin;
-                }
-                return shiyin;
+                return Convert.ToString(BitConverter.ToInt16(this.Data, ACT_EARTH_IDX), 2).PadLeft(10, '0');
             }
             set
             {
-                short v = Convert.ToInt16(value, 2);
-                save(Index + ACT_EARTH_IDX, v);
+                save(ACT_EARTH_IDX, Convert.ToInt16(value, 2));
             }
         }
 
@@ -154,11 +146,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + MOVE_ACT_IDX];
+                return this.Data[MOVE_ACT_IDX];
             }
             set
             {
-                PkdFile.Data[Index + MOVE_ACT_IDX] = value;
+                save(MOVE_ACT_IDX, value);
             }
         }
 
@@ -166,11 +158,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + ICO_IDX];
+                return this.Data[ICO_IDX];
             }
             set
             {
-                PkdFile.Data[Index + ICO_IDX] = value;
+                save(ICO_IDX, value);
             }
         }
 
@@ -178,11 +170,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + PROPER_IDX];
+                return this.Data[PROPER_IDX];
             }
             set
             {
-                PkdFile.Data[Index + PROPER_IDX] = value;
+                save(PROPER_IDX, value);
             }
         }
 
@@ -190,11 +182,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + SPEC_IDX];
+                return this.Data[SPEC_IDX];
             }
             set
             {
-                PkdFile.Data[Index + SPEC_IDX] = value;
+                save(SPEC_IDX, value);
             }
         }
 
@@ -202,11 +194,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return BitConverter.ToInt16(PkdFile.Data, Index + MP_LIMIT_IDX);
+                return BitConverter.ToInt16(this.Data, MP_LIMIT_IDX);
             }
             set
             {
-                save(Index + MP_LIMIT_IDX, value);
+                save(MP_LIMIT_IDX, value);
             }
         }
 
@@ -214,19 +206,11 @@ namespace GGCREditorLib
         {
             get
             {
-                string shiyin = Convert.ToString(BitConverter.ToInt16(PkdFile.Data, Index + USE_EARTH_IDX), 2);
-
-                int s = 5 - shiyin.Length;
-                for (int i = 0; i < s; i++)
-                {
-                    shiyin = "0" + shiyin;
-                }
-                return shiyin;
+                return Convert.ToString(BitConverter.ToInt16(this.Data, USE_EARTH_IDX), 2).PadLeft(5, '0');
             }
             set
             {
-                short v = Convert.ToInt16(value, 2);
-                save(Index + USE_EARTH_IDX, v);
+                save(USE_EARTH_IDX, Convert.ToInt16(value, 2));
             }
         }
 
@@ -234,11 +218,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + RANGE1_IDX];
+                return this.Data[RANGE1_IDX];
             }
             set
             {
-                PkdFile.Data[Index + RANGE1_IDX] = value;
+                save(RANGE1_IDX, value);
             }
         }
 
@@ -246,11 +230,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + RANGE2_IDX];
+                return this.Data[RANGE2_IDX];
             }
             set
             {
-                PkdFile.Data[Index + RANGE2_IDX] = value;
+                save(RANGE2_IDX, value);
             }
         }
 
@@ -258,11 +242,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + HIT_RATE_IDX];
+                return this.Data[HIT_RATE_IDX];
             }
             set
             {
-                PkdFile.Data[Index + HIT_RATE_IDX] = value;
+                save(HIT_RATE_IDX, value);
             }
         }
 
@@ -270,11 +254,11 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + CT_RATE_IDX];
+                return this.Data[CT_RATE_IDX];
             }
             set
             {
-                PkdFile.Data[Index + CT_RATE_IDX] = value;
+                save(CT_RATE_IDX, value);
             }
         }
 
@@ -282,14 +266,38 @@ namespace GGCREditorLib
         {
             get
             {
-                return PkdFile.Data[Index + HIT_COUNT_IDX];
+                return this.Data[HIT_COUNT_IDX];
             }
             set
             {
-                PkdFile.Data[Index + HIT_COUNT_IDX] = value;
+                save(HIT_COUNT_IDX, value);
             }
         }
 
+
+        public override int UnitLength
+        {
+            get
+            {
+                return 36;
+            }
+        }
+
+        public override int UUID_START
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public override int UUID_LENGTH
+        {
+            get
+            {
+                return 10;
+            }
+        }
 
         public int CompareTo(WeaponInfo other)
         {

@@ -57,6 +57,8 @@ namespace GGCREditor
             cboSize.DisplayMember = "Value";
             cboSize.ValueMember = "Key";
 
+            int count = new AbilitySpecFile().AbilityCount;
+
             using (StreamReader sr = new StreamReader("机体能力.txt"))
             {
                 string line = null;
@@ -294,7 +296,7 @@ namespace GGCREditor
 
                 gundam.Earch = shiyin;
 
-                gundamFile.Save();
+                gundam.Save();
             }
         }
 
