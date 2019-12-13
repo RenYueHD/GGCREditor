@@ -85,11 +85,11 @@ namespace GGCREditorLib
             }
         }
 
-        public short HP
+        public int HP
         {
             get
             {
-                return BitConverter.ToInt16(this.Data, HP_IDX);
+                return BitConverter.ToInt32(this.Data, HP_IDX);
             }
             set
             {

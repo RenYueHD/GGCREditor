@@ -35,6 +35,10 @@
             this.txtEdit = new System.Windows.Forms.TextBox();
             this.btnEnsure = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsmiFile = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsmiState = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lsMain
@@ -86,11 +90,11 @@
             this.txtEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEdit.Enabled = false;
-            this.txtEdit.Location = new System.Drawing.Point(4, 382);
+            this.txtEdit.Location = new System.Drawing.Point(4, 383);
             this.txtEdit.Multiline = true;
             this.txtEdit.Name = "txtEdit";
             this.txtEdit.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtEdit.Size = new System.Drawing.Size(837, 156);
+            this.txtEdit.Size = new System.Drawing.Size(837, 141);
             this.txtEdit.TabIndex = 4;
             this.txtEdit.TextChanged += new System.EventHandler(this.txtEdit_TextChanged);
             // 
@@ -98,9 +102,9 @@
             // 
             this.btnEnsure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEnsure.Enabled = false;
-            this.btnEnsure.Location = new System.Drawing.Point(847, 382);
+            this.btnEnsure.Location = new System.Drawing.Point(847, 383);
             this.btnEnsure.Name = "btnEnsure";
-            this.btnEnsure.Size = new System.Drawing.Size(86, 101);
+            this.btnEnsure.Size = new System.Drawing.Size(86, 86);
             this.btnEnsure.TabIndex = 5;
             this.btnEnsure.Text = "确定";
             this.btnEnsure.UseVisualStyleBackColor = true;
@@ -110,7 +114,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(847, 489);
+            this.btnSave.Location = new System.Drawing.Point(847, 475);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(86, 49);
             this.btnSave.TabIndex = 5;
@@ -118,11 +122,37 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiFile,
+            this.tsmiState});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 529);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(936, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tsmiFile
+            // 
+            this.tsmiFile.Name = "tsmiFile";
+            this.tsmiFile.Size = new System.Drawing.Size(131, 17);
+            this.tsmiFile.Text = "toolStripStatusLabel1";
+            // 
+            // tsmiState
+            // 
+            this.tsmiState.Name = "tsmiState";
+            this.tsmiState.Size = new System.Drawing.Size(628, 17);
+            this.tsmiState.Spring = true;
+            this.tsmiState.Text = "toolStripStatusLabel1";
+            this.tsmiState.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FrmEditText
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 550);
+            this.ClientSize = new System.Drawing.Size(936, 551);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnEnsure);
             this.Controls.Add(this.txtEdit);
@@ -134,6 +164,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "文本修改";
             this.Load += new System.EventHandler(this.FrmEditText_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +180,8 @@
         private System.Windows.Forms.TextBox txtEdit;
         private System.Windows.Forms.Button btnEnsure;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tsmiFile;
+        private System.Windows.Forms.ToolStripStatusLabel tsmiState;
     }
 }

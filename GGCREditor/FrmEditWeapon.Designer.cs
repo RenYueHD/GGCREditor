@@ -34,6 +34,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboMpLimit = new System.Windows.Forms.ComboBox();
+            this.cboRange = new System.Windows.Forms.ComboBox();
             this.cboSpec = new System.Windows.Forms.ComboBox();
             this.cboIco = new System.Windows.Forms.ComboBox();
             this.cboProp = new System.Windows.Forms.ComboBox();
@@ -85,9 +86,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cboRange = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -198,6 +198,15 @@
             this.cboMpLimit.Name = "cboMpLimit";
             this.cboMpLimit.Size = new System.Drawing.Size(144, 20);
             this.cboMpLimit.TabIndex = 25;
+            // 
+            // cboRange
+            // 
+            this.cboRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRange.FormattingEnabled = true;
+            this.cboRange.Location = new System.Drawing.Point(310, 164);
+            this.cboRange.Name = "cboRange";
+            this.cboRange.Size = new System.Drawing.Size(144, 20);
+            this.cboRange.TabIndex = 25;
             // 
             // cboSpec
             // 
@@ -634,7 +643,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblFile,
-            this.toolStripStatusLabel2,
+            this.tsmiLblState,
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 585);
             this.statusStrip1.Name = "statusStrip1";
@@ -648,26 +657,19 @@
             this.tslblFile.Size = new System.Drawing.Size(131, 17);
             this.tslblFile.Text = "toolStripStatusLabel1";
             // 
-            // toolStripStatusLabel2
+            // tsmiLblState
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(548, 17);
-            this.toolStripStatusLabel2.Spring = true;
+            this.tsmiLblState.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
+            this.tsmiLblState.Name = "tsmiLblState";
+            this.tsmiLblState.Size = new System.Drawing.Size(512, 17);
+            this.tsmiLblState.Spring = true;
+            this.tsmiLblState.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(133, 17);
             this.toolStripStatusLabel1.Text = "感谢mediar的武器数据";
-            // 
-            // cboRange
-            // 
-            this.cboRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboRange.FormattingEnabled = true;
-            this.cboRange.Location = new System.Drawing.Point(310, 164);
-            this.cboRange.Name = "cboRange";
-            this.cboRange.Size = new System.Drawing.Size(144, 20);
-            this.cboRange.TabIndex = 25;
             // 
             // FrmEditWeapon
             // 
@@ -743,7 +745,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel tsmiLblState;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox cboProp;
         private System.Windows.Forms.ComboBox cboSpec;

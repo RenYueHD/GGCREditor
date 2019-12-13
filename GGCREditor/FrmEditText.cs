@@ -63,6 +63,8 @@ namespace GGCREditor
                 btnEnsure.Enabled = true;
                 txtEdit.Text = txt.Text;
             }
+            tsmiState.Text = "等待修改";
+            tsmiState.ForeColor = Color.Black;
         }
 
         private void btnEnsure_Click(object sender, EventArgs e)
@@ -76,6 +78,9 @@ namespace GGCREditor
           //  filterLs();
             lsMain.SelectedItem = kv;
             btnSave.Enabled = true;
+
+            tsmiState.Text = "修改成功,等待写入";
+            tsmiState.ForeColor = Color.Blue;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -86,7 +91,9 @@ namespace GGCREditor
                 data.Add(kv.Text);
             }
             tblFile.Save(data);
-            MessageBox.Show("写入成功");
+
+            tsmiState.Text = "写入成功";
+            tsmiState.ForeColor = Color.Green;
         }
 
         private void filterLs()

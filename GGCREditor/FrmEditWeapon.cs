@@ -245,6 +245,8 @@ namespace GGCREditor
             {
                 LoadData(null);
             }
+            tsmiLblState.Text = "等待修改";
+            tsmiLblState.ForeColor = Color.Black;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -252,8 +254,6 @@ namespace GGCREditor
             WeaponInfo weapon = lsGundam.SelectedItem as WeaponInfo;
             if (weapon != null)
             {
-                btnSave.Enabled = false;
-
                 weapon.POWER = int.Parse(txtPower.Text);
                 weapon.EN = short.Parse(txtEN.Text);
                 weapon.MP = short.Parse(txtMP.Text);
@@ -271,6 +271,9 @@ namespace GGCREditor
                 weapon.Range = short.Parse(cboRange.SelectedValue.ToString());
 
                 weapon.Save();
+
+                tsmiLblState.Text = "保存成功";
+                tsmiLblState.ForeColor = Color.Green;
             }
         }
 

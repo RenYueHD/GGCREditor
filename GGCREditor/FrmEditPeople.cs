@@ -168,6 +168,8 @@ namespace GGCREditor
             {
                 LoadData(null);
             }
+            tsmiLblState.Text = "等待修改";
+            tsmiLblState.ForeColor = Color.Black;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -199,8 +201,6 @@ namespace GGCREditor
             MasterInfo master = lsMasters.SelectedItem as MasterInfo;
             if (master != null)
             {
-                btnSave.Enabled = false;
-
                 master.SheJi = short.Parse(txtSheJi.Text);
                 master.GeDou = short.Parse(txtGeDou.Text);
                 master.ShouBei = short.Parse(txtShouBei.Text);
@@ -243,6 +243,9 @@ namespace GGCREditor
                 master.Last4 = short.Parse(txtLast4.Text);
 
                 master.Save();
+
+                tsmiLblState.Text = "保存成功";
+                tsmiLblState.ForeColor = Color.Green;
             }
         }
 

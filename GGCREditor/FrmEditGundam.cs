@@ -252,6 +252,8 @@ namespace GGCREditor
             {
                 LoadData(null);
             }
+            tsmiLblState.Text = "等待修改";
+            tsmiLblState.ForeColor = Color.Black;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -259,9 +261,7 @@ namespace GGCREditor
             GundamInfo gundam = lsGundam.SelectedItem as GundamInfo;
             if (gundam != null)
             {
-                btnSave.Enabled = false;
-
-                gundam.HP = short.Parse(txtHP.Text);
+                gundam.HP = int.Parse(txtHP.Text);
                 gundam.EN = short.Parse(txtEN.Text);
                 gundam.ACT = short.Parse(txtAct.Text);
                 gundam.DEF = short.Parse(txtDef.Text);
@@ -281,6 +281,9 @@ namespace GGCREditor
                 gundam.Earch = shiyin;
 
                 gundam.Save();
+
+                tsmiLblState.Text = "保存成功";
+                tsmiLblState.ForeColor = Color.Green;
             }
         }
 

@@ -79,7 +79,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -548,7 +548,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tslblFIle,
-            this.toolStripStatusLabel2,
+            this.tsmiLblState,
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 572);
             this.statusStrip1.Name = "statusStrip1";
@@ -562,11 +562,13 @@
             this.tslblFIle.Size = new System.Drawing.Size(131, 17);
             this.tslblFIle.Text = "toolStripStatusLabel1";
             // 
-            // toolStripStatusLabel2
+            // tsmiLblState
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(516, 17);
-            this.toolStripStatusLabel2.Spring = true;
+            this.tsmiLblState.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
+            this.tsmiLblState.Name = "tsmiLblState";
+            this.tsmiLblState.Size = new System.Drawing.Size(480, 17);
+            this.tsmiLblState.Spring = true;
+            this.tsmiLblState.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripStatusLabel1
             // 
@@ -646,7 +648,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tslblFIle;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel tsmiLblState;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtUnKnow;
