@@ -7,12 +7,13 @@ namespace GGCREditorLib
 {
     public class GGCRTblFile : GGCRResourceFile
     {
+        private int Count;
         //首个字符位置
         private int CharStart;
         public GGCRTblFile(string file) : base(file)
         {
             this.CharStart = BitConverter.ToInt32(this.Data, 16);
-
+            this.Count = BitConverter.ToInt32(this.Data, 12);
         }
 
         public List<string> ListAllText()
