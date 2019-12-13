@@ -34,10 +34,51 @@ namespace GGCREditor
         private GundamFile gundamFile;
         private List<WeaponInfo> weapons = new List<WeaponInfo>();
 
-        List<KeyValuePair<string, string>> icos = new List<KeyValuePair<string, string>>();
-        List<KeyValuePair<string, string>> prop = new List<KeyValuePair<string, string>>();
-        List<KeyValuePair<string, string>> spec = new List<KeyValuePair<string, string>>();
-        List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
+
+        private void bindAll()
+        {
+            #region 绑定元素
+
+            cboAE1.DataSource = GGCRUtil.ListActEarch();
+            cboAE2.DataSource = GGCRUtil.ListActEarch();
+            cboAE3.DataSource = GGCRUtil.ListActEarch();
+            cboAE4.DataSource = GGCRUtil.ListActEarch();
+            cboAE5.DataSource = GGCRUtil.ListActEarch();
+
+            cboAE1.DisplayMember = "Value";
+            cboAE2.DisplayMember = "Value";
+            cboAE3.DisplayMember = "Value";
+            cboAE4.DisplayMember = "Value";
+            cboAE5.DisplayMember = "Value";
+
+            cboAE1.ValueMember = "Key";
+            cboAE2.ValueMember = "Key";
+            cboAE3.ValueMember = "Key";
+            cboAE4.ValueMember = "Key";
+            cboAE5.ValueMember = "Key";
+
+            cboMpLimit.DataSource = GGCRUtil.ListWeaponMPLimit();
+            cboMpLimit.DisplayMember = "Value";
+            cboMpLimit.ValueMember = "Key";
+
+            cboProp.DataSource = GGCRUtil.ListWeaponProp();
+            cboProp.DisplayMember = "Value";
+            cboProp.ValueMember = "Key";
+            cboIco.DataSource = GGCRUtil.ListWeaponProp();
+            cboIco.DisplayMember = "Value";
+            cboIco.ValueMember = "Key";
+
+            cboSpec.DataSource = GGCRUtil.ListWeaponSpec();
+            cboSpec.DisplayMember = "Value";
+            cboSpec.ValueMember = "Key";
+
+            cboRange.DataSource = GGCRUtil.ListWeaponRange();
+            cboRange.DisplayMember = "Value";
+            cboRange.ValueMember = "Key";
+
+            #endregion
+        }
+
 
         private void FrmEditGundam_Load(object sender, EventArgs e)
         {
@@ -55,86 +96,7 @@ namespace GGCREditor
                 }
             }
 
-
-            cboAE1.DataSource = buildActEarch();
-            cboAE2.DataSource = buildActEarch();
-            cboAE3.DataSource = buildActEarch();
-            cboAE4.DataSource = buildActEarch();
-            cboAE5.DataSource = buildActEarch();
-
-            cboAE1.DisplayMember = "Value";
-            cboAE2.DisplayMember = "Value";
-            cboAE3.DisplayMember = "Value";
-            cboAE4.DisplayMember = "Value";
-            cboAE5.DisplayMember = "Value";
-
-            cboAE1.ValueMember = "Key";
-            cboAE2.ValueMember = "Key";
-            cboAE3.ValueMember = "Key";
-            cboAE4.ValueMember = "Key";
-            cboAE5.ValueMember = "Key";
-
-            cboMpLimit.DataSource = buildMP();
-            cboMpLimit.DisplayMember = "Value";
-            cboMpLimit.ValueMember = "Key";
-
-            using (StreamReader sr = new StreamReader("武器属性.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
-                        prop.Add(kv);
-                        icos.Add(kv);
-                    }
-                }
-            }
-
-            cboProp.DataSource = prop;
-            cboProp.DisplayMember = "Value";
-            cboProp.ValueMember = "Key";
-            cboIco.DataSource = icos;
-            cboIco.DisplayMember = "Value";
-            cboIco.ValueMember = "Key";
-
-            using (StreamReader sr = new StreamReader("武器效果.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
-                        spec.Add(kv);
-                    }
-                }
-            }
-
-            cboSpec.DataSource = spec;
-            cboSpec.DisplayMember = "Value";
-            cboSpec.ValueMember = "Key";
-
-            using (StreamReader sr = new StreamReader("射程代码.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
-                        range.Add(kv);
-                    }
-                }
-            }
-
-            cboRange.DataSource = range;
-            cboRange.DisplayMember = "Value";
-            cboRange.ValueMember = "Key";
+            bindAll();
 
             weapons = new List<WeaponInfo>();
 
@@ -151,23 +113,7 @@ namespace GGCREditor
             lsGundam.ValueMember = "Address";
         }
 
-        private List<KeyValuePair<string, string>> buildActEarch()
-        {
-            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
-            list.Add(new KeyValuePair<string, string>("00", "无效"));
-            list.Add(new KeyValuePair<string, string>("01", "减半"));
-            list.Add(new KeyValuePair<string, string>("10", "正常"));
-            return list;
-        }
 
-        private List<KeyValuePair<string, string>> buildMP()
-        {
-            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
-            list.Add(new KeyValuePair<string, string>("0", "普通"));
-            list.Add(new KeyValuePair<string, string>("4", "超强势"));
-            list.Add(new KeyValuePair<string, string>("5", "超一击"));
-            return list;
-        }
 
         private void LoadData(WeaponInfo weapon)
         {
@@ -181,8 +127,6 @@ namespace GGCREditor
                 txtEN.Text = weapon.EN.ToString();
                 txtMP.Text = weapon.MP.ToString();
                 txtMoveAct.Text = weapon.MoveACT.ToString();
-
-                cboMpLimit.SelectedValue = weapon.MPLimit.ToString();
 
                 txtHitRate.Text = weapon.HitRate.ToString();
                 txtCT.Text = weapon.CT.ToString();
@@ -203,10 +147,47 @@ namespace GGCREditor
                 cboAE4.SelectedValue = "" + actEarch[2] + actEarch[3];
                 cboAE5.SelectedValue = "" + actEarch[0] + actEarch[1];
 
+                cboMpLimit.SelectedValue = weapon.MPLimit.ToString();
+                if (cboMpLimit.SelectedValue == null)
+                {
+                    GGCRUtil.AddWeaponMPLimit(weapon.MPLimit, "未知" + weapon.MPLimit);
+                    bindAll();
+                    LoadData(weapon);
+                    return;
+                }
+
                 cboProp.SelectedValue = weapon.PROPER.ToString();
+                if (cboProp.SelectedValue == null)
+                {
+                    GGCRUtil.AddWeaponProp(weapon.PROPER, "未知" + weapon.PROPER);
+                    bindAll();
+                    LoadData(weapon);
+                    return;
+                }
                 cboIco.SelectedValue = weapon.ICO.ToString();
+                if (cboIco.SelectedValue == null)
+                {
+                    GGCRUtil.AddWeaponSpec(weapon.ICO, "未知" + weapon.ICO);
+                    bindAll();
+                    LoadData(weapon);
+                    return;
+                }
                 cboSpec.SelectedValue = weapon.Spec.ToString();
+                if (cboSpec.SelectedValue == null)
+                {
+                    GGCRUtil.AddWeaponSpec(weapon.Spec, "未知" + weapon.Spec);
+                    bindAll();
+                    LoadData(weapon);
+                    return;
+                }
                 cboRange.SelectedValue = weapon.Range.ToString();
+                if (cboRange.SelectedValue == null)
+                {
+                    GGCRUtil.AddWeaponRange(weapon.Range, "未知" + weapon.Range);
+                    bindAll();
+                    LoadData(weapon);
+                    return;
+                }
 
                 txtUnKnow.Text = weapon.Range.ToString();
 

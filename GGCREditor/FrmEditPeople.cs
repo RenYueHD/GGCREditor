@@ -33,10 +33,48 @@ namespace GGCREditor
         private static FrmEditPeople form;
 
         MasterFile masterFile = null;
-        List<MasterSkill> skills1 = new List<MasterSkill>();
-        List<MasterSkill> skills2 = new List<MasterSkill>();
-        List<MasterSkill> skills3 = new List<MasterSkill>();
         List<MasterInfo> masters = new List<MasterInfo>();
+
+        private void bindAll()
+        {
+            cboGuYou1.DataSource = GGCRUtil.ListPeopleSkill();
+            cboGuYou1.ValueMember = "Key";
+            cboGuYou1.DisplayMember = "Value";
+
+            cboGuYou2.DataSource = GGCRUtil.ListPeopleSkill();
+            cboGuYou2.ValueMember = "Key";
+            cboGuYou2.DisplayMember = "Value";
+
+            cboGuYou3.DataSource = GGCRUtil.ListPeopleSkill();
+            cboGuYou3.ValueMember = "Key";
+            cboGuYou3.DisplayMember = "Value";
+        }
+
+        private void FrmEditPeople_Load(object sender, EventArgs e)
+        {
+            bindAll();
+
+
+            Dictionary<string, string> groups = new Dictionary<string, string>();
+            using (StreamReader sr = new StreamReader("系列代码.txt"))
+            {
+                string line = null;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        groups[arr[1]] = arr[0];
+                    }
+                }
+            }
+
+            masters = masterFile.ListMasters();
+
+            lsMasters.DataSource = masters;
+            lsMasters.DisplayMember = "MasterName";
+        }
+
 
         private void LoadData(MasterInfo master)
         {
@@ -60,9 +98,30 @@ namespace GGCREditor
                 txtJinYan.Text = master.JinYan.ToString();
                 txtChenZhang.Text = master.ChengZhang.ToString();
 
-                cboGuYou1.SelectedValue = master.GuYou1;
-                cboGuYou2.SelectedValue = master.GuYou2;
-                cboGuYou3.SelectedValue = master.GuYou3;
+                cboGuYou1.SelectedValue = master.GuYou1.ToString();
+                if (cboGuYou1.SelectedValue == null)
+                {
+                    GGCRUtil.AddPeopleSkill(master.GuYou1, "未知" + master.GuYou1);
+                    bindAll();
+                    LoadData(master);
+                    return;
+                }
+                cboGuYou2.SelectedValue = master.GuYou2.ToString();
+                if (cboGuYou2.SelectedValue == null)
+                {
+                    GGCRUtil.AddPeopleSkill(master.GuYou2, "未知" + master.GuYou2);
+                    bindAll();
+                    LoadData(master);
+                    return;
+                }
+                cboGuYou3.SelectedValue = master.GuYou3.ToString();
+                if (cboGuYou3.SelectedValue == null)
+                {
+                    GGCRUtil.AddPeopleSkill(master.GuYou3, "未知" + master.GuYou3);
+                    bindAll();
+                    LoadData(master);
+                    return;
+                }
 
                 txtLast4.Text = master.Last4.ToString();
 
@@ -97,62 +156,6 @@ namespace GGCREditor
             }
         }
 
-        private void Clean()
-        {
-
-        }
-
-        private void FrmEditPeople_Load(object sender, EventArgs e)
-        {
-
-
-            using (StreamReader sr = new StreamReader("固有技能.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        MasterSkill skill = new MasterSkill() { SkillId = Convert.ToInt16(arr[0]), SkillName = arr[1] };
-                        skills1.Add(skill);
-                        skills2.Add(skill);
-                        skills3.Add(skill);
-                    }
-                }
-            }
-
-            cboGuYou1.DataSource = skills1;
-            cboGuYou1.ValueMember = "SkillId";
-            cboGuYou1.DisplayMember = "SkillName";
-
-            cboGuYou2.DataSource = skills2;
-            cboGuYou2.ValueMember = "SkillId";
-            cboGuYou2.DisplayMember = "SkillName";
-
-            cboGuYou3.DataSource = skills3;
-            cboGuYou3.ValueMember = "SkillId";
-            cboGuYou3.DisplayMember = "SkillName";
-
-            Dictionary<string, string> groups = new Dictionary<string, string>();
-            using (StreamReader sr = new StreamReader("系列代码.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        groups[arr[1]] = arr[0];
-                    }
-                }
-            }
-
-            masters = masterFile.ListMasters();
-
-            lsMasters.DataSource = masters;
-            lsMasters.DisplayMember = "MasterName";
-        }
 
         private void lsMasters_SelectedIndexChanged(object sender, EventArgs e)
         {

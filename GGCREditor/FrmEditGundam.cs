@@ -21,67 +21,35 @@ namespace GGCREditor
 
         private GundamFile gundamFile;
         private List<GundamInfo> gundams = new List<GundamInfo>();
-        private List<KeyValuePair<string, string>> skill1 = new List<KeyValuePair<string, string>>();
-        private List<KeyValuePair<string, string>> skill2 = new List<KeyValuePair<string, string>>();
-        private List<KeyValuePair<string, string>> skill3 = new List<KeyValuePair<string, string>>();
-        private List<KeyValuePair<string, string>> skill4 = new List<KeyValuePair<string, string>>();
-        private List<KeyValuePair<string, string>> skill5 = new List<KeyValuePair<string, string>>();
-        private List<KeyValuePair<string, string>> size = new List<KeyValuePair<string, string>>();
 
-        private void FrmEditGundam_Load(object sender, EventArgs e)
+
+        public void bindAll()
         {
-            e1 = buildEarth();
-            e2 = buildEarth();
-            e3 = buildEarth();
-            e4 = buildEarth();
-            e5 = buildEarth();
-            size = buildSize();
-
-            cboE1.DataSource = e1;
+            cboE1.DataSource = GGCRUtil.ListGundamEarth();
             cboE1.DisplayMember = "Value";
             cboE1.ValueMember = "Key";
-            cboE2.DataSource = e2;
+            cboE2.DataSource = GGCRUtil.ListGundamEarth();
             cboE2.DisplayMember = "Value";
             cboE2.ValueMember = "Key";
-            cboE3.DataSource = e3;
+            cboE3.DataSource = GGCRUtil.ListGundamEarth();
             cboE3.DisplayMember = "Value";
             cboE3.ValueMember = "Key";
-            cboE4.DataSource = e4;
+            cboE4.DataSource = GGCRUtil.ListGundamEarth();
             cboE4.DisplayMember = "Value";
             cboE4.ValueMember = "Key";
-            cboE5.DataSource = e5;
+            cboE5.DataSource = GGCRUtil.ListGundamEarth();
             cboE5.DisplayMember = "Value";
             cboE5.ValueMember = "Key";
 
-            cboSize.DataSource = size;
+            cboSize.DataSource = GGCRUtil.ListGundamSize();
             cboSize.DisplayMember = "Value";
             cboSize.ValueMember = "Key";
 
-            int count = new AbilitySpecFile().AbilityCount;
-
-            using (StreamReader sr = new StreamReader("机体能力.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        KeyValuePair<string, string> info = new KeyValuePair<string, string>(arr[0], arr[1]);
-                        skill1.Add(info);
-                        skill2.Add(info);
-                        skill3.Add(info);
-                        skill4.Add(info);
-                        skill5.Add(info);
-                    }
-                }
-            }
-
-            cboSkill1.DataSource = skill1;
-            cboSkill2.DataSource = skill2;
-            cboSkill3.DataSource = skill3;
-            cboSkill4.DataSource = skill4;
-            cboSkill5.DataSource = skill5;
+            cboSkill1.DataSource = GGCRUtil.ListGundamAbility();
+            cboSkill2.DataSource = GGCRUtil.ListGundamAbility();
+            cboSkill3.DataSource = GGCRUtil.ListGundamAbility();
+            cboSkill4.DataSource = GGCRUtil.ListGundamAbility();
+            cboSkill5.DataSource = GGCRUtil.ListGundamAbility();
 
             cboSkill1.DisplayMember = "Value";
             cboSkill2.DisplayMember = "Value";
@@ -94,7 +62,12 @@ namespace GGCREditor
             cboSkill3.ValueMember = "Key";
             cboSkill4.ValueMember = "Key";
             cboSkill5.ValueMember = "Key";
+        }
 
+        private void FrmEditGundam_Load(object sender, EventArgs e)
+        {
+
+            bindAll();
 
             gundams = gundamFile.ListMachines();
 
@@ -102,35 +75,6 @@ namespace GGCREditor
             lsGundam.DisplayMember = "GundamName";
             lsGundam.ValueMember = "Address";
         }
-
-        private List<KeyValuePair<string, string>> buildSize()
-        {
-            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
-            list.Add(new KeyValuePair<string, string>("1", "S"));
-            list.Add(new KeyValuePair<string, string>("2", "M"));
-            list.Add(new KeyValuePair<string, string>("3", "L"));
-            list.Add(new KeyValuePair<string, string>("5", "XL"));
-            list.Add(new KeyValuePair<string, string>("6", "XXL"));
-            return list;
-        }
-
-        private List<KeyValuePair<string, string>> buildEarth()
-        {
-            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
-            list.Add(new KeyValuePair<string, string>("0", "-"));
-            list.Add(new KeyValuePair<string, string>("1", "D"));
-            list.Add(new KeyValuePair<string, string>("2", "C"));
-            list.Add(new KeyValuePair<string, string>("3", "B"));
-            list.Add(new KeyValuePair<string, string>("4", "A"));
-            list.Add(new KeyValuePair<string, string>("5", "S"));
-            return list;
-        }
-
-        private List<KeyValuePair<string, string>> e1;
-        private List<KeyValuePair<string, string>> e2;
-        private List<KeyValuePair<string, string>> e3;
-        private List<KeyValuePair<string, string>> e4;
-        private List<KeyValuePair<string, string>> e5;
 
         private void LoadData(GundamInfo gundam)
         {
@@ -147,26 +91,101 @@ namespace GGCREditor
                 txtSpd.Text = gundam.SPD.ToString();
                 txtMove.Text = gundam.Move.ToString();
                 txtEarthSize.Text = gundam.EarchSize.ToString();
-                cboSize.SelectedValue = gundam.Size.ToString();
-
                 txtWeapon1ID.Text = gundam.WeaponId.ToString();
                 txtWeaponCount.Text = gundam.WeaponCount.ToString();
 
+                cboSize.SelectedValue = gundam.Size.ToString();
+                if (cboSize.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamSize(gundam.Size, "未知" + gundam.Size);
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
 
                 string shiyin = gundam.Earch;
 
                 cboE1.SelectedValue = shiyin[0].ToString();
+                if (cboE1.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamSize(short.Parse(shiyin[0].ToString()), "未知" + shiyin[0].ToString());
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
                 cboE2.SelectedValue = shiyin[1].ToString();
+                if (cboE2.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamEarth(short.Parse(shiyin[1].ToString()), "未知" + shiyin[1].ToString());
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
                 cboE3.SelectedValue = shiyin[2].ToString();
+                if (cboE3.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamEarth(short.Parse(shiyin[2].ToString()), "未知" + shiyin[2].ToString());
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
                 cboE4.SelectedValue = shiyin[3].ToString();
+                if (cboE4.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamEarth(short.Parse(shiyin[3].ToString()), "未知" + shiyin[3].ToString());
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
                 cboE5.SelectedValue = shiyin[4].ToString();
+                if (cboE5.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamEarth(short.Parse(shiyin[4].ToString()), "未知" + shiyin[4].ToString());
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
 
                 cboSkill1.SelectedValue = gundam.Skill1.ToString();
+                if (cboSkill1.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamAbility(gundam.Skill1, "未知" + gundam.Skill1);
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
                 cboSkill2.SelectedValue = gundam.Skill2.ToString();
+                if (cboSkill2.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamAbility(gundam.Skill2, "未知" + gundam.Skill2);
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
                 cboSkill3.SelectedValue = gundam.Skill3.ToString();
+                if (cboSkill3.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamAbility(gundam.Skill3, "未知" + gundam.Skill3);
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
                 cboSkill4.SelectedValue = gundam.Skill4.ToString();
+                if (cboSkill4.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamAbility(gundam.Skill4, "未知" + gundam.Skill4);
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
                 cboSkill5.SelectedValue = gundam.Skill5.ToString();
-
+                if (cboSkill5.SelectedValue == null)
+                {
+                    GGCRUtil.AddGundamAbility(gundam.Skill5, "未知" + gundam.Skill5);
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
 
                 btnSave.Enabled = true;
             }
@@ -251,46 +270,11 @@ namespace GGCREditor
                 gundam.Size = byte.Parse(cboSize.SelectedValue.ToString());
                 gundam.EarchSize = short.Parse(txtEarthSize.Text);
 
-                try
-                {
-                    gundam.Skill1 = short.Parse(cboSkill1.SelectedValue.ToString());
-                }
-                catch
-                {
-                    MessageBox.Show("能力1编号未知,已使用原始能力" + gundam.Skill1);
-                }
-                try
-                {
-                    gundam.Skill2 = short.Parse(cboSkill2.SelectedValue.ToString());
-                }
-                catch
-                {
-                    MessageBox.Show("能力2编号未知,已使用原始能力" + gundam.Skill2);
-                }
-                try
-                {
-                    gundam.Skill3 = short.Parse(cboSkill3.SelectedValue.ToString());
-                }
-                catch
-                {
-                    MessageBox.Show("能力3编号未知,已使用原始能力" + gundam.Skill3);
-                }
-                try
-                {
-                    gundam.Skill4 = short.Parse(cboSkill4.SelectedValue.ToString());
-                }
-                catch
-                {
-                    MessageBox.Show("能力4编号未知,已使用原始能力" + gundam.Skill4);
-                }
-                try
-                {
-                    gundam.Skill5 = short.Parse(cboSkill5.SelectedValue.ToString());
-                }
-                catch
-                {
-                    MessageBox.Show("能力5编号未知,已使用原始能力" + gundam.Skill5);
-                }
+                gundam.Skill1 = short.Parse(cboSkill1.SelectedValue.ToString());
+                gundam.Skill2 = short.Parse(cboSkill2.SelectedValue.ToString());
+                gundam.Skill3 = short.Parse(cboSkill3.SelectedValue.ToString());
+                gundam.Skill4 = short.Parse(cboSkill4.SelectedValue.ToString());
+                gundam.Skill5 = short.Parse(cboSkill5.SelectedValue.ToString());
 
                 string shiyin = cboE1.SelectedValue.ToString() + cboE2.SelectedValue.ToString() + cboE3.SelectedValue.ToString() + cboE4.SelectedValue.ToString() + cboE5.SelectedValue.ToString();
 
