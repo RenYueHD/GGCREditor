@@ -77,11 +77,8 @@ namespace GGCREditor
 
         private void enableAll()
         {
-            btnEditMaster.Enabled = true;
-            btnEditGundam.Enabled = true;
-            //btnSearch.Enabled = true;
-            //btnSearchWeapon.Enabled = true;
-            btnEditWeapon.Enabled = true;
+            flowContainer.Enabled = true;
+
         }
 
         private void btnEditGundam_Click(object sender, EventArgs e)
@@ -89,20 +86,48 @@ namespace GGCREditor
             new FrmEditGundam().ShowDialog();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSearchWeapon_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             FrmEditWeapon form = new FrmEditWeapon();
             form.ShowDialog();
+        }
+
+        private void btnEditText_Click(object sender, EventArgs e)
+        {
+            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\schinese\CharacterSpecList.tbl");
+            form.ShowDialog();
+        }
+
+        private void btnEditMachineTxt_Click(object sender, EventArgs e)
+        {
+            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\schinese\MachineSpecList.tbl");
+            form.ShowDialog();
+        }
+
+        private void btnEditMachineDesc_Click(object sender, EventArgs e)
+        {
+            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\schinese\SpecProfileList.tbl");
+            form.ShowDialog();
+        }
+
+        private void btnEditAbility_Click(object sender, EventArgs e)
+        {
+            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\schinese\AbilitySpecList.tbl");
+            form.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "TBL文件|*.tbl";
+            dialog.InitialDirectory = GGCRStaticConfig.PATH;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                FrmEditText form = new FrmEditText(dialog.FileName);
+                form.ShowDialog();
+            }
         }
     }
 }

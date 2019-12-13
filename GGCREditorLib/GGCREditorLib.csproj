@@ -37,7 +37,9 @@
   <ItemGroup>
     <Compile Include="ByteHelper.cs" />
     <Compile Include="GGCRPkdFile.cs" />
+    <Compile Include="GGCRResourceFile.cs" />
     <Compile Include="GGCRStaticConfig.cs" />
+    <Compile Include="GGCRTblFile.cs" />
     <Compile Include="GGCRUnitInfo.cs" />
     <Compile Include="GundamFile.cs" />
     <Compile Include="AbilitySpecFile.cs" />
@@ -45,7 +47,6 @@
     <Compile Include="GundamInfo.cs" />
     <Compile Include="MasterFile.cs" />
     <Compile Include="MasterInfo.cs" />
-    <Compile Include="MasterSkill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

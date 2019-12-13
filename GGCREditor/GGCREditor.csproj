@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmEditText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditText.Designer.cs">
+      <DependentUpon>FrmEditText.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditWeapon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,8 +74,12 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="GGCRUtil.cs" />
+    <Compile Include="IndexText.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmEditText.resx">
+      <DependentUpon>FrmEditText.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEditWeapon.resx">
       <DependentUpon>FrmEditWeapon.cs</DependentUpon>
     </EmbeddedResource>
