@@ -80,6 +80,8 @@ namespace GGCREditor
         {
             if (gundam != null)
             {
+                txtUUID.Text = gundam.UUID;
+
                 txtGroup.Text = gundam.GroupName;
                 txtId.Text = gundam.ID.ToString();
                 txtName.Text = gundam.GundamName;
@@ -191,6 +193,8 @@ namespace GGCREditor
             }
             else
             {
+                txtUUID.Text = null;
+
                 txtId.Text = null;
                 txtGroup.Text = null;
                 txtName.Text = null;
@@ -225,7 +229,8 @@ namespace GGCREditor
 
         private void lsGundam_MeasureItem(object sender, MeasureItemEventArgs e)
         {
-            e.ItemHeight = e.ItemHeight + 6;
+
+            e.ItemHeight = e.ItemHeight + 16;
         }
 
         private void lsGundam_DrawItem(object sender, DrawItemEventArgs e)

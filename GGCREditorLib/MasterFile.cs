@@ -12,7 +12,7 @@ namespace GGCREditorLib
     public class MasterFile : GGCRPkdFile
     {
         internal string[] MasterNames { get; }
-        internal Dictionary<string, string> Groups { get; }
+        internal Dictionary<short, string> SeriesCode { get; }
 
         public MasterFile()
             : base(GGCRStaticConfig.MasterFile)
@@ -23,19 +23,7 @@ namespace GGCREditorLib
 
             MasterNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
 
-            Groups = new Dictionary<string, string>();
-            using (StreamReader sr = new StreamReader("系列代码.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        Groups[arr[1]] = arr[0];
-                    }
-                }
-            }
+            SeriesCode = GGCRUtil.ListSeriesCode();
         }
 
         /// <summary>

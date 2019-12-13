@@ -121,7 +121,8 @@ namespace GGCREditor
         {
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "TBL文件|*.tbl";
-            dialog.InitialDirectory = GGCRStaticConfig.PATH;
+           // dialog.InitialDirectory = GGCRStaticConfig.PATH;
+            dialog.RestoreDirectory = true;
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {

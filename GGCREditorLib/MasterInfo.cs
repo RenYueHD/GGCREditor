@@ -46,7 +46,7 @@ namespace GGCREditorLib
             {
                 if (this.Group == 9990)
                 {
-                    return "生日月/日个位和=" + (this.Data[6] - 1);
+                    return "自定角色(生日月/日个位和=" + (this.Data[6] - 1) + ")";
                 }
                 if (this.ID < 0 || PkdFile.MasterNames[this.ID] == null || PkdFile.MasterNames[this.ID].Trim().Length == 0)
                 {
@@ -62,13 +62,13 @@ namespace GGCREditorLib
         {
             get
             {
-                if (PkdFile.Groups.ContainsKey(this.Group.ToString()))
+                if (PkdFile.SeriesCode.ContainsKey(this.Group))
                 {
-                    return PkdFile.Groups[this.Group.ToString()];
+                    return PkdFile.SeriesCode[this.Group];
                 }
                 else
                 {
-                    return "未知系列" + this.Group;
+                    return "未知" + this.Group;
                 }
             }
         }

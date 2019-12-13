@@ -41,6 +41,7 @@
     <Compile Include="GGCRStaticConfig.cs" />
     <Compile Include="GGCRTblFile.cs" />
     <Compile Include="GGCRUnitInfo.cs" />
+    <Compile Include="GGCRUtil.cs" />
     <Compile Include="GundamFile.cs" />
     <Compile Include="AbilitySpecFile.cs" />
     <Compile Include="WeaponInfo.cs" />

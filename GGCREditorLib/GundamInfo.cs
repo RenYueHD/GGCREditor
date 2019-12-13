@@ -42,13 +42,13 @@ namespace GGCREditorLib
         {
             get
             {
-                if (PkdFile.groups.ContainsKey(this.Group.ToString()))
+                if (PkdFile.SeriesCode.ContainsKey(this.Group))
                 {
-                    return PkdFile.groups[this.Group.ToString()];
+                    return PkdFile.SeriesCode[this.Group];
                 }
                 else
                 {
-                    return "未知系列" + this.Group;
+                    return "未知" + this.Group;
                 }
             }
         }

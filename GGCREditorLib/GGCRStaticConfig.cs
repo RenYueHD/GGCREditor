@@ -7,6 +7,11 @@ namespace GGCREditor
     public class GGCRStaticConfig
     {
         /// <summary>
+        /// 系列单条长度
+        /// </summary>
+        public static int SeriesLength = 12;
+
+        /// <summary>
         /// 驾驶员单条数据长度
         /// </summary>
         public static int MasterLength = 112;

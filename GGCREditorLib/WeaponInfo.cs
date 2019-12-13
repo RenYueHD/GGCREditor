@@ -54,9 +54,9 @@ namespace GGCREditorLib
         {
             get
             {
-                if (PkdFile.groups.ContainsKey(this.Group.ToString()))
+                if (PkdFile.SeriesCode.ContainsKey(this.Group))
                 {
-                    return PkdFile.groups[this.Group.ToString()];
+                    return PkdFile.SeriesCode[this.Group];
                 }
                 else
                 {

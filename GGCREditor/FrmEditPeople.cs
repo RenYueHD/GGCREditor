@@ -54,21 +54,6 @@ namespace GGCREditor
         {
             bindAll();
 
-
-            Dictionary<string, string> groups = new Dictionary<string, string>();
-            using (StreamReader sr = new StreamReader("系列代码.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        groups[arr[1]] = arr[0];
-                    }
-                }
-            }
-
             masters = masterFile.ListMasters();
 
             lsMasters.DataSource = masters;
@@ -264,7 +249,7 @@ namespace GGCREditor
 
         private void lsMasters_MeasureItem(object sender, MeasureItemEventArgs e)
         {
-            e.ItemHeight = e.ItemHeight + 6;
+            e.ItemHeight = e.ItemHeight + 16;
         }
 
         private void FrmEditPeople_FormClosed(object sender, FormClosedEventArgs e)

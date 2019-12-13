@@ -26,8 +26,8 @@ namespace GGCREditorLib
         {
             get
             {
-                byte[] bt = new byte[UnitLength];
-                Array.Copy(PkdFile.Data, Index + UUID_START, bt, 0, UnitLength);
+                byte[] bt = new byte[UUID_LENGTH];
+                Array.Copy(PkdFile.Data, Index + UUID_START, bt, 0, UUID_LENGTH);
                 return ByteHelper.ByteArrayToHexString(bt);
             }
         }

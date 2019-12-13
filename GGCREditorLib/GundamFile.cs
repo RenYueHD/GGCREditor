@@ -12,26 +12,14 @@ namespace GGCREditorLib
     public class GundamFile : GGCRPkdFile
     {
 
-        internal Dictionary<string, string> groups;
+        public Dictionary<short, string> SeriesCode { get; }
         internal string[] weaponNames;
         internal string[] gundamName;
 
         public GundamFile()
             : base(GGCRStaticConfig.MachineFile)
         {
-            groups = new Dictionary<string, string>();
-            using (StreamReader sr = new StreamReader("系列代码.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        groups[arr[1]] = arr[0];
-                    }
-                }
-            }
+            this.SeriesCode = GGCRUtil.ListSeriesCode();
 
             byte[] data = File.ReadAllBytes(GGCRStaticConfig.MachineTxtFile);
             int idx = ByteHelper.FindFirstIndex(data, "E5 85 89 E6 9D 9F E5 86", 0);

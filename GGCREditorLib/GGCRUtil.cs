@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GGCREditorLib;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -7,6 +8,25 @@ namespace GGCREditor
 {
     public static class GGCRUtil
     {
+        #region 系列部分
+        public static Dictionary<short, string> ListSeriesCode()
+        {
+            Dictionary<short, string> dic = new Dictionary<short, string>();
+
+            List<string> names = new GGCRTblFile(GGCRStaticConfig.PATH + @"\language\schinese\MiscData.tbl").ListAllText();
+
+            byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + @"\resident\MiscData.pkd");
+            int idx = ByteHelper.FindFirstIndex(data, "4C 52 45 53", 0);
+            int count = BitConverter.ToInt32(data, idx + 8);
+            for (int i = 0; i < count; i++)
+            {
+                short groupId = BitConverter.ToInt16(data, idx + 12 + i * GGCRStaticConfig.SeriesLength);
+                dic.Add(groupId, names[i]);
+            }
+            return dic;
+        }
+
+        #endregion
 
         #region 人物部分
         public static List<KeyValuePair<string, string>> ListPeopleSkill()
