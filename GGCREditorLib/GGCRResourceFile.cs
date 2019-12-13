@@ -14,7 +14,7 @@ namespace GGCREditorLib
         }
 
         internal byte[] Data { get; }
-        public string FileName { get; set; }
+        public string FileName { get; }
 
         /// <summary>
         /// 保存文件

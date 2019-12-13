@@ -37,6 +37,7 @@ namespace GGCREditor
             lsMain.DataSource = bs;
             lsMain.ValueMember = "Index";
             lsMain.DisplayMember = "Text";
+
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -75,7 +76,7 @@ namespace GGCREditor
             lsMain.DataSource = list;
             lsMain.ValueMember = "Index";
             lsMain.DisplayMember = "Text";
-          //  filterLs();
+            //  filterLs();
             lsMain.SelectedItem = kv;
             btnSave.Enabled = true;
 
@@ -122,6 +123,17 @@ namespace GGCREditor
             if (txtEdit.Text == null || txtEdit.Text.Length == 0)
             {
                 btnEnsure.Enabled = true;
+            }
+        }
+
+        private void lsMain_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index >= 0)
+            {
+                e.DrawBackground();
+                IndexText master = ((ListBox)sender).Items[e.Index] as IndexText;
+                e.Graphics.DrawString(master.Index.ToString(), e.Font, new SolidBrush(Color.Red), e.Bounds);
+                e.Graphics.DrawString(master.Text.Replace('\n', ' '), e.Font, new SolidBrush(e.ForeColor), e.Bounds.Left + 32, e.Bounds.Top);
             }
         }
     }

@@ -11,8 +11,8 @@ namespace GGCREditorLib
     /// </summary>
     public class MasterFile : GGCRPkdFile
     {
-        internal string[] masterNames;
-        internal Dictionary<string, string> groups;
+        internal string[] MasterNames { get; }
+        internal Dictionary<string, string> Groups { get; }
 
         public MasterFile()
             : base(GGCRStaticConfig.MasterFile)
@@ -21,9 +21,9 @@ namespace GGCREditorLib
             byte[] data = File.ReadAllBytes(GGCRStaticConfig.MasterTxtFile);
             int idx = ByteHelper.FindFirstIndex(data, "E5 B8 8C E7 BD 97 C2 B7", 0);
 
-            masterNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+            MasterNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
 
-            groups = new Dictionary<string, string>();
+            Groups = new Dictionary<string, string>();
             using (StreamReader sr = new StreamReader("系列代码.txt"))
             {
                 string line = null;
@@ -32,7 +32,7 @@ namespace GGCREditorLib
                     if (line != "")
                     {
                         string[] arr = line.Split(':');
-                        groups[arr[1]] = arr[0];
+                        Groups[arr[1]] = arr[0];
                     }
                 }
             }

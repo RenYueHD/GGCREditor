@@ -7,9 +7,9 @@ namespace GGCREditorLib
     public abstract class GGCRUnitInfo<T>
         where T : GGCRPkdFile
     {
-        internal byte[] Data;
+        internal byte[] Data { get; }
 
-        internal int No;
+        internal int No { get; }
 
         public T PkdFile { get; }
 

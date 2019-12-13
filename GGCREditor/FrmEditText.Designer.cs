@@ -46,13 +46,14 @@
             this.lsMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsMain.FormattingEnabled = true;
+            this.lsMain.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.lsMain.ItemHeight = 12;
             this.lsMain.Location = new System.Drawing.Point(4, 36);
             this.lsMain.Name = "lsMain";
             this.lsMain.ScrollAlwaysVisible = true;
             this.lsMain.Size = new System.Drawing.Size(929, 340);
             this.lsMain.TabIndex = 0;
+            this.lsMain.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsMain_DrawItem);
             this.lsMain.SelectedIndexChanged += new System.EventHandler(this.lsMain_SelectedIndexChanged);
             // 
             // txtSearch
@@ -142,7 +143,7 @@
             // tsmiState
             // 
             this.tsmiState.Name = "tsmiState";
-            this.tsmiState.Size = new System.Drawing.Size(628, 17);
+            this.tsmiState.Size = new System.Drawing.Size(790, 17);
             this.tsmiState.Spring = true;
             this.tsmiState.Text = "toolStripStatusLabel1";
             this.tsmiState.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

@@ -46,15 +46,15 @@ namespace GGCREditorLib
             {
                 if (this.Group == 9990)
                 {
-                    return "生日月/日个位和=" + this.Data[6];
+                    return "生日月/日个位和=" + (this.Data[6] - 1);
                 }
-                if (this.ID < 0 || PkdFile.masterNames[this.ID] == null || PkdFile.masterNames[this.ID].Trim().Length == 0)
+                if (this.ID < 0 || PkdFile.MasterNames[this.ID] == null || PkdFile.MasterNames[this.ID].Trim().Length == 0)
                 {
                     return "未知";
                 }
                 else
                 {
-                    return PkdFile.masterNames[this.ID];
+                    return PkdFile.MasterNames[this.ID];
                 }
             }
         }
@@ -62,9 +62,9 @@ namespace GGCREditorLib
         {
             get
             {
-                if (PkdFile.groups.ContainsKey(this.Group.ToString()))
+                if (PkdFile.Groups.ContainsKey(this.Group.ToString()))
                 {
-                    return PkdFile.groups[this.Group.ToString()];
+                    return PkdFile.Groups[this.Group.ToString()];
                 }
                 else
                 {
