@@ -7,27 +7,25 @@ namespace GGCREditorLib
     /// <summary>
     /// 武器信息(36Byte)
     /// </summary>
-    public class WeaponInfo : GGCRUnitInfo<GundamFile>, IComparable<WeaponInfo>
+    public abstract class WeaponInfo : GGCRUnitInfo<GundamFile>, IComparable<WeaponInfo>
     {
 
-        private const int GROUP_IDX = 0;
-        private const int ID_IDX = GROUP_IDX + 8;       //武器编号 2byte
-        private const int RANGE_IDX = ID_IDX + 2;       //射程 2byte
-        private const int POWER_IDX = ID_IDX + 4;        //威力/100  2byte
-        private const int EN_IDX = POWER_IDX + 2;   //EN消费 2byte
-        private const int MP_IDX = POWER_IDX + 4;   //MP消费 2byte
-        private const int ACT_EARTH_IDX = POWER_IDX + 6;    //武器对应适性 2byte
-        private const int MOVE_ACT_IDX = POWER_IDX + 8;     //移动后攻击 1byte
-        private const int ICO_IDX = POWER_IDX + 9;          //图标
-        private const int PROPER_IDX = POWER_IDX + 10;         //武器属性
-        private const int SPEC_IDX = POWER_IDX + 11;        //武器特效 1byte
-        private const int MP_LIMIT_IDX = POWER_IDX + 12;    //MP需求 2byte
-        private const int USE_EARTH_IDX = POWER_IDX + 14;   //使用适性 1?2byte
-        private const int RANGE1_IDX = POWER_IDX + 16;       //射程 1byte 修改无效???
-        private const int RANGE2_IDX = POWER_IDX + 17;
-        private const int HIT_RATE_IDX = POWER_IDX + 18;    //命中 1byte
-        private const int CT_RATE_IDX = POWER_IDX + 19;     //暴击 1byte
-        private const int HIT_COUNT_IDX = POWER_IDX + 20;   //Hit次数 1byte
+        protected const int GROUP_IDX = 0;
+        protected const int ID_IDX = GROUP_IDX + 8;       //武器编号 2byte
+        protected const int RANGE_IDX = GROUP_IDX + 10;       //射程 2byte
+        protected const int POWER_IDX = GROUP_IDX + 12;        //威力/100  2byte
+        protected const int EN_IDX = GROUP_IDX + 14;   //EN消费 2byte
+        protected const int MP_IDX = GROUP_IDX + 16;   //MP消费 2byte
+        protected const int ACT_EARTH_IDX = GROUP_IDX + 18;    //武器对应适性 2byte
+        protected const int MOVE_ACT_IDX = GROUP_IDX + 20;     //移动后攻击 1byte
+        protected const int ICO_IDX = GROUP_IDX + 21;          //图标
+        protected const int PROPER_IDX = GROUP_IDX + 22;         //武器属性
+        protected const int SPEC_IDX = GROUP_IDX + 23;        //武器特效 1byte
+        protected const int MP_LIMIT_IDX = GROUP_IDX + 24;    //MP需求 2byte
+        protected const int USE_EARTH_IDX = GROUP_IDX + 26;   //使用适性 1?2byte
+        protected const int RANGE1_IDX = GROUP_IDX + 28;       //射程 1byte 修改无效
+        protected const int RANGE2_IDX = GROUP_IDX + 29;        //射程 1byte 修改无效
+
 
         public WeaponInfo(GundamFile gundamFile, int index, int no)
             : base(gundamFile, index, no)
@@ -35,11 +33,21 @@ namespace GGCREditorLib
 
         }
 
+        public string GumdamUUID
+        {
+            get
+            {
+                byte[] bt = new byte[8];
+                Array.Copy(this.Data, bt, 8);
+                return ByteHelper.ByteArrayToHexString(bt);
+            }
+        }
+
         public bool IsMap
         {
             get
             {
-                return this.No >= PkdFile.WeaponNormalCount;
+                return this is WeaponMapInfo;
             }
         }
 
@@ -243,42 +251,6 @@ namespace GGCREditorLib
             set
             {
                 save(RANGE2_IDX, value);
-            }
-        }
-
-        public byte HitRate
-        {
-            get
-            {
-                return this.Data[HIT_RATE_IDX];
-            }
-            set
-            {
-                save(HIT_RATE_IDX, value);
-            }
-        }
-
-        public byte CT
-        {
-            get
-            {
-                return this.Data[CT_RATE_IDX];
-            }
-            set
-            {
-                save(CT_RATE_IDX, value);
-            }
-        }
-
-        public byte HitCount
-        {
-            get
-            {
-                return this.Data[HIT_COUNT_IDX];
-            }
-            set
-            {
-                save(HIT_COUNT_IDX, value);
             }
         }
 

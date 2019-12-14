@@ -289,6 +289,36 @@ namespace GGCREditor
             }
         }
 
+        public static List<KeyValuePair<string, string>> ListWeaponType()
+        {
+            List<KeyValuePair<string, string>> spec = new List<KeyValuePair<string, string>>();
+
+            using (StreamReader sr = new StreamReader("武器类型.txt"))
+            {
+                string line = null;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
+                        spec.Add(kv);
+                    }
+                }
+            }
+            return spec;
+        }
+
+        public static void AddWeaponType(byte value, string type)
+        {
+            using (StreamWriter sr = new StreamWriter("武器类型.txt", true))
+            {
+                sr.WriteLine();
+                sr.Write(value + ":" + type);
+                sr.Flush();
+            }
+        }
+
         #endregion
 
     }

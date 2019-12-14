@@ -71,7 +71,15 @@ namespace GGCREditorLib
             List<WeaponInfo> list = new List<WeaponInfo>();
             for (int i = 0; i < WeaponNormalCount + WeaponMapCount; i++)
             {
-                list.Add(new WeaponInfo(this, WeaponCdbStart + 28 + i * GGCRStaticConfig.WeaponLength, i));
+                if (i < WeaponNormalCount)
+                {
+                    list.Add(new WeaponNormalInfo(this, WeaponCdbStart + 28 + i * GGCRStaticConfig.WeaponLength, i));
+                }
+                else
+                {
+                    list.Add(new WeaponMapInfo(this, WeaponCdbStart + 28 + i * GGCRStaticConfig.WeaponLength, i));
+                }
+
             }
             return list;
         }

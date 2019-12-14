@@ -62,6 +62,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.cboGuYou3 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -351,6 +353,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnExport);
+            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label20);
@@ -395,12 +399,34 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtWeiXiu);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(321, 12);
+            this.groupBox1.Location = new System.Drawing.Point(343, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 555);
+            this.groupBox1.Size = new System.Drawing.Size(470, 562);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.Location = new System.Drawing.Point(389, 531);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 25;
+            this.btnExport.Text = "导出";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // label29
+            // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.Red;
+            this.label29.Location = new System.Drawing.Point(240, 536);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(143, 12);
+            this.label29.TabIndex = 24;
+            this.label29.Text = "若有修改,请先保存再导出";
             // 
             // label21
             // 
@@ -455,9 +481,10 @@
             // 
             // label18
             // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(168, 508);
+            this.label18.Location = new System.Drawing.Point(168, 507);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(215, 12);
             this.label18.TabIndex = 6;
@@ -465,8 +492,9 @@
             // 
             // btnSave
             // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(389, 503);
+            this.btnSave.Location = new System.Drawing.Point(389, 502);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 16;
@@ -518,7 +546,7 @@
             this.lsMasters.ItemHeight = 16;
             this.lsMasters.Location = new System.Drawing.Point(12, 36);
             this.lsMasters.Name = "lsMasters";
-            this.lsMasters.Size = new System.Drawing.Size(303, 531);
+            this.lsMasters.Size = new System.Drawing.Size(325, 538);
             this.lsMasters.TabIndex = 6;
             this.lsMasters.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsMasters_DrawItem);
             this.lsMasters.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lsMasters_MeasureItem);
@@ -531,7 +559,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(33, 12);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(282, 21);
+            this.txtSearch.Size = new System.Drawing.Size(304, 21);
             this.txtSearch.TabIndex = 7;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -550,9 +578,9 @@
             this.tslblFIle,
             this.tsmiLblState,
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 572);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 579);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(802, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(824, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -566,7 +594,7 @@
             // 
             this.tsmiLblState.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
             this.tsmiLblState.Name = "tsmiLblState";
-            this.tsmiLblState.Size = new System.Drawing.Size(480, 17);
+            this.tsmiLblState.Size = new System.Drawing.Size(533, 17);
             this.tsmiLblState.Spring = true;
             this.tsmiLblState.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -581,13 +609,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 594);
+            this.ClientSize = new System.Drawing.Size(824, 601);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lsMasters);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label19);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(840, 640);
             this.Name = "FrmEditPeople";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "角色信息修改";
@@ -655,5 +684,7 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtLast4;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Label label29;
     }
 }

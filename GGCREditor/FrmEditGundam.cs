@@ -336,5 +336,29 @@ namespace GGCREditor
                 form.ShowDialog();
             }
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            GundamInfo gundam = lsGundam.SelectedItem as GundamInfo;
+            if (gundam != null)
+            {
+                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.GundamName.Replace(" ", "_") + ".machine";
+
+                SaveFileDialog dialog = new SaveFileDialog();
+                //dialog.RestoreDirectory = true;
+                dialog.Filter = "机体数据|*.machine";
+                dialog.FileName = fileName;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream fis = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        fis.Write(gundam.Data, 0, gundam.Data.Length);
+                    }
+                    tsmiLblState.Text = "导出成功";
+                    tsmiLblState.ForeColor = Color.Green;
+                }
+            }
+        }
     }
 }

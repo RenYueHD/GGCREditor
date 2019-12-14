@@ -256,5 +256,30 @@ namespace GGCREditor
         {
             form = null;
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            MasterInfo gundam = lsMasters.SelectedItem as MasterInfo;
+            if (gundam != null)
+            {
+                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.MasterName.Replace(" ", "_") + ".master";
+
+                SaveFileDialog dialog = new SaveFileDialog();
+                //dialog.RestoreDirectory = true;
+                dialog.Filter = "人物数据|*.master";
+
+                dialog.FileName = fileName;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream fis = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        fis.Write(gundam.Data, 0, gundam.Data.Length);
+                    }
+                    tsmiLblState.Text = "导出成功";
+                    tsmiLblState.ForeColor = Color.Green;
+                }
+            }
+        }
     }
 }

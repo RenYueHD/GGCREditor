@@ -17,8 +17,6 @@ namespace GGCREditor
             InitializeComponent();
             this.gundamFile = new GundamFile();
             tslblFile.Text = gundamFile.FileName;
-
-
         }
 
         public FrmEditWeapon(GundamFile gundanFile, GundamInfo gundamInfo)
@@ -69,6 +67,9 @@ namespace GGCREditor
             cboRange.DisplayMember = "Value";
             cboRange.ValueMember = "Key";
 
+            cboWeaponType.DataSource = GGCRUtil.ListWeaponType();
+            cboWeaponType.DisplayMember = "Value";
+            cboWeaponType.ValueMember = "Key";
             #endregion
         }
 
@@ -129,10 +130,6 @@ namespace GGCREditor
                 txtMP.Text = weapon.MP.ToString();
                 txtMoveAct.Text = weapon.MoveACT.ToString();
 
-                txtHitRate.Text = weapon.HitRate.ToString();
-                txtCT.Text = weapon.CT.ToString();
-                txtHitCount.Text = weapon.HitCount.ToString();
-
                 string useEarth = weapon.UseEarth;
                 chkUse1.Checked = useEarth[4] == '1';
                 chkUse2.Checked = useEarth[3] == '1';
@@ -157,31 +154,56 @@ namespace GGCREditor
                     return;
                 }
 
-                if (weapon.IsMap)
+
+                if (weapon is WeaponNormalInfo)
                 {
-                    cboProp.DataSource = GGCRUtil.ListMapWeaponProp();
-                    cboProp.DisplayMember = "Value";
-                    cboProp.ValueMember = "Key";
-                    cboIco.DataSource = GGCRUtil.ListMapWeaponProp();
-                    cboIco.DisplayMember = "Value";
-                    cboIco.ValueMember = "Key";
-                }
-                else
-                {
+                    panNormal.Enabled = true;
+                    panMap.Enabled = false;
+
                     cboProp.DataSource = GGCRUtil.ListNormalWeaponProp();
                     cboProp.DisplayMember = "Value";
                     cboProp.ValueMember = "Key";
                     cboIco.DataSource = GGCRUtil.ListNormalWeaponProp();
                     cboIco.DisplayMember = "Value";
                     cboIco.ValueMember = "Key";
+
+                    txtHitRate.Text = (weapon as WeaponNormalInfo).HitRate.ToString();
+                    txtCT.Text = (weapon as WeaponNormalInfo).CT.ToString();
+                    txtHitCount.Text = (weapon as WeaponNormalInfo).HitCount.ToString();
+
+                    cboWeaponType.SelectedValue = -1;
+                }
+                else
+                {
+                    panNormal.Enabled = false;
+                    panMap.Enabled = true;
+
+                    cboProp.DataSource = GGCRUtil.ListMapWeaponProp();
+                    cboProp.DisplayMember = "Value";
+                    cboProp.ValueMember = "Key";
+                    cboIco.DataSource = GGCRUtil.ListMapWeaponProp();
+                    cboIco.DisplayMember = "Value";
+                    cboIco.ValueMember = "Key";
+
+                    txtHitRate.Text = null;
+                    txtCT.Text = null;
+                    txtHitCount.Text = null;
+
+                    txtMapTurn.Text = (weapon as WeaponMapInfo).MapTurn.ToString();
+                    txtAttMaxCount.Text = (weapon as WeaponMapInfo).AttMaxCount.ToString();
+
+                    cboWeaponType.SelectedValue = (weapon as WeaponMapInfo).WeaponType.ToString();
+                    if (cboWeaponType.SelectedValue == null)
+                    {
+                        GGCRUtil.AddWeaponType((weapon as WeaponMapInfo).WeaponType, "未知" + (weapon as WeaponMapInfo).WeaponType);
+                        bindAll();
+                        LoadData(weapon);
+                        return;
+                    }
                 }
 
                 cboProp.SelectedValue = weapon.PROPER.ToString();
                 cboIco.SelectedValue = weapon.ICO.ToString();
-
-
-
-
 
                 cboSpec.SelectedValue = weapon.Spec.ToString();
                 if (cboSpec.SelectedValue == null)
@@ -200,15 +222,11 @@ namespace GGCREditor
                     return;
                 }
 
-                txtUnKnow.Text = weapon.Range.ToString();
-
-
                 btnSave.Enabled = true;
             }
             else
             {
                 txtId.Text = null;
-                txtUnKnow.Text = null;
 
                 txtName.Text = null;
                 txtAddress.Text = null;
@@ -217,11 +235,28 @@ namespace GGCREditor
                 txtMP.Text = null;
                 txtMoveAct.Text = null;
 
+                txtHitRate.Text = null;
+                txtCT.Text = null;
+                txtHitCount.Text = null;
+                txtMapTurn.Text = null;
+                txtAttMaxCount.Text = null;
+
                 chkUse1.Checked = false;
                 chkUse2.Checked = false;
                 chkUse3.Checked = false;
                 chkUse4.Checked = false;
                 chkUse5.Checked = false;
+
+                cboAE1.SelectedValue = -1;
+                cboAE2.SelectedValue = -1;
+                cboAE3.SelectedValue = -1;
+                cboAE4.SelectedValue = -1;
+                cboAE5.SelectedValue = -1;
+
+                cboProp.SelectedValue = -1;
+                cboIco.SelectedValue = -1;
+                cboSpec.SelectedValue = -1;
+                cboWeaponType.SelectedValue = -1;
 
                 btnSave.Enabled = false;
             }
@@ -229,7 +264,7 @@ namespace GGCREditor
 
         private void lsGundam_MeasureItem(object sender, MeasureItemEventArgs e)
         {
-            e.ItemHeight = e.ItemHeight + 6;
+            e.ItemHeight = e.ItemHeight + 16;
         }
 
         private void lsGundam_DrawItem(object sender, DrawItemEventArgs e)
@@ -238,6 +273,7 @@ namespace GGCREditor
             if (e.Index >= 0)
             {
                 WeaponInfo master = ((ListBox)sender).Items[e.Index] as WeaponInfo;
+
                 StringFormat sStringFormat = new StringFormat();
                 sStringFormat.LineAlignment = StringAlignment.Center;
                 e.Graphics.DrawString(master.WeaponName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
@@ -272,14 +308,24 @@ namespace GGCREditor
                 weapon.MPLimit = short.Parse(cboMpLimit.SelectedValue.ToString());
                 weapon.UseEarth = (chkUse5.Checked ? "1" : "0") + (chkUse4.Checked ? "1" : "0") + (chkUse3.Checked ? "1" : "0") + (chkUse2.Checked ? "1" : "0") + (chkUse1.Checked ? "1" : "0");
                 weapon.ActEarth = cboAE5.SelectedValue.ToString() + cboAE4.SelectedValue.ToString() + cboAE3.SelectedValue.ToString() + cboAE2.SelectedValue.ToString() + cboAE1.SelectedValue.ToString();
-                weapon.HitRate = byte.Parse(txtHitRate.Text);
-                weapon.CT = byte.Parse(txtCT.Text);
-                weapon.HitCount = byte.Parse(txtHitCount.Text);
                 weapon.PROPER = byte.Parse(cboProp.SelectedValue.ToString());
                 weapon.ICO = byte.Parse(cboIco.SelectedValue.ToString());
                 weapon.Spec = byte.Parse(cboSpec.SelectedValue.ToString());
 
                 weapon.Range = short.Parse(cboRange.SelectedValue.ToString());
+
+                if (weapon is WeaponNormalInfo)
+                {
+                    (weapon as WeaponNormalInfo).HitRate = byte.Parse(txtHitRate.Text);
+                    (weapon as WeaponNormalInfo).CT = byte.Parse(txtCT.Text);
+                    (weapon as WeaponNormalInfo).HitCount = byte.Parse(txtHitCount.Text);
+                }
+                else
+                {
+                    (weapon as WeaponMapInfo).MapTurn = short.Parse(txtMapTurn.Text);
+                    (weapon as WeaponMapInfo).WeaponType = byte.Parse(cboWeaponType.SelectedValue.ToString());
+                    (weapon as WeaponMapInfo).AttMaxCount = byte.Parse(txtAttMaxCount.Text);
+                }
 
                 weapon.Save();
 
@@ -312,6 +358,30 @@ namespace GGCREditor
                 lsGundam.DisplayMember = "WeaponName";
                 lsGundam.ValueMember = "Address";
                 //lsGundam.SelectedItem = null;
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            WeaponInfo gundam = lsGundam.SelectedItem as WeaponInfo;
+            if (gundam != null)
+            {
+                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.WeaponName.Replace(" ", "_") + ".weapon";
+
+                SaveFileDialog dialog = new SaveFileDialog();
+                //dialog.RestoreDirectory = true;
+                dialog.Filter = "武器数据|*.weapon";
+                dialog.FileName = fileName;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream fis = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        fis.Write(gundam.Data, 0, gundam.Data.Length);
+                    }
+                    tsmiLblState.Text = "导出成功";
+                    tsmiLblState.ForeColor = Color.Green;
+                }
             }
         }
     }

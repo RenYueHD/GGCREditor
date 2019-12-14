@@ -10,7 +10,7 @@ namespace GGCREditorLib
         /// <summary>
         /// 该单位的实际数据(Copy)
         /// </summary>
-        internal byte[] Data { get; }
+        public byte[] Data { get; }
 
         /// <summary>
         /// 该单位在整个CDB数据集合中的索引(第一单位为0)
@@ -37,7 +37,7 @@ namespace GGCREditorLib
             {
                 byte[] bt = new byte[UUID_LENGTH];
                 Array.Copy(PkdFile.Data, Index + UUID_START, bt, 0, UUID_LENGTH);
-                return ByteHelper.ByteArrayToHexString(bt);
+                return ByteHelper.ByteArrayToHexString(bt).Trim();
             }
         }
 
