@@ -73,6 +73,7 @@ namespace GGCREditor
                 enableAll();
             }
 
+            new AbilitySpecFile();
         }
 
         private void enableAll()

@@ -1,6 +1,7 @@
 ﻿using GGCREditor;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 
@@ -11,34 +12,100 @@ namespace GGCREditorLib
     /// </summary>
     public class AbilitySpecFile : GGCRPkdFile
     {
-        internal string[] abilitySpecNames;
+
+        public int MachineAbilityCount { get; }
+        public int OPCount { get; }
+        public int PersonAbilityCount { get; }
+
+        public int WarAbilityCount { get; }
+
+        public int XiaoGuoCount { get; }
 
         public AbilitySpecFile()
             : base(GGCRStaticConfig.AbilityFile)
         {
-            //读取姓名数据 00002cc0
-            byte[] data = File.ReadAllBytes(GGCRStaticConfig.AbilityTxtFile);
-            int idx = ByteHelper.FindFirstIndex(data, "E9 98 B2 E6 8A A4 E7 9B", 0);
+            //读取机体能力数量
+            MachineAbilityCount = BitConverter.ToInt32(this.Data, 8);   //机体能力数量
+            OPCount = BitConverter.ToInt32(this.Data, 12);              //OP数量
+            PersonAbilityCount = BitConverter.ToInt32(this.Data, 16);   //个人技能数量
+            WarAbilityCount = BitConverter.ToInt32(this.Data, 20);      //战场技能数量
+            XiaoGuoCount = BitConverter.ToInt32(this.Data, 24);         //技能效果数量
 
-            abilitySpecNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+
+
+
+
+
+
+
+
 
 
         }
 
 
-        public int AbilityCount
+        public ReadOnlyCollection<string> ListMachineAbilitys()
         {
-            get
+            //读取字符TBL
+            List<string> list = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile).ListAllText();
+
+            //读取机体能力
+            List<string> machineAbilitys = new List<string>();
+            for (int i = 0; i < MachineAbilityCount; i++)
             {
-                int start = ByteHelper.FindFirstIndex(this.Data, "4C 4C 42 41", 0);
-                if (start < 0)
-                {
-                    throw new Exception("文件[" + this.FileName + "]无法解析");
-                }
-
-                return BitConverter.ToInt32(this.Data, start + 8);
+                machineAbilitys.Add(list[i]);
             }
+            return machineAbilitys.AsReadOnly();
         }
+        public ReadOnlyCollection<string> ListOPs()
+        {
+            //读取字符TBL
 
+            List<string> list = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile).ListAllText();
+            //读取OP
+            List<string> ops = new List<string>();
+            for (int i = MachineAbilityCount; i < MachineAbilityCount + OPCount; i++)
+            {
+                ops.Add(list[i]);
+            }
+            return ops.AsReadOnly();
+        }
+        public ReadOnlyCollection<string> ListPersonAbilitys()
+        {
+            //读取字符TBL
+
+            List<string> list = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile).ListAllText();
+            //读取个人技能
+            List<string> personAbilitys = new List<string>();
+            for (int i = MachineAbilityCount + OPCount; i < MachineAbilityCount + OPCount + PersonAbilityCount; i++)
+            {
+                personAbilitys.Add(list[i]);
+            }
+            return personAbilitys.AsReadOnly();
+        }
+        public ReadOnlyCollection<string> ListWarAbilitys()
+        {
+            //读取字符TBL
+            List<string> list = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile).ListAllText();
+            //读取战场技能
+            List<string> warAbilitys = new List<string>();
+            for (int i = MachineAbilityCount + OPCount + PersonAbilityCount, j = MachineAbilityCount + OPCount + PersonAbilityCount; i < MachineAbilityCount + OPCount + PersonAbilityCount + WarAbilityCount; i++, j += 2)
+            {
+                warAbilitys.Add(list[j] + "(" + list[j + 1] + ")");
+            }
+            return warAbilitys.AsReadOnly();
+        }
+        public ReadOnlyCollection<string> ListXiaoGuos()
+        {
+            //读取字符TBL
+            List<string> list = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile).ListAllText();
+            //技能效果
+            List<string> xiaoguo = new List<string>();
+            for (int i = MachineAbilityCount + OPCount + PersonAbilityCount + WarAbilityCount; i < MachineAbilityCount + OPCount + PersonAbilityCount + WarAbilityCount + XiaoGuoCount; i++)
+            {
+                xiaoguo.Add(list[i + WarAbilityCount]);
+            }
+            return xiaoguo.AsReadOnly();
+        }
     }
 }

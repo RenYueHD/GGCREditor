@@ -118,12 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2.ico" />
-    <Content Include="机体能力.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="固有技能.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="武器属性.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

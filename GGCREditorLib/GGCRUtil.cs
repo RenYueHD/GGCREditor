@@ -29,34 +29,25 @@ namespace GGCREditor
         #endregion
 
         #region 人物部分
+        private static List<KeyValuePair<string, string>> peopleSkillExt = new List<KeyValuePair<string, string>>();
         public static List<KeyValuePair<string, string>> ListPeopleSkill()
         {
             List<KeyValuePair<string, string>> prop = new List<KeyValuePair<string, string>>();
 
-            using (StreamReader sr = new StreamReader("固有技能.txt"))
+            IList<string> list = new AbilitySpecFile().ListPersonAbilitys();
+
+            prop.Add(new KeyValuePair<string, string>("-1", "无"));
+            for (int i = 0; i < list.Count; i++)
             {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
-                        prop.Add(kv);
-                    }
-                }
+                prop.Add(new KeyValuePair<string, string>(i.ToString(), list[i]));
             }
+            prop.AddRange(peopleSkillExt);
             return prop;
         }
 
         public static void AddPeopleSkill(short value, string skill)
         {
-            using (StreamWriter sr = new StreamWriter("固有技能.txt", true))
-            {
-                sr.WriteLine();
-                sr.Write(value + ":" + skill);
-                sr.Flush();
-            }
+            peopleSkillExt.Add(new KeyValuePair<string, string>(value.ToString(), skill));
         }
         #endregion
 
@@ -95,33 +86,25 @@ namespace GGCREditor
         {
             gundamEarthExt.Add(new KeyValuePair<string, string>(value.ToString(), earth));
         }
+
+        private static List<KeyValuePair<string, string>> machineAbilityExt = new List<KeyValuePair<string, string>>();
         public static List<KeyValuePair<string, string>> ListGundamAbility()
         {
             List<KeyValuePair<string, string>> prop = new List<KeyValuePair<string, string>>();
 
-            using (StreamReader sr = new StreamReader("机体能力.txt"))
+            IList<string> list = new AbilitySpecFile().ListMachineAbilitys();
+
+            prop.Add(new KeyValuePair<string, string>("-1", "无"));
+            for (int i = 0; i < list.Count; i++)
             {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        KeyValuePair<string, string> info = new KeyValuePair<string, string>(arr[0], arr[1]);
-                        prop.Add(info);
-                    }
-                }
+                prop.Add(new KeyValuePair<string, string>(i.ToString(), list[i]));
             }
+            prop.AddRange(machineAbilityExt);
             return prop;
         }
         public static void AddGundamAbility(short value, string prop)
         {
-            using (StreamWriter sr = new StreamWriter("机体能力.txt", true))
-            {
-                sr.WriteLine();
-                sr.Write(value + ":" + prop);
-                sr.Flush();
-            }
+            machineAbilityExt.Add(new KeyValuePair<string, string>(value.ToString(), prop));
         }
         #endregion
 
