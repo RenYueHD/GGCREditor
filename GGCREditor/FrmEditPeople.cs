@@ -57,7 +57,7 @@ namespace GGCREditor
             masters = masterFile.ListMasters();
 
             lsMasters.DataSource = masters;
-            lsMasters.DisplayMember = "MasterName";
+            lsMasters.DisplayMember = "UnitName";
         }
 
 
@@ -67,7 +67,7 @@ namespace GGCREditor
             {
                 txtId.Text = master.ID.ToString();
                 txtUnKnow.Text = master.Unknow.ToString();
-                txtName.Text = master.MasterName;
+                txtName.Text = master.UnitName;
                 txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(master.Index));
                 txtSheJi.Text = master.SheJi.ToString();
                 txtGeDou.Text = master.GeDou.ToString();
@@ -162,7 +162,7 @@ namespace GGCREditor
             if (txtSearch.Text == null || txtSearch.Text == "")
             {
                 lsMasters.DataSource = masters;
-                lsMasters.DisplayMember = "MasterName";
+                lsMasters.DisplayMember = "UnitName";
                 lsMasters.SelectedItem = null;
             }
             else
@@ -170,13 +170,13 @@ namespace GGCREditor
                 List<MasterInfo> search = new List<MasterInfo>();
                 foreach (MasterInfo m in masters)
                 {
-                    if ((m.GroupName + "-" + m.MasterName).IndexOf(txtSearch.Text) >= 0)
+                    if ((m.GroupName + "-" + m.UnitName).IndexOf(txtSearch.Text) >= 0)
                     {
                         search.Add(m);
                     }
                 }
                 lsMasters.DataSource = search;
-                lsMasters.DisplayMember = "MasterName";
+                lsMasters.DisplayMember = "UnitName";
                 lsMasters.SelectedItem = null;
             }
         }
@@ -242,7 +242,7 @@ namespace GGCREditor
                 MasterInfo master = ((ListBox)sender).Items[e.Index] as MasterInfo;
                 StringFormat sStringFormat = new StringFormat();
                 sStringFormat.LineAlignment = StringAlignment.Center;
-                e.Graphics.DrawString(master.GroupName + "-" + master.MasterName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+                e.Graphics.DrawString(master.GroupName + "-" + master.UnitName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
             }
             e.DrawFocusRectangle();
         }
@@ -262,7 +262,7 @@ namespace GGCREditor
             MasterInfo gundam = lsMasters.SelectedItem as MasterInfo;
             if (gundam != null)
             {
-                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.MasterName.Replace(" ", "_") + ".master";
+                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.UnitName.Replace(" ", "_") + ".master";
 
                 SaveFileDialog dialog = new SaveFileDialog();
                 //dialog.RestoreDirectory = true;

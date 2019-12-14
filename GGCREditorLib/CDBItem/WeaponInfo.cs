@@ -52,7 +52,7 @@ namespace GGCREditorLib
             }
         }
 
-        public string WeaponName
+        public override string UnitName
         {
             get
             {

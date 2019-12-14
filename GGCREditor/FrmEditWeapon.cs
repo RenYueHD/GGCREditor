@@ -111,7 +111,7 @@ namespace GGCREditor
             }
 
             lsGundam.DataSource = weapons;
-            lsGundam.DisplayMember = "WeaponName";
+            lsGundam.DisplayMember = "UnitName";
             lsGundam.ValueMember = "Address";
         }
 
@@ -123,7 +123,7 @@ namespace GGCREditor
             {
                 txtId.Text = weapon.ID.ToString();
 
-                txtName.Text = weapon.WeaponName;
+                txtName.Text = weapon.UnitName;
                 txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(weapon.Index));
                 txtPower.Text = weapon.POWER.ToString();
                 txtEN.Text = weapon.EN.ToString();
@@ -276,7 +276,7 @@ namespace GGCREditor
 
                 StringFormat sStringFormat = new StringFormat();
                 sStringFormat.LineAlignment = StringAlignment.Center;
-                e.Graphics.DrawString(master.WeaponName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+                e.Graphics.DrawString(master.UnitName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
             }
             e.DrawFocusRectangle();
         }
@@ -340,7 +340,7 @@ namespace GGCREditor
             if (txtSearch.Text == null || txtSearch.Text == "")
             {
                 lsGundam.DataSource = weapons;
-                lsGundam.DisplayMember = "WeaponName";
+                lsGundam.DisplayMember = "UnitName";
                 lsGundam.ValueMember = "Address";
                 //lsGundam.SelectedItem = null;
             }
@@ -349,13 +349,13 @@ namespace GGCREditor
                 List<WeaponInfo> search = new List<WeaponInfo>();
                 foreach (WeaponInfo m in weapons)
                 {
-                    if (m.WeaponName.IndexOf(txtSearch.Text) >= 0)
+                    if (m.UnitName.IndexOf(txtSearch.Text) >= 0)
                     {
                         search.Add(m);
                     }
                 }
                 lsGundam.DataSource = search;
-                lsGundam.DisplayMember = "WeaponName";
+                lsGundam.DisplayMember = "UnitName";
                 lsGundam.ValueMember = "Address";
                 //lsGundam.SelectedItem = null;
             }
@@ -366,7 +366,7 @@ namespace GGCREditor
             WeaponInfo gundam = lsGundam.SelectedItem as WeaponInfo;
             if (gundam != null)
             {
-                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.WeaponName.Replace(" ", "_") + ".weapon";
+                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.UnitName.Replace(" ", "_") + ".weapon";
 
                 SaveFileDialog dialog = new SaveFileDialog();
                 //dialog.RestoreDirectory = true;

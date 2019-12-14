@@ -41,7 +41,7 @@ namespace GGCREditorLib
 
 
 
-        public string MasterName
+        public override string UnitName
         {
             get
             {

@@ -36,6 +36,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByteHelper.cs" />
+    <Compile Include="CDBItem\Ability\OPInfo.cs" />
+    <Compile Include="CDBItem\Ability\PersonAbility.cs" />
+    <Compile Include="CDBItem\Ability\AbstractAbility.cs" />
+    <Compile Include="CDBItem\Ability\GundamAbility.cs" />
+    <Compile Include="CDBItem\Ability\WarAbility.cs" />
     <Compile Include="GGCRResource\GGCRPkdFile.cs" />
     <Compile Include="GGCRResource\GGCRResourceFile.cs" />
     <Compile Include="GGCRStaticConfig.cs" />

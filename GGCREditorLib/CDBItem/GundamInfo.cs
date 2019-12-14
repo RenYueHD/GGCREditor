@@ -57,7 +57,7 @@ namespace GGCREditorLib
             }
         }
 
-        public string GundamName
+        public override string UnitName
         {
             get
             {

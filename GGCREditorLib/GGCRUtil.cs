@@ -36,7 +36,7 @@ namespace GGCREditor
 
             IList<string> list = new AbilitySpecFile().ListPersonAbilitys();
 
-            prop.Add(new KeyValuePair<string, string>("-1", "无"));
+            prop.Add(new KeyValuePair<string, string>("-1", "-1:无"));
             for (int i = 0; i < list.Count; i++)
             {
                 prop.Add(new KeyValuePair<string, string>(i.ToString(), i + ":" + list[i]));
@@ -94,10 +94,10 @@ namespace GGCREditor
 
             IList<string> list = new AbilitySpecFile().ListMachineAbilitys();
 
-            prop.Add(new KeyValuePair<string, string>("-1", "无"));
+            prop.Add(new KeyValuePair<string, string>("-1", "-1:无"));
             for (int i = 0; i < list.Count; i++)
             {
-                prop.Add(new KeyValuePair<string, string>(i.ToString(), list[i]));
+                prop.Add(new KeyValuePair<string, string>(i.ToString(), i + ":" + list[i]));
             }
             prop.AddRange(machineAbilityExt);
             return prop;

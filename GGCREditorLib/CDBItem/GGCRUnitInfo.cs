@@ -72,6 +72,13 @@ namespace GGCREditorLib
         /// </summary>
         public abstract int UUID_LENGTH { get; }
 
+        public abstract string UnitName { get; }
+
+        public override string ToString()
+        {
+            return UnitName;
+        }
+
         protected void save(int index, byte value)
         {
             this.Data[index] = value;
@@ -109,5 +116,9 @@ namespace GGCREditorLib
             PkdFile.Write(this.Index, this.Data);
         }
 
+        public void Refresh()
+        {
+            Array.Copy(PkdFile.Data, this.Index, this.Data, 0, this.UnitLength);
+        }
     }
 }

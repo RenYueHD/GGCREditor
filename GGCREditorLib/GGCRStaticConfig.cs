@@ -37,6 +37,8 @@ namespace GGCREditor
 
         public static int OPAbilityLength = 40;
 
+        public static int WarAbilityLength = 14;
+
         public static int XiaoGuoLength = 132;
 
         /// <summary>

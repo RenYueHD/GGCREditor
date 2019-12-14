@@ -72,7 +72,7 @@ namespace GGCREditor
             gundams = gundamFile.ListMachines();
 
             lsGundam.DataSource = gundams;
-            lsGundam.DisplayMember = "GundamName";
+            lsGundam.DisplayMember = "UnitName";
             lsGundam.ValueMember = "Address";
         }
 
@@ -84,7 +84,7 @@ namespace GGCREditor
 
                 txtGroup.Text = gundam.GroupName;
                 txtId.Text = gundam.ID.ToString();
-                txtName.Text = gundam.GundamName;
+                txtName.Text = gundam.UnitName;
                 txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(gundam.Index));
                 txtHP.Text = gundam.HP.ToString();
                 txtEN.Text = gundam.EN.ToString();
@@ -244,7 +244,7 @@ namespace GGCREditor
                 GundamInfo master = ((ListBox)sender).Items[e.Index] as GundamInfo;
                 StringFormat sStringFormat = new StringFormat();
                 sStringFormat.LineAlignment = StringAlignment.Center;
-                e.Graphics.DrawString(master.GroupName + "-" + master.GundamName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+                e.Graphics.DrawString(master.GroupName + "-" + master.UnitName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
             }
             e.DrawFocusRectangle();
         }
@@ -306,7 +306,7 @@ namespace GGCREditor
             if (txtSearch.Text == null || txtSearch.Text == "")
             {
                 lsGundam.DataSource = gundams;
-                lsGundam.DisplayMember = "GundamName";
+                lsGundam.DisplayMember = "UnitName";
                 lsGundam.ValueMember = "Address";
                 //lsGundam.SelectedItem = null;
             }
@@ -315,13 +315,13 @@ namespace GGCREditor
                 List<GundamInfo> search = new List<GundamInfo>();
                 foreach (GundamInfo m in gundams)
                 {
-                    if ((m.GroupName + "-" + m.GundamName).IndexOf(txtSearch.Text) >= 0)
+                    if ((m.GroupName + "-" + m.UnitName).IndexOf(txtSearch.Text) >= 0)
                     {
                         search.Add(m);
                     }
                 }
                 lsGundam.DataSource = search;
-                lsGundam.DisplayMember = "GundamName";
+                lsGundam.DisplayMember = "UnitName";
                 lsGundam.ValueMember = "Address";
                 //lsGundam.SelectedItem = null;
             }
@@ -342,7 +342,7 @@ namespace GGCREditor
             GundamInfo gundam = lsGundam.SelectedItem as GundamInfo;
             if (gundam != null)
             {
-                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.GundamName.Replace(" ", "_") + ".machine";
+                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.UnitName.Replace(" ", "_") + ".machine";
 
                 SaveFileDialog dialog = new SaveFileDialog();
                 //dialog.RestoreDirectory = true;
