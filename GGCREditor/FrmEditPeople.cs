@@ -281,5 +281,42 @@ namespace GGCREditor
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.RestoreDirectory = true;
+            dialog.Filter = "人物数据|*.master";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                txtSearch.Text = null;
+
+                byte[] data = File.ReadAllBytes(dialog.FileName);
+
+                byte[] bt = new byte[GGCRStaticConfig.MasterUIDLength];
+                Array.Copy(data, 0, bt, 0, bt.Length);
+                string uid = ByteHelper.ByteArrayToHexString(bt).Trim();
+
+                MasterInfo select = null;
+                foreach (MasterInfo info in masters)
+                {
+                    if (info.UUID == uid)
+                    {
+                        select = info;
+                        break;
+                    }
+                }
+                if (select == null)
+                {
+                    MessageBox.Show("该角色不存在,无法导入", "导入失败", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    select.Replace(data);
+                    lsMasters.SelectedItem = select;
+                }
+            }
+        }
     }
 }

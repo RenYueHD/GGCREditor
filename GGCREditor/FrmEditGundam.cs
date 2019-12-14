@@ -360,5 +360,42 @@ namespace GGCREditor
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.RestoreDirectory = true;
+            dialog.Filter = "机体数据|*.machine";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                txtSearch.Text = null;
+
+                byte[] data = File.ReadAllBytes(dialog.FileName);
+
+                byte[] bt = new byte[GGCRStaticConfig.GundamUIDLength];
+                Array.Copy(data, 0, bt, 0, bt.Length);
+                string uid = ByteHelper.ByteArrayToHexString(bt).Trim();
+
+                GundamInfo select = null;
+                foreach (GundamInfo info in gundams)
+                {
+                    if (info.UUID == uid)
+                    {
+                        select = info;
+                        break;
+                    }
+                }
+                if (select == null)
+                {
+                    MessageBox.Show("该机体不存在,无法导入", "导入失败", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    select.Replace(data);
+                    lsGundam.SelectedItem = select;
+                }
+            }
+        }
     }
 }

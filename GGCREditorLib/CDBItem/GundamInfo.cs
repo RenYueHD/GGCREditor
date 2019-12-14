@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GGCREditor;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -310,7 +311,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return 108;
+                return GGCRStaticConfig.GundamLength;
             }
         }
 
@@ -326,7 +327,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return 8;
+                return GGCRStaticConfig.GundamUIDLength;
             }
         }
 
@@ -335,5 +336,6 @@ namespace GGCREditorLib
         {
             return this.Index - other.Index;
         }
+
     }
 }

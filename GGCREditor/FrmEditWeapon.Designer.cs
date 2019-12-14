@@ -33,6 +33,20 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panNormal = new System.Windows.Forms.Panel();
+            this.txtHitRate = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtHitCount = new System.Windows.Forms.TextBox();
+            this.txtCT = new System.Windows.Forms.TextBox();
+            this.panMap = new System.Windows.Forms.Panel();
+            this.txtMapTurn = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtAttMaxCount = new System.Windows.Forms.TextBox();
+            this.cboWeaponType = new System.Windows.Forms.ComboBox();
             this.btnExport = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.cboMpLimit = new System.Windows.Forms.ComboBox();
@@ -69,37 +83,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtEN = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtCT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtHitCount = new System.Windows.Forms.TextBox();
             this.txtMoveAct = new System.Windows.Forms.TextBox();
             this.txtMP = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtHitRate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cboWeaponType = new System.Windows.Forms.ComboBox();
-            this.txtAttMaxCount = new System.Windows.Forms.TextBox();
-            this.txtMapTurn = new System.Windows.Forms.TextBox();
-            this.panMap = new System.Windows.Forms.Panel();
-            this.panNormal = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label30 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.panMap.SuspendLayout();
             this.panNormal.SuspendLayout();
+            this.panMap.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -142,6 +144,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.label30);
             this.groupBox1.Controls.Add(this.panNormal);
             this.groupBox1.Controls.Add(this.panMap);
             this.groupBox1.Controls.Add(this.btnExport);
@@ -196,10 +200,134 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
             // 
+            // panNormal
+            // 
+            this.panNormal.Controls.Add(this.txtHitRate);
+            this.panNormal.Controls.Add(this.label8);
+            this.panNormal.Controls.Add(this.label9);
+            this.panNormal.Controls.Add(this.label11);
+            this.panNormal.Controls.Add(this.txtHitCount);
+            this.panNormal.Controls.Add(this.txtCT);
+            this.panNormal.Location = new System.Drawing.Point(242, 119);
+            this.panNormal.Name = "panNormal";
+            this.panNormal.Size = new System.Drawing.Size(220, 110);
+            this.panNormal.TabIndex = 33;
+            // 
+            // txtHitRate
+            // 
+            this.txtHitRate.Location = new System.Drawing.Point(68, 9);
+            this.txtHitRate.Name = "txtHitRate";
+            this.txtHitRate.Size = new System.Drawing.Size(144, 21);
+            this.txtHitRate.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(28, 86);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 12);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "HIT数";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(34, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "暴击";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(34, 14);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 12);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "命中";
+            // 
+            // txtHitCount
+            // 
+            this.txtHitCount.Location = new System.Drawing.Point(68, 82);
+            this.txtHitCount.Name = "txtHitCount";
+            this.txtHitCount.Size = new System.Drawing.Size(144, 21);
+            this.txtHitCount.TabIndex = 4;
+            // 
+            // txtCT
+            // 
+            this.txtCT.Location = new System.Drawing.Point(68, 46);
+            this.txtCT.Name = "txtCT";
+            this.txtCT.Size = new System.Drawing.Size(144, 21);
+            this.txtCT.TabIndex = 4;
+            // 
+            // panMap
+            // 
+            this.panMap.Controls.Add(this.txtMapTurn);
+            this.panMap.Controls.Add(this.label26);
+            this.panMap.Controls.Add(this.label25);
+            this.panMap.Controls.Add(this.label24);
+            this.panMap.Controls.Add(this.txtAttMaxCount);
+            this.panMap.Controls.Add(this.cboWeaponType);
+            this.panMap.Location = new System.Drawing.Point(242, 228);
+            this.panMap.Name = "panMap";
+            this.panMap.Size = new System.Drawing.Size(222, 105);
+            this.panMap.TabIndex = 32;
+            // 
+            // txtMapTurn
+            // 
+            this.txtMapTurn.Location = new System.Drawing.Point(68, 8);
+            this.txtMapTurn.Name = "txtMapTurn";
+            this.txtMapTurn.Size = new System.Drawing.Size(144, 21);
+            this.txtMapTurn.TabIndex = 4;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(-2, 82);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(65, 12);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "攻击机体数";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(15, 47);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(47, 12);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "MAP类型";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(15, 11);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(47, 12);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "MAP转向";
+            // 
+            // txtAttMaxCount
+            // 
+            this.txtAttMaxCount.Location = new System.Drawing.Point(68, 78);
+            this.txtAttMaxCount.Name = "txtAttMaxCount";
+            this.txtAttMaxCount.Size = new System.Drawing.Size(144, 21);
+            this.txtAttMaxCount.TabIndex = 4;
+            // 
+            // cboWeaponType
+            // 
+            this.cboWeaponType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboWeaponType.FormattingEnabled = true;
+            this.cboWeaponType.Location = new System.Drawing.Point(68, 44);
+            this.cboWeaponType.Name = "cboWeaponType";
+            this.cboWeaponType.Size = new System.Drawing.Size(144, 20);
+            this.cboWeaponType.TabIndex = 25;
+            // 
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Location = new System.Drawing.Point(389, 538);
+            this.btnExport.Location = new System.Drawing.Point(389, 508);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 31;
@@ -212,7 +340,7 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.Red;
-            this.label29.Location = new System.Drawing.Point(240, 543);
+            this.label29.Location = new System.Drawing.Point(240, 513);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(143, 12);
             this.label29.TabIndex = 30;
@@ -408,7 +536,7 @@
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(168, 514);
+            this.label18.Location = new System.Drawing.Point(168, 484);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(215, 12);
             this.label18.TabIndex = 6;
@@ -418,7 +546,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(389, 509);
+            this.btnSave.Location = new System.Drawing.Point(389, 479);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 16;
@@ -527,13 +655,6 @@
             this.label14.TabIndex = 2;
             this.label14.Text = "射程";
             // 
-            // txtCT
-            // 
-            this.txtCT.Location = new System.Drawing.Point(68, 46);
-            this.txtCT.Name = "txtCT";
-            this.txtCT.Size = new System.Drawing.Size(144, 21);
-            this.txtCT.TabIndex = 4;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -542,13 +663,6 @@
             this.label3.Size = new System.Drawing.Size(17, 12);
             this.label3.TabIndex = 2;
             this.label3.Text = "MP";
-            // 
-            // txtHitCount
-            // 
-            this.txtHitCount.Location = new System.Drawing.Point(68, 82);
-            this.txtHitCount.Name = "txtHitCount";
-            this.txtHitCount.Size = new System.Drawing.Size(144, 21);
-            this.txtHitCount.TabIndex = 4;
             // 
             // txtMoveAct
             // 
@@ -572,15 +686,6 @@
             this.label23.Size = new System.Drawing.Size(29, 12);
             this.label23.TabIndex = 2;
             this.label23.Text = "属性";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(34, 14);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(29, 12);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "命中";
             // 
             // label10
             // 
@@ -609,22 +714,6 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "对应适性";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(34, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "暴击";
-            // 
-            // txtHitRate
-            // 
-            this.txtHitRate.Location = new System.Drawing.Point(68, 9);
-            this.txtHitRate.Name = "txtHitRate";
-            this.txtHitRate.Size = new System.Drawing.Size(144, 21);
-            this.txtHitRate.TabIndex = 3;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -633,15 +722,6 @@
             this.label7.Size = new System.Drawing.Size(65, 12);
             this.label7.TabIndex = 2;
             this.label7.Text = "移动后攻击";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 86);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 12);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "HIT数";
             // 
             // label5
             // 
@@ -684,81 +764,27 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(192, 17);
             this.toolStripStatusLabel1.Text = "感谢 mediar,泷泽透明 的武器数据";
             // 
-            // cboWeaponType
+            // button1
             // 
-            this.cboWeaponType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboWeaponType.FormattingEnabled = true;
-            this.cboWeaponType.Location = new System.Drawing.Point(68, 44);
-            this.cboWeaponType.Name = "cboWeaponType";
-            this.cboWeaponType.Size = new System.Drawing.Size(144, 20);
-            this.cboWeaponType.TabIndex = 25;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(389, 537);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "导入";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtAttMaxCount
+            // label30
             // 
-            this.txtAttMaxCount.Location = new System.Drawing.Point(68, 78);
-            this.txtAttMaxCount.Name = "txtAttMaxCount";
-            this.txtAttMaxCount.Size = new System.Drawing.Size(144, 21);
-            this.txtAttMaxCount.TabIndex = 4;
-            // 
-            // txtMapTurn
-            // 
-            this.txtMapTurn.Location = new System.Drawing.Point(68, 8);
-            this.txtMapTurn.Name = "txtMapTurn";
-            this.txtMapTurn.Size = new System.Drawing.Size(144, 21);
-            this.txtMapTurn.TabIndex = 4;
-            // 
-            // panMap
-            // 
-            this.panMap.Controls.Add(this.txtMapTurn);
-            this.panMap.Controls.Add(this.label26);
-            this.panMap.Controls.Add(this.label25);
-            this.panMap.Controls.Add(this.label24);
-            this.panMap.Controls.Add(this.txtAttMaxCount);
-            this.panMap.Controls.Add(this.cboWeaponType);
-            this.panMap.Location = new System.Drawing.Point(242, 228);
-            this.panMap.Name = "panMap";
-            this.panMap.Size = new System.Drawing.Size(222, 105);
-            this.panMap.TabIndex = 32;
-            // 
-            // panNormal
-            // 
-            this.panNormal.Controls.Add(this.txtHitRate);
-            this.panNormal.Controls.Add(this.label8);
-            this.panNormal.Controls.Add(this.label9);
-            this.panNormal.Controls.Add(this.label11);
-            this.panNormal.Controls.Add(this.txtHitCount);
-            this.panNormal.Controls.Add(this.txtCT);
-            this.panNormal.Location = new System.Drawing.Point(242, 119);
-            this.panNormal.Name = "panNormal";
-            this.panNormal.Size = new System.Drawing.Size(220, 110);
-            this.panNormal.TabIndex = 33;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(15, 11);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(47, 12);
-            this.label24.TabIndex = 2;
-            this.label24.Text = "MAP转向";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(15, 47);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(47, 12);
-            this.label25.TabIndex = 2;
-            this.label25.Text = "MAP类型";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(-2, 82);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(65, 12);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "攻击机体数";
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.Red;
+            this.label30.Location = new System.Drawing.Point(96, 542);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(287, 12);
+            this.label30.TabIndex = 34;
+            this.label30.Text = "导入功能会根据数据头自动匹配数据,导入完成请保存";
             // 
             // FrmEditWeapon
             // 
@@ -778,12 +804,12 @@
             this.Load += new System.EventHandler(this.FrmEditGundam_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.panMap.ResumeLayout(false);
-            this.panMap.PerformLayout();
             this.panNormal.ResumeLayout(false);
             this.panNormal.PerformLayout();
+            this.panMap.ResumeLayout(false);
+            this.panMap.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -858,5 +884,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label30;
     }
 }

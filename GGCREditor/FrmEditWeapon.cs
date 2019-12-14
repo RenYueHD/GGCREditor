@@ -384,5 +384,42 @@ namespace GGCREditor
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.RestoreDirectory = true;
+            dialog.Filter = "武器数据|*.weapon";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                txtSearch.Text = null;
+
+                byte[] data = File.ReadAllBytes(dialog.FileName);
+
+                byte[] bt = new byte[GGCRStaticConfig.WeaponUIDLength];
+                Array.Copy(data, 0, bt, 0, bt.Length);
+                string uid = ByteHelper.ByteArrayToHexString(bt).Trim();
+
+                WeaponInfo select = null;
+                foreach (WeaponInfo info in weapons)
+                {
+                    if (info.UUID == uid)
+                    {
+                        select = info;
+                        break;
+                    }
+                }
+                if (select == null)
+                {
+                    MessageBox.Show("该武器不存在,无法导入", "导入失败", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    select.Replace(data);
+                    lsGundam.SelectedItem = select;
+                }
+            }
+        }
     }
 }

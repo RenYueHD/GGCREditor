@@ -99,7 +99,7 @@ namespace GGCREditorLib
         {
             if (data.Length != this.UnitLength)
             {
-                throw new Exception("数据不正确,无法替换");
+                throw new Exception("数据不正确,无法导入");
             }
             Array.Copy(data, this.Data, data.Length);
         }

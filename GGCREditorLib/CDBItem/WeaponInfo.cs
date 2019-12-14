@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GGCREditor;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -259,7 +260,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return 36;
+                return GGCRStaticConfig.WeaponLength;
             }
         }
 
@@ -275,7 +276,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return 10;
+                return GGCRStaticConfig.WeaponUIDLength;
             }
         }
 

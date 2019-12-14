@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GGCREditor;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -306,7 +307,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return 112;
+                return GGCRStaticConfig.MasterLength;
             }
         }
 
@@ -322,7 +323,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return 8;
+                return GGCRStaticConfig.MasterUIDLength;
             }
         }
 

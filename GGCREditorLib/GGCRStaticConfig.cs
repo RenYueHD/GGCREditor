@@ -15,16 +15,19 @@ namespace GGCREditor
         /// 驾驶员单条数据长度
         /// </summary>
         public static int MasterLength = 112;
+        public static int MasterUIDLength = 8;
 
         /// <summary>
         /// 机体单条数据长度
         /// </summary>
         public static int GundamLength = 108;
+        public static int GundamUIDLength = 8;
 
         /// <summary>
         /// 武器单条数据长度
         /// </summary>
         public static int WeaponLength = 36;
+        public static int WeaponUIDLength = 10;
 
         /// <summary>
         /// 当前data目录
