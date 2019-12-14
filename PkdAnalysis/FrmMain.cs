@@ -29,14 +29,25 @@ namespace PkdAnalysis
 
             int line = 1;
 
-            string hex = ByteArrayToHexString(Int2Bytes(skip));
-
-            sb.Append(line.ToString().PadLeft(4, '0').PadRight(5, ' '));
-            sb.Append(hex);
-            sb.Append("h: ");
-
             for (int i = skip; i < data.Length; i++)
             {
+                if (i == skip)
+                {
+                    sb.Append(0.ToString().PadLeft(4, '0').PadRight(5, ' '));
+                    sb.Append("00000000");
+                    sb.Append("h: ");
+
+                    for (int j = 0; j < count; j++)
+                    {
+                        sb.Append(j.ToString().PadLeft(2, '0').PadRight(3, ' ').ToUpper());
+                    }
+                    string hex = ByteArrayToHexString(Int2Bytes(skip));
+                    sb.AppendLine();
+                    sb.Append(line.ToString().PadLeft(4, '0').PadRight(5, ' '));
+                    sb.Append(hex);
+                    sb.Append("h: ");
+                }
+
                 sb.Append(Convert.ToString(data[i], 16).PadLeft(2, '0').PadRight(3, ' ').ToUpper());
 
                 if (i - skip != 0 && (i - skip + 1) % count == 0)
@@ -45,7 +56,7 @@ namespace PkdAnalysis
                     line++;
                     sb.Append(line.ToString().PadLeft(4, '0').PadRight(5, ' '));
 
-                    hex = ByteArrayToHexString(Int2Bytes(i + 1));
+                    string hex = ByteArrayToHexString(Int2Bytes(i + 1));
 
                     sb.Append(hex);
                     sb.Append("h: ");

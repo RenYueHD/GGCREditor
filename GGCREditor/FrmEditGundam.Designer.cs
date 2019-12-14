@@ -54,6 +54,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -64,6 +65,7 @@
             this.txtWeaponCount = new System.Windows.Forms.TextBox();
             this.txtWeapon1ID = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtUUID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtHP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -88,8 +90,10 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtUUID = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.txtFirstMap = new System.Windows.Forms.TextBox();
+            this.txtMapCount = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +105,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(33, 9);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(275, 21);
+            this.txtSearch.Size = new System.Drawing.Size(317, 21);
             this.txtSearch.TabIndex = 10;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -116,7 +120,7 @@
             this.lsGundam.ItemHeight = 16;
             this.lsGundam.Location = new System.Drawing.Point(12, 33);
             this.lsGundam.Name = "lsGundam";
-            this.lsGundam.Size = new System.Drawing.Size(296, 539);
+            this.lsGundam.Size = new System.Drawing.Size(338, 585);
             this.lsGundam.TabIndex = 9;
             this.lsGundam.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsGundam_DrawItem);
             this.lsGundam.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lsGundam_MeasureItem);
@@ -153,7 +157,9 @@
             this.groupBox1.Controls.Add(this.cboE1);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btnSave);
+            this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.lblAddress);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label26);
@@ -163,7 +169,9 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtMapCount);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtFirstMap);
             this.groupBox1.Controls.Add(this.txtWeaponCount);
             this.groupBox1.Controls.Add(this.txtWeapon1ID);
             this.groupBox1.Controls.Add(this.txtAddress);
@@ -188,9 +196,9 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtDef);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(314, 9);
+            this.groupBox1.Location = new System.Drawing.Point(356, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 563);
+            this.groupBox1.Size = new System.Drawing.Size(470, 609);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
@@ -231,7 +239,7 @@
             // 
             // btnEditWeapon
             // 
-            this.btnEditWeapon.Location = new System.Drawing.Point(10, 465);
+            this.btnEditWeapon.Location = new System.Drawing.Point(10, 532);
             this.btnEditWeapon.Name = "btnEditWeapon";
             this.btnEditWeapon.Size = new System.Drawing.Size(443, 35);
             this.btnEditWeapon.TabIndex = 20;
@@ -342,7 +350,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(168, 514);
+            this.label18.Location = new System.Drawing.Point(168, 581);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(215, 12);
             this.label18.TabIndex = 6;
@@ -351,7 +359,7 @@
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(389, 509);
+            this.btnSave.Location = new System.Drawing.Point(389, 576);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 16;
@@ -385,6 +393,15 @@
             this.label22.Size = new System.Drawing.Size(65, 12);
             this.label22.TabIndex = 2;
             this.label22.Text = "第一武器ID";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(49, 23);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(23, 12);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "UID";
             // 
             // label17
             // 
@@ -472,6 +489,14 @@
             this.txtAddress.ReadOnly = true;
             this.txtAddress.Size = new System.Drawing.Size(144, 21);
             this.txtAddress.TabIndex = 3;
+            // 
+            // txtUUID
+            // 
+            this.txtUUID.Location = new System.Drawing.Point(78, 20);
+            this.txtUUID.Name = "txtUUID";
+            this.txtUUID.ReadOnly = true;
+            this.txtUUID.Size = new System.Drawing.Size(375, 21);
+            this.txtUUID.TabIndex = 3;
             // 
             // txtName
             // 
@@ -644,9 +669,9 @@
             this.tslblFile,
             this.tsmiLblState,
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 575);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 621);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(791, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(833, 22);
             this.statusStrip1.TabIndex = 12;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -660,7 +685,7 @@
             // 
             this.tsmiLblState.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
             this.tsmiLblState.Name = "tsmiLblState";
-            this.tsmiLblState.Size = new System.Drawing.Size(500, 17);
+            this.tsmiLblState.Size = new System.Drawing.Size(542, 17);
             this.tsmiLblState.Spring = true;
             this.tsmiLblState.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -670,28 +695,43 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
             // 
-            // txtUUID
+            // txtFirstMap
             // 
-            this.txtUUID.Location = new System.Drawing.Point(78, 20);
-            this.txtUUID.Name = "txtUUID";
-            this.txtUUID.ReadOnly = true;
-            this.txtUUID.Size = new System.Drawing.Size(375, 21);
-            this.txtUUID.TabIndex = 3;
+            this.txtFirstMap.Location = new System.Drawing.Point(78, 464);
+            this.txtFirstMap.Name = "txtFirstMap";
+            this.txtFirstMap.Size = new System.Drawing.Size(144, 21);
+            this.txtFirstMap.TabIndex = 3;
             // 
-            // label26
+            // txtMapCount
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(49, 23);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(23, 12);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "UID";
+            this.txtMapCount.Location = new System.Drawing.Point(309, 464);
+            this.txtMapCount.Name = "txtMapCount";
+            this.txtMapCount.Size = new System.Drawing.Size(144, 21);
+            this.txtMapCount.TabIndex = 3;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(0, 468);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(77, 12);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "第一地图炮ID";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(250, 468);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(53, 12);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "武器数量";
             // 
             // FrmEditGundam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 597);
+            this.ClientSize = new System.Drawing.Size(833, 643);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtSearch);
@@ -774,5 +814,9 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtUUID;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtMapCount;
+        private System.Windows.Forms.TextBox txtFirstMap;
     }
 }

@@ -96,6 +96,9 @@ namespace GGCREditor
                 txtWeapon1ID.Text = gundam.WeaponId.ToString();
                 txtWeaponCount.Text = gundam.WeaponCount.ToString();
 
+                txtFirstMap.Text = gundam.WeaponMapID.ToString();
+                txtMapCount.Text = gundam.WeaponMapCount.ToString();
+
                 cboSize.SelectedValue = gundam.Size.ToString();
                 if (cboSize.SelectedValue == null)
                 {
@@ -274,6 +277,11 @@ namespace GGCREditor
                 gundam.Move = byte.Parse(txtMove.Text);
                 gundam.Size = byte.Parse(cboSize.SelectedValue.ToString());
                 gundam.EarchSize = short.Parse(txtEarthSize.Text);
+
+                gundam.WeaponId = short.Parse(txtWeapon1ID.Text);
+                gundam.WeaponCount = byte.Parse(txtWeaponCount.Text);
+                gundam.WeaponMapID = short.Parse(txtFirstMap.Text);
+                gundam.WeaponMapCount = byte.Parse(txtMapCount.Text);
 
                 gundam.Skill1 = short.Parse(cboSkill1.SelectedValue.ToString());
                 gundam.Skill2 = short.Parse(cboSkill2.SelectedValue.ToString());

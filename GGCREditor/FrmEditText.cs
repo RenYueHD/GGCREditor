@@ -18,6 +18,7 @@ namespace GGCREditor
         {
             InitializeComponent();
             this.tblFile = new GGCRTblFile(file);
+            tsmiFile.Text = tblFile.FileName;
         }
 
         List<IndexText> list;
@@ -47,7 +48,23 @@ namespace GGCREditor
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            filterLs();
+            txtEdit.Text = null;
+            if (txtSearch.Text == null || txtSearch.Text.Length == 0)
+            {
+                lsMain.DataSource = list;
+            }
+            else
+            {
+                List<IndexText> search = new List<IndexText>();
+                foreach (IndexText kv in list)
+                {
+                    if (kv.Text.Contains(txtSearch.Text))
+                    {
+                        search.Add(kv);
+                    }
+                }
+                lsMain.DataSource = search;
+            }
         }
 
         private void lsMain_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,13 +89,11 @@ namespace GGCREditor
         {
             IndexText kv = lsMain.SelectedItem as IndexText;
             kv.Text = txtEdit.Text;
-            lsMain.DataSource = null;
-            lsMain.DataSource = list;
-            lsMain.ValueMember = "Index";
-            lsMain.DisplayMember = "Text";
-            //  filterLs();
-            lsMain.SelectedItem = kv;
+
+           // lsMain.SelectedItem = kv;
             btnSave.Enabled = true;
+
+            lsMain.Refresh();
 
             tsmiState.Text = "修改成功,等待写入";
             tsmiState.ForeColor = Color.Blue;
@@ -95,27 +110,6 @@ namespace GGCREditor
 
             tsmiState.Text = "写入成功";
             tsmiState.ForeColor = Color.Green;
-        }
-
-        private void filterLs()
-        {
-            txtEdit.Text = null;
-            if (txtSearch.Text == null || txtSearch.Text.Length == 0)
-            {
-                lsMain.DataSource = list;
-            }
-            else
-            {
-                List<IndexText> search = new List<IndexText>();
-                foreach (IndexText kv in list)
-                {
-                    if (kv.Text.Contains(txtSearch.Text))
-                    {
-                        search.Add(kv);
-                    }
-                }
-                lsMain.DataSource = search;
-            }
         }
 
         private void txtEdit_TextChanged(object sender, EventArgs e)

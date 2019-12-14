@@ -61,13 +61,6 @@ namespace GGCREditor
             cboMpLimit.DisplayMember = "Value";
             cboMpLimit.ValueMember = "Key";
 
-            cboProp.DataSource = GGCRUtil.ListWeaponProp();
-            cboProp.DisplayMember = "Value";
-            cboProp.ValueMember = "Key";
-            cboIco.DataSource = GGCRUtil.ListWeaponProp();
-            cboIco.DisplayMember = "Value";
-            cboIco.ValueMember = "Key";
-
             cboSpec.DataSource = GGCRUtil.ListWeaponSpec();
             cboSpec.DisplayMember = "Value";
             cboSpec.ValueMember = "Key";
@@ -92,6 +85,14 @@ namespace GGCREditor
                     for (short i = 0; i < gundamInfo.WeaponCount; i++)
                     {
                         limit.Add((short)(wid + i));
+                    }
+                }
+                short map = gundamInfo.WeaponMapID;
+                if (map >= 0 && gundamInfo.WeaponMapCount > 0)
+                {
+                    for (short i = 0; i < gundamInfo.WeaponMapCount; i++)
+                    {
+                        limit.Add((short)(map + i + gundamFile.WeaponNormalCount));
                     }
                 }
             }
@@ -156,22 +157,32 @@ namespace GGCREditor
                     return;
                 }
 
+                if (weapon.IsMap)
+                {
+                    cboProp.DataSource = GGCRUtil.ListMapWeaponProp();
+                    cboProp.DisplayMember = "Value";
+                    cboProp.ValueMember = "Key";
+                    cboIco.DataSource = GGCRUtil.ListMapWeaponProp();
+                    cboIco.DisplayMember = "Value";
+                    cboIco.ValueMember = "Key";
+                }
+                else
+                {
+                    cboProp.DataSource = GGCRUtil.ListNormalWeaponProp();
+                    cboProp.DisplayMember = "Value";
+                    cboProp.ValueMember = "Key";
+                    cboIco.DataSource = GGCRUtil.ListNormalWeaponProp();
+                    cboIco.DisplayMember = "Value";
+                    cboIco.ValueMember = "Key";
+                }
+
                 cboProp.SelectedValue = weapon.PROPER.ToString();
-                if (cboProp.SelectedValue == null)
-                {
-                    GGCRUtil.AddWeaponProp(weapon.PROPER, "未知" + weapon.PROPER);
-                    bindAll();
-                    LoadData(weapon);
-                    return;
-                }
                 cboIco.SelectedValue = weapon.ICO.ToString();
-                if (cboIco.SelectedValue == null)
-                {
-                    GGCRUtil.AddWeaponSpec(weapon.ICO, "未知" + weapon.ICO);
-                    bindAll();
-                    LoadData(weapon);
-                    return;
-                }
+
+
+
+
+
                 cboSpec.SelectedValue = weapon.Spec.ToString();
                 if (cboSpec.SelectedValue == null)
                 {

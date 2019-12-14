@@ -7,10 +7,19 @@ namespace GGCREditorLib
     public abstract class GGCRUnitInfo<T>
         where T : GGCRPkdFile
     {
+        /// <summary>
+        /// 该单位的实际数据(Copy)
+        /// </summary>
         internal byte[] Data { get; }
 
+        /// <summary>
+        /// 该单位在整个CDB数据集合中的索引(第一单位为0)
+        /// </summary>
         internal int No { get; }
 
+        /// <summary>
+        /// 该单位所处的PKD文件
+        /// </summary>
         public T PkdFile { get; }
 
         public GGCRUnitInfo(T file, int index, int no)

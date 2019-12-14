@@ -22,12 +22,15 @@ namespace GGCREditorLib
         private const int EARTH_SIZE_IDX = HP_IDX + 54;
         //技能 10byte
         private const int SKILL_IDX = HP_IDX + 56;
-        //第一武器地址 4byte
+        //第一武器地址 2byte
         private const int WEAPON_IDX = HP_IDX + 66;
+        //第一MAP地址 2byte
+        private const int WEAPON_MAP_IDX = HP_IDX + 68;
         //移动 2byte
         private const int MOVE_IDX = HP_IDX + 70;
         //武器数量(MAP除外)
         private const int WEAPON_COUNT_IDX = HP_IDX + 73;
+        private const int WEAPON_MAP_COUNT_IDX = HP_IDX + 74;
         //体积 1byte
         private const int SIZE_IDX = HP_IDX + 71;
 
@@ -276,6 +279,31 @@ namespace GGCREditorLib
                 save(WEAPON_COUNT_IDX, value);
             }
         }
+
+        public short WeaponMapID
+        {
+            get
+            {
+                return BitConverter.ToInt16(this.Data, WEAPON_MAP_IDX);
+            }
+            set
+            {
+                save(WEAPON_MAP_IDX, value);
+            }
+        }
+
+        public byte WeaponMapCount
+        {
+            get
+            {
+                return this.Data[WEAPON_MAP_COUNT_IDX];
+            }
+            set
+            {
+                save(WEAPON_MAP_COUNT_IDX, value);
+            }
+        }
+
 
 
         public override int UnitLength

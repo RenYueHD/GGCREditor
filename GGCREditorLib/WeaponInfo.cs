@@ -35,17 +35,25 @@ namespace GGCREditorLib
 
         }
 
+        public bool IsMap
+        {
+            get
+            {
+                return this.No >= PkdFile.WeaponNormalCount;
+            }
+        }
+
         public string WeaponName
         {
             get
             {
                 if (this.ID < 0 || PkdFile.weaponNames[this.ID] == null || PkdFile.weaponNames[this.ID].Trim().Length == 0)
                 {
-                    return "未知";
+                    return (IsMap ? "(MAP)" : "") + "未知";
                 }
                 else
                 {
-                    return PkdFile.weaponNames[this.ID];
+                    return (IsMap ? "(MAP)" : "") + PkdFile.weaponNames[this.ID];
                 }
             }
         }

@@ -16,6 +16,10 @@ namespace GGCREditorLib
         internal string[] weaponNames;
         internal string[] gundamName;
 
+        public int WeaponCdbStart { get; }
+        public int WeaponNormalCount { get; }
+        public int WeaponMapCount { get; }
+
         public GundamFile()
             : base(GGCRStaticConfig.MachineFile)
         {
@@ -28,6 +32,15 @@ namespace GGCREditorLib
 
             idx = ByteHelper.FindFirstIndex(data, "E9 A3 9E E7 BF BC E9 AB", 0);
             gundamName = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+
+
+            WeaponCdbStart = ByteHelper.FindFirstIndex(this.Data, "4C 53 50 57", 0);
+            if (WeaponCdbStart < 0)
+            {
+                throw new Exception("文件[" + this.FileName + "]无法解析");
+            }
+            WeaponNormalCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 8);
+            WeaponMapCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 12);
         }
 
         /// <summary>
@@ -55,19 +68,10 @@ namespace GGCREditorLib
 
         public List<WeaponInfo> ListWeapons()
         {
-            int start = ByteHelper.FindFirstIndex(this.Data, "4C 53 50 57", 0);
-            if (start < 0)
-            {
-                throw new Exception("文件[" + this.FileName + "]无法解析");
-            }
-
-            int count = BitConverter.ToInt32(this.Data, start + 8);
-            int count2 = BitConverter.ToInt32(this.Data, start + 12);
-
             List<WeaponInfo> list = new List<WeaponInfo>();
-            for (int i = 0; i < count + count2; i++)
+            for (int i = 0; i < WeaponNormalCount + WeaponMapCount; i++)
             {
-                list.Add(new WeaponInfo(this, start + 28 + i * GGCRStaticConfig.WeaponLength, i));
+                list.Add(new WeaponInfo(this, WeaponCdbStart + 28 + i * GGCRStaticConfig.WeaponLength, i));
             }
             return list;
         }
