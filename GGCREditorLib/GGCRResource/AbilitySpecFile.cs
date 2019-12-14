@@ -30,17 +30,6 @@ namespace GGCREditorLib
             PersonAbilityCount = BitConverter.ToInt32(this.Data, 16);   //个人技能数量
             WarAbilityCount = BitConverter.ToInt32(this.Data, 20);      //战场技能数量
             XiaoGuoCount = BitConverter.ToInt32(this.Data, 24);         //技能效果数量
-
-
-
-
-
-
-
-
-
-
-
         }
 
 

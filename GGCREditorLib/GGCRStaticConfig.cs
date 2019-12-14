@@ -29,6 +29,16 @@ namespace GGCREditor
         public static int WeaponLength = 36;
         public static int WeaponUIDLength = 10;
 
+        public static int GundamAbilityStart = 50;
+
+        public static int GundamAbilityLength = 8;
+
+        public static int PeopleAbilityLength = 34;
+
+        public static int OPAbilityLength = 40;
+
+        public static int XiaoGuoLength = 132;
+
         /// <summary>
         /// 当前data目录
         /// </summary>
