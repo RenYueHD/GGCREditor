@@ -45,11 +45,11 @@
             this.flowContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.btnEditAbility = new System.Windows.Forms.Button();
             this.btnEditTBL = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowContainer2 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.flowContainer.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flowContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -207,26 +207,27 @@
             this.btnEditTBL.UseVisualStyleBackColor = true;
             this.btnEditTBL.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // flowLayoutPanel1
+            // flowContainer2
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.Controls.Add(this.btnEditPeopleText);
-            this.flowLayoutPanel1.Controls.Add(this.btnEditMachineTxt);
-            this.flowLayoutPanel1.Controls.Add(this.btnEditMachineDesc);
-            this.flowLayoutPanel1.Controls.Add(this.btnEditAbilityText);
-            this.flowLayoutPanel1.Controls.Add(this.btnEditTBL);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 95);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(419, 61);
-            this.flowLayoutPanel1.TabIndex = 5;
+            this.flowContainer2.Controls.Add(this.btnEditPeopleText);
+            this.flowContainer2.Controls.Add(this.btnEditMachineTxt);
+            this.flowContainer2.Controls.Add(this.btnEditMachineDesc);
+            this.flowContainer2.Controls.Add(this.btnEditAbilityText);
+            this.flowContainer2.Controls.Add(this.btnEditTBL);
+            this.flowContainer2.Enabled = false;
+            this.flowContainer2.Location = new System.Drawing.Point(12, 95);
+            this.flowContainer2.Name = "flowContainer2";
+            this.flowContainer2.Size = new System.Drawing.Size(419, 61);
+            this.flowContainer2.TabIndex = 5;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 206);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowContainer2);
             this.Controls.Add(this.flowContainer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
@@ -243,7 +244,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.flowContainer.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,7 +268,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowContainer;
         private System.Windows.Forms.Button btnEditTBL;
         private System.Windows.Forms.Button btnEditAbility;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowContainer2;
     }
 }
 

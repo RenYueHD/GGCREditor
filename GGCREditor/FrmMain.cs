@@ -78,7 +78,7 @@ namespace GGCREditor
         private void enableAll()
         {
             flowContainer.Enabled = true;
-
+            flowContainer2.Enabled = true;
         }
 
         private void btnEditGundam_Click(object sender, EventArgs e)
