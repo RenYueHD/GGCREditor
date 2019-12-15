@@ -859,7 +859,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(54, 31);
             this.label32.TabIndex = 14;
-            this.label32.Text = "HP回复";
+            this.label32.Text = "HP回复%";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtHPRec
@@ -875,7 +875,7 @@
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(54, 31);
             this.label33.TabIndex = 16;
-            this.label33.Text = "EN回复";
+            this.label33.Text = "EN回复%";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtENRec

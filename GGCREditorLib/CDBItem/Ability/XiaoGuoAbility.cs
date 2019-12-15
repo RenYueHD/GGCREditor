@@ -556,19 +556,30 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(98, value);
             }
         }
-        public short UnKnow51
+
+        public byte Mov
         {
             get
             {
-                return BitConverter.ToInt16(this.Data, 100);
+                return this.Data[100];
             }
             set
             {
                 save(100, value);
             }
         }
-
-        public byte Mov
+        public byte ShiYin1
+        {
+            get
+            {
+                return this.Data[101];
+            }
+            set
+            {
+                save(101, value);
+            }
+        }
+        public byte ShiYin2
         {
             get
             {
@@ -579,7 +590,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(102, value);
             }
         }
-        public byte ShiYin1
+        public byte ShiYin3
         {
             get
             {
@@ -590,7 +601,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(103, value);
             }
         }
-        public byte ShiYin2
+        public byte ShiYin4
         {
             get
             {
@@ -601,7 +612,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(104, value);
             }
         }
-        public byte ShiYin3
+        public byte ShiYin5
         {
             get
             {
@@ -612,7 +623,8 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(105, value);
             }
         }
-        public byte ShiYin4
+
+        public byte SheChenSheJi
         {
             get
             {
@@ -623,7 +635,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(106, value);
             }
         }
-        public byte ShiYin5
+        public byte SheChenGeDou
         {
             get
             {
@@ -634,8 +646,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(107, value);
             }
         }
-
-        public byte SheChenSheJi
+        public byte SheChenWuLi
         {
             get
             {
@@ -646,7 +657,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(108, value);
             }
         }
-        public byte SheChenGeDou
+        public byte SheChenBean
         {
             get
             {
@@ -657,7 +668,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(109, value);
             }
         }
-        public byte SheChenWuLi
+        public byte SheChenMap
         {
             get
             {
@@ -668,7 +679,8 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(110, value);
             }
         }
-        public byte SheChenBean
+
+        public byte XiaoHaoEnSheJi
         {
             get
             {
@@ -679,7 +691,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(111, value);
             }
         }
-        public byte SheChenMap
+        public byte XiaoHaoEnGeDou
         {
             get
             {
@@ -690,8 +702,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(112, value);
             }
         }
-
-        public byte XiaoHaoEnSheJi
+        public byte XiaoHaoEnWuLi
         {
             get
             {
@@ -702,7 +713,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(113, value);
             }
         }
-        public byte XiaoHaoEnGeDou
+        public byte XiaoHaoEnBean
         {
             get
             {
@@ -713,7 +724,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(114, value);
             }
         }
-        public byte XiaoHaoEnWuLi
+        public byte XiaoHaoEnMap
         {
             get
             {
@@ -724,18 +735,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(115, value);
             }
         }
-        public byte XiaoHaoEnBean
-        {
-            get
-            {
-                return this.Data[116];
-            }
-            set
-            {
-                save(116, value);
-            }
-        }
-        public byte XiaoHaoEnMap
+        public byte XiaoHaoMP
         {
             get
             {
@@ -746,7 +746,8 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(117, value);
             }
         }
-        public byte XiaoHaoMP
+
+        public byte BaoJiSheJi
         {
             get
             {
@@ -757,8 +758,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(118, value);
             }
         }
-
-        public byte BaoJiSheJi
+        public byte BaoJiGeDou
         {
             get
             {
@@ -769,7 +769,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(119, value);
             }
         }
-        public byte BaoJiGeDou
+        public byte BaoJiWuLi
         {
             get
             {
@@ -780,7 +780,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(120, value);
             }
         }
-        public byte BaoJiWuLi
+        public byte BaoJiBean
         {
             get
             {
@@ -791,7 +791,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(121, value);
             }
         }
-        public byte BaoJiBean
+        public byte BaoJiUnKnow
         {
             get
             {
@@ -802,7 +802,8 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(122, value);
             }
         }
-        public byte BaoJiUnKnow
+
+        public byte MinZhong
         {
             get
             {
@@ -813,8 +814,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(123, value);
             }
         }
-
-        public byte MinZhong
+        public byte ShanBi
         {
             get
             {
@@ -825,7 +825,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(124, value);
             }
         }
-        public byte ShanBi
+        public byte UnKnow75
         {
             get
             {
@@ -836,7 +836,8 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(125, value);
             }
         }
-        public byte UnKnow75
+
+        public byte EWaiXinDong
         {
             get
             {
@@ -847,8 +848,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(126, value);
             }
         }
-
-        public byte EWaiXinDong
+        public byte AreaZhiHui
         {
             get
             {
@@ -859,7 +859,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(127, value);
             }
         }
-        public byte AreaZhiHui
+        public byte UnKnow78
         {
             get
             {
@@ -870,7 +870,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(128, value);
             }
         }
-        public byte UnKnow78
+        public byte AreaJiNen
         {
             get
             {
@@ -881,7 +881,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(129, value);
             }
         }
-        public byte AreaJiNen
+        public byte UnKnow80
         {
             get
             {
@@ -890,17 +890,6 @@ namespace GGCREditorLib.CDBItem.Ability
             set
             {
                 save(130, value);
-            }
-        }
-        public byte UnKnow80
-        {
-            get
-            {
-                return this.Data[131];
-            }
-            set
-            {
-                save(131, value);
             }
         }
 
