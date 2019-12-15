@@ -27,7 +27,13 @@ namespace GGCREditor
             abilitys = file.ListAbilitys();
             xiaoguos = file.ListXiaoGuo();
 
+            tsmiFile.Text = file.FileName;
+
             lsAbility.DataSource = abilitys;
+
+            cboSkill.DataSource = xiaoguos;
+            cboSkill.ValueMember = "SkillId";
+            cboSkill.DisplayMember = "SkillId";
         }
 
         private void lsMasters_MeasureItem(object sender, MeasureItemEventArgs e)
@@ -53,39 +59,27 @@ namespace GGCREditor
             AbstractAbility ability = lsAbility.SelectedItem as AbstractAbility;
             if (ability != null)
             {
-                txtAddress.Text = ability.Address;
-                txtIdInGroup.Text = ability.IDInGroup.ToString();
-                txtSkillID.Text = ability.SkillId.ToString();
+                cboSkill.SelectedValue = ability.SkillId;
+                XiaoGuoAbility xiaoguo = cboSkill.SelectedItem as XiaoGuoAbility;
 
-                XiaoGuoAbility xiaoguo = null;
                 if (ability is XiaoGuoAbility)
                 {
-                    xiaoguo = ability as XiaoGuoAbility;
-                    txtSkillID.Enabled = false;
+                    cboSkill.Enabled = false;
                     txtRemarkId.Enabled = true;
                 }
                 else
                 {
-                    txtSkillID.Enabled = true;
+                    cboSkill.Enabled = true;
                     txtRemarkId.Enabled = false;
 
-                    foreach (XiaoGuoAbility x in xiaoguos)
-                    {
-                        if (x.SkillId == ability.SkillId)
-                        {
-                            xiaoguo = x;
-                            break;
-                        }
-                    }
-                }
-                if (xiaoguo != null)
-                {
-                    txtXiaoGuoRemark.Text = xiaoguo.RemarkDetail;
-                    txtRemarkId.Text = xiaoguo.RemarkId.ToString();
-
                 }
 
-
+                txtAddress.Text = ability.Address;
+                txtIdInGroup.Text = ability.IDInGroup.ToString();
+            }
+            else
+            {
+                cboSkill.SelectedValue = "-1";
             }
 
         }
@@ -108,6 +102,74 @@ namespace GGCREditor
                     }
                 }
                 lsAbility.DataSource = search;
+            }
+        }
+
+        private void cboSkill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadSkill(cboSkill.SelectedItem as XiaoGuoAbility);
+        }
+
+        private void loadSkill(XiaoGuoAbility xiaoguo)
+        {
+            if (xiaoguo != null)
+            {
+                txtXiaoGuoRemark.Text = xiaoguo.RemarkDetail;
+                txtRemarkId.Text = xiaoguo.RemarkId.ToString();
+
+                changePanel(true);
+
+
+
+
+
+            }
+            else
+            {
+                txtXiaoGuoRemark.Text = null;
+
+                changePanel(false);
+            }
+
+
+            tsmiState.Text = "等待修改";
+            tsmiState.ForeColor = Color.Black;
+        }
+
+
+        private void changePanel(bool enable)
+        {
+            foreach (Control c in pan1.Controls)
+            {
+                if (c is TextBox)
+                {
+                    (c as TextBox).Text = null;
+                }
+                c.Enabled = false;
+            }
+            foreach (Control c in pan2.Controls)
+            {
+                if (c is TextBox)
+                {
+                    (c as TextBox).Text = null;
+                }
+                c.Enabled = false;
+            }
+            foreach (Control c in pan3.Controls)
+            {
+                if (c is TextBox)
+                {
+                    (c as TextBox).Text = null;
+                }
+                c.Enabled = false;
+            }
+            foreach (Control c in pan4.Controls)
+            {
+                if (c is TextBox)
+                {
+                    (c as TextBox).Text = null;
+                }
+                c.Enabled = false;
             }
         }
     }
