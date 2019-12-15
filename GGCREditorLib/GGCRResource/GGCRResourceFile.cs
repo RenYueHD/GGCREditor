@@ -10,10 +10,11 @@ namespace GGCREditorLib
         public GGCRResourceFile(string file)
         {
             this.FileName = file;
-            this.Data = File.ReadAllBytes(file);
+            this.data = File.ReadAllBytes(file);
         }
 
-        internal byte[] Data { get; }
+        private byte[] data;
+        internal byte[] Data { get { return data; } }
         public string FileName { get; }
 
         /// <summary>
@@ -27,6 +28,8 @@ namespace GGCREditorLib
                 fs.Write(data, 0, data.Length);
                 fs.Flush();
             }
+
+            this.data = File.ReadAllBytes(FileName);
         }
     }
 }

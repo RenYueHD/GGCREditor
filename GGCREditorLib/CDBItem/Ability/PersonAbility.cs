@@ -18,5 +18,6 @@ namespace GGCREditorLib.CDBItem.Ability
 
         public override int UnitLength => GGCRStaticConfig.PeopleAbilityLength;
 
+        public override string TypeName => "个人技能";
     }
 }

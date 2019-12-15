@@ -19,5 +19,6 @@ namespace GGCREditorLib.CDBItem.Ability
 
         public override int UnitLength => GGCRStaticConfig.GundamAbilityLength;
 
+        public override string TypeName => "机体能力";
     }
 }

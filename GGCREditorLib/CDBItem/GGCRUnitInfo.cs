@@ -53,7 +53,7 @@ namespace GGCREditorLib
         {
             get
             {
-                return ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(this.Index));
+                return ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(this.Index)).Replace(" ", "");
             }
         }
 

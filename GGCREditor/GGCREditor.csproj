@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmEditAbility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditAbility.Designer.cs">
+      <DependentUpon>FrmEditAbility.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditText.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="IndexText.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmEditAbility.resx">
+      <DependentUpon>FrmEditAbility.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEditText.resx">
       <DependentUpon>FrmEditText.cs</DependentUpon>
     </EmbeddedResource>

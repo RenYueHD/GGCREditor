@@ -72,8 +72,6 @@ namespace GGCREditor
             gundams = gundamFile.ListMachines();
 
             lsGundam.DataSource = gundams;
-            lsGundam.DisplayMember = "UnitName";
-            lsGundam.ValueMember = "Address";
         }
 
         private void LoadData(GundamInfo gundam)
@@ -85,7 +83,7 @@ namespace GGCREditor
                 txtGroup.Text = gundam.GroupName;
                 txtId.Text = gundam.ID.ToString();
                 txtName.Text = gundam.UnitName;
-                txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(gundam.Index));
+                txtAddress.Text = gundam.Address;
                 txtHP.Text = gundam.HP.ToString();
                 txtEN.Text = gundam.EN.ToString();
                 txtAct.Text = gundam.ACT.ToString();
@@ -295,6 +293,10 @@ namespace GGCREditor
 
                 gundam.Save();
 
+                gundam.Refresh();
+
+                LoadData(gundam);
+
                 tsmiLblState.Text = "保存成功";
                 tsmiLblState.ForeColor = Color.Green;
             }
@@ -306,9 +308,6 @@ namespace GGCREditor
             if (txtSearch.Text == null || txtSearch.Text == "")
             {
                 lsGundam.DataSource = gundams;
-                lsGundam.DisplayMember = "UnitName";
-                lsGundam.ValueMember = "Address";
-                //lsGundam.SelectedItem = null;
             }
             else
             {
@@ -321,9 +320,6 @@ namespace GGCREditor
                     }
                 }
                 lsGundam.DataSource = search;
-                lsGundam.DisplayMember = "UnitName";
-                lsGundam.ValueMember = "Address";
-                //lsGundam.SelectedItem = null;
             }
         }
 

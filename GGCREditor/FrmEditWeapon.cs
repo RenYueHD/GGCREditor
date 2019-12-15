@@ -124,7 +124,7 @@ namespace GGCREditor
                 txtId.Text = weapon.ID.ToString();
 
                 txtName.Text = weapon.UnitName;
-                txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(weapon.Index));
+                txtAddress.Text = weapon.Address;
                 txtPower.Text = weapon.POWER.ToString();
                 txtEN.Text = weapon.EN.ToString();
                 txtMP.Text = weapon.MP.ToString();
@@ -328,6 +328,9 @@ namespace GGCREditor
                 }
 
                 weapon.Save();
+
+                weapon.Refresh();
+                LoadData(weapon);
 
                 tsmiLblState.Text = "保存成功";
                 tsmiLblState.ForeColor = Color.Green;

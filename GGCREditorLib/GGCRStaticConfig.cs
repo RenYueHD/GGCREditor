@@ -29,7 +29,7 @@ namespace GGCREditor
         public static int WeaponLength = 36;
         public static int WeaponUIDLength = 10;
 
-        public static int GundamAbilityStart = 50;
+        public static int GundamAbilityStart = 48;
 
         public static int GundamAbilityLength = 8;
 

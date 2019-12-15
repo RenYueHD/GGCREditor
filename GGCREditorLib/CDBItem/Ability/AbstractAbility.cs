@@ -23,17 +23,19 @@ namespace GGCREditorLib.CDBItem.Ability
             }
         }
 
+        public abstract string TypeName { get; }
+
         public abstract int IDInGroup { get; }
 
-        public short SkillId
+        public virtual short SkillId
         {
             get
             {
-                return BitConverter.ToInt16(this.Data, 2);
+                return BitConverter.ToInt16(this.Data, 4);
             }
             set
             {
-                save(2, value);
+                save(4, value);
             }
         }
 

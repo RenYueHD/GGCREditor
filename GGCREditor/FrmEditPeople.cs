@@ -68,7 +68,7 @@ namespace GGCREditor
                 txtId.Text = master.ID.ToString();
                 txtUnKnow.Text = master.Unknow.ToString();
                 txtName.Text = master.UnitName;
-                txtAddress.Text = ByteHelper.ByteArrayToHexString(ByteHelper.Int2Bytes(master.Index));
+                txtAddress.Text = master.Address;
                 txtSheJi.Text = master.SheJi.ToString();
                 txtGeDou.Text = master.GeDou.ToString();
                 txtShouBei.Text = master.ShouBei.ToString();
@@ -228,6 +228,9 @@ namespace GGCREditor
                 master.Last4 = short.Parse(txtLast4.Text);
 
                 master.Save();
+
+                master.Refresh();
+                LoadData(master);
 
                 tsmiLblState.Text = "保存成功";
                 tsmiLblState.ForeColor = Color.Green;

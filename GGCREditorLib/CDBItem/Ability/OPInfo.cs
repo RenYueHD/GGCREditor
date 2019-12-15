@@ -14,5 +14,7 @@ namespace GGCREditorLib.CDBItem.Ability
         public override int IDInGroup => No - PkdFile.MachineAbilityCount;
 
         public override int UnitLength => GGCRStaticConfig.OPAbilityLength;
+
+        public override string TypeName => "OP";
     }
 }

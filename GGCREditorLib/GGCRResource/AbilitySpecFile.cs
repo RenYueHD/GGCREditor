@@ -70,11 +70,34 @@ namespace GGCREditorLib
                 idx += GGCRStaticConfig.WarAbilityLength;
                 no += 2;
             }
+            for (int i = 0; i < XiaoGuoCount; i++)
+            {
+                list.Add(new XiaoGuoAbility(this, idx, no));
+                idx += GGCRStaticConfig.XiaoGuoLength;
+                no++;
+            }
 
             return list;
-
         }
 
+        public List<XiaoGuoAbility> ListXiaoGuo()
+        {
+            int idx = GGCRStaticConfig.GundamAbilityStart;
+            //读取机体技能
+            List<XiaoGuoAbility> list = new List<XiaoGuoAbility>();
+
+            int skipIndx = GGCRStaticConfig.GundamAbilityStart + MachineAbilityCount * GGCRStaticConfig.GundamAbilityLength
+                + OPCount * GGCRStaticConfig.OPAbilityLength + PersonAbilityCount * GGCRStaticConfig.PeopleAbilityLength
+                + WarAbilityCount * GGCRStaticConfig.WarAbilityLength;
+            int skipLength = MachineAbilityCount + OPCount + PersonAbilityCount + WarAbilityCount * 2;
+
+            for (int i = 0; i < XiaoGuoCount; i++)
+            {
+                list.Add(new XiaoGuoAbility(this, skipIndx + i * GGCRStaticConfig.XiaoGuoLength, skipLength + i));
+            }
+
+            return list;
+        }
 
         public ReadOnlyCollection<string> ListMachineAbilitys()
         {
@@ -110,9 +133,9 @@ namespace GGCREditorLib
         {
             //读取战场技能
             List<string> warAbilitys = new List<string>();
+            int skip = MachineAbilityCount + OPCount + PersonAbilityCount;
             for (int i = 0; i < WarAbilityCount; i++)
             {
-                int skip = MachineAbilityCount + OPCount + PersonAbilityCount;
                 warAbilitys.Add(AbilityText[skip + i * 2] + "(" + AbilityText[skip + i * 2 + 1] + ")");
             }
             return warAbilitys.AsReadOnly();

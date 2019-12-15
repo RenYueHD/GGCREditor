@@ -130,5 +130,11 @@ namespace GGCREditor
                 form.ShowDialog();
             }
         }
+
+        private void btnEditAbility_Click_1(object sender, EventArgs e)
+        {
+            FrmEditAbility form = new FrmEditAbility();
+            form.ShowDialog();
+        }
     }
 }
