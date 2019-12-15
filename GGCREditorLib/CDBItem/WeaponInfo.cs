@@ -119,7 +119,7 @@ namespace GGCREditorLib
             }
             set
             {
-                save(POWER_IDX, (short)value / 100);
+                save(POWER_IDX, (short)(value / 100));
             }
         }
 

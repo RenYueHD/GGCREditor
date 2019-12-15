@@ -100,7 +100,7 @@ namespace GGCREditor
                 List<AbstractAbility> search = new List<AbstractAbility>();
                 foreach (AbstractAbility m in abilitys)
                 {
-                    if ((m.TypeName + "-" + m.UnitName).IndexOf(txtSearch.Text) >= 0 || m is XiaoGuoAbility && (m as XiaoGuoAbility).RemarkDetail.IndexOf(txtSearch.Text) >= 0)
+                    if ((m.TypeName + "-" + m.UnitName).ToUpper().IndexOf(txtSearch.Text.ToUpper()) >= 0 || m is XiaoGuoAbility && (m as XiaoGuoAbility).RemarkDetail.ToUpper().IndexOf(txtSearch.Text.ToUpper()) >= 0)
                     {
                         search.Add(m);
                     }
@@ -365,7 +365,7 @@ namespace GGCREditor
 
                 xiaoguo.UnKnow80 = short.Parse(txtUnknow80.Text);
 
-               // xiaoguo.RemarkId = short.Parse(txtRemarkId.Text);
+                // xiaoguo.RemarkId = short.Parse(txtRemarkId.Text);
 
                 //写技能文本
                 if (txtXiaoGuoRemark.Text != xiaoguo.RemarkDetail)

@@ -1409,7 +1409,7 @@
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(54, 31);
             this.label53.TabIndex = 23;
-            this.label53.Text = "未知损伤42无效?";
+            this.label53.Text = "特格损伤无效?";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtWuXiaoUnknow42
@@ -1426,7 +1426,7 @@
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(54, 31);
             this.label54.TabIndex = 24;
-            this.label54.Text = "未知损伤43无效?";
+            this.label54.Text = "特射损伤无效?";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtWuXiaoUnKnow43
