@@ -940,7 +940,7 @@ namespace GGCREditorLib.CDBItem.Ability
         {
             string tmp = tempRemark;
             this.tempRemark = null;
-            if (tmp != RemarkDetail)
+            if (tmp != null && tmp != RemarkDetail)
             {
                 GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
                 List<string> list = txtFile.ListAllText();
