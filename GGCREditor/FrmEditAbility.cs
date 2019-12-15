@@ -365,15 +365,15 @@ namespace GGCREditor
 
                 xiaoguo.UnKnow80 = short.Parse(txtUnknow80.Text);
 
-                xiaoguo.RemarkId = short.Parse(txtRemarkId.Text);
-
-                xiaoguo.Save();
+               // xiaoguo.RemarkId = short.Parse(txtRemarkId.Text);
 
                 //写技能文本
                 if (txtXiaoGuoRemark.Text != xiaoguo.RemarkDetail)
                 {
                     xiaoguo.RemarkDetail = txtXiaoGuoRemark.Text;
                 }
+
+                xiaoguo.Save();
 
                 tsmiState.Text = "写入成功";
                 tsmiState.ForeColor = Color.Green;

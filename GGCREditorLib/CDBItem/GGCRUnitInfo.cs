@@ -111,7 +111,7 @@ namespace GGCREditorLib
             Array.Copy(data, this.Data, data.Length);
         }
 
-        public void Save()
+        public virtual void Save()
         {
             PkdFile.Write(this.Index, this.Data);
             Refresh();

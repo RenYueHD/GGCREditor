@@ -354,7 +354,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 31);
             this.label5.TabIndex = 12;
-            this.label5.Text = "效果效果说明编号";
+            this.label5.Text = "技能效果说明编号";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtRemarkId
@@ -362,6 +362,7 @@
             this.txtRemarkId.Enabled = false;
             this.txtRemarkId.Location = new System.Drawing.Point(1003, 15);
             this.txtRemarkId.Name = "txtRemarkId";
+            this.txtRemarkId.ReadOnly = true;
             this.txtRemarkId.Size = new System.Drawing.Size(130, 21);
             this.txtRemarkId.TabIndex = 13;
             // 

@@ -933,23 +933,33 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(0, value);
             }
         }
+
+        private string tempRemark;
+
+        public override void Save()
+        {
+            string tmp = tempRemark;
+            this.tempRemark = null;
+            if (tmp != RemarkDetail)
+            {
+                GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
+                List<string> list = txtFile.ListAllText();
+                list[this.RemarkId] = tmp;
+                txtFile.Save(list);
+
+                PkdFile.ReloadAbilityText();
+            }
+            base.Save();
+        }
         public string RemarkDetail
         {
             get
             {
-                return PkdFile.AbilityText[this.No];
+                return tempRemark ?? PkdFile.AbilityText[this.RemarkId];
             }
             set
             {
-                if (value != RemarkDetail)
-                {
-                    GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
-                    List<string> list = txtFile.ListAllText();
-                    list[this.RemarkId] = value;
-                    txtFile.Save(list);
-
-                    PkdFile.ReloadAbilityText();
-                }
+                this.tempRemark = value;
             }
         }
 
