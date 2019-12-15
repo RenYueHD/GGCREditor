@@ -95,19 +95,41 @@
             this.pan3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label31 = new System.Windows.Forms.Label();
             this.txtPerZhanYi = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.txtPerEWaiXinDong = new System.Windows.Forms.TextBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.txtAreaZhiHui = new System.Windows.Forms.TextBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.txtAreaUnknow78 = new System.Windows.Forms.TextBox();
+            this.label85 = new System.Windows.Forms.Label();
+            this.txtAreaJiNen = new System.Windows.Forms.TextBox();
+            this.label81 = new System.Windows.Forms.Label();
+            this.txtUnKnow75 = new System.Windows.Forms.TextBox();
+            this.label86 = new System.Windows.Forms.Label();
+            this.txtUnknow80 = new System.Windows.Forms.TextBox();
             this.pan1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label32 = new System.Windows.Forms.Label();
             this.txtHPRec = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.txtENRec = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.txtMove = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.txtShiXin1 = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.txtShiXin2 = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.txtShiXin3 = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.txtMove = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.txtShiXin4 = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.txtShiXin5 = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.txtJinYan = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.txtJiFen = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.txtJinE = new System.Windows.Forms.TextBox();
             this.pan4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label42 = new System.Windows.Forms.Label();
             this.txtDmgWuLiGeDou = new System.Windows.Forms.TextBox();
@@ -149,16 +171,6 @@
             this.txtUnknow49 = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.txtUnknow50 = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.txtShiXin4 = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.txtShiXin5 = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.txtJinYan = new System.Windows.Forms.TextBox();
-            this.label61 = new System.Windows.Forms.Label();
-            this.txtJiFen = new System.Windows.Forms.TextBox();
-            this.label62 = new System.Windows.Forms.Label();
-            this.txtJinE = new System.Windows.Forms.TextBox();
             this.pan2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label63 = new System.Windows.Forms.Label();
             this.txtSheChenSheJi = new System.Windows.Forms.TextBox();
@@ -196,20 +208,9 @@
             this.txtMinZhong = new System.Windows.Forms.TextBox();
             this.label80 = new System.Windows.Forms.Label();
             this.txtShanBi = new System.Windows.Forms.TextBox();
-            this.label81 = new System.Windows.Forms.Label();
-            this.txtUnKnow75 = new System.Windows.Forms.TextBox();
-            this.label82 = new System.Windows.Forms.Label();
-            this.txtPerEWaiXinDong = new System.Windows.Forms.TextBox();
-            this.label83 = new System.Windows.Forms.Label();
-            this.txtAreaZhiHui = new System.Windows.Forms.TextBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.txtAreaUnknow78 = new System.Windows.Forms.TextBox();
-            this.label85 = new System.Windows.Forms.Label();
-            this.txtAreaJiNen = new System.Windows.Forms.TextBox();
-            this.label86 = new System.Windows.Forms.Label();
-            this.txtUnknow80 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cboSkill = new System.Windows.Forms.ComboBox();
+            this.btnCreateNew = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.pan3.SuspendLayout();
             this.pan1.SuspendLayout();
@@ -236,7 +237,7 @@
             this.lsAbility.ItemHeight = 16;
             this.lsAbility.Location = new System.Drawing.Point(12, 46);
             this.lsAbility.Name = "lsAbility";
-            this.lsAbility.Size = new System.Drawing.Size(281, 756);
+            this.lsAbility.Size = new System.Drawing.Size(281, 708);
             this.lsAbility.TabIndex = 9;
             this.lsAbility.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsMasters_DrawItem);
             this.lsAbility.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lsMasters_MeasureItem);
@@ -331,9 +332,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(531, 672);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.Size = new System.Drawing.Size(137, 12);
             this.label4.TabIndex = 12;
-            this.label4.Text = "效果说明";
+            this.label4.Text = "效果说明(也可以修改哦)";
             // 
             // txtXiaoGuoRemark
             // 
@@ -358,6 +359,7 @@
             // 
             // txtRemarkId
             // 
+            this.txtRemarkId.Enabled = false;
             this.txtRemarkId.Location = new System.Drawing.Point(1003, 15);
             this.txtRemarkId.Name = "txtRemarkId";
             this.txtRemarkId.Size = new System.Drawing.Size(130, 21);
@@ -388,6 +390,7 @@
             this.txtHP.Name = "txtHP";
             this.txtHP.Size = new System.Drawing.Size(130, 21);
             this.txtHP.TabIndex = 13;
+            this.txtHP.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label8
             // 
@@ -404,6 +407,7 @@
             this.txtPowerGeDou.Name = "txtPowerGeDou";
             this.txtPowerGeDou.Size = new System.Drawing.Size(130, 21);
             this.txtPowerGeDou.TabIndex = 13;
+            this.txtPowerGeDou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label9
             // 
@@ -420,6 +424,7 @@
             this.txtEN.Name = "txtEN";
             this.txtEN.Size = new System.Drawing.Size(130, 21);
             this.txtEN.TabIndex = 13;
+            this.txtEN.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label10
             // 
@@ -436,6 +441,7 @@
             this.txtPowerWuLi.Name = "txtPowerWuLi";
             this.txtPowerWuLi.Size = new System.Drawing.Size(130, 21);
             this.txtPowerWuLi.TabIndex = 13;
+            this.txtPowerWuLi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label11
             // 
@@ -452,6 +458,7 @@
             this.txtMachAct.Name = "txtMachAct";
             this.txtMachAct.Size = new System.Drawing.Size(130, 21);
             this.txtMachAct.TabIndex = 13;
+            this.txtMachAct.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label12
             // 
@@ -468,6 +475,7 @@
             this.txtPowerBean.Name = "txtPowerBean";
             this.txtPowerBean.Size = new System.Drawing.Size(130, 21);
             this.txtPowerBean.TabIndex = 13;
+            this.txtPowerBean.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label13
             // 
@@ -484,6 +492,7 @@
             this.txtMachDef.Name = "txtMachDef";
             this.txtMachDef.Size = new System.Drawing.Size(130, 21);
             this.txtMachDef.TabIndex = 13;
+            this.txtMachDef.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label14
             // 
@@ -500,6 +509,7 @@
             this.txtPowerMap.Name = "txtPowerMap";
             this.txtPowerMap.Size = new System.Drawing.Size(130, 21);
             this.txtPowerMap.TabIndex = 13;
+            this.txtPowerMap.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label15
             // 
@@ -516,6 +526,7 @@
             this.txtMachSpd.Name = "txtMachSpd";
             this.txtMachSpd.Size = new System.Drawing.Size(130, 21);
             this.txtMachSpd.TabIndex = 13;
+            this.txtMachSpd.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label16
             // 
@@ -532,6 +543,7 @@
             this.txtPowerZhanJianUnion.Name = "txtPowerZhanJianUnion";
             this.txtPowerZhanJianUnion.Size = new System.Drawing.Size(130, 21);
             this.txtPowerZhanJianUnion.TabIndex = 13;
+            this.txtPowerZhanJianUnion.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label17
             // 
@@ -548,6 +560,7 @@
             this.txtPowerSheJi.Name = "txtPowerSheJi";
             this.txtPowerSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtPowerSheJi.TabIndex = 13;
+            this.txtPowerSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label18
             // 
@@ -564,6 +577,7 @@
             this.txtPowerXiaoDuiUnion.Name = "txtPowerXiaoDuiUnion";
             this.txtPowerXiaoDuiUnion.Size = new System.Drawing.Size(130, 21);
             this.txtPowerXiaoDuiUnion.TabIndex = 13;
+            this.txtPowerXiaoDuiUnion.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label20
             // 
@@ -580,6 +594,7 @@
             this.txtPerSheJi.Name = "txtPerSheJi";
             this.txtPerSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtPerSheJi.TabIndex = 13;
+            this.txtPerSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label21
             // 
@@ -596,6 +611,7 @@
             this.txtPerShouBei.Name = "txtPerShouBei";
             this.txtPerShouBei.Size = new System.Drawing.Size(130, 21);
             this.txtPerShouBei.TabIndex = 13;
+            this.txtPerShouBei.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label22
             // 
@@ -612,6 +628,7 @@
             this.txtPerGedou.Name = "txtPerGedou";
             this.txtPerGedou.Size = new System.Drawing.Size(130, 21);
             this.txtPerGedou.TabIndex = 13;
+            this.txtPerGedou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label23
             // 
@@ -628,6 +645,7 @@
             this.txtPerCaoDuo.Name = "txtPerCaoDuo";
             this.txtPerCaoDuo.Size = new System.Drawing.Size(130, 21);
             this.txtPerCaoDuo.TabIndex = 13;
+            this.txtPerCaoDuo.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label24
             // 
@@ -644,6 +662,7 @@
             this.txtPerFanYin.Name = "txtPerFanYin";
             this.txtPerFanYin.Size = new System.Drawing.Size(130, 21);
             this.txtPerFanYin.TabIndex = 13;
+            this.txtPerFanYin.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label25
             // 
@@ -660,6 +679,7 @@
             this.txtPerZhiHui.Name = "txtPerZhiHui";
             this.txtPerZhiHui.Size = new System.Drawing.Size(130, 21);
             this.txtPerZhiHui.TabIndex = 13;
+            this.txtPerZhiHui.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label26
             // 
@@ -676,6 +696,7 @@
             this.txtPerJueXin.Name = "txtPerJueXin";
             this.txtPerJueXin.Size = new System.Drawing.Size(130, 21);
             this.txtPerJueXin.TabIndex = 13;
+            this.txtPerJueXin.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label27
             // 
@@ -692,6 +713,7 @@
             this.txtPerTongXun.Name = "txtPerTongXun";
             this.txtPerTongXun.Size = new System.Drawing.Size(130, 21);
             this.txtPerTongXun.TabIndex = 13;
+            this.txtPerTongXun.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label28
             // 
@@ -708,6 +730,7 @@
             this.txtPerFuZuo.Name = "txtPerFuZuo";
             this.txtPerFuZuo.Size = new System.Drawing.Size(130, 21);
             this.txtPerFuZuo.TabIndex = 13;
+            this.txtPerFuZuo.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label29
             // 
@@ -724,6 +747,7 @@
             this.txtPerWeiXiu.Name = "txtPerWeiXiu";
             this.txtPerWeiXiu.Size = new System.Drawing.Size(130, 21);
             this.txtPerWeiXiu.TabIndex = 13;
+            this.txtPerWeiXiu.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label30
             // 
@@ -740,6 +764,7 @@
             this.txtPerMeiLi.Name = "txtPerMeiLi";
             this.txtPerMeiLi.Size = new System.Drawing.Size(130, 21);
             this.txtPerMeiLi.TabIndex = 13;
+            this.txtPerMeiLi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // pan3
             // 
@@ -799,6 +824,109 @@
             this.txtPerZhanYi.Name = "txtPerZhanYi";
             this.txtPerZhanYi.Size = new System.Drawing.Size(130, 21);
             this.txtPerZhanYi.TabIndex = 15;
+            this.txtPerZhanYi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label82
+            // 
+            this.label82.Location = new System.Drawing.Point(3, 372);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(54, 31);
+            this.label82.TabIndex = 16;
+            this.label82.Text = "额外行动次数";
+            this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtPerEWaiXinDong
+            // 
+            this.txtPerEWaiXinDong.Location = new System.Drawing.Point(63, 375);
+            this.txtPerEWaiXinDong.Name = "txtPerEWaiXinDong";
+            this.txtPerEWaiXinDong.Size = new System.Drawing.Size(130, 21);
+            this.txtPerEWaiXinDong.TabIndex = 17;
+            this.txtPerEWaiXinDong.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label83
+            // 
+            this.label83.Location = new System.Drawing.Point(3, 403);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(54, 31);
+            this.label83.TabIndex = 18;
+            this.label83.Text = "指挥区域";
+            this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtAreaZhiHui
+            // 
+            this.txtAreaZhiHui.Location = new System.Drawing.Point(63, 406);
+            this.txtAreaZhiHui.Name = "txtAreaZhiHui";
+            this.txtAreaZhiHui.Size = new System.Drawing.Size(130, 21);
+            this.txtAreaZhiHui.TabIndex = 19;
+            this.txtAreaZhiHui.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label84
+            // 
+            this.label84.Location = new System.Drawing.Point(3, 434);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(54, 31);
+            this.label84.TabIndex = 20;
+            this.label84.Text = "未知范围78?";
+            this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtAreaUnknow78
+            // 
+            this.txtAreaUnknow78.Location = new System.Drawing.Point(63, 437);
+            this.txtAreaUnknow78.Name = "txtAreaUnknow78";
+            this.txtAreaUnknow78.Size = new System.Drawing.Size(130, 21);
+            this.txtAreaUnknow78.TabIndex = 21;
+            this.txtAreaUnknow78.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label85
+            // 
+            this.label85.Location = new System.Drawing.Point(3, 465);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(54, 31);
+            this.label85.TabIndex = 22;
+            this.label85.Text = "范围技能范围";
+            this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtAreaJiNen
+            // 
+            this.txtAreaJiNen.Location = new System.Drawing.Point(63, 468);
+            this.txtAreaJiNen.Name = "txtAreaJiNen";
+            this.txtAreaJiNen.Size = new System.Drawing.Size(130, 21);
+            this.txtAreaJiNen.TabIndex = 23;
+            this.txtAreaJiNen.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label81
+            // 
+            this.label81.Location = new System.Drawing.Point(3, 496);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(54, 31);
+            this.label81.TabIndex = 40;
+            this.label81.Text = "未知75?";
+            this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtUnKnow75
+            // 
+            this.txtUnKnow75.Location = new System.Drawing.Point(63, 499);
+            this.txtUnKnow75.Name = "txtUnKnow75";
+            this.txtUnKnow75.Size = new System.Drawing.Size(130, 21);
+            this.txtUnKnow75.TabIndex = 41;
+            this.txtUnKnow75.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label86
+            // 
+            this.label86.Location = new System.Drawing.Point(3, 527);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(54, 31);
+            this.label86.TabIndex = 24;
+            this.label86.Text = "未知80?";
+            this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtUnknow80
+            // 
+            this.txtUnknow80.Location = new System.Drawing.Point(63, 530);
+            this.txtUnknow80.Name = "txtUnknow80";
+            this.txtUnknow80.Size = new System.Drawing.Size(130, 21);
+            this.txtUnknow80.TabIndex = 25;
+            this.txtUnknow80.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // pan1
             // 
@@ -868,6 +996,7 @@
             this.txtHPRec.Name = "txtHPRec";
             this.txtHPRec.Size = new System.Drawing.Size(130, 21);
             this.txtHPRec.TabIndex = 15;
+            this.txtHPRec.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label33
             // 
@@ -884,54 +1013,7 @@
             this.txtENRec.Name = "txtENRec";
             this.txtENRec.Size = new System.Drawing.Size(130, 21);
             this.txtENRec.TabIndex = 17;
-            // 
-            // label34
-            // 
-            this.label34.Location = new System.Drawing.Point(3, 465);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(54, 31);
-            this.label34.TabIndex = 18;
-            this.label34.Text = "适(宇)";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtShiXin1
-            // 
-            this.txtShiXin1.Location = new System.Drawing.Point(63, 468);
-            this.txtShiXin1.Name = "txtShiXin1";
-            this.txtShiXin1.Size = new System.Drawing.Size(130, 21);
-            this.txtShiXin1.TabIndex = 19;
-            // 
-            // label35
-            // 
-            this.label35.Location = new System.Drawing.Point(3, 496);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(54, 31);
-            this.label35.TabIndex = 20;
-            this.label35.Text = "适(空)";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtShiXin2
-            // 
-            this.txtShiXin2.Location = new System.Drawing.Point(63, 499);
-            this.txtShiXin2.Name = "txtShiXin2";
-            this.txtShiXin2.Size = new System.Drawing.Size(130, 21);
-            this.txtShiXin2.TabIndex = 21;
-            // 
-            // label36
-            // 
-            this.label36.Location = new System.Drawing.Point(3, 527);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(54, 31);
-            this.label36.TabIndex = 22;
-            this.label36.Text = "适(地)";
-            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtShiXin3
-            // 
-            this.txtShiXin3.Location = new System.Drawing.Point(63, 530);
-            this.txtShiXin3.Name = "txtShiXin3";
-            this.txtShiXin3.Size = new System.Drawing.Size(130, 21);
-            this.txtShiXin3.TabIndex = 23;
+            this.txtENRec.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label41
             // 
@@ -948,6 +1030,143 @@
             this.txtMove.Name = "txtMove";
             this.txtMove.Size = new System.Drawing.Size(130, 21);
             this.txtMove.TabIndex = 25;
+            this.txtMove.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label34
+            // 
+            this.label34.Location = new System.Drawing.Point(3, 465);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(54, 31);
+            this.label34.TabIndex = 18;
+            this.label34.Text = "适(宇)";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtShiXin1
+            // 
+            this.txtShiXin1.Location = new System.Drawing.Point(63, 468);
+            this.txtShiXin1.Name = "txtShiXin1";
+            this.txtShiXin1.Size = new System.Drawing.Size(130, 21);
+            this.txtShiXin1.TabIndex = 19;
+            this.txtShiXin1.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label35
+            // 
+            this.label35.Location = new System.Drawing.Point(3, 496);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(54, 31);
+            this.label35.TabIndex = 20;
+            this.label35.Text = "适(空)";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtShiXin2
+            // 
+            this.txtShiXin2.Location = new System.Drawing.Point(63, 499);
+            this.txtShiXin2.Name = "txtShiXin2";
+            this.txtShiXin2.Size = new System.Drawing.Size(130, 21);
+            this.txtShiXin2.TabIndex = 21;
+            this.txtShiXin2.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label36
+            // 
+            this.label36.Location = new System.Drawing.Point(3, 527);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(54, 31);
+            this.label36.TabIndex = 22;
+            this.label36.Text = "适(地)";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtShiXin3
+            // 
+            this.txtShiXin3.Location = new System.Drawing.Point(63, 530);
+            this.txtShiXin3.Name = "txtShiXin3";
+            this.txtShiXin3.Size = new System.Drawing.Size(130, 21);
+            this.txtShiXin3.TabIndex = 23;
+            this.txtShiXin3.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label58
+            // 
+            this.label58.Location = new System.Drawing.Point(3, 558);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(54, 31);
+            this.label58.TabIndex = 26;
+            this.label58.Text = "适(水面)";
+            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtShiXin4
+            // 
+            this.txtShiXin4.Location = new System.Drawing.Point(63, 561);
+            this.txtShiXin4.Name = "txtShiXin4";
+            this.txtShiXin4.Size = new System.Drawing.Size(130, 21);
+            this.txtShiXin4.TabIndex = 27;
+            this.txtShiXin4.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label59
+            // 
+            this.label59.Location = new System.Drawing.Point(3, 589);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(54, 31);
+            this.label59.TabIndex = 28;
+            this.label59.Text = "适(水中)";
+            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtShiXin5
+            // 
+            this.txtShiXin5.Location = new System.Drawing.Point(63, 592);
+            this.txtShiXin5.Name = "txtShiXin5";
+            this.txtShiXin5.Size = new System.Drawing.Size(130, 21);
+            this.txtShiXin5.TabIndex = 29;
+            this.txtShiXin5.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label60
+            // 
+            this.label60.Location = new System.Drawing.Point(3, 620);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(54, 31);
+            this.label60.TabIndex = 30;
+            this.label60.Text = "取得经验";
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtJinYan
+            // 
+            this.txtJinYan.Location = new System.Drawing.Point(63, 623);
+            this.txtJinYan.Name = "txtJinYan";
+            this.txtJinYan.Size = new System.Drawing.Size(130, 21);
+            this.txtJinYan.TabIndex = 31;
+            this.txtJinYan.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label61
+            // 
+            this.label61.Location = new System.Drawing.Point(3, 651);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(54, 31);
+            this.label61.TabIndex = 32;
+            this.label61.Text = "取得积分";
+            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtJiFen
+            // 
+            this.txtJiFen.Location = new System.Drawing.Point(63, 654);
+            this.txtJiFen.Name = "txtJiFen";
+            this.txtJiFen.Size = new System.Drawing.Size(130, 21);
+            this.txtJiFen.TabIndex = 33;
+            this.txtJiFen.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
+            // 
+            // label62
+            // 
+            this.label62.Location = new System.Drawing.Point(3, 682);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(54, 31);
+            this.label62.TabIndex = 34;
+            this.label62.Text = "售出金额";
+            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtJinE
+            // 
+            this.txtJinE.Location = new System.Drawing.Point(63, 685);
+            this.txtJinE.Name = "txtJinE";
+            this.txtJinE.Size = new System.Drawing.Size(130, 21);
+            this.txtJinE.TabIndex = 35;
+            this.txtJinE.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // pan4
             // 
@@ -1011,6 +1230,7 @@
             this.txtDmgWuLiGeDou.Name = "txtDmgWuLiGeDou";
             this.txtDmgWuLiGeDou.Size = new System.Drawing.Size(130, 21);
             this.txtDmgWuLiGeDou.TabIndex = 13;
+            this.txtDmgWuLiGeDou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label43
             // 
@@ -1027,6 +1247,7 @@
             this.txtDmgWuLiSheJi.Name = "txtDmgWuLiSheJi";
             this.txtDmgWuLiSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtDmgWuLiSheJi.TabIndex = 13;
+            this.txtDmgWuLiSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label44
             // 
@@ -1043,6 +1264,7 @@
             this.txtDmgBeanSheJi.Name = "txtDmgBeanSheJi";
             this.txtDmgBeanSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtDmgBeanSheJi.TabIndex = 13;
+            this.txtDmgBeanSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label45
             // 
@@ -1059,6 +1281,7 @@
             this.txtDmgBeanGeDou.Name = "txtDmgBeanGeDou";
             this.txtDmgBeanGeDou.Size = new System.Drawing.Size(130, 21);
             this.txtDmgBeanGeDou.TabIndex = 13;
+            this.txtDmgBeanGeDou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label46
             // 
@@ -1075,6 +1298,7 @@
             this.txtDmgUnknow35.Name = "txtDmgUnknow35";
             this.txtDmgUnknow35.Size = new System.Drawing.Size(130, 21);
             this.txtDmgUnknow35.TabIndex = 13;
+            this.txtDmgUnknow35.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label47
             // 
@@ -1091,6 +1315,7 @@
             this.txtDmgUnknow36.Name = "txtDmgUnknow36";
             this.txtDmgUnknow36.Size = new System.Drawing.Size(130, 21);
             this.txtDmgUnknow36.TabIndex = 13;
+            this.txtDmgUnknow36.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label48
             // 
@@ -1107,6 +1332,7 @@
             this.txtDmgMap.Name = "txtDmgMap";
             this.txtDmgMap.Size = new System.Drawing.Size(130, 21);
             this.txtDmgMap.TabIndex = 13;
+            this.txtDmgMap.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label49
             // 
@@ -1123,6 +1349,7 @@
             this.txtWuXiaoWuLiGeDou.Name = "txtWuXiaoWuLiGeDou";
             this.txtWuXiaoWuLiGeDou.Size = new System.Drawing.Size(130, 21);
             this.txtWuXiaoWuLiGeDou.TabIndex = 13;
+            this.txtWuXiaoWuLiGeDou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label50
             // 
@@ -1139,6 +1366,7 @@
             this.txtWuXiaoWuLiSheJi.Name = "txtWuXiaoWuLiSheJi";
             this.txtWuXiaoWuLiSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtWuXiaoWuLiSheJi.TabIndex = 13;
+            this.txtWuXiaoWuLiSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label51
             // 
@@ -1155,6 +1383,7 @@
             this.txtWuXiaoBeanSheJi.Name = "txtWuXiaoBeanSheJi";
             this.txtWuXiaoBeanSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtWuXiaoBeanSheJi.TabIndex = 13;
+            this.txtWuXiaoBeanSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label52
             // 
@@ -1171,6 +1400,7 @@
             this.txtWuXiaoBeanGeDou.Name = "txtWuXiaoBeanGeDou";
             this.txtWuXiaoBeanGeDou.Size = new System.Drawing.Size(130, 21);
             this.txtWuXiaoBeanGeDou.TabIndex = 13;
+            this.txtWuXiaoBeanGeDou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label53
             // 
@@ -1187,6 +1417,7 @@
             this.txtWuXiaoUnknow42.Name = "txtWuXiaoUnknow42";
             this.txtWuXiaoUnknow42.Size = new System.Drawing.Size(130, 21);
             this.txtWuXiaoUnknow42.TabIndex = 26;
+            this.txtWuXiaoUnknow42.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label54
             // 
@@ -1203,6 +1434,7 @@
             this.txtWuXiaoUnKnow43.Name = "txtWuXiaoUnKnow43";
             this.txtWuXiaoUnKnow43.Size = new System.Drawing.Size(130, 21);
             this.txtWuXiaoUnKnow43.TabIndex = 27;
+            this.txtWuXiaoUnKnow43.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label55
             // 
@@ -1219,6 +1451,7 @@
             this.txtWuXiaoMap.Name = "txtWuXiaoMap";
             this.txtWuXiaoMap.Size = new System.Drawing.Size(130, 21);
             this.txtWuXiaoMap.TabIndex = 28;
+            this.txtWuXiaoMap.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label56
             // 
@@ -1235,6 +1468,7 @@
             this.txtShangHaiFinal.Name = "txtShangHaiFinal";
             this.txtShangHaiFinal.Size = new System.Drawing.Size(130, 21);
             this.txtShangHaiFinal.TabIndex = 30;
+            this.txtShangHaiFinal.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label57
             // 
@@ -1251,6 +1485,7 @@
             this.txtShangHaiFinalSelf.Name = "txtShangHaiFinalSelf";
             this.txtShangHaiFinalSelf.Size = new System.Drawing.Size(130, 21);
             this.txtShangHaiFinalSelf.TabIndex = 32;
+            this.txtShangHaiFinalSelf.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label37
             // 
@@ -1267,6 +1502,7 @@
             this.txtUnknow47.Name = "txtUnknow47";
             this.txtUnknow47.Size = new System.Drawing.Size(130, 21);
             this.txtUnknow47.TabIndex = 34;
+            this.txtUnknow47.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label38
             // 
@@ -1283,6 +1519,7 @@
             this.txtUnknow48.Name = "txtUnknow48";
             this.txtUnknow48.Size = new System.Drawing.Size(130, 21);
             this.txtUnknow48.TabIndex = 36;
+            this.txtUnknow48.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label39
             // 
@@ -1299,6 +1536,7 @@
             this.txtUnknow49.Name = "txtUnknow49";
             this.txtUnknow49.Size = new System.Drawing.Size(130, 21);
             this.txtUnknow49.TabIndex = 38;
+            this.txtUnknow49.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label40
             // 
@@ -1315,86 +1553,7 @@
             this.txtUnknow50.Name = "txtUnknow50";
             this.txtUnknow50.Size = new System.Drawing.Size(130, 21);
             this.txtUnknow50.TabIndex = 40;
-            // 
-            // label58
-            // 
-            this.label58.Location = new System.Drawing.Point(3, 558);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(54, 31);
-            this.label58.TabIndex = 26;
-            this.label58.Text = "适(水面)";
-            this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtShiXin4
-            // 
-            this.txtShiXin4.Location = new System.Drawing.Point(63, 561);
-            this.txtShiXin4.Name = "txtShiXin4";
-            this.txtShiXin4.Size = new System.Drawing.Size(130, 21);
-            this.txtShiXin4.TabIndex = 27;
-            // 
-            // label59
-            // 
-            this.label59.Location = new System.Drawing.Point(3, 589);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(54, 31);
-            this.label59.TabIndex = 28;
-            this.label59.Text = "适(水中)";
-            this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtShiXin5
-            // 
-            this.txtShiXin5.Location = new System.Drawing.Point(63, 592);
-            this.txtShiXin5.Name = "txtShiXin5";
-            this.txtShiXin5.Size = new System.Drawing.Size(130, 21);
-            this.txtShiXin5.TabIndex = 29;
-            // 
-            // label60
-            // 
-            this.label60.Location = new System.Drawing.Point(3, 620);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(54, 31);
-            this.label60.TabIndex = 30;
-            this.label60.Text = "取得经验";
-            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtJinYan
-            // 
-            this.txtJinYan.Location = new System.Drawing.Point(63, 623);
-            this.txtJinYan.Name = "txtJinYan";
-            this.txtJinYan.Size = new System.Drawing.Size(130, 21);
-            this.txtJinYan.TabIndex = 31;
-            // 
-            // label61
-            // 
-            this.label61.Location = new System.Drawing.Point(3, 651);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(54, 31);
-            this.label61.TabIndex = 32;
-            this.label61.Text = "取得积分";
-            this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtJiFen
-            // 
-            this.txtJiFen.Location = new System.Drawing.Point(63, 654);
-            this.txtJiFen.Name = "txtJiFen";
-            this.txtJiFen.Size = new System.Drawing.Size(130, 21);
-            this.txtJiFen.TabIndex = 33;
-            // 
-            // label62
-            // 
-            this.label62.Location = new System.Drawing.Point(3, 682);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(54, 31);
-            this.label62.TabIndex = 34;
-            this.label62.Text = "售出金额";
-            this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtJinE
-            // 
-            this.txtJinE.Location = new System.Drawing.Point(63, 685);
-            this.txtJinE.Name = "txtJinE";
-            this.txtJinE.Size = new System.Drawing.Size(130, 21);
-            this.txtJinE.TabIndex = 35;
+            this.txtUnknow50.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // pan2
             // 
@@ -1454,6 +1613,7 @@
             this.txtSheChenSheJi.Name = "txtSheChenSheJi";
             this.txtSheChenSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtSheChenSheJi.TabIndex = 13;
+            this.txtSheChenSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label64
             // 
@@ -1470,6 +1630,7 @@
             this.txtSheChenGeDou.Name = "txtSheChenGeDou";
             this.txtSheChenGeDou.Size = new System.Drawing.Size(130, 21);
             this.txtSheChenGeDou.TabIndex = 13;
+            this.txtSheChenGeDou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label65
             // 
@@ -1486,6 +1647,7 @@
             this.txtSheChenWuLi.Name = "txtSheChenWuLi";
             this.txtSheChenWuLi.Size = new System.Drawing.Size(130, 21);
             this.txtSheChenWuLi.TabIndex = 13;
+            this.txtSheChenWuLi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label66
             // 
@@ -1502,6 +1664,7 @@
             this.txtSheChenBean.Name = "txtSheChenBean";
             this.txtSheChenBean.Size = new System.Drawing.Size(130, 21);
             this.txtSheChenBean.TabIndex = 13;
+            this.txtSheChenBean.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label67
             // 
@@ -1518,6 +1681,7 @@
             this.txtSheChenMap.Name = "txtSheChenMap";
             this.txtSheChenMap.Size = new System.Drawing.Size(130, 21);
             this.txtSheChenMap.TabIndex = 13;
+            this.txtSheChenMap.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label68
             // 
@@ -1534,6 +1698,7 @@
             this.txtENXiaoHaoSheJi.Name = "txtENXiaoHaoSheJi";
             this.txtENXiaoHaoSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtENXiaoHaoSheJi.TabIndex = 19;
+            this.txtENXiaoHaoSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label69
             // 
@@ -1550,6 +1715,7 @@
             this.txtENXiaoHaoGeDou.Name = "txtENXiaoHaoGeDou";
             this.txtENXiaoHaoGeDou.Size = new System.Drawing.Size(130, 21);
             this.txtENXiaoHaoGeDou.TabIndex = 20;
+            this.txtENXiaoHaoGeDou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label70
             // 
@@ -1566,6 +1732,7 @@
             this.txtENXiaoHaoWuLi.Name = "txtENXiaoHaoWuLi";
             this.txtENXiaoHaoWuLi.Size = new System.Drawing.Size(130, 21);
             this.txtENXiaoHaoWuLi.TabIndex = 21;
+            this.txtENXiaoHaoWuLi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label71
             // 
@@ -1582,6 +1749,7 @@
             this.txtENXiaoHaoBean.Name = "txtENXiaoHaoBean";
             this.txtENXiaoHaoBean.Size = new System.Drawing.Size(130, 21);
             this.txtENXiaoHaoBean.TabIndex = 22;
+            this.txtENXiaoHaoBean.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label72
             // 
@@ -1598,6 +1766,7 @@
             this.txtENXiaoHaoMap.Name = "txtENXiaoHaoMap";
             this.txtENXiaoHaoMap.Size = new System.Drawing.Size(130, 21);
             this.txtENXiaoHaoMap.TabIndex = 23;
+            this.txtENXiaoHaoMap.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label73
             // 
@@ -1614,6 +1783,7 @@
             this.txtXiaoHaoMP.Name = "txtXiaoHaoMP";
             this.txtXiaoHaoMP.Size = new System.Drawing.Size(130, 21);
             this.txtXiaoHaoMP.TabIndex = 25;
+            this.txtXiaoHaoMP.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label74
             // 
@@ -1630,6 +1800,7 @@
             this.txtBaoJiSheJi.Name = "txtBaoJiSheJi";
             this.txtBaoJiSheJi.Size = new System.Drawing.Size(130, 21);
             this.txtBaoJiSheJi.TabIndex = 28;
+            this.txtBaoJiSheJi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label75
             // 
@@ -1646,6 +1817,7 @@
             this.txtBaoJiGeDou.Name = "txtBaoJiGeDou";
             this.txtBaoJiGeDou.Size = new System.Drawing.Size(130, 21);
             this.txtBaoJiGeDou.TabIndex = 29;
+            this.txtBaoJiGeDou.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label76
             // 
@@ -1662,6 +1834,7 @@
             this.txtBaoJiWuLI.Name = "txtBaoJiWuLI";
             this.txtBaoJiWuLI.Size = new System.Drawing.Size(130, 21);
             this.txtBaoJiWuLI.TabIndex = 32;
+            this.txtBaoJiWuLI.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label77
             // 
@@ -1678,6 +1851,7 @@
             this.txtBaoJiBean.Name = "txtBaoJiBean";
             this.txtBaoJiBean.Size = new System.Drawing.Size(130, 21);
             this.txtBaoJiBean.TabIndex = 33;
+            this.txtBaoJiBean.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label78
             // 
@@ -1694,6 +1868,7 @@
             this.txtBaoJiUnKnow72.Name = "txtBaoJiUnKnow72";
             this.txtBaoJiUnKnow72.Size = new System.Drawing.Size(130, 21);
             this.txtBaoJiUnKnow72.TabIndex = 35;
+            this.txtBaoJiUnKnow72.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label79
             // 
@@ -1710,6 +1885,7 @@
             this.txtMinZhong.Name = "txtMinZhong";
             this.txtMinZhong.Size = new System.Drawing.Size(130, 21);
             this.txtMinZhong.TabIndex = 37;
+            this.txtMinZhong.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // label80
             // 
@@ -1722,106 +1898,12 @@
             // 
             // txtShanBi
             // 
+            this.txtShanBi.BackColor = System.Drawing.SystemColors.Window;
             this.txtShanBi.Location = new System.Drawing.Point(63, 530);
             this.txtShanBi.Name = "txtShanBi";
             this.txtShanBi.Size = new System.Drawing.Size(130, 21);
             this.txtShanBi.TabIndex = 39;
-            // 
-            // label81
-            // 
-            this.label81.Location = new System.Drawing.Point(3, 496);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(54, 31);
-            this.label81.TabIndex = 40;
-            this.label81.Text = "未知75?";
-            this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtUnKnow75
-            // 
-            this.txtUnKnow75.Location = new System.Drawing.Point(63, 499);
-            this.txtUnKnow75.Name = "txtUnKnow75";
-            this.txtUnKnow75.Size = new System.Drawing.Size(130, 21);
-            this.txtUnKnow75.TabIndex = 41;
-            // 
-            // label82
-            // 
-            this.label82.Location = new System.Drawing.Point(3, 372);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(54, 31);
-            this.label82.TabIndex = 16;
-            this.label82.Text = "额外行动次数";
-            this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtPerEWaiXinDong
-            // 
-            this.txtPerEWaiXinDong.Location = new System.Drawing.Point(63, 375);
-            this.txtPerEWaiXinDong.Name = "txtPerEWaiXinDong";
-            this.txtPerEWaiXinDong.Size = new System.Drawing.Size(130, 21);
-            this.txtPerEWaiXinDong.TabIndex = 17;
-            // 
-            // label83
-            // 
-            this.label83.Location = new System.Drawing.Point(3, 403);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(54, 31);
-            this.label83.TabIndex = 18;
-            this.label83.Text = "指挥区域";
-            this.label83.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtAreaZhiHui
-            // 
-            this.txtAreaZhiHui.Location = new System.Drawing.Point(63, 406);
-            this.txtAreaZhiHui.Name = "txtAreaZhiHui";
-            this.txtAreaZhiHui.Size = new System.Drawing.Size(130, 21);
-            this.txtAreaZhiHui.TabIndex = 19;
-            // 
-            // label84
-            // 
-            this.label84.Location = new System.Drawing.Point(3, 434);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(54, 31);
-            this.label84.TabIndex = 20;
-            this.label84.Text = "未知范围78?";
-            this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtAreaUnknow78
-            // 
-            this.txtAreaUnknow78.Location = new System.Drawing.Point(63, 437);
-            this.txtAreaUnknow78.Name = "txtAreaUnknow78";
-            this.txtAreaUnknow78.Size = new System.Drawing.Size(130, 21);
-            this.txtAreaUnknow78.TabIndex = 21;
-            // 
-            // label85
-            // 
-            this.label85.Location = new System.Drawing.Point(3, 465);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(54, 31);
-            this.label85.TabIndex = 22;
-            this.label85.Text = "范围技能范围";
-            this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtAreaJiNen
-            // 
-            this.txtAreaJiNen.Location = new System.Drawing.Point(63, 468);
-            this.txtAreaJiNen.Name = "txtAreaJiNen";
-            this.txtAreaJiNen.Size = new System.Drawing.Size(130, 21);
-            this.txtAreaJiNen.TabIndex = 23;
-            // 
-            // label86
-            // 
-            this.label86.Location = new System.Drawing.Point(3, 527);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(54, 31);
-            this.label86.TabIndex = 24;
-            this.label86.Text = "未知80?";
-            this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtUnknow80
-            // 
-            this.txtUnknow80.Location = new System.Drawing.Point(63, 530);
-            this.txtUnknow80.Name = "txtUnknow80";
-            this.txtUnknow80.Size = new System.Drawing.Size(130, 21);
-            this.txtUnknow80.TabIndex = 25;
+            this.txtShanBi.TextChanged += new System.EventHandler(this.txtHP_TextChanged);
             // 
             // button1
             // 
@@ -1831,21 +1913,36 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "全部保存";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cboSkill
             // 
+            this.cboSkill.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSkill.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSkill.FormattingEnabled = true;
             this.cboSkill.Location = new System.Drawing.Point(797, 15);
             this.cboSkill.Name = "cboSkill";
-            this.cboSkill.Size = new System.Drawing.Size(130, 20);
+            this.cboSkill.Size = new System.Drawing.Size(130, 22);
             this.cboSkill.TabIndex = 17;
+            this.cboSkill.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cboSkill_DrawItem);
             this.cboSkill.SelectedIndexChanged += new System.EventHandler(this.cboSkill_SelectedIndexChanged);
+            // 
+            // btnCreateNew
+            // 
+            this.btnCreateNew.Location = new System.Drawing.Point(12, 759);
+            this.btnCreateNew.Name = "btnCreateNew";
+            this.btnCreateNew.Size = new System.Drawing.Size(281, 43);
+            this.btnCreateNew.TabIndex = 18;
+            this.btnCreateNew.Text = "创建一个新技能效果(实时生效,请做好备份)";
+            this.btnCreateNew.UseVisualStyleBackColor = true;
+            this.btnCreateNew.Click += new System.EventHandler(this.btnCreateNew_Click);
             // 
             // FrmEditAbility
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1164, 831);
+            this.Controls.Add(this.btnCreateNew);
             this.Controls.Add(this.cboSkill);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -2070,5 +2167,6 @@
         private System.Windows.Forms.TextBox txtUnknow80;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cboSkill;
+        private System.Windows.Forms.Button btnCreateNew;
     }
 }

@@ -23,17 +23,21 @@ namespace GGCREditor
 
         private void FrmEditAbility_Load(object sender, EventArgs e)
         {
+            reload();
+        }
+
+        private void reload()
+        {
             file = new AbilitySpecFile();
             abilitys = file.ListAbilitys();
             xiaoguos = file.ListXiaoGuo();
 
             tsmiFile.Text = file.FileName;
 
-            lsAbility.DataSource = abilitys;
-
             cboSkill.DataSource = xiaoguos;
             cboSkill.ValueMember = "SkillId";
-            cboSkill.DisplayMember = "SkillId";
+
+            lsAbility.DataSource = abilitys;
         }
 
         private void lsMasters_MeasureItem(object sender, MeasureItemEventArgs e)
@@ -198,8 +202,6 @@ namespace GGCREditor
                 txtAreaUnknow78.Text = xiaoguo.UnKnow78.ToString();
                 txtAreaJiNen.Text = xiaoguo.AreaJiNen.ToString();
                 txtUnknow80.Text = xiaoguo.UnKnow80.ToString();
-
-
             }
             else
             {
@@ -248,6 +250,164 @@ namespace GGCREditor
                 }
                 c.Enabled = enable;
             }
+        }
+
+        private void txtHP_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            if (txt != null)
+            {
+                if (txt.Text != "0")
+                {
+                    txt.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    txt.BackColor = System.Drawing.SystemColors.Window;
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //取当前选中的技能
+            XiaoGuoAbility xiaoguo = cboSkill.SelectedItem as XiaoGuoAbility;
+            AbstractAbility ability = lsAbility.SelectedItem as AbstractAbility;
+            if (xiaoguo != null && ability != null)
+            {
+                //将ability的技能编号改为现有
+                if (!(ability is XiaoGuoAbility))
+                {
+                    ability.SkillId = xiaoguo.SkillId;
+                    //保存技能编号
+                    ability.Save();
+                }
+
+                xiaoguo.MachHP = short.Parse(txtHP.Text);
+                xiaoguo.PowerGeDou = short.Parse(txtPowerGeDou.Text);
+                xiaoguo.MachEN = short.Parse(txtEN.Text);
+                xiaoguo.PowerWuLi = short.Parse(txtPowerWuLi.Text);
+                xiaoguo.MachACT = short.Parse(txtMachAct.Text);
+
+                xiaoguo.PowerBean = short.Parse(txtPowerBean.Text);
+                xiaoguo.MachDEF = short.Parse(txtMachDef.Text);
+                xiaoguo.PowerMap = short.Parse(txtPowerMap.Text);
+                xiaoguo.MachSPD = short.Parse(txtMachSpd.Text);
+                xiaoguo.PowerZhanJianUnion = short.Parse(txtPowerZhanJianUnion.Text);
+                xiaoguo.PowerSheJi = short.Parse(txtPowerSheJi.Text);
+                xiaoguo.PowerYouJiUnion = short.Parse(txtPowerXiaoDuiUnion.Text);
+                xiaoguo.PeoSheJi = short.Parse(txtPerSheJi.Text);
+                xiaoguo.PeoShouBei = short.Parse(txtPerShouBei.Text);
+                xiaoguo.PeoGeDou = short.Parse(txtPerGedou.Text);
+                xiaoguo.PeoCaoDuo = short.Parse(txtPerCaoDuo.Text);
+                xiaoguo.PeoFanYin = short.Parse(txtPerFanYin.Text);
+                xiaoguo.PeoZhiHui = short.Parse(txtPerZhiHui.Text);
+                xiaoguo.PeoJueXin = short.Parse(txtPerJueXin.Text);
+                xiaoguo.PeoTongXun = short.Parse(txtPerTongXun.Text);
+                xiaoguo.PeoFuZuo = short.Parse(txtPerFuZuo.Text);
+                xiaoguo.PeoWeiXiu = short.Parse(txtPerWeiXiu.Text);
+                xiaoguo.PeoMeiLi = short.Parse(txtPerMeiLi.Text);
+                xiaoguo.PeoZhanYiMP = short.Parse(txtPerZhanYi.Text);
+                xiaoguo.MachHPRec = short.Parse(txtHPRec.Text);
+                xiaoguo.MachENRec = short.Parse(txtENRec.Text);
+                xiaoguo.ShiYin1 = byte.Parse(txtShiXin1.Text);
+                xiaoguo.ShiYin2 = byte.Parse(txtShiXin2.Text);
+                xiaoguo.ShiYin3 = byte.Parse(txtShiXin3.Text);
+                xiaoguo.ShiYin4 = byte.Parse(txtShiXin4.Text);
+                xiaoguo.ShiYin4 = byte.Parse(txtShiXin5.Text);
+                xiaoguo.DmgWuLiGeDou = short.Parse(txtDmgWuLiGeDou.Text);
+                xiaoguo.DmgWuLiSheJi = short.Parse(txtDmgWuLiSheJi.Text);
+                xiaoguo.DmgBeanSheJi = short.Parse(txtDmgBeanSheJi.Text);
+                xiaoguo.DmgBeanGeDou = short.Parse(txtDmgBeanGeDou.Text);
+                xiaoguo.DmgUnknow35 = short.Parse(txtDmgUnknow35.Text);
+                xiaoguo.DmgUnknow36 = short.Parse(txtDmgUnknow36.Text);
+                xiaoguo.DmgMap = short.Parse(txtDmgMap.Text);
+                xiaoguo.WuXiaoWuLiGeDou = short.Parse(txtWuXiaoWuLiGeDou.Text);
+                xiaoguo.WuXiaoWuLiSheJi = short.Parse(txtWuXiaoWuLiSheJi.Text);
+                xiaoguo.WuXiaoBeanSheJi = short.Parse(txtWuXiaoBeanSheJi.Text);
+                xiaoguo.WuXiaoBeanGeDou = short.Parse(txtWuXiaoBeanGeDou.Text);
+                xiaoguo.WuXiaoUnknow42 = short.Parse(txtWuXiaoUnknow42.Text);
+                xiaoguo.WuXiaoUnknow43 = short.Parse(txtWuXiaoUnKnow43.Text);
+                xiaoguo.WuXiaoMap = short.Parse(txtWuXiaoMap.Text);
+                xiaoguo.ShangHaiFinal = short.Parse(txtShangHaiFinal.Text);
+                xiaoguo.ShangHaiFinalSelf = short.Parse(txtShangHaiFinalSelf.Text);
+                xiaoguo.UnKnow47 = short.Parse(txtUnknow47.Text);
+                xiaoguo.UnKnow48 = short.Parse(txtUnknow48.Text);
+                xiaoguo.UnKnow49 = short.Parse(txtUnknow49.Text);
+                xiaoguo.UnKnow50 = short.Parse(txtUnknow50.Text);
+                xiaoguo.Mov = byte.Parse(txtMove.Text);
+                xiaoguo.JinYan = short.Parse(txtJinYan.Text);
+                xiaoguo.JiFen = short.Parse(txtJiFen.Text);
+                xiaoguo.Money = short.Parse(txtJinE.Text);
+                xiaoguo.SheChenSheJi = byte.Parse(txtSheChenSheJi.Text);
+                xiaoguo.SheChenGeDou = byte.Parse(txtSheChenGeDou.Text);
+                xiaoguo.SheChenWuLi = byte.Parse(txtSheChenWuLi.Text);
+                xiaoguo.SheChenBean = byte.Parse(txtSheChenBean.Text);
+                xiaoguo.SheChenMap = byte.Parse(txtSheChenMap.Text);
+                xiaoguo.XiaoHaoEnSheJi = byte.Parse(txtENXiaoHaoSheJi.Text);
+                xiaoguo.XiaoHaoEnGeDou = byte.Parse(txtENXiaoHaoGeDou.Text);
+                xiaoguo.XiaoHaoEnWuLi = byte.Parse(txtENXiaoHaoWuLi.Text);
+                xiaoguo.XiaoHaoEnBean = byte.Parse(txtENXiaoHaoBean.Text);
+                xiaoguo.XiaoHaoEnMap = byte.Parse(txtENXiaoHaoMap.Text);
+                xiaoguo.XiaoHaoMP = byte.Parse(txtXiaoHaoMP.Text);
+                xiaoguo.BaoJiSheJi = byte.Parse(txtBaoJiSheJi.Text);
+                xiaoguo.BaoJiGeDou = byte.Parse(txtBaoJiGeDou.Text);
+                xiaoguo.BaoJiWuLi = byte.Parse(txtBaoJiWuLI.Text);
+                xiaoguo.BaoJiBean = byte.Parse(txtBaoJiBean.Text);
+                xiaoguo.BaoJiUnKnow = byte.Parse(txtBaoJiUnKnow72.Text);
+                xiaoguo.MinZhong = byte.Parse(txtMinZhong.Text);
+                xiaoguo.ShanBi = byte.Parse(txtShanBi.Text);
+                xiaoguo.UnKnow75 = byte.Parse(txtUnKnow75.Text);
+                xiaoguo.EWaiXinDong = byte.Parse(txtPerEWaiXinDong.Text);
+                xiaoguo.AreaZhiHui = byte.Parse(txtAreaZhiHui.Text);
+                xiaoguo.UnKnow78 = byte.Parse(txtAreaUnknow78.Text);
+                xiaoguo.AreaJiNen = byte.Parse(txtAreaJiNen.Text);
+
+                xiaoguo.UnKnow80 = short.Parse(txtUnknow80.Text);
+
+                xiaoguo.RemarkId = short.Parse(txtRemarkId.Text);
+
+                xiaoguo.Save();
+
+                //写技能文本
+                if (txtXiaoGuoRemark.Text != xiaoguo.RemarkDetail)
+                {
+                    xiaoguo.RemarkDetail = txtXiaoGuoRemark.Text;
+                }
+
+                tsmiState.Text = "写入成功";
+                tsmiState.ForeColor = Color.Green;
+            }
+            else
+            {
+                tsmiState.Text = "保存失败,请选择技能";
+                tsmiState.ForeColor = Color.Red;
+            }
+        }
+
+        private void cboSkill_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.Graphics.FillRectangle(new SolidBrush(e.BackColor), e.Bounds);
+            if (e.Index >= 0)
+            {
+                XiaoGuoAbility ability = ((ComboBox)sender).Items[e.Index] as XiaoGuoAbility;
+                StringFormat sStringFormat = new StringFormat();
+                sStringFormat.LineAlignment = StringAlignment.Center;
+                e.Graphics.DrawString("技能效果" + ability.SkillId, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+            }
+            e.DrawFocusRectangle();
+        }
+
+        private void btnCreateNew_Click(object sender, EventArgs e)
+        {
+
+            file.CreateNewXiaoGuo();
+
+            reload();
+
+            lsAbility.SelectedItem = abilitys[abilitys.Count - 1];
+
+            MessageBox.Show("创建成功,请修改数据", "操作提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

@@ -10,14 +10,20 @@ namespace GGCREditorLib
         private int Count;
         //首个字符位置
         private int CharStart;
+        private List<string> texts;
+        private bool simple;
+        public bool Simple { get; }
         public GGCRTblFile(string file) : base(file)
         {
-            this.CharStart = BitConverter.ToInt32(this.Data, 16);
-            this.Count = BitConverter.ToInt32(this.Data, 12);
+            load();
         }
 
-        public List<string> ListAllText()
+        private void load()
         {
+            this.CharStart = BitConverter.ToInt32(this.Data, 16);
+            this.Count = BitConverter.ToInt32(this.Data, 8);
+            this.simple = true;
+
             List<int> addresses = new List<int>();
 
             //跳过头,读取数据
@@ -31,6 +37,10 @@ namespace GGCREditorLib
                 if (address != 0)
                 {
                     addresses.Add(address);
+                    if (last != 0)
+                    {
+                        this.simple = false;
+                    }
                 }
             }
 
@@ -48,52 +58,126 @@ namespace GGCREditorLib
                 }
                 strs.Add(str);
             }
+            texts = strs;
+        }
 
-            return strs;
+        public override void Reload()
+        {
+            base.Reload();
+            load();
+        }
+
+        public List<string> ListAllText()
+        {
+            return texts;
         }
 
         public void Save(List<string> list)
         {
-            //计算地址偏移
-            int addressSpan = this.CharStart;
-
-            MemoryStream all = new MemoryStream();
-            all.Write(this.Data, 0, CharStart);
-
-            int allStart = 16;
-
-            MemoryStream ms = new MemoryStream();
-            foreach (string s in list)
+            if (list.Count == this.Count)
             {
-                byte[] add = BitConverter.GetBytes(addressSpan);
-                all.Position = allStart;
-                all.Write(add, 0, 4);
+                //计算地址偏移
+                int addressSpan = this.CharStart;
 
-                byte[] b = Encoding.UTF8.GetBytes(s);
-                ms.Write(b, 0, b.Length);
-                ms.WriteByte(0);
+                MemoryStream all = new MemoryStream();
+                all.Write(this.Data, 0, CharStart);
 
-                addressSpan += b.Length + 1;
-                allStart += 8;
+                int allStart = 16;
+
+                MemoryStream ms = new MemoryStream();
+                foreach (string s in list)
+                {
+                    byte[] add = BitConverter.GetBytes(addressSpan);
+                    all.Position = allStart;
+                    all.Write(add, 0, 4);
+
+                    byte[] b = Encoding.UTF8.GetBytes(s);
+                    ms.Write(b, 0, b.Length);
+                    ms.WriteByte(0);
+
+                    addressSpan += b.Length + 1;
+                    allStart += 8;
+                }
+
+                if (list.Count % 2 != 0)
+                {
+                    all.WriteByte(0);
+                    all.WriteByte(0);
+                    all.WriteByte(0);
+                    all.WriteByte(0);
+                    all.WriteByte(0);
+                    all.WriteByte(0);
+                    all.WriteByte(0);
+                    all.WriteByte(0);
+                }
+
+                using (FileStream fs = new FileStream(this.FileName, FileMode.Create, FileAccess.Write))
+                {
+                    all.WriteTo(fs);
+                    ms.WriteTo(fs);
+                    fs.Flush();
+                }
+
+                Reload();
             }
-
-            if (list.Count % 2 != 0)
+            else
+            if (simple)
             {
-                all.WriteByte(0);
-                all.WriteByte(0);
-                all.WriteByte(0);
-                all.WriteByte(0);
-                all.WriteByte(0);
-                all.WriteByte(0);
-                all.WriteByte(0);
-                all.WriteByte(0);
+
+                //计算地址偏移
+                int newcharStart = 16 + list.Count * 8;
+                if (list.Count % 2 != 0)
+                {
+                    newcharStart += 8;
+                }
+
+                MemoryStream head = new MemoryStream();
+                head.Write(this.Data, 0, 16);
+                head.Position = 8;
+                head.Write(BitConverter.GetBytes(list.Count), 0, 4);
+                head.Position = 16;
+
+                MemoryStream ms = new MemoryStream();
+                foreach (string s in list)
+                {
+                    byte[] add = BitConverter.GetBytes(newcharStart);
+                    head.Write(add, 0, 4);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+
+                    byte[] b = Encoding.UTF8.GetBytes(s);
+                    ms.Write(b, 0, b.Length);
+                    ms.WriteByte(0);
+
+                    newcharStart += b.Length + 1;
+                }
+
+                if (list.Count % 2 != 0)
+                {
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                    head.WriteByte(0);
+                }
+
+                using (FileStream fs = new FileStream(this.FileName, FileMode.Create, FileAccess.Write))
+                {
+                    head.WriteTo(fs);
+                    ms.WriteTo(fs);
+                    fs.Flush();
+                }
+
+                Reload();
             }
-
-            using (FileStream fs = new FileStream(this.FileName, FileMode.Create, FileAccess.Write))
+            else
             {
-                all.WriteTo(fs);
-                ms.WriteTo(fs);
-                fs.Flush();
+                throw new Exception("此文本不自持添加数据");
             }
         }
     }

@@ -21,9 +21,11 @@ namespace GGCREditorLib
 
         public int WarAbilityCount { get; }
 
-        public int XiaoGuoCount { get; }
+        private int xiaoguoCount;
+        public int XiaoGuoCount { get { return xiaoguoCount; } }
 
-        public ReadOnlyCollection<string> AbilityText { get; }
+        private ReadOnlyCollection<string> abilityText;
+        public ReadOnlyCollection<string> AbilityText { get { return abilityText; } }
 
         public AbilitySpecFile()
             : base(GGCRStaticConfig.AbilityFile)
@@ -33,10 +35,32 @@ namespace GGCREditorLib
             OPCount = BitConverter.ToInt32(this.Data, 12);              //OP数量
             PersonAbilityCount = BitConverter.ToInt32(this.Data, 16);   //个人技能数量
             WarAbilityCount = BitConverter.ToInt32(this.Data, 20);      //战场技能数量
-            XiaoGuoCount = BitConverter.ToInt32(this.Data, 24);         //技能效果数量
+            this.xiaoguoCount = BitConverter.ToInt32(this.Data, 24);         //技能效果数量
 
+            ReloadAbilityText();
+        }
+
+        public void ReloadAbilityText()
+        {
             //读取字符TBL
-            AbilityText = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile).ListAllText().AsReadOnly();
+            abilityText = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile).ListAllText().AsReadOnly();
+        }
+
+        public void CreateNewXiaoGuo()
+        {
+            GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
+            List<string> list = txtFile.ListAllText();
+            list.Add("我的自创技能效果");
+
+
+            byte[] newXiaoGuo = new byte[GGCRStaticConfig.XiaoGuoLength];
+            Array.Copy(BitConverter.GetBytes((short)(list.Count - 1)), newXiaoGuo, 2);
+
+            txtFile.Save(list);
+
+            this.xiaoguoCount = XiaoGuoCount + 1;
+            base.Write(24, BitConverter.GetBytes(xiaoguoCount));
+            base.Write(this.Data.Length, newXiaoGuo);
         }
 
         public List<AbstractAbility> ListAbilitys()

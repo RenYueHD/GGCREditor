@@ -114,6 +114,7 @@ namespace GGCREditorLib
         public void Save()
         {
             PkdFile.Write(this.Index, this.Data);
+            Refresh();
         }
 
         public void Refresh()

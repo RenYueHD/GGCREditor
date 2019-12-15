@@ -881,19 +881,17 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(129, value);
             }
         }
-        public byte UnKnow80
+        public short UnKnow80
         {
             get
             {
-                return this.Data[130];
+                return BitConverter.ToInt16(this.Data, 130);
             }
             set
             {
                 save(130, value);
             }
         }
-
-
 
 
 
@@ -920,15 +918,19 @@ namespace GGCREditorLib.CDBItem.Ability
             }
             set
             {
-                save(4, value);
+                throw new Exception("技能效果的效果编号无法修改");
             }
         }
 
-        public int RemarkId
+        public short RemarkId
         {
             get
             {
-                return this.No;
+                return BitConverter.ToInt16(this.Data, 0);
+            }
+            set
+            {
+                save(0, value);
             }
         }
         public string RemarkDetail
@@ -936,6 +938,18 @@ namespace GGCREditorLib.CDBItem.Ability
             get
             {
                 return PkdFile.AbilityText[this.No];
+            }
+            set
+            {
+                if (value != RemarkDetail)
+                {
+                    GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
+                    List<string> list = txtFile.ListAllText();
+                    list[this.RemarkId] = value;
+                    txtFile.Save(list);
+
+                    PkdFile.ReloadAbilityText();
+                }
             }
         }
 
