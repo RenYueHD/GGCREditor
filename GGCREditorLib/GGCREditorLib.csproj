@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +43,7 @@
     <Compile Include="CDBItem\Ability\GundamAbility.cs" />
     <Compile Include="CDBItem\Ability\WarAbility.cs" />
     <Compile Include="CDBItem\Ability\XiaoGuoAbility.cs" />
+    <Compile Include="DDSImage.cs" />
     <Compile Include="GGCRResource\GGCRPkdFile.cs" />
     <Compile Include="GGCRResource\GGCRResourceFile.cs" />
     <Compile Include="GGCRStaticConfig.cs" />

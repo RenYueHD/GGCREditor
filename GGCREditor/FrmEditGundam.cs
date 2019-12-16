@@ -17,10 +17,13 @@ namespace GGCREditor
             InitializeComponent();
             this.gundamFile = new GundamFile();
             tslblFile.Text = gundamFile.FileName;
+
+            head = ZipHelper.ZipDeCompressToDic(GGCRStaticConfig.PATH + "\\images\\schips.txd");
         }
 
         private GundamFile gundamFile;
         private List<GundamInfo> gundams = new List<GundamInfo>();
+        Dictionary<string, byte[]> head;
 
 
         public void bindAll()
@@ -78,6 +81,24 @@ namespace GGCREditor
         {
             if (gundam != null)
             {
+                string name = gundam.PicName;
+
+                txtPic.Text = name;
+
+                if (head.ContainsKey(name))
+                {
+                    DDSImage image = new DDSImage(head[name]);
+                    pic1.Image = Image.FromHbitmap(image.images[0].GetHbitmap());
+                }
+                else
+                {
+                    if (pic1.Image != null)
+                    {
+                        pic1.Image.Dispose();
+                        pic1.Image = null;
+                    }
+                }
+
                 txtUUID.Text = gundam.UUID;
 
                 txtGroup.Text = gundam.GroupName;

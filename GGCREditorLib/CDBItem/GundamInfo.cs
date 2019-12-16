@@ -42,6 +42,17 @@ namespace GGCREditorLib
 
         }
 
+        public virtual string PicName
+        {
+            get
+            {
+
+                return Encoding.ASCII.GetString(this.Data, 2, 1) + BitConverter.ToInt16(this.Data, 0).ToString().PadLeft(4, '0') + Encoding.ASCII.GetString(this.Data, 4, 1)
+                            + BitConverter.ToInt16(this.Data, 6).ToString().PadLeft(3, '0')
+                            + this.Data[5].ToString().PadLeft(2, '0');
+            }
+        }
+
         public string GroupName
         {
             get

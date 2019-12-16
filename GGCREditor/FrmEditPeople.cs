@@ -1,4 +1,5 @@
 ﻿using GGCREditorLib;
+using ICSharpCode.SharpZipLib.Zip;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace GGCREditor
             InitializeComponent();
             masterFile = new MasterFile();
             tslblFIle.Text = masterFile.FileName;
+
+            head = ZipHelper.ZipDeCompressToDic(GGCRStaticConfig.PATH+ "\\images\\schips.txd");
         }
 
         public static FrmEditPeople CreateForm()
@@ -31,7 +34,7 @@ namespace GGCREditor
         }
 
         private static FrmEditPeople form;
-
+        Dictionary<string, byte[]> head;
         MasterFile masterFile = null;
         List<MasterInfo> masters = new List<MasterInfo>();
 
@@ -52,6 +55,7 @@ namespace GGCREditor
 
         private void FrmEditPeople_Load(object sender, EventArgs e)
         {
+
             bindAll();
 
             masters = masterFile.ListMasters();
@@ -65,6 +69,22 @@ namespace GGCREditor
         {
             if (master != null)
             {
+                string name = master.PicName;
+                if (head.ContainsKey(name))
+                {
+                    DDSImage image = new DDSImage(head[name]);
+                    pic1.Image = Image.FromHbitmap(image.images[0].GetHbitmap());
+                }
+                else
+                {
+                    if (pic1.Image != null)
+                    {
+                        pic1.Image.Dispose();
+                        pic1.Image = null;
+                    }
+                }
+
+                txtPic.Text = name;
                 txtId.Text = master.ID.ToString();
                 txtUnKnow.Text = master.Unknow.ToString();
                 txtName.Text = master.UnitName;
