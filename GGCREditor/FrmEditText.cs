@@ -79,7 +79,7 @@ namespace GGCREditor
             {
                 txtEdit.Enabled = true;
                 btnEnsure.Enabled = true;
-                txtEdit.Text = txt.Text;
+                txtEdit.Text = txt.Text.Replace("\n", "\r\n");
             }
             tsmiState.Text = "等待修改";
             tsmiState.ForeColor = Color.Black;
@@ -88,9 +88,8 @@ namespace GGCREditor
         private void btnEnsure_Click(object sender, EventArgs e)
         {
             IndexText kv = lsMain.SelectedItem as IndexText;
-            kv.Text = txtEdit.Text;
+            kv.Text = txtEdit.Text.Replace("\r\n", "\n");
 
-           // lsMain.SelectedItem = kv;
             btnSave.Enabled = true;
 
             lsMain.Refresh();

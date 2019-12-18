@@ -331,8 +331,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(58, value);
             }
         }
-
-        public short DmgWuLiGeDou
+        public short DmgWuLiSheJi
         {
             get
             {
@@ -343,7 +342,8 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(60, value);
             }
         }
-        public short DmgWuLiSheJi
+
+        public short DmgWuLiGeDou
         {
             get
             {
@@ -354,6 +354,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(62, value);
             }
         }
+ 
         public short DmgBeanSheJi
         {
             get
@@ -376,7 +377,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(66, value);
             }
         }
-        public short DmgUnknow35
+        public short DmgTeShuSheJi
         {
             get
             {
@@ -387,7 +388,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(68, value);
             }
         }
-        public short DmgUnknow36
+        public short DmgTeShuGeDou
         {
             get
             {
@@ -410,7 +411,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(72, value);
             }
         }
-        public short WuXiaoWuLiGeDou
+        public short WuXiaoWuLiSheJi
         {
             get
             {
@@ -421,7 +422,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(74, value);
             }
         }
-        public short WuXiaoWuLiSheJi
+        public short WuXiaoWuLiGeDou
         {
             get
             {
@@ -432,6 +433,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(76, value);
             }
         }
+
         public short WuXiaoBeanSheJi
         {
             get
@@ -454,7 +456,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(80, value);
             }
         }
-        public short WuXiaoUnknow42
+        public short WuXiaoTeShuSheJi
         {
             get
             {
@@ -465,7 +467,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(82, value);
             }
         }
-        public short WuXiaoUnknow43
+        public short WuXiaoTeShuGeDou
         {
             get
             {

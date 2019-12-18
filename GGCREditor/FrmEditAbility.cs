@@ -118,7 +118,7 @@ namespace GGCREditor
         {
             if (xiaoguo != null)
             {
-                txtXiaoGuoRemark.Text = xiaoguo.RemarkDetail;
+                txtXiaoGuoRemark.Text = xiaoguo.RemarkDetail.Replace("\n", "\r\n");
                 txtRemarkId.Text = xiaoguo.RemarkId.ToString();
 
                 changePanel(true);
@@ -153,20 +153,20 @@ namespace GGCREditor
                 txtShiXin2.Text = xiaoguo.ShiYin2.ToString();
                 txtShiXin3.Text = xiaoguo.ShiYin3.ToString();
                 txtShiXin4.Text = xiaoguo.ShiYin4.ToString();
-                txtShiXin5.Text = xiaoguo.ShiYin4.ToString();
+                txtShiXin5.Text = xiaoguo.ShiYin5.ToString();
                 txtDmgWuLiGeDou.Text = xiaoguo.DmgWuLiGeDou.ToString();
                 txtDmgWuLiSheJi.Text = xiaoguo.DmgWuLiSheJi.ToString();
                 txtDmgBeanSheJi.Text = xiaoguo.DmgBeanSheJi.ToString();
                 txtDmgBeanGeDou.Text = xiaoguo.DmgBeanGeDou.ToString();
-                txtDmgUnknow35.Text = xiaoguo.DmgUnknow35.ToString();
-                txtDmgUnknow36.Text = xiaoguo.DmgUnknow36.ToString();
+                txtDmgUnknow35.Text = xiaoguo.DmgTeShuSheJi.ToString();
+                txtDmgUnknow36.Text = xiaoguo.DmgTeShuGeDou.ToString();
                 txtDmgMap.Text = xiaoguo.DmgMap.ToString();
                 txtWuXiaoWuLiGeDou.Text = xiaoguo.WuXiaoWuLiGeDou.ToString();
                 txtWuXiaoWuLiSheJi.Text = xiaoguo.WuXiaoWuLiSheJi.ToString();
                 txtWuXiaoBeanSheJi.Text = xiaoguo.WuXiaoBeanSheJi.ToString();
                 txtWuXiaoBeanGeDou.Text = xiaoguo.WuXiaoBeanGeDou.ToString();
-                txtWuXiaoUnknow42.Text = xiaoguo.WuXiaoUnknow42.ToString();
-                txtWuXiaoUnKnow43.Text = xiaoguo.WuXiaoUnknow43.ToString();
+                txtWuXiaoUnknow42.Text = xiaoguo.WuXiaoTeShuSheJi.ToString();
+                txtWuXiaoUnKnow43.Text = xiaoguo.WuXiaoTeShuGeDou.ToString();
                 txtWuXiaoMap.Text = xiaoguo.WuXiaoMap.ToString();
                 txtShangHaiFinal.Text = xiaoguo.ShangHaiFinal.ToString();
                 txtShangHaiFinalSelf.Text = xiaoguo.ShangHaiFinalSelf.ToString();
@@ -314,20 +314,20 @@ namespace GGCREditor
                 xiaoguo.ShiYin2 = byte.Parse(txtShiXin2.Text);
                 xiaoguo.ShiYin3 = byte.Parse(txtShiXin3.Text);
                 xiaoguo.ShiYin4 = byte.Parse(txtShiXin4.Text);
-                xiaoguo.ShiYin4 = byte.Parse(txtShiXin5.Text);
+                xiaoguo.ShiYin5 = byte.Parse(txtShiXin5.Text);
                 xiaoguo.DmgWuLiGeDou = short.Parse(txtDmgWuLiGeDou.Text);
                 xiaoguo.DmgWuLiSheJi = short.Parse(txtDmgWuLiSheJi.Text);
                 xiaoguo.DmgBeanSheJi = short.Parse(txtDmgBeanSheJi.Text);
                 xiaoguo.DmgBeanGeDou = short.Parse(txtDmgBeanGeDou.Text);
-                xiaoguo.DmgUnknow35 = short.Parse(txtDmgUnknow35.Text);
-                xiaoguo.DmgUnknow36 = short.Parse(txtDmgUnknow36.Text);
+                xiaoguo.DmgTeShuSheJi = short.Parse(txtDmgUnknow35.Text);
+                xiaoguo.DmgTeShuGeDou = short.Parse(txtDmgUnknow36.Text);
                 xiaoguo.DmgMap = short.Parse(txtDmgMap.Text);
                 xiaoguo.WuXiaoWuLiGeDou = short.Parse(txtWuXiaoWuLiGeDou.Text);
                 xiaoguo.WuXiaoWuLiSheJi = short.Parse(txtWuXiaoWuLiSheJi.Text);
                 xiaoguo.WuXiaoBeanSheJi = short.Parse(txtWuXiaoBeanSheJi.Text);
                 xiaoguo.WuXiaoBeanGeDou = short.Parse(txtWuXiaoBeanGeDou.Text);
-                xiaoguo.WuXiaoUnknow42 = short.Parse(txtWuXiaoUnknow42.Text);
-                xiaoguo.WuXiaoUnknow43 = short.Parse(txtWuXiaoUnKnow43.Text);
+                xiaoguo.WuXiaoTeShuSheJi = short.Parse(txtWuXiaoUnknow42.Text);
+                xiaoguo.WuXiaoTeShuGeDou = short.Parse(txtWuXiaoUnKnow43.Text);
                 xiaoguo.WuXiaoMap = short.Parse(txtWuXiaoMap.Text);
                 xiaoguo.ShangHaiFinal = short.Parse(txtShangHaiFinal.Text);
                 xiaoguo.ShangHaiFinalSelf = short.Parse(txtShangHaiFinalSelf.Text);
@@ -368,9 +368,9 @@ namespace GGCREditor
                 // xiaoguo.RemarkId = short.Parse(txtRemarkId.Text);
 
                 //写技能文本
-                if (txtXiaoGuoRemark.Text != xiaoguo.RemarkDetail)
+                if (txtXiaoGuoRemark.Text.Replace("\r\n", "\n") != xiaoguo.RemarkDetail)
                 {
-                    xiaoguo.RemarkDetail = txtXiaoGuoRemark.Text;
+                    xiaoguo.RemarkDetail = txtXiaoGuoRemark.Text.Replace("\r\n", "\n");
                 }
 
                 xiaoguo.Save();

@@ -50,15 +50,14 @@ namespace GGCREditorLib
         {
             GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
             List<string> list = txtFile.ListAllText();
-            list.Add("我的自创技能效果");
 
+            list.Add("我的自创技能效果");
+            txtFile.Save(list);
 
             byte[] newXiaoGuo = new byte[GGCRStaticConfig.XiaoGuoLength];
             Array.Copy(BitConverter.GetBytes((short)(list.Count - 1)), newXiaoGuo, 2);
 
-            txtFile.Save(list);
-
-            this.xiaoguoCount = XiaoGuoCount + 1;
+            this.xiaoguoCount++;
             base.Write(24, BitConverter.GetBytes(xiaoguoCount));
             base.Write(this.Data.Length, newXiaoGuo);
         }

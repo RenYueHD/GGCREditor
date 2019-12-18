@@ -7,7 +7,8 @@ namespace GGCREditorLib
 {
     public class GGCRTblFile : GGCRResourceFile
     {
-        private int Count;
+        private int count;
+        public int Count { get { return count; } }
         //首个字符位置
         private int CharStart;
         private List<string> texts;
@@ -21,7 +22,7 @@ namespace GGCREditorLib
         private void load()
         {
             this.CharStart = BitConverter.ToInt32(this.Data, 16);
-            this.Count = BitConverter.ToInt32(this.Data, 8);
+            this.count = BitConverter.ToInt32(this.Data, 8);
             this.simple = true;
 
             List<int> addresses = new List<int>();

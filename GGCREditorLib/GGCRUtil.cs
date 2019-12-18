@@ -304,5 +304,9 @@ namespace GGCREditor
 
         #endregion
 
+        public static string[] Languages()
+        {
+            return new string[] { "schinese", "tchinese", "japanese", "english", "korean" };
+        }
     }
 }
