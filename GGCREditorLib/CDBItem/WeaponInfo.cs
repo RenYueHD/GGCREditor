@@ -19,8 +19,8 @@ namespace GGCREditorLib
         protected const int MP_IDX = GROUP_IDX + 16;   //MP消费 2byte
         protected const int ACT_EARTH_IDX = GROUP_IDX + 18;    //武器对应适性 2byte
         protected const int MOVE_ACT_IDX = GROUP_IDX + 20;     //移动后攻击 1byte
-        protected const int ICO_IDX = GROUP_IDX + 21;          //图标
-        protected const int PROPER_IDX = GROUP_IDX + 22;         //武器属性
+        protected const int ICO_IDX = GROUP_IDX + 22;          //图标
+        protected const int PROPER_IDX = GROUP_IDX + 21;         //武器属性
         protected const int SPEC_IDX = GROUP_IDX + 23;        //武器特效 1byte
         protected const int MP_LIMIT_IDX = GROUP_IDX + 24;    //MP需求 2byte
         protected const int USE_EARTH_IDX = GROUP_IDX + 26;   //使用适性 1?2byte
