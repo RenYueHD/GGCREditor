@@ -53,7 +53,6 @@
             this.cboE2 = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.cboE1 = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
@@ -101,6 +100,7 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label32 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -128,6 +128,7 @@
             this.lsGundam.ItemHeight = 16;
             this.lsGundam.Location = new System.Drawing.Point(12, 33);
             this.lsGundam.Name = "lsGundam";
+            this.lsGundam.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lsGundam.Size = new System.Drawing.Size(356, 656);
             this.lsGundam.TabIndex = 9;
             this.lsGundam.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsGundam_DrawItem);
@@ -147,6 +148,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label32);
             this.groupBox1.Controls.Add(this.pic1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnExport);
@@ -167,7 +169,6 @@
             this.groupBox1.Controls.Add(this.cboE2);
             this.groupBox1.Controls.Add(this.label30);
             this.groupBox1.Controls.Add(this.cboE1);
-            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.label28);
@@ -403,17 +404,6 @@
             this.cboE1.Name = "cboE1";
             this.cboE1.Size = new System.Drawing.Size(51, 20);
             this.cboE1.TabIndex = 19;
-            // 
-            // label29
-            // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.Red;
-            this.label29.Location = new System.Drawing.Point(240, 625);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(143, 12);
-            this.label29.TabIndex = 6;
-            this.label29.Text = "若有修改,请先保存再导出";
             // 
             // label18
             // 
@@ -813,6 +803,17 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
             // 
+            // label32
+            // 
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label32.AutoSize = true;
+            this.label32.ForeColor = System.Drawing.Color.Red;
+            this.label32.Location = new System.Drawing.Point(89, 625);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(293, 12);
+            this.label32.TabIndex = 25;
+            this.label32.Text = "若有修改,请先保存再导出 按住Ctrl可多选后批量导出";
+            // 
             // FrmEditGundam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -907,11 +908,11 @@
         private System.Windows.Forms.TextBox txtMapCount;
         private System.Windows.Forms.TextBox txtFirstMap;
         private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.PictureBox pic1;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox txtPic;
+        private System.Windows.Forms.Label label32;
     }
 }
