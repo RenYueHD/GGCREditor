@@ -33,6 +33,8 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label30 = new System.Windows.Forms.Label();
             this.panNormal = new System.Windows.Forms.Panel();
             this.txtHitRate = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,7 +50,6 @@
             this.txtAttMaxCount = new System.Windows.Forms.TextBox();
             this.cboWeaponType = new System.Windows.Forms.ComboBox();
             this.btnExport = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
             this.cboMpLimit = new System.Windows.Forms.ComboBox();
             this.cboRange = new System.Windows.Forms.ComboBox();
             this.cboSpec = new System.Windows.Forms.ComboBox();
@@ -96,8 +97,7 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panNormal.SuspendLayout();
             this.panMap.SuspendLayout();
@@ -125,6 +125,7 @@
             this.lsGundam.ItemHeight = 16;
             this.lsGundam.Location = new System.Drawing.Point(12, 33);
             this.lsGundam.Name = "lsGundam";
+            this.lsGundam.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lsGundam.Size = new System.Drawing.Size(327, 543);
             this.lsGundam.TabIndex = 9;
             this.lsGundam.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsGundam_DrawItem);
@@ -144,12 +145,12 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label30);
             this.groupBox1.Controls.Add(this.panNormal);
             this.groupBox1.Controls.Add(this.panMap);
             this.groupBox1.Controls.Add(this.btnExport);
-            this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.cboMpLimit);
             this.groupBox1.Controls.Add(this.cboRange);
             this.groupBox1.Controls.Add(this.cboSpec);
@@ -199,6 +200,28 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(389, 537);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "导入";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label30
+            // 
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.Red;
+            this.label30.Location = new System.Drawing.Point(96, 542);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(287, 12);
+            this.label30.TabIndex = 34;
+            this.label30.Text = "导入功能会根据数据头自动匹配数据,导入完成请保存";
             // 
             // panNormal
             // 
@@ -334,17 +357,6 @@
             this.btnExport.Text = "导出";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // label29
-            // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.Red;
-            this.label29.Location = new System.Drawing.Point(240, 513);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(143, 12);
-            this.label29.TabIndex = 30;
-            this.label29.Text = "若有修改,请先保存再导出";
             // 
             // cboMpLimit
             // 
@@ -764,27 +776,16 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(192, 17);
             this.toolStripStatusLabel1.Text = "感谢 mediar,泷泽透明 的武器数据";
             // 
-            // button1
+            // label29
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(389, 537);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "导入";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label30
-            // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label30.AutoSize = true;
-            this.label30.ForeColor = System.Drawing.Color.Red;
-            this.label30.Location = new System.Drawing.Point(96, 542);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(287, 12);
-            this.label30.TabIndex = 34;
-            this.label30.Text = "导入功能会根据数据头自动匹配数据,导入完成请保存";
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.Red;
+            this.label29.Location = new System.Drawing.Point(89, 513);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(293, 12);
+            this.label29.TabIndex = 36;
+            this.label29.Text = "若有修改,请先保存再导出 按住Ctrl可多选后批量导出";
             // 
             // FrmEditWeapon
             // 
@@ -875,7 +876,6 @@
         private System.Windows.Forms.ComboBox cboMpLimit;
         private System.Windows.Forms.ComboBox cboRange;
         private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.ComboBox cboWeaponType;
         private System.Windows.Forms.TextBox txtAttMaxCount;
         private System.Windows.Forms.TextBox txtMapTurn;
@@ -886,5 +886,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
     }
 }
