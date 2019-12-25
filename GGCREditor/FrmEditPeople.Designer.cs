@@ -62,6 +62,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.cboGuYou3 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pic1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
@@ -74,8 +75,10 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.txtPic = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lsMasters = new System.Windows.Forms.ListBox();
@@ -85,12 +88,9 @@
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.pic1 = new System.Windows.Forms.PictureBox();
-            this.txtPic = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -417,6 +417,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
             // 
+            // pic1
+            // 
+            this.pic1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic1.Location = new System.Drawing.Point(89, 20);
+            this.pic1.Name = "pic1";
+            this.pic1.Size = new System.Drawing.Size(144, 73);
+            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pic1.TabIndex = 28;
+            this.pic1.TabStop = false;
+            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -455,11 +465,11 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.Red;
-            this.label29.Location = new System.Drawing.Point(240, 544);
+            this.label29.Location = new System.Drawing.Point(90, 544);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(143, 12);
+            this.label29.Size = new System.Drawing.Size(293, 12);
             this.label29.TabIndex = 24;
-            this.label29.Text = "若有修改,请先保存再导出";
+            this.label29.Text = "若有修改,请先保存再导出 按住Ctrl可多选后批量导出";
             // 
             // label21
             // 
@@ -535,6 +545,15 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.txtSave_Click);
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(286, 65);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(29, 12);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "立绘";
+            // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
@@ -552,6 +571,14 @@
             this.label17.Size = new System.Drawing.Size(29, 12);
             this.label17.TabIndex = 2;
             this.label17.Text = "姓名";
+            // 
+            // txtPic
+            // 
+            this.txtPic.Location = new System.Drawing.Point(320, 62);
+            this.txtPic.Name = "txtPic";
+            this.txtPic.ReadOnly = true;
+            this.txtPic.Size = new System.Drawing.Size(144, 21);
+            this.txtPic.TabIndex = 3;
             // 
             // txtAddress
             // 
@@ -579,6 +606,7 @@
             this.lsMasters.ItemHeight = 16;
             this.lsMasters.Location = new System.Drawing.Point(12, 36);
             this.lsMasters.Name = "lsMasters";
+            this.lsMasters.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lsMasters.Size = new System.Drawing.Size(325, 578);
             this.lsMasters.TabIndex = 6;
             this.lsMasters.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsMasters_DrawItem);
@@ -638,33 +666,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 22);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的人物数据";
             // 
-            // pic1
-            // 
-            this.pic1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic1.Location = new System.Drawing.Point(89, 20);
-            this.pic1.Name = "pic1";
-            this.pic1.Size = new System.Drawing.Size(144, 73);
-            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pic1.TabIndex = 28;
-            this.pic1.TabStop = false;
-            // 
-            // txtPic
-            // 
-            this.txtPic.Location = new System.Drawing.Point(320, 62);
-            this.txtPic.Name = "txtPic";
-            this.txtPic.ReadOnly = true;
-            this.txtPic.Size = new System.Drawing.Size(144, 21);
-            this.txtPic.TabIndex = 3;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(286, 65);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(29, 12);
-            this.label22.TabIndex = 2;
-            this.label22.Text = "立绘";
-            // 
             // FrmEditPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -684,9 +685,9 @@
             this.Load += new System.EventHandler(this.FrmEditPeople_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

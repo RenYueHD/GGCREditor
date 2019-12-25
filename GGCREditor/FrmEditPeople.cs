@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
+using static System.Windows.Forms.ListBox;
 
 namespace GGCREditor
 {
@@ -21,7 +22,7 @@ namespace GGCREditor
             masterFile = new MasterFile();
             tslblFIle.Text = masterFile.FileName;
 
-            head = ZipHelper.ZipDeCompressToDic(GGCRStaticConfig.PATH+ "\\images\\schips.txd");
+            head = ZipHelper.ZipDeCompressToDic(GGCRStaticConfig.PATH + "\\images\\schips.txd");
         }
 
         public static FrmEditPeople CreateForm()
@@ -282,26 +283,52 @@ namespace GGCREditor
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            MasterInfo gundam = lsMasters.SelectedItem as MasterInfo;
-            if (gundam != null)
+            SelectedObjectCollection list = lsMasters.SelectedItems;
+            if (list.Count == 1)
             {
-                string fileName = gundam.UUID.Replace(" ", "_") + "-" + gundam.UnitName.Replace(" ", "_") + ".master";
-
-                SaveFileDialog dialog = new SaveFileDialog();
-                //dialog.RestoreDirectory = true;
-                dialog.Filter = "人物数据|*.master";
-
-                dialog.FileName = fileName;
-
-                if (dialog.ShowDialog() == DialogResult.OK)
+                MasterInfo gundam = lsMasters.SelectedItem as MasterInfo;
+                if (gundam != null)
                 {
-                    using (FileStream fis = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write))
+                    string fileName = gundam.PicName + "-" + gundam.UnitName.Replace(" ", "_") + ".master";
+
+                    SaveFileDialog dialog = new SaveFileDialog();
+                    //dialog.RestoreDirectory = true;
+                    dialog.Filter = "人物数据|*.master";
+
+                    dialog.FileName = fileName;
+
+                    if (dialog.ShowDialog() == DialogResult.OK)
                     {
-                        fis.Write(gundam.Data, 0, gundam.Data.Length);
+                        export(gundam, dialog.FileName);
                     }
                     tsmiLblState.Text = "导出成功";
                     tsmiLblState.ForeColor = Color.Green;
                 }
+            }
+            else if (list.Count > 0)
+            {
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                dialog.Description = "请选择导出目录(自动覆盖)";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (Object obj in list)
+                    {
+                        MasterInfo gundam = obj as MasterInfo;
+                        string name = dialog.SelectedPath + "\\" + gundam.PicName + "-" + gundam.UnitName.Replace(" ", "_") + ".master";
+                        export(gundam, name);
+                    }
+                    tsmiLblState.Text = "导出成功";
+                    tsmiLblState.ForeColor = Color.Green;
+                }
+            }
+        }
+
+        private void export(MasterInfo gundam, string file)
+        {
+            using (FileStream fis = new FileStream(file, FileMode.Create, FileAccess.Write))
+            {
+                fis.Write(gundam.Data, 0, gundam.Data.Length);
             }
         }
 
