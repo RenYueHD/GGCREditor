@@ -33,12 +33,11 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.txtGroup = new System.Windows.Forms.TextBox();
             this.btnEditWeapon = new System.Windows.Forms.Button();
             this.cboSkill5 = new System.Windows.Forms.ComboBox();
@@ -100,7 +99,8 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label32 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -152,9 +152,7 @@
             this.groupBox1.Controls.Add(this.pic1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnExport);
-            this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.txtGroup);
             this.groupBox1.Controls.Add(this.btnEditWeapon);
             this.groupBox1.Controls.Add(this.cboSkill5);
@@ -185,6 +183,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtMapCount);
+            this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtFirstMap);
             this.groupBox1.Controls.Add(this.txtWeaponCount);
@@ -193,6 +192,7 @@
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.txtUUID);
             this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.txtHP);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtEN);
@@ -218,6 +218,17 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // label32
+            // 
+            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label32.AutoSize = true;
+            this.label32.ForeColor = System.Drawing.Color.Red;
+            this.label32.Location = new System.Drawing.Point(89, 625);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(293, 12);
+            this.label32.TabIndex = 25;
+            this.label32.Text = "若有修改,请先保存再导出 按住Ctrl可多选后批量导出";
             // 
             // pic1
             // 
@@ -251,15 +262,6 @@
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(294, 183);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(17, 12);
-            this.label25.TabIndex = 21;
-            this.label25.Text = "ID";
-            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -268,14 +270,6 @@
             this.label24.Size = new System.Drawing.Size(29, 12);
             this.label24.TabIndex = 21;
             this.label24.Text = "系列";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(316, 179);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(144, 21);
-            this.txtId.TabIndex = 22;
             // 
             // txtGroup
             // 
@@ -803,16 +797,21 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
             // 
-            // label32
+            // txtPrice
             // 
-            this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label32.AutoSize = true;
-            this.label32.ForeColor = System.Drawing.Color.Red;
-            this.label32.Location = new System.Drawing.Point(89, 625);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(293, 12);
-            this.label32.TabIndex = 25;
-            this.label32.Text = "若有修改,请先保存再导出 按住Ctrl可多选后批量导出";
+            this.txtPrice.Location = new System.Drawing.Point(316, 179);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(144, 21);
+            this.txtPrice.TabIndex = 0;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(282, 183);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(29, 12);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "价格";
             // 
             // FrmEditGundam
             // 
@@ -899,8 +898,6 @@
         private System.Windows.Forms.Button btnEditWeapon;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtGroup;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtUUID;
         private System.Windows.Forms.Label label28;
@@ -914,5 +911,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox txtPic;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }

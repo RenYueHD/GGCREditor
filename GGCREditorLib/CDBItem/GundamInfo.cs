@@ -11,8 +11,9 @@ namespace GGCREditorLib
     public class GundamInfo : GGCRUnitInfo<GundamFile>, IComparable<GundamInfo>
     {
         private const int GROUP_IDX = 0;
+        private const int ID_IDX = GROUP_IDX + 22;
         private const int HP_IDX = GROUP_IDX + 24;
-        private const int ID_IDX = HP_IDX - 2;
+        private const int PRICE_IDX = GROUP_IDX + 60;
         private const int EN_IDX = HP_IDX + 38;
         private const int ACT_IDX = HP_IDX + 40;
         private const int DEF_IDX = HP_IDX + 42;
@@ -181,6 +182,18 @@ namespace GGCREditorLib
             set
             {
                 save(SIZE_IDX, value);
+            }
+        }
+
+        public int Price
+        {
+            get
+            {
+                return BitConverter.ToInt16(this.Data, PRICE_IDX) * 100;
+            }
+            set
+            {
+                save(PRICE_IDX, (short)(value / 100));
             }
         }
 

@@ -103,7 +103,8 @@ namespace GGCREditor
                 txtUUID.Text = gundam.UUID;
 
                 txtGroup.Text = gundam.GroupName;
-                txtId.Text = gundam.ID.ToString();
+                txtPrice.Text = gundam.Price.ToString();
+
                 txtName.Text = gundam.UnitName;
                 txtAddress.Text = gundam.Address;
                 txtHP.Text = gundam.HP.ToString();
@@ -218,7 +219,7 @@ namespace GGCREditor
             {
                 txtUUID.Text = null;
 
-                txtId.Text = null;
+                txtPrice.Text = null;
                 txtGroup.Text = null;
                 txtName.Text = null;
                 txtAddress.Text = null;
@@ -297,6 +298,7 @@ namespace GGCREditor
                 gundam.Move = byte.Parse(txtMove.Text);
                 gundam.Size = byte.Parse(cboSize.SelectedValue.ToString());
                 gundam.EarchSize = short.Parse(txtEarthSize.Text);
+                gundam.Price = int.Parse(txtPrice.Text);
 
                 gundam.WeaponId = short.Parse(txtWeapon1ID.Text);
                 gundam.WeaponCount = byte.Parse(txtWeaponCount.Text);
