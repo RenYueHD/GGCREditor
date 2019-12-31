@@ -43,7 +43,7 @@ namespace GGCREditorLib
             List<MasterInfo> list = new List<MasterInfo>();
             for (int i = 0; i < count; i++)
             {
-                list.Add(new MasterInfo(this, start + 28 + i * GGCRStaticConfig.MasterLength, i));
+                list.Add(new MasterInfo(this, start + 28 + i * GGCRStaticConfig.MasterLength, i,list));
             }
             return list;
         }

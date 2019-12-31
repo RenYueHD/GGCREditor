@@ -11,7 +11,7 @@ namespace GGCREditorLib
     public class MasterInfo : GGCRUnitInfo<MasterFile>, IComparable<MasterInfo>
     {
         private const int GROUP_IDX = 0;
-        private const int ID_IDX = GROUP_IDX + 28;
+        public const int ID_IDX = GROUP_IDX + 28;
         private const int UNKNOW_IDX = SHEJI_IDX - 2;
         private const int SHEJI_IDX = GROUP_IDX + 32;
         private const int GEDOU_IDX = SHEJI_IDX + 2;
@@ -32,11 +32,12 @@ namespace GGCREditorLib
 
         private const int LAST4_IDX = GROUP_IDX + 108;
 
+        private List<MasterInfo> all;
 
-        public MasterInfo(MasterFile File, int index, int no)
+        public MasterInfo(MasterFile File, int index, int no, List<MasterInfo> all)
             : base(File, index, no)
         {
-
+            this.all = all;
         }
 
         public virtual string PicName
@@ -51,6 +52,13 @@ namespace GGCREditorLib
             }
         }
 
+        public short test
+        {
+            get
+            {
+                return BitConverter.ToInt16(this.Data, 6);
+            }
+        }
 
         public override string UnitName
         {
@@ -66,7 +74,44 @@ namespace GGCREditorLib
                 }
                 else
                 {
-                    return PkdFile.MasterNames[this.ID];
+                    if (this.Data[LAST4_IDX] == 1)
+                    {
+                        int nextId = 99999;
+                        //寻找下一个人的最小索引
+                        foreach (MasterInfo m in this.all)
+                        {
+                            if (m.Index > this.Index)
+                            {
+                                if (nextId > m.ID)
+                                {
+                                    nextId = m.ID;
+                                }
+                            }
+                        }
+                        if (nextId != 99999)
+                        {
+                            //从当前ID到minId的所有名字都为此人
+                            int startId = this.ID;
+                            int endId = nextId - 1;
+                            if (endId - startId > 0)
+                            {
+                                return PkdFile.MasterNames[this.ID + 1];
+                            }
+                            else
+                            {
+                                return PkdFile.MasterNames[this.ID];
+                            }
+                        }
+                        else
+                        {
+                            //为最后一个
+                            return PkdFile.MasterNames[this.ID];
+                        }
+                    }
+                    else
+                    {
+                        return PkdFile.MasterNames[this.ID];
+                    }
                 }
             }
         }
