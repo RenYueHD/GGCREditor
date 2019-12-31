@@ -104,8 +104,6 @@ namespace GGCREditor
                 txtJinYan.Text = master.JinYan.ToString();
                 txtChenZhang.Text = master.ChengZhang.ToString();
 
-                txtPerson.Text = master.test.ToString();
-
                 cboGuYou1.SelectedValue = master.GuYou1.ToString();
                 if (cboGuYou1.SelectedValue == null)
                 {

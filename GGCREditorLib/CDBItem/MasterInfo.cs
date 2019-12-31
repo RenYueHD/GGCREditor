@@ -52,14 +52,6 @@ namespace GGCREditorLib
             }
         }
 
-        public short test
-        {
-            get
-            {
-                return BitConverter.ToInt16(this.Data, 6);
-            }
-        }
-
         public override string UnitName
         {
             get

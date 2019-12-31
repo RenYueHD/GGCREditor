@@ -88,8 +88,6 @@
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtPerson = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -376,11 +374,9 @@
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtFuZuo);
             this.groupBox1.Controls.Add(this.cboGuYou3);
-            this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.lblAddress);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.txtPerson);
             this.groupBox1.Controls.Add(this.txtPic);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtAddress);
@@ -670,23 +666,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 22);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的人物数据";
             // 
-            // txtPerson
-            // 
-            this.txtPerson.Location = new System.Drawing.Point(320, 24);
-            this.txtPerson.Name = "txtPerson";
-            this.txtPerson.ReadOnly = true;
-            this.txtPerson.Size = new System.Drawing.Size(144, 21);
-            this.txtPerson.TabIndex = 3;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(261, 27);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(53, 12);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "人物编号";
-            // 
             // FrmEditPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -774,7 +753,5 @@
         private System.Windows.Forms.PictureBox pic1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtPic;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox txtPerson;
     }
 }
