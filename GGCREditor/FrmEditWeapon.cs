@@ -172,6 +172,9 @@ namespace GGCREditor
                     txtCT.Text = (weapon as WeaponNormalInfo).CT.ToString();
                     txtHitCount.Text = (weapon as WeaponNormalInfo).HitCount.ToString();
 
+                    txtMapTurn.Text = null;
+                    txtAttMaxCount.Text = null;
+
                     cboWeaponType.SelectedValue = -1;
                 }
                 else
