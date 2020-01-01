@@ -25,15 +25,6 @@ namespace GGCREditorLib
         {
             this.SeriesCode = GGCRUtil.ListSeriesCode();
 
-            byte[] data = File.ReadAllBytes(GGCRStaticConfig.MachineTxtFile);
-            int idx = ByteHelper.FindFirstIndex(data, "E5 85 89 E6 9D 9F E5 86", 0);
-
-            weaponNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
-
-            idx = ByteHelper.FindFirstIndex(data, "E9 A3 9E E7 BF BC E9 AB", 0);
-            gundamName = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
-
-
             WeaponCdbStart = ByteHelper.FindFirstIndex(this.Data, "4C 53 50 57", 0);
             if (WeaponCdbStart < 0)
             {
@@ -41,6 +32,15 @@ namespace GGCREditorLib
             }
             WeaponNormalCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 8);
             WeaponMapCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 12);
+
+            weaponNames = new string[WeaponNormalCount + WeaponMapCount];
+            new GGCRTblFile(GGCRStaticConfig.MachineTxtFile).ListAllText().CopyTo(0, weaponNames, 0, weaponNames.Length);
+
+
+            byte[] data = File.ReadAllBytes(GGCRStaticConfig.MachineTxtFile);
+
+            int idx = ByteHelper.FindFirstIndex(data, "E9 A3 9E E7 BF BC E9 AB", 0);
+            gundamName = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
         }
 
         /// <summary>

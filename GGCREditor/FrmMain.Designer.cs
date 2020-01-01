@@ -32,11 +32,19 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.选择路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiLanguage = new System.Windows.Forms.ToolStripMenuItem();
+            this.简体中文ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.繁体中文ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.japaneseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.koreanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEditMaster = new System.Windows.Forms.Button();
             this.btnEditGundam = new System.Windows.Forms.Button();
             this.btnEditWeapon = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tslblDir = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblLang = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEditPeopleText = new System.Windows.Forms.Button();
             this.btnEditMachineTxt = new System.Windows.Forms.Button();
@@ -46,6 +54,7 @@
             this.btnEditAbility = new System.Windows.Forms.Button();
             this.btnEditTBL = new System.Windows.Forms.Button();
             this.flowContainer2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.繁体中文台湾ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.flowContainer.SuspendLayout();
@@ -65,7 +74,8 @@
             // 文件ToolStripMenuItem
             // 
             this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.选择路径ToolStripMenuItem});
+            this.选择路径ToolStripMenuItem,
+            this.tsmiLanguage});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
             this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.文件ToolStripMenuItem.Text = "文件";
@@ -76,6 +86,59 @@
             this.选择路径ToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.选择路径ToolStripMenuItem.Text = "设置data文件夹路径";
             this.选择路径ToolStripMenuItem.Click += new System.EventHandler(this.选择路径ToolStripMenuItem_Click);
+            // 
+            // tsmiLanguage
+            // 
+            this.tsmiLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.简体中文ToolStripMenuItem,
+            this.繁体中文ToolStripMenuItem,
+            this.繁体中文台湾ToolStripMenuItem,
+            this.englishToolStripMenuItem,
+            this.japaneseToolStripMenuItem,
+            this.koreanToolStripMenuItem});
+            this.tsmiLanguage.Name = "tsmiLanguage";
+            this.tsmiLanguage.Size = new System.Drawing.Size(186, 22);
+            this.tsmiLanguage.Text = "选择游戏语言";
+            // 
+            // 简体中文ToolStripMenuItem
+            // 
+            this.简体中文ToolStripMenuItem.Name = "简体中文ToolStripMenuItem";
+            this.简体中文ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.简体中文ToolStripMenuItem.Tag = "schinese";
+            this.简体中文ToolStripMenuItem.Text = "简体中文";
+            this.简体中文ToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
+            // 
+            // 繁体中文ToolStripMenuItem
+            // 
+            this.繁体中文ToolStripMenuItem.Name = "繁体中文ToolStripMenuItem";
+            this.繁体中文ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.繁体中文ToolStripMenuItem.Tag = "tchinese\\hk";
+            this.繁体中文ToolStripMenuItem.Text = "繁体中文-香港";
+            this.繁体中文ToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.englishToolStripMenuItem.Tag = "english";
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
+            // 
+            // japaneseToolStripMenuItem
+            // 
+            this.japaneseToolStripMenuItem.Name = "japaneseToolStripMenuItem";
+            this.japaneseToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.japaneseToolStripMenuItem.Tag = "japanese";
+            this.japaneseToolStripMenuItem.Text = "Japanese";
+            this.japaneseToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
+            // 
+            // koreanToolStripMenuItem
+            // 
+            this.koreanToolStripMenuItem.Name = "koreanToolStripMenuItem";
+            this.koreanToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.koreanToolStripMenuItem.Tag = "korean";
+            this.koreanToolStripMenuItem.Text = "Korean";
+            this.koreanToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
             // 
             // btnEditMaster
             // 
@@ -110,7 +173,9 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tslblDir});
+            this.tslblDir,
+            this.toolStripStatusLabel1,
+            this.lblLang});
             this.statusStrip1.Location = new System.Drawing.Point(0, 184);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(442, 22);
@@ -122,6 +187,18 @@
             this.tslblDir.Name = "tslblDir";
             this.tslblDir.Size = new System.Drawing.Size(188, 17);
             this.tslblDir.Text = "请点击-文件-设置data文件夹路径";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(182, 17);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
+            // lblLang
+            // 
+            this.lblLang.Name = "lblLang";
+            this.lblLang.Size = new System.Drawing.Size(57, 17);
+            this.lblLang.Text = "schinese";
             // 
             // label1
             // 
@@ -222,6 +299,14 @@
             this.flowContainer2.Size = new System.Drawing.Size(419, 61);
             this.flowContainer2.TabIndex = 5;
             // 
+            // 繁体中文台湾ToolStripMenuItem
+            // 
+            this.繁体中文台湾ToolStripMenuItem.Name = "繁体中文台湾ToolStripMenuItem";
+            this.繁体中文台湾ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.繁体中文台湾ToolStripMenuItem.Tag = "tchinese\\tw";
+            this.繁体中文台湾ToolStripMenuItem.Text = "繁体中文-台湾";
+            this.繁体中文台湾ToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -269,6 +354,15 @@
         private System.Windows.Forms.Button btnEditTBL;
         private System.Windows.Forms.Button btnEditAbility;
         private System.Windows.Forms.FlowLayoutPanel flowContainer2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lblLang;
+        private System.Windows.Forms.ToolStripMenuItem tsmiLanguage;
+        private System.Windows.Forms.ToolStripMenuItem 简体中文ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem japaneseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem koreanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 繁体中文ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 繁体中文台湾ToolStripMenuItem;
     }
 }
 

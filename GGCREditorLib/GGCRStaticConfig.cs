@@ -46,6 +46,8 @@ namespace GGCREditor
         /// </summary>
         public static string PATH { get; set; }
 
+        public static string Language { get; set; }
+
         public static string MachineFile
         {
             get
@@ -74,7 +76,7 @@ namespace GGCREditor
         {
             get
             {
-                return PATH + @"\language\schinese\AbilitySpecList.tbl";
+                return PATH + @"\language\" + GGCRStaticConfig.Language + @"\AbilitySpecList.tbl";
             }
         }
 
@@ -82,7 +84,7 @@ namespace GGCREditor
         {
             get
             {
-                return PATH + @"\language\schinese\MachineSpecList.tbl";
+                return PATH + @"\language\" + GGCRStaticConfig.Language + @"\MachineSpecList.tbl";
             }
         }
 
@@ -90,7 +92,7 @@ namespace GGCREditor
         {
             get
             {
-                return PATH + @"\language\schinese\\CharacterSpecList.tbl";
+                return PATH + @"\language\" + GGCRStaticConfig.Language + @"\CharacterSpecList.tbl";
             }
         }
     }

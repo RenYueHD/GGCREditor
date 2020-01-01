@@ -13,7 +13,7 @@ namespace GGCREditor
         {
             Dictionary<short, string> dic = new Dictionary<short, string>();
 
-            List<string> names = new GGCRTblFile(GGCRStaticConfig.PATH + @"\language\schinese\MiscData.tbl").ListAllText();
+            List<string> names = new GGCRTblFile(GGCRStaticConfig.PATH + @"\language\" + GGCRStaticConfig.Language + @"\MiscData.tbl").ListAllText();
 
             byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + @"\resident\MiscData.pkd");
             int idx = ByteHelper.FindFirstIndex(data, "4C 52 45 53", 0);

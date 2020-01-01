@@ -73,6 +73,15 @@ namespace GGCREditor
                 enableAll();
             }
 
+            if (config.AppSettings.Settings["language"] != null)
+            {
+                showLanguage(config.AppSettings.Settings["language"].Value);
+            }
+            else
+            {
+                showLanguage("schinese");
+            }
+
         }
 
         private void enableAll()
@@ -95,25 +104,25 @@ namespace GGCREditor
 
         private void btnEditText_Click(object sender, EventArgs e)
         {
-            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\schinese\CharacterSpecList.tbl");
+            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\" + GGCRStaticConfig.Language + @"\CharacterSpecList.tbl");
             form.ShowDialog();
         }
 
         private void btnEditMachineTxt_Click(object sender, EventArgs e)
         {
-            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\schinese\MachineSpecList.tbl");
+            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\" + GGCRStaticConfig.Language + @"\MachineSpecList.tbl");
             form.ShowDialog();
         }
 
         private void btnEditMachineDesc_Click(object sender, EventArgs e)
         {
-            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\schinese\SpecProfileList.tbl");
+            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\" + GGCRStaticConfig.Language + @"\SpecProfileList.tbl");
             form.ShowDialog();
         }
 
         private void btnEditAbility_Click(object sender, EventArgs e)
         {
-            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\schinese\AbilitySpecList.tbl");
+            FrmEditText form = new FrmEditText(GGCRStaticConfig.PATH + @"\language\" + GGCRStaticConfig.Language + @"\AbilitySpecList.tbl");
             form.ShowDialog();
         }
 
@@ -135,6 +144,38 @@ namespace GGCREditor
         {
             FrmEditAbility form = new FrmEditAbility();
             form.ShowDialog();
+        }
+
+        private void koreanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            if (config.AppSettings.Settings["language"] == null)
+            {
+                config.AppSettings.Settings.Add("language", (sender as ToolStripMenuItem).Tag.ToString());
+            }
+            config.AppSettings.Settings["language"].Value = (sender as ToolStripMenuItem).Tag.ToString();
+            config.Save();
+
+            showLanguage((sender as ToolStripMenuItem).Tag.ToString());
+        }
+
+        private void showLanguage(string language)
+        {
+            lblLang.Text = language;
+            GGCRStaticConfig.Language = language;
+
+            foreach (ToolStripDropDownItem item in tsmiLanguage.DropDownItems)
+            {
+                if ((item.Tag != null ? item.Tag.ToString() : "") == language)
+                {
+                    (item as ToolStripMenuItem).Checked = true;
+                }
+                else
+                {
+                    (item as ToolStripMenuItem).Checked = false;
+                }
+            }
         }
     }
 }

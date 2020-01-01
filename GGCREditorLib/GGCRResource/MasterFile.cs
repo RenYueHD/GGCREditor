@@ -18,10 +18,11 @@ namespace GGCREditorLib
             : base(GGCRStaticConfig.MasterFile)
         {
             //读取姓名数据 00002cc0
-            byte[] data = File.ReadAllBytes(GGCRStaticConfig.MasterTxtFile);
-            int idx = ByteHelper.FindFirstIndex(data, "E5 B8 8C E7 BD 97 C2 B7", 0);
+            // byte[] data = File.ReadAllBytes(GGCRStaticConfig.MasterTxtFile);
+            // int idx = ByteHelper.FindFirstIndex(data, "E5 B8 8C E7 BD 97 C2 B7", 0);
+            // MasterNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
 
-            MasterNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+            MasterNames = new GGCRTblFile(GGCRStaticConfig.MasterTxtFile).ListAllText().ToArray();
 
             SeriesCode = GGCRUtil.ListSeriesCode();
         }
@@ -43,7 +44,7 @@ namespace GGCREditorLib
             List<MasterInfo> list = new List<MasterInfo>();
             for (int i = 0; i < count; i++)
             {
-                list.Add(new MasterInfo(this, start + 28 + i * GGCRStaticConfig.MasterLength, i,list));
+                list.Add(new MasterInfo(this, start + 28 + i * GGCRStaticConfig.MasterLength, i, list));
             }
             return list;
         }
