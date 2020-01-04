@@ -17,11 +17,6 @@ namespace GGCREditorLib
         public MasterFile()
             : base(GGCRStaticConfig.MasterFile)
         {
-            //读取姓名数据 00002cc0
-            // byte[] data = File.ReadAllBytes(GGCRStaticConfig.MasterTxtFile);
-            // int idx = ByteHelper.FindFirstIndex(data, "E5 B8 8C E7 BD 97 C2 B7", 0);
-            // MasterNames = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
-
             MasterNames = new GGCRTblFile(GGCRStaticConfig.MasterTxtFile).ListAllText().ToArray();
 
             SeriesCode = GGCRUtil.ListSeriesCode();
@@ -33,7 +28,7 @@ namespace GGCREditorLib
         /// <returns></returns>
         public List<MasterInfo> ListMasters()
         {
-            int start = ByteHelper.FindFirstIndex(this.Data, "4C 53 48 43", 0);
+            int start = this.GetInnerFile("CharacterSpecList.cdb").StartIndex;
             if (start < 0)
             {
                 throw new Exception("文件[" + this.FileName + "]无法解析");

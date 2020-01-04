@@ -13,7 +13,20 @@ namespace GGCREditorLib
 
         }
 
-        public List<GGCRPkdInnerFile> GetInnerFiles()
+        public GGCRPkdInnerFile GetInnerFile(string name)
+        {
+            List<GGCRPkdInnerFile> list = this.ListInnerFiles();
+            foreach (GGCRPkdInnerFile file in list)
+            {
+                if (file.FileName == name)
+                {
+                    return file;
+                }
+            }
+            return null;
+        }
+
+        public List<GGCRPkdInnerFile> ListInnerFiles()
         {
             //取PKD中文件数量
             int count = BitConverter.ToInt32(this.Data, 8);

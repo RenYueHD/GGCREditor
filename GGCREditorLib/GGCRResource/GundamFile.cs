@@ -25,7 +25,7 @@ namespace GGCREditorLib
         {
             this.SeriesCode = GGCRUtil.ListSeriesCode();
 
-            WeaponCdbStart = ByteHelper.FindFirstIndex(this.Data, "4C 53 50 57", 0);
+            WeaponCdbStart = this.GetInnerFile("WeaponSpecList.cdb").StartIndex;
             if (WeaponCdbStart < 0)
             {
                 throw new Exception("文件[" + this.FileName + "]无法解析");
