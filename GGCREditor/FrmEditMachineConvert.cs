@@ -185,8 +185,8 @@ namespace GGCREditor
 
             loadData();
 
-            lbState.Text = "添加成功,请修改";
-            lbState.ForeColor = Color.Orange;
+            lbState.Text = "添加成功";
+            lbState.ForeColor = Color.Green;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -64,7 +64,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(449, 104);
+            this.label1.Location = new System.Drawing.Point(449, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(451, 12);
+            this.btnAdd.Location = new System.Drawing.Point(451, 98);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(346, 23);
             this.btnAdd.TabIndex = 3;
@@ -83,7 +83,7 @@
             // cboTo
             // 
             this.cboTo.FormattingEnabled = true;
-            this.cboTo.Location = new System.Drawing.Point(484, 74);
+            this.cboTo.Location = new System.Drawing.Point(484, 38);
             this.cboTo.Name = "cboTo";
             this.cboTo.Size = new System.Drawing.Size(313, 20);
             this.cboTo.TabIndex = 4;
@@ -91,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(449, 77);
+            this.label2.Location = new System.Drawing.Point(449, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 2;
@@ -100,7 +100,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(449, 51);
+            this.label3.Location = new System.Drawing.Point(449, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 2;
@@ -109,7 +109,7 @@
             // cboFrom
             // 
             this.cboFrom.FormattingEnabled = true;
-            this.cboFrom.Location = new System.Drawing.Point(484, 48);
+            this.cboFrom.Location = new System.Drawing.Point(484, 12);
             this.cboFrom.Name = "cboFrom";
             this.cboFrom.Size = new System.Drawing.Size(313, 20);
             this.cboFrom.TabIndex = 4;
@@ -128,7 +128,7 @@
             // 
             this.cboAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAction.FormattingEnabled = true;
-            this.cboAction.Location = new System.Drawing.Point(484, 101);
+            this.cboAction.Location = new System.Drawing.Point(484, 65);
             this.cboAction.Name = "cboAction";
             this.cboAction.Size = new System.Drawing.Size(313, 20);
             this.cboAction.TabIndex = 4;
@@ -154,7 +154,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(501, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(532, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // lbState
