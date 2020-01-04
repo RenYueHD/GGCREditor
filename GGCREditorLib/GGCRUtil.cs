@@ -134,38 +134,7 @@ namespace GGCREditor
         {
             mpLimitExt.Add(new KeyValuePair<string, string>(value.ToString(), limit));
         }
-
-        public static List<KeyValuePair<string, string>> ListWeaponSpec()
-        {
-            List<KeyValuePair<string, string>> spec = new List<KeyValuePair<string, string>>();
-
-            using (StreamReader sr = new StreamReader("武器效果.txt"))
-            {
-                string line = null;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
-                        spec.Add(kv);
-                    }
-                }
-            }
-            return spec;
-        }
-
-        public static void AddWeaponSpec(short value, string spec)
-        {
-            using (StreamWriter sr = new StreamWriter("武器效果.txt", true))
-            {
-                sr.WriteLine();
-                sr.Write(value + ":" + spec);
-                sr.Flush();
-            }
-        }
-
-
+        
         public static List<KeyValuePair<string, string>> ListWeaponRange()
         {
             List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();

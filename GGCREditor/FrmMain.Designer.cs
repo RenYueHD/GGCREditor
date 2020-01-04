@@ -35,6 +35,7 @@
             this.tsmiLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.简体中文ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.繁体中文ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.繁体中文台湾ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.japaneseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.koreanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,6 @@
             this.btnEditAbility = new System.Windows.Forms.Button();
             this.btnEditTBL = new System.Windows.Forms.Button();
             this.flowContainer2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.繁体中文台湾ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.flowContainer.SuspendLayout();
@@ -77,13 +77,13 @@
             this.选择路径ToolStripMenuItem,
             this.tsmiLanguage});
             this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.文件ToolStripMenuItem.Text = "文件";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(71, 21);
+            this.文件ToolStripMenuItem.Text = "文件(File)";
             // 
             // 选择路径ToolStripMenuItem
             // 
             this.选择路径ToolStripMenuItem.Name = "选择路径ToolStripMenuItem";
-            this.选择路径ToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.选择路径ToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.选择路径ToolStripMenuItem.Text = "设置data文件夹路径";
             this.选择路径ToolStripMenuItem.Click += new System.EventHandler(this.选择路径ToolStripMenuItem_Click);
             // 
@@ -97,8 +97,8 @@
             this.japaneseToolStripMenuItem,
             this.koreanToolStripMenuItem});
             this.tsmiLanguage.Name = "tsmiLanguage";
-            this.tsmiLanguage.Size = new System.Drawing.Size(186, 22);
-            this.tsmiLanguage.Text = "选择游戏语言";
+            this.tsmiLanguage.Size = new System.Drawing.Size(251, 22);
+            this.tsmiLanguage.Text = "选择游戏语言(Game Language)";
             // 
             // 简体中文ToolStripMenuItem
             // 
@@ -115,6 +115,14 @@
             this.繁体中文ToolStripMenuItem.Tag = "tchinese\\hk";
             this.繁体中文ToolStripMenuItem.Text = "繁体中文-香港";
             this.繁体中文ToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
+            // 
+            // 繁体中文台湾ToolStripMenuItem
+            // 
+            this.繁体中文台湾ToolStripMenuItem.Name = "繁体中文台湾ToolStripMenuItem";
+            this.繁体中文台湾ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.繁体中文台湾ToolStripMenuItem.Tag = "tchinese\\tw";
+            this.繁体中文台湾ToolStripMenuItem.Text = "繁体中文-台湾";
+            this.繁体中文台湾ToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
             // 
             // englishToolStripMenuItem
             // 
@@ -298,14 +306,6 @@
             this.flowContainer2.Name = "flowContainer2";
             this.flowContainer2.Size = new System.Drawing.Size(419, 61);
             this.flowContainer2.TabIndex = 5;
-            // 
-            // 繁体中文台湾ToolStripMenuItem
-            // 
-            this.繁体中文台湾ToolStripMenuItem.Name = "繁体中文台湾ToolStripMenuItem";
-            this.繁体中文台湾ToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.繁体中文台湾ToolStripMenuItem.Tag = "tchinese\\tw";
-            this.繁体中文台湾ToolStripMenuItem.Text = "繁体中文-台湾";
-            this.繁体中文台湾ToolStripMenuItem.Click += new System.EventHandler(this.koreanToolStripMenuItem_Click);
             // 
             // FrmMain
             // 

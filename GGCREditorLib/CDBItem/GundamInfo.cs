@@ -73,13 +73,13 @@ namespace GGCREditorLib
         {
             get
             {
-                if (PkdFile.gundamName[this.No] == null || PkdFile.gundamName[this.No].Trim().Length == 0)
+                if (PkdFile.GundamName[this.No] == null || PkdFile.GundamName[this.No].Trim().Length == 0)
                 {
                     return "未知";
                 }
                 else
                 {
-                    return PkdFile.gundamName[this.No];
+                    return PkdFile.GundamName[this.No];
                 }
             }
         }

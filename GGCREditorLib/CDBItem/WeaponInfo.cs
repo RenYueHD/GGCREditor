@@ -56,13 +56,13 @@ namespace GGCREditorLib
         {
             get
             {
-                if (this.ID < 0 || PkdFile.weaponNames[this.ID] == null || PkdFile.weaponNames[this.ID].Trim().Length == 0)
+                if (this.ID < 0 || PkdFile.WeaponNames[this.ID] == null || PkdFile.WeaponNames[this.ID].Trim().Length == 0)
                 {
                     return (IsMap ? "(MAP)" : "") + "未知";
                 }
                 else
                 {
-                    return (IsMap ? "(MAP)" : "") + PkdFile.weaponNames[this.ID];
+                    return (IsMap ? "(MAP)" : "") + PkdFile.WeaponNames[this.ID];
                 }
             }
         }

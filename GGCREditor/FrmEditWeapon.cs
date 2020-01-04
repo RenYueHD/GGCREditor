@@ -60,7 +60,10 @@ namespace GGCREditor
             cboMpLimit.DisplayMember = "Value";
             cboMpLimit.ValueMember = "Key";
 
-            cboSpec.DataSource = GGCRUtil.ListWeaponSpec();
+            List<KeyValuePair<string, string>> specList = gundamFile.ListWeaponSpec();
+            specList.Insert(0, new KeyValuePair<string, string>("0", "无"));
+
+            cboSpec.DataSource = specList;
             cboSpec.DisplayMember = "Value";
             cboSpec.ValueMember = "Key";
 
@@ -210,13 +213,7 @@ namespace GGCREditor
                 cboIco.SelectedValue = weapon.ICO.ToString();
 
                 cboSpec.SelectedValue = weapon.Spec.ToString();
-                if (cboSpec.SelectedValue == null)
-                {
-                    GGCRUtil.AddWeaponSpec(weapon.Spec, "未知" + weapon.Spec);
-                    bindAll();
-                    LoadData(weapon);
-                    return;
-                }
+
                 cboRange.SelectedValue = weapon.Range.ToString();
                 if (cboRange.SelectedValue == null)
                 {

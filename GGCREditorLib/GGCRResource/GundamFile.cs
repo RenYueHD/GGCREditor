@@ -13,17 +13,28 @@ namespace GGCREditorLib
     {
 
         public Dictionary<short, string> SeriesCode { get; }
-        internal string[] weaponNames;
-        internal string[] gundamName;
+        internal string[] WeaponNames;
+        internal string[] GundamName { get; }
 
         internal List<string> AllText { get; }
 
+        //高达CDB起始
+        public int GundamCdbStart { get; }
+        //高达数
+        public int GundamCount { get; }
+        //战舰数
+        public int ShipCount { get; }
         //武器在CDB中的起始
         public int WeaponCdbStart { get; }
-        //属性在CDB中的起始
+        //武器属性在CDB中的起始
         public int PropCdbStart { get; }
-        //属性数量
+        //武器属性数量
         public int PropCount { get; }
+        //武器效果在CDB中的起始
+        public int SpecCdbStart { get; }
+        //武器效果数量
+        public int SpecCount { get; }
+
         public int WeaponNormalCount { get; }
         public int WeaponMapCount { get; }
 
@@ -31,6 +42,10 @@ namespace GGCREditorLib
             : base(GGCRStaticConfig.MachineFile)
         {
             this.SeriesCode = GGCRUtil.ListSeriesCode();
+
+            GundamCdbStart = this.GetInnerFile("MachineSpecList.cdb").StartIndex;
+            GundamCount = BitConverter.ToInt32(this.Data, GundamCdbStart + 8);
+            ShipCount = BitConverter.ToInt32(this.Data, GundamCdbStart + 12);
 
             WeaponCdbStart = this.GetInnerFile("WeaponSpecList.cdb").StartIndex;
             if (WeaponCdbStart < 0)
@@ -40,18 +55,19 @@ namespace GGCREditorLib
             WeaponNormalCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 8);
             WeaponMapCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 12);
 
-            weaponNames = new string[WeaponNormalCount + WeaponMapCount];
+            this.WeaponNames = new string[WeaponNormalCount + WeaponMapCount];
             this.AllText = new GGCRTblFile(GGCRStaticConfig.MachineTxtFile).ListAllText();
-            AllText.CopyTo(0, weaponNames, 0, weaponNames.Length);
+            AllText.CopyTo(0, WeaponNames, 0, WeaponNames.Length);
 
             //计算属性数据索引
             PropCdbStart = WeaponCdbStart + 28 + (WeaponNormalCount + WeaponMapCount) * GGCRStaticConfig.WeaponLength;
             PropCount = BitConverter.ToInt32(this.Data, PropCdbStart);
 
-            byte[] data = File.ReadAllBytes(GGCRStaticConfig.MachineTxtFile);
+            SpecCdbStart = PropCdbStart + 4 + PropCount * 4;
+            SpecCount = BitConverter.ToInt32(this.Data, SpecCdbStart);
 
-            int idx = ByteHelper.FindFirstIndex(data, "E9 A3 9E E7 BF BC E9 AB", 0);
-            gundamName = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+            this.GundamName = new string[GundamCount + ShipCount];
+            AllText.CopyTo(WeaponNormalCount + WeaponMapCount + PropCount + SpecCount * 2, GundamName, 0, GundamCount + ShipCount);
         }
 
         public List<KeyValuePair<string, string>> ListWeaponProp()
@@ -69,23 +85,35 @@ namespace GGCREditorLib
             return list;
         }
 
+        public List<KeyValuePair<string, string>> ListWeaponSpec()
+        {
+            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
+
+            for (int i = 0; i < SpecCount; i++)
+            {
+                short nameIndex = BitConverter.ToInt16(this.Data, SpecCdbStart + 4 + i * 6);
+                string name = this.AllText[nameIndex];
+                short value = BitConverter.ToInt16(this.Data, SpecCdbStart + 4 + 4 + i * 6);
+
+                list.Add(new KeyValuePair<string, string>(value.ToString(), name));
+            }
+            return list;
+        }
+
         /// <summary>
-        /// 获取所有Master
+        /// 获取所有机体
         /// </summary>
         /// <returns></returns>
         public List<GundamInfo> ListMachines()
         {
-            int start = ByteHelper.FindFirstIndex(this.Data, "4C 53 43 4D", 0);
+            int start = GundamCdbStart;
             if (start < 0)
             {
                 throw new Exception("文件[" + this.FileName + "]无法解析");
             }
 
-            int count = BitConverter.ToInt32(this.Data, start + 8);
-            int count2 = BitConverter.ToInt32(this.Data, start + 12);
-
             List<GundamInfo> list = new List<GundamInfo>();
-            for (int i = 0; i < count + count2; i++)
+            for (int i = 0; i < GundamCount + ShipCount; i++)
             {
                 list.Add(new GundamInfo(this, start + 32 + i * GGCRStaticConfig.GundamLength, i));
             }
