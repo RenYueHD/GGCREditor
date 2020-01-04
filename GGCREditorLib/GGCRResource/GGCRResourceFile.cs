@@ -53,7 +53,21 @@ namespace GGCREditorLib
             Array.Copy(dt, 0, newData, index, dt.Length);
             Array.Copy(this.Data, index, newData, index + dt.Length, this.data.Length - index);
 
-            using (FileStream fs = new FileStream(this.FileName, FileMode.Open, FileAccess.Write))
+            using (FileStream fs = new FileStream(this.FileName, FileMode.Truncate, FileAccess.Write))
+            {
+                fs.Write(newData, 0, newData.Length);
+                fs.Flush();
+            }
+            this.Reload();
+        }
+
+        internal void Delete(int index, int count)
+        {
+            byte[] newData = new byte[this.Data.Length - count];
+            Array.Copy(this.Data, 0, newData, 0, index);
+            Array.Copy(this.Data, index + count, newData, index, this.data.Length - index - count);
+
+            using (FileStream fs = new FileStream(this.FileName, FileMode.Truncate, FileAccess.Write))
             {
                 fs.Write(newData, 0, newData.Length);
                 fs.Flush();

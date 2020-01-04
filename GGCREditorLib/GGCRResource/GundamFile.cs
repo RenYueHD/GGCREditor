@@ -174,11 +174,24 @@ namespace GGCREditorLib
             GGCRPkdInnerFile file = this.GetInnerFile("MachineConversionList.cdb");
             int count = BitConverter.ToInt32(this.Data, file.StartIndex + 8) + 1;
 
+            //修改总数
             byte[] newCount = BitConverter.GetBytes(count);
             this.Write(file.StartIndex + 8, newCount);
-            //修改总数
+            //插入数据
             this.AppendInnerFile(file, 12, data);
+        }
 
+        public void DeleteConvert(MachineConvertInfo convert)
+        {
+            GGCRPkdInnerFile file = this.GetInnerFile("MachineConversionList.cdb");
+            int count = BitConverter.ToInt32(this.Data, file.StartIndex + 8) - 1;
+
+            //修改总数
+            byte[] newCount = BitConverter.GetBytes(count);
+            this.Write(file.StartIndex + 8, newCount);
+            //删除数据
+
+            this.DeleteInnerFile(file, convert.Index, 20);
         }
     }
 }

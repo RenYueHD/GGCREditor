@@ -214,5 +214,20 @@ namespace GGCREditor
             e.ItemHeight = e.ItemHeight + 16;
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            MachineConvertInfo convert = lsMain.SelectedItem as MachineConvertInfo;
+            int index = lsMain.SelectedIndex;
+            if (convert != null)
+            {
+                gundamFile.DeleteConvert(convert);
+
+                loadData();
+                lsMain.SelectedIndex = index;
+
+                lbState.Text = "删除成功";
+                lbState.ForeColor = Color.Green;
+            }
+        }
     }
 }

@@ -65,7 +65,7 @@ namespace GGCREditorLib
             {
                 if (next.StartIndex > file.StartIndex)
                 {
-                    byte[] arr = BitConverter.GetBytes(next.StartIndex+data.Length);
+                    byte[] arr = BitConverter.GetBytes(next.StartIndex + data.Length);
                     for (int i = 0; i < arr.Length; i++)
                     {
                         this.Data[next.StartIndexLocation + i] = arr[i];
@@ -73,7 +73,29 @@ namespace GGCREditorLib
                 }
             }
             this.Insert(file.StartIndex + insertIndex, data);
+        }
 
+        /// <summary>
+        /// 在某一个内部文件的某个索引(以pkd文件头作为索引0)处删除数据,并同时调整后续所有文件的地址数据,并直接写入文件
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="from"></param>
+        /// <param name="length"></param>
+        public void DeleteInnerFile(GGCRPkdInnerFile file, int from, int length)
+        {
+            //寻找后续文件并重排位置
+            foreach (GGCRPkdInnerFile next in ListInnerFiles())
+            {
+                if (next.StartIndex > file.StartIndex)
+                {
+                    byte[] arr = BitConverter.GetBytes(next.StartIndex - length);
+                    for (int i = 0; i < arr.Length; i++)
+                    {
+                        this.Data[next.StartIndexLocation + i] = arr[i];
+                    }
+                }
+            }
+            this.Delete(from, length);
         }
     }
 }

@@ -43,6 +43,7 @@
             this.lbState = new System.Windows.Forms.ToolStripStatusLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,9 +116,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(451, 127);
+            this.button1.Location = new System.Drawing.Point(645, 127);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(346, 23);
+            this.button1.Size = new System.Drawing.Size(152, 23);
             this.button1.TabIndex = 5;
             this.button1.Text = "保存修改";
             this.button1.UseVisualStyleBackColor = true;
@@ -153,7 +154,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(501, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(532, 17);
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
@@ -187,11 +188,22 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "若机体本身不具有换装/变形等能力 修改可能无效";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(451, 127);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(188, 23);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "删除选中(直接写入,无法撤销)";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FrmEditMachineConvert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 267);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.statusStrip1);
@@ -207,7 +219,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmEditMachineConvert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "换装/变型修改";
+            this.Text = "变型/换装修改";
             this.Load += new System.EventHandler(this.FrmEditMachineConvert_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -233,5 +245,6 @@
         private System.Windows.Forms.ToolStripStatusLabel lbState;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

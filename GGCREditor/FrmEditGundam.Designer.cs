@@ -227,7 +227,7 @@
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(144, 35);
             this.btnConvert.TabIndex = 26;
-            this.btnConvert.Text = "换装变型修改";
+            this.btnConvert.Text = "变型换装修改";
             this.btnConvert.UseVisualStyleBackColor = true;
             this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
