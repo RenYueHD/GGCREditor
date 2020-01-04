@@ -181,7 +181,7 @@ namespace GGCREditor
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            gundamFile.AddConvert(gundam, gundam, 16);
+            gundamFile.AddConvert(cboFrom.SelectedItem as GundamInfo, cboTo.SelectedItem as GundamInfo, int.Parse(cboAction.SelectedValue.ToString()));
 
             loadData();
 
@@ -220,7 +220,7 @@ namespace GGCREditor
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("此操作无法撤销,确定要删除吗", "使用说明", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show("此操作无法撤销,确定要删除吗", "使用说明", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 MachineConvertInfo convert = lsMain.SelectedItem as MachineConvertInfo;
                 int index = lsMain.SelectedIndex;
