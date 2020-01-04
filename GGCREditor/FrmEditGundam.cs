@@ -16,10 +16,7 @@ namespace GGCREditor
         public FrmEditGundam()
         {
             InitializeComponent();
-            this.gundamFile = new GundamFile();
-            tslblFile.Text = gundamFile.FileName;
 
-            head = ZipHelper.ZipDeCompressToDic(GGCRStaticConfig.PATH + "\\images\\schips.txd");
         }
 
         private GundamFile gundamFile;
@@ -29,6 +26,11 @@ namespace GGCREditor
 
         public void bindAll()
         {
+            this.gundamFile = new GundamFile();
+            tslblFile.Text = gundamFile.FileName;
+
+            head = ZipHelper.ZipDeCompressToDic(GGCRStaticConfig.PATH + "\\images\\schips.txd");
+
             cboE1.DataSource = GGCRUtil.ListGundamEarth();
             cboE1.DisplayMember = "Value";
             cboE1.ValueMember = "Key";
@@ -253,7 +255,6 @@ namespace GGCREditor
 
         private void lsGundam_MeasureItem(object sender, MeasureItemEventArgs e)
         {
-
             e.ItemHeight = e.ItemHeight + 16;
         }
 
@@ -443,6 +444,24 @@ namespace GGCREditor
                 {
                     select.Replace(data);
                     lsGundam.SelectedItem = select;
+                }
+            }
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            string uuid = (lsGundam.SelectedItem as GundamInfo).UUID;
+            FrmEditMachineConvert form = new FrmEditMachineConvert(uuid);
+            form.ShowDialog();
+
+            bindAll();
+            foreach (GundamInfo g in this.gundams)
+            {
+                if (g.UUID == uuid)
+                {
+                    lsGundam.SelectedItem = g;
+                    LoadData(g);
+                    break;
                 }
             }
         }

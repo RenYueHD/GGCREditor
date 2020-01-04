@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GGCREditorLib
 {
-    public abstract class GGCRPkdFile : GGCRResourceFile
+    public class GGCRPkdFile : GGCRResourceFile
     {
         public GGCRPkdFile(string file) : base(file)
         {
@@ -47,11 +47,33 @@ namespace GGCREditorLib
                 GGCRPkdInnerFile f = new GGCRPkdInnerFile();
                 f.FileName = cdbNames[i];
                 f.StartIndex = BitConverter.ToInt32(this.Data, 20 + 12 * i);
-
+                f.StartIndexLocation = 20 + 12 * i;
                 files.Add(f);
             }
             return files;
         }
 
+        /// <summary>
+        /// 在某一个内部文件的某个索引(以内部文件的文件头作为索引0)处插入新的数据,并同时调整后续所有文件的地址数据,并直接写入文件
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="newIndex"></param>
+        public void AppendInnerFile(GGCRPkdInnerFile file, int insertIndex, byte[] data)
+        {
+            //寻找后续文件并重排位置
+            foreach (GGCRPkdInnerFile next in ListInnerFiles())
+            {
+                if (next.StartIndex > file.StartIndex)
+                {
+                    byte[] arr = BitConverter.GetBytes(next.StartIndex+data.Length);
+                    for (int i = 0; i < arr.Length; i++)
+                    {
+                        this.Data[next.StartIndexLocation + i] = arr[i];
+                    }
+                }
+            }
+            this.Insert(file.StartIndex + insertIndex, data);
+
+        }
     }
 }

@@ -45,5 +45,20 @@ namespace GGCREditorLib
                 }
             }
         }
+
+        internal void Insert(int index, byte[] dt)
+        {
+            byte[] newData = new byte[this.Data.Length + dt.Length];
+            Array.Copy(this.Data, 0, newData, 0, index);
+            Array.Copy(dt, 0, newData, index, dt.Length);
+            Array.Copy(this.Data, index, newData, index + dt.Length, this.data.Length - index);
+
+            using (FileStream fs = new FileStream(this.FileName, FileMode.Open, FileAccess.Write))
+            {
+                fs.Write(newData, 0, newData.Length);
+                fs.Flush();
+            }
+            this.Reload();
+        }
     }
 }

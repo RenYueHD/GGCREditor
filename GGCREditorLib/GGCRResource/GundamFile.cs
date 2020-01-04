@@ -1,5 +1,6 @@
 ﻿using GGCREditor;
 using GGCREditorLib.CDBItem;
+using GGCREditorLib.GGCRResource;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -156,6 +157,28 @@ namespace GGCREditorLib
                 list.Add(convert);
             }
             return list;
+        }
+
+        public void AddConvert(GundamInfo from, GundamInfo to, int action)
+        {
+            byte[] data = new byte[20];
+            byte[] f = ByteHelper.HexStringToByteArray(from.UUID);
+            Array.Copy(f, 0, data, 0, 8);
+
+            byte[] t = ByteHelper.HexStringToByteArray(to.UUID);
+            Array.Copy(t, 0, data, 8, 8);
+
+            byte[] a = BitConverter.GetBytes(action);
+            Array.Copy(a, 0, data, 16, 4);
+
+            GGCRPkdInnerFile file = this.GetInnerFile("MachineConversionList.cdb");
+            int count = BitConverter.ToInt32(this.Data, file.StartIndex + 8) + 1;
+
+            byte[] newCount = BitConverter.GetBytes(count);
+            this.Write(file.StartIndex + 8, newCount);
+            //修改总数
+            this.AppendInnerFile(file, 12, data);
+
         }
     }
 }

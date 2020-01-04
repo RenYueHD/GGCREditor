@@ -84,22 +84,24 @@ namespace GGCREditorLib
             this.Data[index] = value;
         }
 
-        protected void save(int index, short value)
+        protected void save(int index, byte[] arr)
         {
-            byte[] arr = BitConverter.GetBytes(value);
             for (int i = 0; i < arr.Length; i++)
             {
                 this.Data[index + i] = arr[i];
             }
         }
 
+        protected void save(int index, short value)
+        {
+            byte[] arr = BitConverter.GetBytes(value);
+            save(index, arr);
+        }
+
         protected void save(int index, int value)
         {
             byte[] arr = BitConverter.GetBytes(value);
-            for (int i = 0; i < arr.Length; i++)
-            {
-                this.Data[index + i] = arr[i];
-            }
+            save(index, arr);
         }
 
         public void Replace(byte[] data)

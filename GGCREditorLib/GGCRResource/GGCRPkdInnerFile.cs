@@ -17,5 +17,10 @@ namespace GGCREditorLib.GGCRResource
         /// </summary>
         public int StartIndex { get; set; }
 
+        /// <summary>
+        /// 文件起始索引在PKD中的地址
+        /// </summary>
+        public int StartIndexLocation { get; set; }
+
     }
 }

@@ -52,6 +52,12 @@
     <Compile Include="FrmEditAbility.Designer.cs">
       <DependentUpon>FrmEditAbility.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditMachineConvert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditMachineConvert.Designer.cs">
+      <DependentUpon>FrmEditMachineConvert.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditText.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="ZipHelper.cs" />
     <EmbeddedResource Include="FrmEditAbility.resx">
       <DependentUpon>FrmEditAbility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditMachineConvert.resx">
+      <DependentUpon>FrmEditMachineConvert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditText.resx">
       <DependentUpon>FrmEditText.cs</DependentUpon>
@@ -133,6 +142,9 @@
   <ItemGroup>
     <Content Include="2.ico" />
     <Content Include="射程代码.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="换装动作.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="武器类型.txt">

@@ -15,12 +15,13 @@ namespace GGCREditor
 
             List<string> names = new GGCRTblFile(GGCRStaticConfig.PATH + @"\language\" + GGCRStaticConfig.Language + @"\MiscData.tbl").ListAllText();
 
-            byte[] data = File.ReadAllBytes(GGCRStaticConfig.PATH + @"\resident\MiscData.pkd");
-            int idx = ByteHelper.FindFirstIndex(data, "4C 52 45 53", 0);
-            int count = BitConverter.ToInt32(data, idx + 8);
+            GGCRPkdFile misc = new GGCRPkdFile(GGCRStaticConfig.PATH + @"\resident\MiscData.pkd");
+
+            int idx = misc.GetInnerFile("SeriesList.cdb").StartIndex;
+            int count = BitConverter.ToInt32(misc.Data, idx + 8);
             for (int i = 0; i < count; i++)
             {
-                short groupId = BitConverter.ToInt16(data, idx + 12 + i * GGCRStaticConfig.SeriesLength);
+                short groupId = BitConverter.ToInt16(misc.Data, idx + 12 + i * GGCRStaticConfig.SeriesLength);
                 dic.Add(groupId, names[i]);
             }
             return dic;
@@ -134,7 +135,7 @@ namespace GGCREditor
         {
             mpLimitExt.Add(new KeyValuePair<string, string>(value.ToString(), limit));
         }
-        
+
         public static List<KeyValuePair<string, string>> ListWeaponRange()
         {
             List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
@@ -199,7 +200,7 @@ namespace GGCREditor
 
         public static string[] Languages()
         {
-            return new string[] { "schinese", "tchinese", "japanese", "english", "korean" };
+            return new string[] { "schinese", "tchinese/hk", "tchinese/tw", "japanese", "english", "korean" };
         }
     }
 }

@@ -33,6 +33,7 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnConvert = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -68,6 +69,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMapCount = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFirstMap = new System.Windows.Forms.TextBox();
             this.txtWeaponCount = new System.Windows.Forms.TextBox();
@@ -76,6 +78,7 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtUUID = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtHP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEN = new System.Windows.Forms.TextBox();
@@ -99,8 +102,6 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtPrice = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -148,6 +149,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnConvert);
             this.groupBox1.Controls.Add(this.label32);
             this.groupBox1.Controls.Add(this.pic1);
             this.groupBox1.Controls.Add(this.button1);
@@ -218,6 +220,16 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // btnConvert
+            // 
+            this.btnConvert.Location = new System.Drawing.Point(316, 57);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(144, 35);
+            this.btnConvert.TabIndex = 26;
+            this.btnConvert.Text = "换装变型修改";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // label32
             // 
@@ -546,6 +558,15 @@
             this.txtMapCount.Size = new System.Drawing.Size(85, 21);
             this.txtMapCount.TabIndex = 3;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(282, 183);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(29, 12);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "价格";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -597,7 +618,7 @@
             this.txtUUID.Location = new System.Drawing.Point(91, 20);
             this.txtUUID.Name = "txtUUID";
             this.txtUUID.ReadOnly = true;
-            this.txtUUID.Size = new System.Drawing.Size(362, 21);
+            this.txtUUID.Size = new System.Drawing.Size(369, 21);
             this.txtUUID.TabIndex = 3;
             // 
             // txtName
@@ -607,6 +628,13 @@
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(144, 21);
             this.txtName.TabIndex = 3;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(316, 179);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(144, 21);
+            this.txtPrice.TabIndex = 0;
             // 
             // txtHP
             // 
@@ -797,22 +825,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
             // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(316, 179);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(144, 21);
-            this.txtPrice.TabIndex = 0;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(282, 183);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(29, 12);
-            this.label25.TabIndex = 2;
-            this.label25.Text = "价格";
-            // 
             // FrmEditGundam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -913,5 +925,6 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.Button btnConvert;
     }
 }
