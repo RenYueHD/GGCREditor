@@ -223,7 +223,18 @@ namespace GGCREditor
                 gundamFile.DeleteConvert(convert);
 
                 loadData();
-                lsMain.SelectedIndex = index;
+                if (lsMain.Items.Count > index)
+                {
+                    lsMain.SelectedIndex = index;
+                }
+                else
+                {
+                    lsMain.SelectedIndex = -1;
+
+                    cboAction.SelectedValue = "-1";
+                    cboFrom.SelectedValue = "-1";
+                    cboTo.SelectedValue = "-1";
+                }
 
                 lbState.Text = "删除成功";
                 lbState.ForeColor = Color.Green;
