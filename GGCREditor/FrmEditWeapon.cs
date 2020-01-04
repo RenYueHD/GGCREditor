@@ -161,10 +161,10 @@ namespace GGCREditor
                     panNormal.Enabled = true;
                     panMap.Enabled = false;
 
-                    cboProp.DataSource = GGCRUtil.ListNormalWeaponProp();
+                    cboProp.DataSource = this.gundamFile.ListWeaponProp();
                     cboProp.DisplayMember = "Value";
                     cboProp.ValueMember = "Key";
-                    cboIco.DataSource = GGCRUtil.ListNormalWeaponProp();
+                    cboIco.DataSource = this.gundamFile.ListWeaponProp();
                     cboIco.DisplayMember = "Value";
                     cboIco.ValueMember = "Key";
 
@@ -182,10 +182,10 @@ namespace GGCREditor
                     panNormal.Enabled = false;
                     panMap.Enabled = true;
 
-                    cboProp.DataSource = GGCRUtil.ListMapWeaponProp();
+                    cboProp.DataSource = this.gundamFile.ListWeaponProp();
                     cboProp.DisplayMember = "Value";
                     cboProp.ValueMember = "Key";
-                    cboIco.DataSource = GGCRUtil.ListMapWeaponProp();
+                    cboIco.DataSource = this.gundamFile.ListWeaponProp();
                     cboIco.DisplayMember = "Value";
                     cboIco.ValueMember = "Key";
 

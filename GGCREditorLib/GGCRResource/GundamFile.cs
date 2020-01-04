@@ -16,7 +16,14 @@ namespace GGCREditorLib
         internal string[] weaponNames;
         internal string[] gundamName;
 
+        internal List<string> AllText { get; }
+
+        //武器在CDB中的起始
         public int WeaponCdbStart { get; }
+        //属性在CDB中的起始
+        public int PropCdbStart { get; }
+        //属性数量
+        public int PropCount { get; }
         public int WeaponNormalCount { get; }
         public int WeaponMapCount { get; }
 
@@ -34,13 +41,32 @@ namespace GGCREditorLib
             WeaponMapCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 12);
 
             weaponNames = new string[WeaponNormalCount + WeaponMapCount];
-            new GGCRTblFile(GGCRStaticConfig.MachineTxtFile).ListAllText().CopyTo(0, weaponNames, 0, weaponNames.Length);
+            this.AllText = new GGCRTblFile(GGCRStaticConfig.MachineTxtFile).ListAllText();
+            AllText.CopyTo(0, weaponNames, 0, weaponNames.Length);
 
+            //计算属性数据索引
+            PropCdbStart = WeaponCdbStart + 28 + (WeaponNormalCount + WeaponMapCount) * GGCRStaticConfig.WeaponLength;
+            PropCount = BitConverter.ToInt32(this.Data, PropCdbStart);
 
             byte[] data = File.ReadAllBytes(GGCRStaticConfig.MachineTxtFile);
 
             int idx = ByteHelper.FindFirstIndex(data, "E9 A3 9E E7 BF BC E9 AB", 0);
             gundamName = Encoding.UTF8.GetString(data, idx, data.Length - idx).Split('\0');
+        }
+
+        public List<KeyValuePair<string, string>> ListWeaponProp()
+        {
+            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
+
+            for (int i = 0; i < PropCount; i++)
+            {
+                short nameIndex = BitConverter.ToInt16(this.Data, PropCdbStart + 4 + i * 4);
+                string name = this.AllText[nameIndex];
+                short value = BitConverter.ToInt16(this.Data, PropCdbStart + 4 + 2 + i * 4);
+
+                list.Add(new KeyValuePair<string, string>(value.ToString(), name));
+            }
+            return list;
         }
 
         /// <summary>
