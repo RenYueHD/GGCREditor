@@ -193,7 +193,7 @@ namespace GGCREditor
         {
             MachineConvertInfo convert = lsMain.SelectedItem as MachineConvertInfo;
             int index = lsMain.SelectedIndex;
-            if (convert != null)
+            if (convert != null && cboFrom.SelectedItem != null && cboTo.SelectedItem as GundamInfo != null)
             {
                 convert.From = (cboFrom.SelectedItem as GundamInfo).UUID;
                 convert.To = (cboTo.SelectedItem as GundamInfo).UUID;
@@ -207,6 +207,10 @@ namespace GGCREditor
                 lbState.Text = "保存成功";
                 lbState.ForeColor = Color.Green;
             }
+            else
+            {
+                MessageBox.Show("请填写完所有数据", "使用提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void lsMain_MeasureItem(object sender, MeasureItemEventArgs e)
@@ -216,28 +220,31 @@ namespace GGCREditor
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            MachineConvertInfo convert = lsMain.SelectedItem as MachineConvertInfo;
-            int index = lsMain.SelectedIndex;
-            if (convert != null)
+            if (MessageBox.Show("此操作无法撤销,确定要删除吗", "使用说明", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                gundamFile.DeleteConvert(convert);
-
-                loadData();
-                if (lsMain.Items.Count > index)
+                MachineConvertInfo convert = lsMain.SelectedItem as MachineConvertInfo;
+                int index = lsMain.SelectedIndex;
+                if (convert != null)
                 {
-                    lsMain.SelectedIndex = index;
-                }
-                else
-                {
-                    lsMain.SelectedIndex = -1;
+                    gundamFile.DeleteConvert(convert);
 
-                    cboAction.SelectedValue = "-1";
-                    cboFrom.SelectedValue = "-1";
-                    cboTo.SelectedValue = "-1";
-                }
+                    loadData();
+                    if (lsMain.Items.Count > index)
+                    {
+                        lsMain.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        lsMain.SelectedIndex = -1;
 
-                lbState.Text = "删除成功";
-                lbState.ForeColor = Color.Green;
+                        cboAction.SelectedValue = "-1";
+                        cboFrom.SelectedValue = "-1";
+                        cboTo.SelectedValue = "-1";
+                    }
+
+                    lbState.Text = "删除成功";
+                    lbState.ForeColor = Color.Green;
+                }
             }
         }
     }

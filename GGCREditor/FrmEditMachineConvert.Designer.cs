@@ -76,7 +76,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(346, 23);
             this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "添加一条(将直接写入文件,无法撤销)";
+            this.btnAdd.Text = "添加一条(直接写入文件,无需保存)";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -154,9 +154,8 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(532, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(501, 17);
             this.toolStripStatusLabel2.Spring = true;
-            this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             // 
             // lbState
             // 
