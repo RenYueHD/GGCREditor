@@ -211,7 +211,7 @@ namespace GGCREditor
 
         private void lsMain_MeasureItem(object sender, MeasureItemEventArgs e)
         {
-            e.ItemHeight = e.ItemHeight + 16;
+            e.ItemHeight = e.ItemHeight + 24;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
