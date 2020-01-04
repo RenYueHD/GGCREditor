@@ -48,14 +48,31 @@ namespace GGCREditorLib
 
         public void CreateNewXiaoGuo()
         {
-            GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
-            List<string> list = txtFile.ListAllText();
+            int count = 0;
+            foreach (string s in GGCRUtil.Languages())
+            {
+                GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.PATH + @"\language\" + s + @"\AbilitySpecList.tbl");
+                if (txtFile.Count > count)
+                {
+                    count = txtFile.Count;
+                }
+            }
+            count++;
+            foreach (string s in GGCRUtil.Languages())
+            {
+                GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.PATH + @"\language\" + s + @"\AbilitySpecList.tbl");
+                List<string> list = txtFile.ListAllText();
+                int span = count - list.Count;
+                for (int i = 0; i < span; i++)
+                {
+                    list.Add("我的自创技能效果");
+                }
+                txtFile.Save(list);
+            }
 
-            list.Add("我的自创技能效果");
-            txtFile.Save(list);
 
             byte[] newXiaoGuo = new byte[GGCRStaticConfig.XiaoGuoLength];
-            Array.Copy(BitConverter.GetBytes((short)(list.Count - 1)), newXiaoGuo, 2);
+            Array.Copy(BitConverter.GetBytes((short)(count - 1)), newXiaoGuo, 2);
 
             this.xiaoguoCount++;
             base.Write(24, BitConverter.GetBytes(xiaoguoCount));
