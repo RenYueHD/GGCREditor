@@ -1,4 +1,5 @@
 ﻿using GGCREditor;
+using GGCREditorLib.CDBItem;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -138,5 +139,23 @@ namespace GGCREditorLib
             return list;
         }
 
+
+        public List<MachineConvertInfo> ListConvert()
+        {
+            int start = this.GetInnerFile("MachineConversionList.cdb").StartIndex;
+            int count = BitConverter.ToInt32(this.Data, start + 8);
+
+            int firstIndex = start + 12;
+
+            List<MachineConvertInfo> list = new List<MachineConvertInfo>();
+
+            for (int i = 0; i < count; i++)
+            {
+                MachineConvertInfo convert = new MachineConvertInfo(this, firstIndex + i * 20, i);
+
+                list.Add(convert);
+            }
+            return list;
+        }
     }
 }

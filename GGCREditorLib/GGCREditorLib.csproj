@@ -43,6 +43,7 @@
     <Compile Include="CDBItem\Ability\GundamAbility.cs" />
     <Compile Include="CDBItem\Ability\WarAbility.cs" />
     <Compile Include="CDBItem\Ability\XiaoGuoAbility.cs" />
+    <Compile Include="CDBItem\MachineConvertInfo.cs" />
     <Compile Include="DDSImage.cs" />
     <Compile Include="GGCRResource\GGCRPkdFile.cs" />
     <Compile Include="GGCRResource\GGCRPkdInnerFile.cs" />

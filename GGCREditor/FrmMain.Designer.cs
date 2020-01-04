@@ -55,6 +55,7 @@
             this.btnEditAbility = new System.Windows.Forms.Button();
             this.btnEditTBL = new System.Windows.Forms.Button();
             this.flowContainer2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnConvert = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.flowContainer.SuspendLayout();
@@ -266,6 +267,7 @@
             this.flowContainer.Controls.Add(this.btnEditGundam);
             this.flowContainer.Controls.Add(this.btnEditWeapon);
             this.flowContainer.Controls.Add(this.btnEditAbility);
+            this.flowContainer.Controls.Add(this.btnConvert);
             this.flowContainer.Enabled = false;
             this.flowContainer.Location = new System.Drawing.Point(12, 28);
             this.flowContainer.Name = "flowContainer";
@@ -307,6 +309,15 @@
             this.flowContainer2.Size = new System.Drawing.Size(419, 61);
             this.flowContainer2.TabIndex = 5;
             // 
+            // btnConvert
+            // 
+            this.btnConvert.Location = new System.Drawing.Point(335, 3);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(77, 54);
+            this.btnConvert.TabIndex = 4;
+            this.btnConvert.Text = "换装/变型修改";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -322,7 +333,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "火线纵横-静态修改器 v2.2 Final - Power By RenYueHD";
+            this.Text = "火线纵横-静态修改器 v2.3 - Power By RenYueHD";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -363,6 +374,7 @@
         private System.Windows.Forms.ToolStripMenuItem koreanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 繁体中文ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 繁体中文台湾ToolStripMenuItem;
+        private System.Windows.Forms.Button btnConvert;
     }
 }
 
