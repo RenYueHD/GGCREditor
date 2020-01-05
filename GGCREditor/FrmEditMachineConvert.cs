@@ -20,6 +20,7 @@ namespace GGCREditor
 
         private List<MachineConvertInfo> converts;
         private List<GundamInfo> gundams;
+        List<KeyValuePair<string, string>> actions;
 
         BindingSource fromSource = new BindingSource();
         BindingSource toSource = new BindingSource();
@@ -45,7 +46,7 @@ namespace GGCREditor
 
             List<MachineConvertInfo> allConverts = gundamFile.ListConvert();
 
-            List<KeyValuePair<string, string>> actions = new List<KeyValuePair<string, string>>();
+            actions = new List<KeyValuePair<string, string>>();
             string line = null;
             using (StreamReader sr = new StreamReader("换装动作.txt"))
             {
@@ -61,7 +62,7 @@ namespace GGCREditor
             }
             foreach (MachineConvertInfo c in allConverts)
             {
-                if(c.Action == 8 || c.Action == 19)
+                if (c.Action == 8 || c.Action == 19)
                 {
                     int a = 0;
                 }
@@ -79,10 +80,10 @@ namespace GGCREditor
                     using (StreamWriter sr = new StreamWriter("换装动作.txt", true))
                     {
                         sr.WriteLine();
-                        sr.Write(c.Action.ToString() + ":未知 " + c.Action.ToString());
+                        sr.Write(c.Action.ToString() + ":未知" + c.Action.ToString());
                         sr.Flush();
                     }
-                    actions.Add(new KeyValuePair<string, string>(c.Action.ToString(), "未知 " + c.Action));
+                    actions.Add(new KeyValuePair<string, string>(c.Action.ToString(), "未知" + c.Action));
                 }
             }
             cboAction.DataSource = actions;
@@ -179,7 +180,17 @@ namespace GGCREditor
                     }
                 }
 
-                e.Graphics.DrawString((from ?? "无") + " => " + (to ?? "无"), e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+                string action = null;
+                foreach (KeyValuePair<string, string> a in actions)
+                {
+                    if (a.Key == convert.Action.ToString())
+                    {
+                        action = a.Value;
+                        break;
+                    }
+                }
+
+                e.Graphics.DrawString((from ?? "无") + "  ==" + action + "==>  " + (to ?? "无"), e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
             }
             e.DrawFocusRectangle();
         }
