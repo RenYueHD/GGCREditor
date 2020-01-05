@@ -16,7 +16,6 @@ namespace GGCREditorLib
 
         public Dictionary<short, string> SeriesCode { get; }
         internal string[] WeaponNames;
-        internal string[] GundamName { get; }
 
         internal List<string> AllText { get; }
 
@@ -67,9 +66,6 @@ namespace GGCREditorLib
 
             SpecCdbStart = PropCdbStart + 4 + PropCount * 4;
             SpecCount = BitConverter.ToInt32(this.Data, SpecCdbStart);
-
-            this.GundamName = new string[GundamCount + ShipCount];
-            AllText.CopyTo(WeaponNormalCount + WeaponMapCount + PropCount + SpecCount * 2, GundamName, 0, GundamCount + ShipCount);
         }
 
         public List<KeyValuePair<string, string>> ListWeaponProp()

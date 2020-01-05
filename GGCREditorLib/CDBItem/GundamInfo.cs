@@ -11,15 +11,18 @@ namespace GGCREditorLib
     public class GundamInfo : GGCRUnitInfo<GundamFile>, IComparable<GundamInfo>
     {
         private const int GROUP_IDX = 0;
+        //开发列表ID(8位)
+        private const int DEV_UUID_IDX = GROUP_IDX + 16;
         private const int ID_IDX = GROUP_IDX + 22;
         private const int HP_IDX = GROUP_IDX + 24;
+        private const int NAME_IDX = GROUP_IDX + 32;
         private const int PRICE_IDX = GROUP_IDX + 60;
-        private const int EN_IDX = HP_IDX + 38;
-        private const int ACT_IDX = HP_IDX + 40;
-        private const int DEF_IDX = HP_IDX + 42;
-        private const int SPD_IDX = HP_IDX + 44;
+        private const int EN_IDX = GROUP_IDX + 62;
+        private const int ACT_IDX = GROUP_IDX + 64;
+        private const int DEF_IDX = GROUP_IDX + 66;
+        private const int SPD_IDX = GROUP_IDX + 68;
         //地形适性 2byte
-        private const int EARTH_IDX = HP_IDX + 52;
+        private const int EARTH_IDX = GROUP_IDX + 76;
         //地图占用面积
         private const int EARTH_SIZE_IDX = HP_IDX + 54;
         //技能 10byte
@@ -73,14 +76,7 @@ namespace GGCREditorLib
         {
             get
             {
-                if (PkdFile.GundamName[this.No] == null || PkdFile.GundamName[this.No].Trim().Length == 0)
-                {
-                    return "未知";
-                }
-                else
-                {
-                    return PkdFile.GundamName[this.No];
-                }
+                return PkdFile.AllText[BitConverter.ToInt16(this.Data, NAME_IDX)];
             }
         }
 
