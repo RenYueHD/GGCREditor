@@ -36,7 +36,7 @@ namespace GGCREditor
             List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
             string line = null;
 
-            using (StreamReader sr = new StreamReader("成长规律.txt"))
+            using (StreamReader sr = new StreamReader("成长规律.txt", Encoding.UTF8))
             {
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -53,7 +53,7 @@ namespace GGCREditor
 
         public static void AddMasterGrown(short value, string range)
         {
-            using (StreamWriter sr = new StreamWriter("成长规律.txt", true))
+            using (StreamWriter sr = new StreamWriter("成长规律.txt", true, Encoding.UTF8))
             {
                 sr.WriteLine();
                 sr.Write(value + ":" + range);
@@ -138,6 +138,37 @@ namespace GGCREditor
         {
             machineAbilityExt.Add(new KeyValuePair<string, string>(value.ToString(), prop));
         }
+
+
+        public static List<KeyValuePair<string, string>> ListConvertAction()
+        {
+            List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
+            string line = null;
+
+            using (StreamReader sr = new StreamReader("换装动作.txt", Encoding.UTF8))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
+                        range.Add(kv);
+                    }
+                }
+            }
+            return range;
+        }
+
+        public static void AddConvertAction(int value, string range)
+        {
+            using (StreamWriter sr = new StreamWriter("换装动作.txt", true, Encoding.UTF8))
+            {
+                sr.WriteLine();
+                sr.Write(value + ":" + range);
+                sr.Flush();
+            }
+        }
         #endregion
 
         #region 武器部分
@@ -172,7 +203,7 @@ namespace GGCREditor
             List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
             string line = null;
 
-            using (StreamReader sr = new StreamReader("射程代码.txt"))
+            using (StreamReader sr = new StreamReader("射程代码.txt", Encoding.UTF8))
             {
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -189,7 +220,7 @@ namespace GGCREditor
 
         public static void AddWeaponRange(short value, string range)
         {
-            using (StreamWriter sr = new StreamWriter("射程代码.txt", true))
+            using (StreamWriter sr = new StreamWriter("射程代码.txt", true, Encoding.UTF8))
             {
                 sr.WriteLine();
                 sr.Write(value + ":" + range);
@@ -201,7 +232,7 @@ namespace GGCREditor
         {
             List<KeyValuePair<string, string>> spec = new List<KeyValuePair<string, string>>();
 
-            using (StreamReader sr = new StreamReader("武器类型.txt"))
+            using (StreamReader sr = new StreamReader("武器类型.txt", Encoding.UTF8))
             {
                 string line = null;
                 while ((line = sr.ReadLine()) != null)
@@ -219,7 +250,7 @@ namespace GGCREditor
 
         public static void AddWeaponType(byte value, string type)
         {
-            using (StreamWriter sr = new StreamWriter("武器类型.txt", true))
+            using (StreamWriter sr = new StreamWriter("武器类型.txt", true, Encoding.UTF8))
             {
                 sr.WriteLine();
                 sr.Write(value + ":" + type);

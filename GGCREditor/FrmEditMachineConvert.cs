@@ -46,20 +46,8 @@ namespace GGCREditor
 
             List<MachineConvertInfo> allConverts = gundamFile.ListConvert();
 
-            actions = new List<KeyValuePair<string, string>>();
-            string line = null;
-            using (StreamReader sr = new StreamReader("换装动作.txt"))
-            {
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "")
-                    {
-                        string[] arr = line.Split(':');
-                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
-                        actions.Add(kv);
-                    }
-                }
-            }
+            this.actions = GGCRUtil.ListConvertAction();
+
             foreach (MachineConvertInfo c in allConverts)
             {
                 bool find = false;
@@ -73,13 +61,8 @@ namespace GGCREditor
                 }
                 if (!find)
                 {
-                    using (StreamWriter sr = new StreamWriter("换装动作.txt", true))
-                    {
-                        sr.WriteLine();
-                        sr.Write(c.Action.ToString() + ":未知" + c.Action.ToString());
-                        sr.Flush();
-                    }
-                    actions.Add(new KeyValuePair<string, string>(c.Action.ToString(), "未知" + c.Action));
+                    GGCRUtil.AddConvertAction(c.Action, "未知" + c.Action);
+                    this.actions = GGCRUtil.ListConvertAction();
                 }
             }
             cboAction.DataSource = actions;
