@@ -62,10 +62,6 @@ namespace GGCREditor
             }
             foreach (MachineConvertInfo c in allConverts)
             {
-                if (c.Action == 8 || c.Action == 19)
-                {
-                    int a = 0;
-                }
                 bool find = false;
                 foreach (KeyValuePair<string, string> kv in actions)
                 {
