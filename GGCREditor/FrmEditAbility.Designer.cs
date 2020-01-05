@@ -864,7 +864,7 @@
             this.label84.Name = "label84";
             this.label84.Size = new System.Drawing.Size(54, 27);
             this.label84.TabIndex = 20;
-            this.label84.Text = "未知范围78?";
+            this.label84.Text = "未使用78";
             this.label84.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtAreaUnknow78
@@ -898,7 +898,7 @@
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(54, 27);
             this.label81.TabIndex = 40;
-            this.label81.Text = "未知75?";
+            this.label81.Text = "未使用75";
             this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtUnKnow75
@@ -1857,7 +1857,7 @@
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(54, 27);
             this.label78.TabIndex = 34;
-            this.label78.Text = "未知72暴击率?";
+            this.label78.Text = "未使用72";
             this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtBaoJiUnKnow72

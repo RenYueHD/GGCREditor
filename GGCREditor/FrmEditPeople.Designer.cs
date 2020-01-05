@@ -54,7 +54,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtJinYan = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtChenZhang = new System.Windows.Forms.TextBox();
             this.cboGuYou1 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -88,6 +87,7 @@
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cboGrown = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -294,13 +294,6 @@
             this.label13.TabIndex = 2;
             this.label13.Text = "成长规律";
             // 
-            // txtChenZhang
-            // 
-            this.txtChenZhang.Location = new System.Drawing.Point(89, 404);
-            this.txtChenZhang.Name = "txtChenZhang";
-            this.txtChenZhang.Size = new System.Drawing.Size(144, 21);
-            this.txtChenZhang.TabIndex = 6;
-            // 
             // cboGuYou1
             // 
             this.cboGuYou1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -381,6 +374,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Controls.Add(this.cboGrown);
             this.groupBox1.Controls.Add(this.cboGuYou2);
             this.groupBox1.Controls.Add(this.txtSheJi);
             this.groupBox1.Controls.Add(this.cboGuYou1);
@@ -389,7 +383,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtGeDou);
-            this.groupBox1.Controls.Add(this.txtChenZhang);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtMeiLi);
             this.groupBox1.Controls.Add(this.txtTongXun);
@@ -666,6 +659,15 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 22);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的人物数据";
             // 
+            // cboGrown
+            // 
+            this.cboGrown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGrown.FormattingEnabled = true;
+            this.cboGrown.Location = new System.Drawing.Point(89, 404);
+            this.cboGrown.Name = "cboGrown";
+            this.cboGrown.Size = new System.Drawing.Size(375, 20);
+            this.cboGrown.TabIndex = 14;
+            // 
             // FrmEditPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -719,7 +721,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtJinYan;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtChenZhang;
         private System.Windows.Forms.ComboBox cboGuYou1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -753,5 +754,6 @@
         private System.Windows.Forms.PictureBox pic1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtPic;
+        private System.Windows.Forms.ComboBox cboGrown;
     }
 }

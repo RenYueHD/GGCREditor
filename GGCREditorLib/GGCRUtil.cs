@@ -30,6 +30,37 @@ namespace GGCREditor
         #endregion
 
         #region 人物部分
+
+        public static List<KeyValuePair<string, string>> ListMasterGrown()
+        {
+            List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
+            string line = null;
+
+            using (StreamReader sr = new StreamReader("成长规律.txt"))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
+                        range.Add(kv);
+                    }
+                }
+            }
+            return range;
+        }
+
+        public static void AddMasterGrown(short value, string range)
+        {
+            using (StreamWriter sr = new StreamWriter("成长规律.txt", true))
+            {
+                sr.WriteLine();
+                sr.Write(value + ":" + range);
+                sr.Flush();
+            }
+        }
+
         private static List<KeyValuePair<string, string>> peopleSkillExt = new List<KeyValuePair<string, string>>();
         public static List<KeyValuePair<string, string>> ListPeopleSkill()
         {

@@ -52,6 +52,10 @@ namespace GGCREditor
             cboGuYou3.DataSource = GGCRUtil.ListPeopleSkill();
             cboGuYou3.ValueMember = "Key";
             cboGuYou3.DisplayMember = "Value";
+
+            cboGrown.DataSource = GGCRUtil.ListMasterGrown();
+            cboGrown.ValueMember = "Key";
+            cboGrown.DisplayMember = "Value";
         }
 
         private void FrmEditPeople_Load(object sender, EventArgs e)
@@ -102,7 +106,15 @@ namespace GGCREditor
                 txtWeiXiu.Text = master.WeiXiu.ToString();
                 txtMeiLi.Text = master.MeiLi.ToString();
                 txtJinYan.Text = master.JinYan.ToString();
-                txtChenZhang.Text = master.ChengZhang.ToString();
+
+                cboGrown.SelectedValue = master.ChengZhang.ToString();
+                if (cboGuYou1.SelectedValue == null)
+                {
+                    GGCRUtil.AddMasterGrown(master.ChengZhang, "未知" + master.ChengZhang);
+                    bindAll();
+                    LoadData(master);
+                    return;
+                }
 
                 cboGuYou1.SelectedValue = master.GuYou1.ToString();
                 if (cboGuYou1.SelectedValue == null)
@@ -150,8 +162,8 @@ namespace GGCREditor
                 txtWeiXiu.Text = null;
                 txtMeiLi.Text = null;
                 txtJinYan.Text = null;
-                txtChenZhang.Text = null;
 
+                cboGrown.SelectedValue = -1;
                 cboGuYou1.SelectedValue = -1;
                 cboGuYou2.SelectedValue = -1;
                 cboGuYou3.SelectedValue = -1;
@@ -219,7 +231,7 @@ namespace GGCREditor
                 master.WeiXiu = short.Parse(txtWeiXiu.Text);
                 master.MeiLi = short.Parse(txtMeiLi.Text);
                 master.JinYan = short.Parse(txtJinYan.Text);
-                master.ChengZhang = short.Parse(txtChenZhang.Text);
+                master.ChengZhang = short.Parse(cboGrown.SelectedValue.ToString());
 
                 try
                 {

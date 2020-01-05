@@ -147,6 +147,9 @@
     <Content Include="换装动作.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="成长规律.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="武器类型.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
