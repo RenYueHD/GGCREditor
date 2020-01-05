@@ -339,7 +339,7 @@ namespace GGCREditor
                 List<GundamInfo> search = new List<GundamInfo>();
                 foreach (GundamInfo m in gundams)
                 {
-                    if ((m.GroupName + "-" + m.UnitName).IndexOf(txtSearch.Text) >= 0)
+                    if ((m.GroupName + "-" + m.UnitName).IndexOf(txtSearch.Text) >= 0 || m.UUID.IndexOf(txtSearch.Text) >= 0)
                     {
                         search.Add(m);
                     }

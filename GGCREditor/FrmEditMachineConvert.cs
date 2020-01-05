@@ -42,6 +42,7 @@ namespace GGCREditor
             this.gundamFile = new GundamFile();
             stFile.Text = this.gundamFile.FileName;
 
+
             List<MachineConvertInfo> allConverts = gundamFile.ListConvert();
 
             List<KeyValuePair<string, string>> actions = new List<KeyValuePair<string, string>>();
@@ -60,6 +61,10 @@ namespace GGCREditor
             }
             foreach (MachineConvertInfo c in allConverts)
             {
+                if(c.Action == 8 || c.Action == 19)
+                {
+                    int a = 0;
+                }
                 bool find = false;
                 foreach (KeyValuePair<string, string> kv in actions)
                 {
