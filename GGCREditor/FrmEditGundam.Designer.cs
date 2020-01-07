@@ -84,7 +84,6 @@
             this.txtEN = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSpd = new System.Windows.Forms.TextBox();
-            this.txtEarthSize = new System.Windows.Forms.TextBox();
             this.txtMove = new System.Windows.Forms.TextBox();
             this.txtAct = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -102,6 +101,8 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnExportAll = new System.Windows.Forms.Button();
+            this.cboEarthSize = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnExportAll);
             this.groupBox1.Controls.Add(this.btnConvert);
             this.groupBox1.Controls.Add(this.label32);
             this.groupBox1.Controls.Add(this.pic1);
@@ -158,6 +160,7 @@
             this.groupBox1.Controls.Add(this.txtGroup);
             this.groupBox1.Controls.Add(this.btnEditWeapon);
             this.groupBox1.Controls.Add(this.cboSkill5);
+            this.groupBox1.Controls.Add(this.cboEarthSize);
             this.groupBox1.Controls.Add(this.cboSize);
             this.groupBox1.Controls.Add(this.cboSkill4);
             this.groupBox1.Controls.Add(this.cboSkill3);
@@ -200,7 +203,6 @@
             this.groupBox1.Controls.Add(this.txtEN);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSpd);
-            this.groupBox1.Controls.Add(this.txtEarthSize);
             this.groupBox1.Controls.Add(this.txtMove);
             this.groupBox1.Controls.Add(this.txtAct);
             this.groupBox1.Controls.Add(this.label21);
@@ -236,7 +238,7 @@
             this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label32.AutoSize = true;
             this.label32.ForeColor = System.Drawing.Color.Red;
-            this.label32.Location = new System.Drawing.Point(89, 625);
+            this.label32.Location = new System.Drawing.Point(29, 622);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(293, 12);
             this.label32.TabIndex = 25;
@@ -255,7 +257,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(389, 649);
+            this.button1.Location = new System.Drawing.Point(329, 646);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 23;
@@ -266,7 +268,7 @@
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Location = new System.Drawing.Point(389, 620);
+            this.btnExport.Location = new System.Drawing.Point(329, 617);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 23;
@@ -396,7 +398,7 @@
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
             this.label30.ForeColor = System.Drawing.Color.Red;
-            this.label30.Location = new System.Drawing.Point(96, 654);
+            this.label30.Location = new System.Drawing.Point(36, 651);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(287, 12);
             this.label30.TabIndex = 6;
@@ -416,7 +418,7 @@
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(168, 596);
+            this.label18.Location = new System.Drawing.Point(108, 593);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(215, 12);
             this.label18.TabIndex = 6;
@@ -426,7 +428,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(389, 591);
+            this.btnSave.Location = new System.Drawing.Point(329, 588);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 16;
@@ -675,13 +677,6 @@
             this.txtSpd.Size = new System.Drawing.Size(144, 21);
             this.txtSpd.TabIndex = 4;
             // 
-            // txtEarthSize
-            // 
-            this.txtEarthSize.Location = new System.Drawing.Point(98, 475);
-            this.txtEarthSize.Name = "txtEarthSize";
-            this.txtEarthSize.Size = new System.Drawing.Size(144, 21);
-            this.txtEarthSize.TabIndex = 4;
-            // 
             // txtMove
             // 
             this.txtMove.Location = new System.Drawing.Point(98, 401);
@@ -825,6 +820,25 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
             // 
+            // btnExportAll
+            // 
+            this.btnExportAll.Location = new System.Drawing.Point(409, 588);
+            this.btnExportAll.Name = "btnExportAll";
+            this.btnExportAll.Size = new System.Drawing.Size(51, 81);
+            this.btnExportAll.TabIndex = 27;
+            this.btnExportAll.Text = "导出\r\n所有";
+            this.btnExportAll.UseVisualStyleBackColor = true;
+            this.btnExportAll.Click += new System.EventHandler(this.btnExportAll_Click);
+            // 
+            // cboEarthSize
+            // 
+            this.cboEarthSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEarthSize.FormattingEnabled = true;
+            this.cboEarthSize.Location = new System.Drawing.Point(98, 475);
+            this.cboEarthSize.Name = "cboEarthSize";
+            this.cboEarthSize.Size = new System.Drawing.Size(144, 20);
+            this.cboEarthSize.TabIndex = 19;
+            // 
             // FrmEditGundam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -900,7 +914,6 @@
         private System.Windows.Forms.ToolStripStatusLabel tslblFile;
         private System.Windows.Forms.ComboBox cboSize;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtEarthSize;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel tsmiLblState;
         private System.Windows.Forms.Label label23;
@@ -926,5 +939,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnConvert;
+        private System.Windows.Forms.Button btnExportAll;
+        private System.Windows.Forms.ComboBox cboEarthSize;
     }
 }

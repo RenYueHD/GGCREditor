@@ -51,6 +51,10 @@ namespace GGCREditor
             cboSize.DisplayMember = "Value";
             cboSize.ValueMember = "Key";
 
+            cboEarthSize.DataSource = GGCRUtil.ListEarthSize();
+            cboEarthSize.DisplayMember = "Value";
+            cboEarthSize.ValueMember = "Key";
+
             cboSkill1.DataSource = GGCRUtil.ListGundamAbility();
             cboSkill2.DataSource = GGCRUtil.ListGundamAbility();
             cboSkill3.DataSource = GGCRUtil.ListGundamAbility();
@@ -115,12 +119,19 @@ namespace GGCREditor
                 txtDef.Text = gundam.DEF.ToString();
                 txtSpd.Text = gundam.SPD.ToString();
                 txtMove.Text = gundam.Move.ToString();
-                txtEarthSize.Text = gundam.EarchSize.ToString();
                 txtWeapon1ID.Text = gundam.WeaponId.ToString();
                 txtWeaponCount.Text = gundam.WeaponCount.ToString();
-
                 txtFirstMap.Text = gundam.WeaponMapID.ToString();
                 txtMapCount.Text = gundam.WeaponMapCount.ToString();
+
+                cboEarthSize.SelectedValue = gundam.EarchSize.ToString();
+                if (cboEarthSize.SelectedValue == null)
+                {
+                    GGCRUtil.AddEarthSize(gundam.EarchSize, "未知" + gundam.EarchSize.ToString());
+                    bindAll();
+                    LoadData(gundam);
+                    return;
+                }
 
                 cboSize.SelectedValue = gundam.Size.ToString();
                 if (cboSize.SelectedValue == null)
@@ -231,8 +242,10 @@ namespace GGCREditor
                 txtDef.Text = null;
                 txtSpd.Text = null;
                 txtMove.Text = null;
-                txtEarthSize.Text = null;
-                cboSize.SelectedValue = "1";
+
+                cboSize.SelectedValue = "-1";
+
+                cboEarthSize.SelectedValue = "-1";
 
                 cboE1.SelectedValue = "-1";
                 cboE2.SelectedValue = "-1";
@@ -298,7 +311,7 @@ namespace GGCREditor
                 gundam.SPD = short.Parse(txtSpd.Text);
                 gundam.Move = byte.Parse(txtMove.Text);
                 gundam.Size = byte.Parse(cboSize.SelectedValue.ToString());
-                gundam.EarchSize = short.Parse(txtEarthSize.Text);
+                gundam.EarchSize = short.Parse(cboEarthSize.SelectedValue.ToString());
                 gundam.Price = int.Parse(txtPrice.Text);
 
                 gundam.WeaponId = short.Parse(txtWeapon1ID.Text);
@@ -462,6 +475,51 @@ namespace GGCREditor
                     lsGundam.SelectedItem = g;
                     LoadData(g);
                     break;
+                }
+            }
+        }
+
+        private void btnExportAll_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            //dialog.RestoreDirectory = true;
+            dialog.Filter = "文本文件|*.txt";
+            dialog.FileName = "全部机体数据";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(dialog.FileName, false, Encoding.UTF8))
+                {
+                    sw.Write("地址\t系列\t机体名\tHP\tEN\t攻击\t防御\t机动\t移动\tSize\t占地图面积\t适性宇");
+                    sw.Write("\t适性空\t适性地\t适性水上\t适性水中\t能力1\t能力2\t能力3\t能力4\t能力5\t");
+                    sw.WriteLine();
+
+                    foreach (GundamInfo gundam in gundamFile.ListMachines())
+                    {
+                        sw.Write(gundam.Address + "\t");
+                        sw.Write(gundam.GroupName + "\t");
+                        sw.Write(gundam.UnitName + "\t");
+                        sw.Write(gundam.HP + "\t");
+                        sw.Write(gundam.EN + "\t");
+                        sw.Write(gundam.ACT + "\t");
+                        sw.Write(gundam.DEF + "\t");
+                        sw.Write(gundam.SPD + "\t");
+                        sw.Write(gundam.Move + "\t");
+                        sw.Write(GGCRUtil.Transform(cboSize.DataSource as List<KeyValuePair<string, string>>, gundam.Size.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboEarthSize.DataSource as List<KeyValuePair<string, string>>, gundam.EarchSize.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboE1.DataSource as List<KeyValuePair<string, string>>, gundam.Earch[0].ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboE1.DataSource as List<KeyValuePair<string, string>>, gundam.Earch[1].ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboE1.DataSource as List<KeyValuePair<string, string>>, gundam.Earch[2].ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboE1.DataSource as List<KeyValuePair<string, string>>, gundam.Earch[3].ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboE1.DataSource as List<KeyValuePair<string, string>>, gundam.Earch[4].ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboSkill1.DataSource as List<KeyValuePair<string, string>>, gundam.Skill1.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboSkill1.DataSource as List<KeyValuePair<string, string>>, gundam.Skill2.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboSkill1.DataSource as List<KeyValuePair<string, string>>, gundam.Skill3.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboSkill1.DataSource as List<KeyValuePair<string, string>>, gundam.Skill4.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboSkill1.DataSource as List<KeyValuePair<string, string>>, gundam.Skill5.ToString()) + "\t");
+
+                        sw.WriteLine();
+                    }
                 }
             }
         }

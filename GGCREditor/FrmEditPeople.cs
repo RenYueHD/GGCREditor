@@ -56,6 +56,10 @@ namespace GGCREditor
             cboGrown.DataSource = GGCRUtil.ListMasterGrown();
             cboGrown.ValueMember = "Key";
             cboGrown.DisplayMember = "Value";
+
+            cboLast4.DataSource = GGCRUtil.ListMasterZhaoPin();
+            cboLast4.ValueMember = "Key";
+            cboLast4.DisplayMember = "Value";
         }
 
         private void FrmEditPeople_Load(object sender, EventArgs e)
@@ -108,7 +112,7 @@ namespace GGCREditor
                 txtJinYan.Text = master.JinYan.ToString();
 
                 cboGrown.SelectedValue = master.ChengZhang.ToString();
-                if (cboGuYou1.SelectedValue == null)
+                if (cboGrown.SelectedValue == null)
                 {
                     GGCRUtil.AddMasterGrown(master.ChengZhang, "未知" + master.ChengZhang);
                     bindAll();
@@ -141,7 +145,14 @@ namespace GGCREditor
                     return;
                 }
 
-                txtLast4.Text = master.Last4.ToString();
+                cboLast4.SelectedValue = master.Last4.ToString();
+                if (cboLast4.SelectedValue == null)
+                {
+                    GGCRUtil.AddMasterZhaoPin(master.Last4, "未知" + master.Last4);
+                    bindAll();
+                    LoadData(master);
+                    return;
+                }
 
                 btnSave.Enabled = true;
             }
@@ -168,7 +179,7 @@ namespace GGCREditor
                 cboGuYou2.SelectedValue = -1;
                 cboGuYou3.SelectedValue = -1;
 
-                txtLast4.Text = null;
+                cboLast4.SelectedValue = -1;
 
                 btnSave.Enabled = false;
             }
@@ -258,7 +269,7 @@ namespace GGCREditor
                     MessageBox.Show("固有技能3编号未知,已使用原始能力" + master.GuYou3);
                 }
 
-                master.Last4 = short.Parse(txtLast4.Text);
+                master.Last4 = short.Parse(cboLast4.SelectedValue.ToString());
 
                 master.Save();
 
@@ -377,6 +388,51 @@ namespace GGCREditor
                 {
                     select.Replace(data);
                     lsMasters.SelectedItem = select;
+                }
+            }
+        }
+
+        private void btnExportAll_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            //dialog.RestoreDirectory = true;
+            dialog.Filter = "文本文件|*.txt";
+            dialog.FileName = "全部人物数据";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(dialog.FileName, false, Encoding.UTF8))
+                {
+                    sw.Write("地址\t系列\t姓名\t射击\t格斗\t守备\t反应\t觉醒\t经验值\t指挥\t辅佐\t通讯\t操舵\t维修\t魅力");
+                    sw.Write("\t成长\t技能1\t技能2\t技能3\t招聘可能");
+                    sw.WriteLine();
+
+                    foreach (MasterInfo master in masterFile.ListMasters())
+                    {
+
+                        sw.Write(master.Address + "\t");
+                        sw.Write(master.GroupName + "\t");
+                        sw.Write(master.UnitName + "\t");
+                        sw.Write(master.SheJi + "\t");
+                        sw.Write(master.GeDou + "\t");
+                        sw.Write(master.ShouBei + "\t");
+                        sw.Write(master.FanYin + "\t");
+                        sw.Write(master.JueXin + "\t");
+                        sw.Write(master.JinYan + "\t");
+                        sw.Write(master.ZhiHui + "\t");
+                        sw.Write(master.FuZuo + "\t");
+                        sw.Write(master.TongXun + "\t");
+                        sw.Write(master.CaoDuo + "\t");
+                        sw.Write(master.WeiXiu + "\t");
+                        sw.Write(master.MeiLi + "\t");
+                        sw.Write(GGCRUtil.Transform(cboGrown.DataSource as List<KeyValuePair<string, string>>, master.ChengZhang.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboGuYou1.DataSource as List<KeyValuePair<string, string>>, master.GuYou1.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboGuYou2.DataSource as List<KeyValuePair<string, string>>, master.GuYou1.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboGuYou3.DataSource as List<KeyValuePair<string, string>>, master.GuYou1.ToString()) + "\t");
+                        sw.Write(GGCRUtil.Transform(cboLast4.DataSource as List<KeyValuePair<string, string>>, master.Last4.ToString()) + "\t");
+
+                        sw.WriteLine();
+                    }
                 }
             }
         }

@@ -31,6 +31,36 @@ namespace GGCREditor
 
         #region 人物部分
 
+        public static List<KeyValuePair<string, string>> ListMasterZhaoPin()
+        {
+            List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
+            string line = null;
+
+            using (StreamReader sr = new StreamReader("招聘可能.txt", Encoding.UTF8))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
+                        range.Add(kv);
+                    }
+                }
+            }
+            return range;
+        }
+
+        public static void AddMasterZhaoPin(short value, string range)
+        {
+            using (StreamWriter sr = new StreamWriter("招聘可能.txt", true, Encoding.UTF8))
+            {
+                sr.WriteLine();
+                sr.Write(value + ":" + range);
+                sr.Flush();
+            }
+        }
+
         public static List<KeyValuePair<string, string>> ListMasterGrown()
         {
             List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
@@ -169,6 +199,36 @@ namespace GGCREditor
                 sr.Flush();
             }
         }
+
+        public static List<KeyValuePair<string, string>> ListEarthSize()
+        {
+            List<KeyValuePair<string, string>> range = new List<KeyValuePair<string, string>>();
+            string line = null;
+
+            using (StreamReader sr = new StreamReader("占地面积.txt", Encoding.UTF8))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line != "")
+                    {
+                        string[] arr = line.Split(':');
+                        KeyValuePair<string, string> kv = new KeyValuePair<string, string>(arr[0], arr[1]);
+                        range.Add(kv);
+                    }
+                }
+            }
+            return range;
+        }
+
+        public static void AddEarthSize(int value, string range)
+        {
+            using (StreamWriter sr = new StreamWriter("占地面积.txt", true, Encoding.UTF8))
+            {
+                sr.WriteLine();
+                sr.Write(value + ":" + range);
+                sr.Flush();
+            }
+        }
         #endregion
 
         #region 武器部分
@@ -259,6 +319,20 @@ namespace GGCREditor
         }
 
         #endregion
+
+
+        public static string Transform(List<KeyValuePair<string, string>> list, string key)
+        {
+            foreach (KeyValuePair<string, string> kv in list)
+            {
+                if (kv.Key == key)
+                {
+                    return kv.Value;
+                }
+            }
+            return "未知";
+        }
+
 
         public static string[] Languages()
         {

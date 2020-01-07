@@ -69,7 +69,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtLast4 = new System.Windows.Forms.TextBox();
             this.txtUnKnow = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -80,6 +79,7 @@
             this.txtPic = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.cboGrown = new System.Windows.Forms.ComboBox();
             this.lsMasters = new System.Windows.Forms.ListBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -87,7 +87,8 @@
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cboGrown = new System.Windows.Forms.ComboBox();
+            this.btnExportAll = new System.Windows.Forms.Button();
+            this.cboLast4 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -343,7 +344,7 @@
             // 
             this.cboGuYou3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGuYou3.FormattingEnabled = true;
-            this.cboGuYou3.Location = new System.Drawing.Point(89, 479);
+            this.cboGuYou3.Location = new System.Drawing.Point(89, 478);
             this.cboGuYou3.Name = "cboGuYou3";
             this.cboGuYou3.Size = new System.Drawing.Size(144, 20);
             this.cboGuYou3.TabIndex = 15;
@@ -352,6 +353,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnExportAll);
             this.groupBox1.Controls.Add(this.pic1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label30);
@@ -360,7 +362,6 @@
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.txtLast4);
             this.groupBox1.Controls.Add(this.txtUnKnow);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label18);
@@ -375,6 +376,7 @@
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.cboGrown);
+            this.groupBox1.Controls.Add(this.cboLast4);
             this.groupBox1.Controls.Add(this.cboGuYou2);
             this.groupBox1.Controls.Add(this.txtSheJi);
             this.groupBox1.Controls.Add(this.cboGuYou1);
@@ -423,7 +425,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(389, 568);
+            this.button1.Location = new System.Drawing.Point(332, 569);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 27;
@@ -436,7 +438,7 @@
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
             this.label30.ForeColor = System.Drawing.Color.Red;
-            this.label30.Location = new System.Drawing.Point(96, 573);
+            this.label30.Location = new System.Drawing.Point(39, 574);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(287, 12);
             this.label30.TabIndex = 26;
@@ -445,7 +447,7 @@
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Location = new System.Drawing.Point(389, 539);
+            this.btnExport.Location = new System.Drawing.Point(332, 540);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 25;
@@ -458,7 +460,7 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.Red;
-            this.label29.Location = new System.Drawing.Point(90, 544);
+            this.label29.Location = new System.Drawing.Point(33, 545);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(293, 12);
             this.label29.TabIndex = 24;
@@ -467,11 +469,11 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(267, 482);
+            this.label21.Location = new System.Drawing.Point(261, 482);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(47, 12);
+            this.label21.Size = new System.Drawing.Size(53, 12);
             this.label21.TabIndex = 17;
-            this.label21.Text = "末尾4位";
+            this.label21.Text = "招聘可能";
             // 
             // label24
             // 
@@ -490,14 +492,6 @@
             this.label20.Size = new System.Drawing.Size(17, 12);
             this.label20.TabIndex = 18;
             this.label20.Text = "ID";
-            // 
-            // txtLast4
-            // 
-            this.txtLast4.Location = new System.Drawing.Point(320, 479);
-            this.txtLast4.Name = "txtLast4";
-            this.txtLast4.ReadOnly = true;
-            this.txtLast4.Size = new System.Drawing.Size(144, 21);
-            this.txtLast4.TabIndex = 19;
             // 
             // txtUnKnow
             // 
@@ -520,7 +514,7 @@
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(168, 515);
+            this.label18.Location = new System.Drawing.Point(111, 516);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(215, 12);
             this.label18.TabIndex = 6;
@@ -530,7 +524,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(389, 510);
+            this.btnSave.Location = new System.Drawing.Point(332, 511);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 16;
@@ -588,6 +582,15 @@
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(144, 21);
             this.txtName.TabIndex = 3;
+            // 
+            // cboGrown
+            // 
+            this.cboGrown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGrown.FormattingEnabled = true;
+            this.cboGrown.Location = new System.Drawing.Point(89, 404);
+            this.cboGrown.Name = "cboGrown";
+            this.cboGrown.Size = new System.Drawing.Size(375, 20);
+            this.cboGrown.TabIndex = 14;
             // 
             // lsMasters
             // 
@@ -659,14 +662,24 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 22);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的人物数据";
             // 
-            // cboGrown
+            // btnExportAll
             // 
-            this.cboGrown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboGrown.FormattingEnabled = true;
-            this.cboGrown.Location = new System.Drawing.Point(89, 404);
-            this.cboGrown.Name = "cboGrown";
-            this.cboGrown.Size = new System.Drawing.Size(375, 20);
-            this.cboGrown.TabIndex = 14;
+            this.btnExportAll.Location = new System.Drawing.Point(413, 511);
+            this.btnExportAll.Name = "btnExportAll";
+            this.btnExportAll.Size = new System.Drawing.Size(51, 81);
+            this.btnExportAll.TabIndex = 29;
+            this.btnExportAll.Text = "导出\r\n所有";
+            this.btnExportAll.UseVisualStyleBackColor = true;
+            this.btnExportAll.Click += new System.EventHandler(this.btnExportAll_Click);
+            // 
+            // cboLast4
+            // 
+            this.cboLast4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLast4.FormattingEnabled = true;
+            this.cboLast4.Location = new System.Drawing.Point(320, 478);
+            this.cboLast4.Name = "cboLast4";
+            this.cboLast4.Size = new System.Drawing.Size(144, 20);
+            this.cboLast4.TabIndex = 14;
             // 
             // FrmEditPeople
             // 
@@ -746,7 +759,6 @@
         private System.Windows.Forms.TextBox txtUnKnow;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtLast4;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button button1;
@@ -755,5 +767,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtPic;
         private System.Windows.Forms.ComboBox cboGrown;
+        private System.Windows.Forms.Button btnExportAll;
+        private System.Windows.Forms.ComboBox cboLast4;
     }
 }

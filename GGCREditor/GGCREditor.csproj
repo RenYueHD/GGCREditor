@@ -141,6 +141,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2.ico" />
+    <Content Include="招聘可能.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="占地面积.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="射程代码.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
