@@ -70,16 +70,19 @@ namespace GGCREditor
                 {
                     cboSkill.Enabled = false;
                     txtRemarkId.Enabled = true;
+                    txtName.Text = ability.UnitName;
+                    txtName.ReadOnly = true;
                 }
                 else
                 {
                     cboSkill.Enabled = true;
                     txtRemarkId.Enabled = false;
-
+                    txtName.Text = ability.UnitName;
+                    txtName.ReadOnly = false;
                 }
 
                 txtAddress.Text = ability.Address;
-                txtIdInGroup.Text = ability.IDInGroup.ToString();
+
             }
             else
             {
@@ -281,6 +284,10 @@ namespace GGCREditor
                 if (!(ability is XiaoGuoAbility))
                 {
                     ability.SkillId = xiaoguo.SkillId;
+                    if (ability.UnitName != txtName.Text)
+                    {
+                        ability.SetUnitName(txtName.Text);
+                    }
                     //保存技能编号
                     ability.Save();
                 }

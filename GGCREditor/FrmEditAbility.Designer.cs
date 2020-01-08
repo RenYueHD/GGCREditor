@@ -39,7 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtIdInGroup = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtXiaoGuoRemark = new System.Windows.Forms.TextBox();
@@ -307,16 +307,15 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 27);
             this.label2.TabIndex = 12;
-            this.label2.Text = "组内序号";
+            this.label2.Text = "单位名称";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtIdInGroup
+            // txtName
             // 
-            this.txtIdInGroup.Location = new System.Drawing.Point(591, 15);
-            this.txtIdInGroup.Name = "txtIdInGroup";
-            this.txtIdInGroup.ReadOnly = true;
-            this.txtIdInGroup.Size = new System.Drawing.Size(130, 21);
-            this.txtIdInGroup.TabIndex = 13;
+            this.txtName.Location = new System.Drawing.Point(591, 15);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(130, 21);
+            this.txtName.TabIndex = 13;
             // 
             // label3
             // 
@@ -1944,7 +1943,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtRemarkId);
-            this.Controls.Add(this.txtIdInGroup);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.button1);
@@ -1990,7 +1989,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtIdInGroup;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtXiaoGuoRemark;
