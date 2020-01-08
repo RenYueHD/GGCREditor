@@ -83,12 +83,20 @@ namespace GGCREditor
 
                 txtAddress.Text = ability.Address;
 
+                if (ability is XiaoGuoAbility)
+                {
+                    btnCopy.Enabled = true;
+                }
+                else
+                {
+                    btnCopy.Enabled = false;
+                }
             }
             else
             {
                 cboSkill.SelectedValue = "-1";
+                btnCopy.Enabled = false;
             }
-
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -410,7 +418,7 @@ namespace GGCREditor
         private void btnCreateNew_Click(object sender, EventArgs e)
         {
 
-            file.CreateNewXiaoGuo();
+            //  file.CreateNewXiaoGuo();
 
             reload();
 
@@ -438,6 +446,21 @@ namespace GGCREditor
             {
                 txtXiaoGuoRemark.Text = null;
                 txtXiaoGuoRemark.Enabled = false;
+            }
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            AbstractAbility ability = lsAbility.SelectedItem as AbstractAbility;
+            if (ability != null)
+            {
+                file.CopyAndCreate(ability);
+
+                reload();
+
+                lsAbility.SelectedItem = abilitys[abilitys.Count - 1];
+
+                MessageBox.Show("创建成功,请修改数据", "操作提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

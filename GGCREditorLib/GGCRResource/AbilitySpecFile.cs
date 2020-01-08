@@ -46,7 +46,58 @@ namespace GGCREditorLib
             abilityText = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile).ListAllText().AsReadOnly();
         }
 
-        public void CreateNewXiaoGuo()
+        public void CopyAndCreate(AbstractAbility ability)
+        {
+            if (ability is XiaoGuoAbility)
+            {
+                copyAndCreate((XiaoGuoAbility)ability);
+            }
+            else
+            {
+                byte[] data = new byte[ability.Data.Length];
+                ability.Data.CopyTo(data, 0);
+
+                int count = -1;
+                if (ability is GundamAbility)
+                {
+                    count = addText("自创机体能力");
+                    BitConverter.GetBytes((short)(BitConverter.ToInt32(this.Data, 8) + 1)).CopyTo(this.Data, 8);
+                }
+                else if (ability is PersonAbility)
+                {
+                    count = addText("自创人物技能");
+                    BitConverter.GetBytes((short)(BitConverter.ToInt32(this.Data, 16) + 1)).CopyTo(this.Data, 16);
+                }
+                else if (ability is OPInfo)
+                {
+                    count = addText("自创OP");
+                    BitConverter.GetBytes((short)(BitConverter.ToInt32(this.Data, 12) + 1)).CopyTo(this.Data, 12);
+                }
+                else
+                {
+                    throw new Exception("不支持此物品复制");
+                }
+
+                BitConverter.GetBytes((short)(count - 1)).CopyTo(data, 2);
+
+                this.Insert(ability.Index + ability.UnitLength, data);
+            }
+        }
+
+        private void copyAndCreate(XiaoGuoAbility ability)
+        {
+            int count = addText("我的自创技能效果");
+
+            byte[] newXiaoGuo = new byte[ability.Data.Length];
+            ability.Data.CopyTo(newXiaoGuo, 0);
+            Array.Copy(BitConverter.GetBytes((short)(count - 1)), newXiaoGuo, 2);
+
+            this.xiaoguoCount++;
+            base.Write(24, BitConverter.GetBytes(xiaoguoCount));
+            base.Write(this.Data.Length, newXiaoGuo);
+        }
+
+        private int addText(string text)
         {
             int count = 0;
             foreach (string s in GGCRUtil.Languages())
@@ -65,18 +116,11 @@ namespace GGCREditorLib
                 int span = count - list.Count;
                 for (int i = 0; i < span; i++)
                 {
-                    list.Add("我的自创技能效果");
+                    list.Add(text);
                 }
                 txtFile.Save(list);
             }
-
-
-            byte[] newXiaoGuo = new byte[GGCRStaticConfig.XiaoGuoLength];
-            Array.Copy(BitConverter.GetBytes((short)(count - 1)), newXiaoGuo, 2);
-
-            this.xiaoguoCount++;
-            base.Write(24, BitConverter.GetBytes(xiaoguoCount));
-            base.Write(this.Data.Length, newXiaoGuo);
+            return count;
         }
 
         public List<AbstractAbility> ListAbilitys()
@@ -141,12 +185,19 @@ namespace GGCREditorLib
 
         public ReadOnlyCollection<string> ListMachineAbilitys()
         {
+            int no = 0;
+            int idx = GGCRStaticConfig.GundamAbilityStart;
+
             //读取机体能力
             List<string> machineAbilitys = new List<string>();
+
             for (int i = 0; i < MachineAbilityCount; i++)
             {
-                machineAbilitys.Add(AbilityText[i]);
+                machineAbilitys.Add(new GundamAbility(this, idx, no).UnitName);
+                idx += GGCRStaticConfig.GundamAbilityLength;
+                no++;
             }
+
             return machineAbilitys.AsReadOnly();
         }
         public ReadOnlyCollection<string> ListOPs()

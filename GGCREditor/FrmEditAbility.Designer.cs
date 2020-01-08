@@ -210,7 +210,7 @@
             this.txtShanBi = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cboSkill = new System.Windows.Forms.ComboBox();
-            this.btnCreateNew = new System.Windows.Forms.Button();
+            this.btnCopy = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.pan3.SuspendLayout();
             this.pan1.SuspendLayout();
@@ -237,7 +237,7 @@
             this.lsAbility.ItemHeight = 16;
             this.lsAbility.Location = new System.Drawing.Point(12, 46);
             this.lsAbility.Name = "lsAbility";
-            this.lsAbility.Size = new System.Drawing.Size(281, 620);
+            this.lsAbility.Size = new System.Drawing.Size(281, 588);
             this.lsAbility.TabIndex = 9;
             this.lsAbility.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lsMasters_DrawItem);
             this.lsAbility.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lsMasters_MeasureItem);
@@ -1923,22 +1923,22 @@
             this.cboSkill.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cboSkill_DrawItem);
             this.cboSkill.SelectedIndexChanged += new System.EventHandler(this.cboSkill_SelectedIndexChanged);
             // 
-            // btnCreateNew
+            // btnCopy
             // 
-            this.btnCreateNew.Location = new System.Drawing.Point(14, 670);
-            this.btnCreateNew.Name = "btnCreateNew";
-            this.btnCreateNew.Size = new System.Drawing.Size(281, 26);
-            this.btnCreateNew.TabIndex = 18;
-            this.btnCreateNew.Text = "创建一个新技能效果(实时生效,请做好备份)";
-            this.btnCreateNew.UseVisualStyleBackColor = true;
-            this.btnCreateNew.Click += new System.EventHandler(this.btnCreateNew_Click);
+            this.btnCopy.Location = new System.Drawing.Point(14, 640);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(281, 56);
+            this.btnCopy.TabIndex = 18;
+            this.btnCopy.Text = "复制选中技能(实时生效,请做好备份)";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
             // FrmEditAbility
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 721);
-            this.Controls.Add(this.btnCreateNew);
+            this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.cboSkill);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -2163,6 +2163,6 @@
         private System.Windows.Forms.TextBox txtUnknow80;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cboSkill;
-        private System.Windows.Forms.Button btnCreateNew;
+        private System.Windows.Forms.Button btnCopy;
     }
 }
