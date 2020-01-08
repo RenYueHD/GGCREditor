@@ -354,7 +354,7 @@ namespace GGCREditorLib.CDBItem.Ability
                 save(62, value);
             }
         }
- 
+
         public short DmgBeanSheJi
         {
             get
@@ -946,10 +946,14 @@ namespace GGCREditorLib.CDBItem.Ability
             {
                 GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
                 List<string> list = txtFile.ListAllText();
-                list[this.RemarkId] = tmp;
-                txtFile.Save(list);
+                if (list.Count > this.RemarkId)
+                {
+                    list[this.RemarkId] = tmp;
+                    txtFile.Save(list);
 
-                PkdFile.ReloadAbilityText();
+                    PkdFile.ReloadAbilityText();
+                }
+
             }
             base.Save();
         }
@@ -957,7 +961,14 @@ namespace GGCREditorLib.CDBItem.Ability
         {
             get
             {
-                return tempRemark ?? PkdFile.AbilityText[this.RemarkId];
+                if (PkdFile.AbilityText.Count > this.RemarkId)
+                {
+                    return tempRemark ?? PkdFile.AbilityText[this.RemarkId];
+                }
+                else
+                {
+                    return null;
+                }
             }
             set
             {

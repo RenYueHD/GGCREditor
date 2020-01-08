@@ -356,12 +356,11 @@
             // 
             // txtRemarkId
             // 
-            this.txtRemarkId.Enabled = false;
             this.txtRemarkId.Location = new System.Drawing.Point(1003, 15);
             this.txtRemarkId.Name = "txtRemarkId";
-            this.txtRemarkId.ReadOnly = true;
             this.txtRemarkId.Size = new System.Drawing.Size(130, 21);
             this.txtRemarkId.TabIndex = 13;
+            this.txtRemarkId.TextChanged += new System.EventHandler(this.txtRemarkId_TextChanged);
             // 
             // label6
             // 

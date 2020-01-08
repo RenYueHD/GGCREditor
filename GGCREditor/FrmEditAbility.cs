@@ -100,7 +100,7 @@ namespace GGCREditor
                 List<AbstractAbility> search = new List<AbstractAbility>();
                 foreach (AbstractAbility m in abilitys)
                 {
-                    if ((m.TypeName + "-" + m.UnitName).ToUpper().IndexOf(txtSearch.Text.ToUpper()) >= 0 || m is XiaoGuoAbility && (m as XiaoGuoAbility).RemarkDetail.ToUpper().IndexOf(txtSearch.Text.ToUpper()) >= 0)
+                    if ((m.TypeName + "-" + m.UnitName).ToUpper().IndexOf(txtSearch.Text.ToUpper()) >= 0 || m is XiaoGuoAbility && (m as XiaoGuoAbility).RemarkDetail != null && (m as XiaoGuoAbility).RemarkDetail.ToUpper().IndexOf(txtSearch.Text.ToUpper()) >= 0)
                     {
                         search.Add(m);
                     }
@@ -118,7 +118,7 @@ namespace GGCREditor
         {
             if (xiaoguo != null)
             {
-                txtXiaoGuoRemark.Text = xiaoguo.RemarkDetail.Replace("\n", "\r\n");
+                //   txtXiaoGuoRemark.Text = xiaoguo.RemarkDetail.Replace("\n", "\r\n");
                 txtRemarkId.Text = xiaoguo.RemarkId.ToString();
 
                 changePanel(true);
@@ -202,6 +202,8 @@ namespace GGCREditor
                 txtAreaUnknow78.Text = xiaoguo.UnKnow78.ToString();
                 txtAreaJiNen.Text = xiaoguo.AreaJiNen.ToString();
                 txtUnknow80.Text = xiaoguo.UnKnow80.ToString();
+
+
             }
             else
             {
@@ -365,10 +367,10 @@ namespace GGCREditor
 
                 xiaoguo.UnKnow80 = short.Parse(txtUnknow80.Text);
 
-                // xiaoguo.RemarkId = short.Parse(txtRemarkId.Text);
+                xiaoguo.RemarkId = short.Parse(txtRemarkId.Text);
 
                 //写技能文本
-                if (txtXiaoGuoRemark.Text.Replace("\r\n", "\n") != xiaoguo.RemarkDetail)
+                if (txtXiaoGuoRemark.Enabled && txtXiaoGuoRemark.Text.Replace("\r\n", "\n") != xiaoguo.RemarkDetail)
                 {
                     xiaoguo.RemarkDetail = txtXiaoGuoRemark.Text.Replace("\r\n", "\n");
                 }
@@ -408,6 +410,28 @@ namespace GGCREditor
             lsAbility.SelectedItem = abilitys[abilitys.Count - 1];
 
             MessageBox.Show("创建成功,请修改数据", "操作提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txtRemarkId_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (file.AbilityText.Count > int.Parse(txtRemarkId.Text))
+                {
+                    txtXiaoGuoRemark.Text = file.AbilityText[int.Parse(txtRemarkId.Text)].Replace("\n", "\r\n");
+                    txtXiaoGuoRemark.Enabled = true;
+                }
+                else
+                {
+                    txtXiaoGuoRemark.Text = null;
+                    txtXiaoGuoRemark.Enabled = false;
+                }
+            }
+            catch
+            {
+                txtXiaoGuoRemark.Text = null;
+                txtXiaoGuoRemark.Enabled = false;
+            }
         }
     }
 }
