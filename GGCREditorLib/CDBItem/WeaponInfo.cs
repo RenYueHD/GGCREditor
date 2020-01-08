@@ -56,14 +56,27 @@ namespace GGCREditorLib
         {
             get
             {
-                if (this.ID < 0 || PkdFile.WeaponNames[this.ID] == null || PkdFile.WeaponNames[this.ID].Trim().Length == 0)
+                if (this.ID < 0 || PkdFile.AllText[this.ID] == null || PkdFile.AllText[this.ID].Trim().Length == 0)
                 {
-                    return (IsMap ? "(MAP)" : "") + "未知";
+                    return "未知";
                 }
                 else
                 {
-                    return (IsMap ? "(MAP)" : "") + PkdFile.WeaponNames[this.ID];
+                    return PkdFile.AllText[this.ID];
                 }
+            }
+        }
+
+        public override void SaveUnitName(string name)
+        {
+            int idx = this.ID;
+            GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.MachineTxtFile);
+            List<string> list = txtFile.ListAllText();
+            if (list.Count > idx)
+            {
+                list[idx] = name;
+                txtFile.Save(list);
+                PkdFile.AllText[idx] = name;
             }
         }
 

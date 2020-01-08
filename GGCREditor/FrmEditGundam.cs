@@ -325,6 +325,11 @@ namespace GGCREditor
                 gundam.Skill4 = short.Parse(cboSkill4.SelectedValue.ToString());
                 gundam.Skill5 = short.Parse(cboSkill5.SelectedValue.ToString());
 
+                if (gundam.UnitName != txtName.Text)
+                {
+                    gundam.SetUnitName(txtName.Text);
+                }
+
                 string shiyin = cboE1.SelectedValue.ToString() + cboE2.SelectedValue.ToString() + cboE3.SelectedValue.ToString() + cboE4.SelectedValue.ToString() + cboE5.SelectedValue.ToString();
 
                 gundam.Earch = shiyin;

@@ -80,6 +80,19 @@ namespace GGCREditorLib
             }
         }
 
+        public override void SaveUnitName(string name)
+        {
+            int idx = BitConverter.ToInt16(this.Data, NAME_IDX);
+            GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.MachineTxtFile);
+            List<string> list = txtFile.ListAllText();
+            if (list.Count > idx)
+            {
+                list[idx] = name;
+                txtFile.Save(list);
+                PkdFile.AllText[idx] = name;
+            }
+        }
+
         public short Group
         {
             get

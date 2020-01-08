@@ -16,16 +16,10 @@ namespace GGCREditorLib.CDBItem.Ability
 
         }
 
-        private string tempName;
-
         public override string UnitName
         {
             get
             {
-                if (tempName != null)
-                {
-                    return tempName;
-                }
                 short idx = BitConverter.ToInt16(this.Data, 2);
                 if (PkdFile.AbilityText.Count > idx)
                 {
@@ -36,11 +30,6 @@ namespace GGCREditorLib.CDBItem.Ability
                     return null;
                 }
             }
-        }
-
-        public void SetUnitName(string name)
-        {
-            this.tempName = name;
         }
 
         public abstract string TypeName { get; }
@@ -63,28 +52,21 @@ namespace GGCREditorLib.CDBItem.Ability
 
         public override int UUID_LENGTH => 2;
 
-        public override void Save()
+        public override void SaveUnitName(string name)
         {
-            if (tempName != null)
+            short idx = BitConverter.ToInt16(this.Data, 2);
+            if (PkdFile.AbilityText.Count > idx)
             {
-                short idx = BitConverter.ToInt16(this.Data, 2);
-                if (PkdFile.AbilityText.Count > idx)
+                GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
+                List<string> list = txtFile.ListAllText();
+                if (list.Count > idx)
                 {
-                    GGCRTblFile txtFile = new GGCRTblFile(GGCRStaticConfig.AbilityTxtFile);
-                    List<string> list = txtFile.ListAllText();
-                    if (list.Count > idx)
-                    {
-                        list[idx] = tempName;
-                        txtFile.Save(list);
+                    list[idx] = name;
+                    txtFile.Save(list);
 
-                        PkdFile.ReloadAbilityText();
-                    }
+                    PkdFile.ReloadAbilityText();
                 }
-                tempName = null;
             }
-
-            base.Save();
         }
-
     }
 }

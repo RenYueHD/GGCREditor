@@ -72,7 +72,14 @@ namespace GGCREditorLib
         /// </summary>
         public abstract int UUID_LENGTH { get; }
 
+        private string tempName;
         public abstract string UnitName { get; }
+        public void SetUnitName(string name)
+        {
+            this.tempName = name;
+        }
+
+        public abstract void SaveUnitName(string name);
 
         public override string ToString()
         {
@@ -115,6 +122,11 @@ namespace GGCREditorLib
 
         public virtual void Save()
         {
+            if (tempName != null)
+            {
+                SaveUnitName(tempName);
+                tempName = null;
+            }
             PkdFile.Write(this.Index, this.Data);
             Refresh();
         }

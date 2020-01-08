@@ -15,7 +15,7 @@ namespace GGCREditorLib
     {
 
         public Dictionary<short, string> SeriesCode { get; }
-        internal string[] WeaponNames;
+        //internal string[] WeaponNames;
 
         internal List<string> AllText { get; }
 
@@ -56,9 +56,9 @@ namespace GGCREditorLib
             WeaponNormalCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 8);
             WeaponMapCount = BitConverter.ToInt32(this.Data, WeaponCdbStart + 12);
 
-            this.WeaponNames = new string[WeaponNormalCount + WeaponMapCount];
+           // this.WeaponNames = new string[WeaponNormalCount + WeaponMapCount];
             this.AllText = new GGCRTblFile(GGCRStaticConfig.MachineTxtFile).ListAllText();
-            AllText.CopyTo(0, WeaponNames, 0, WeaponNames.Length);
+            //AllText.CopyTo(0, WeaponNames, 0, WeaponNames.Length);
 
             //计算属性数据索引
             PropCdbStart = WeaponCdbStart + 28 + (WeaponNormalCount + WeaponMapCount) * GGCRStaticConfig.WeaponLength;
@@ -66,6 +66,11 @@ namespace GGCREditorLib
 
             SpecCdbStart = PropCdbStart + 4 + PropCount * 4;
             SpecCount = BitConverter.ToInt32(this.Data, SpecCdbStart);
+        }
+
+        public void ReloadAllText()
+        {
+
         }
 
         public List<KeyValuePair<string, string>> ListWeaponProp()

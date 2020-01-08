@@ -59,5 +59,10 @@ namespace GGCREditorLib.CDBItem
         public override int UUID_LENGTH => 20;
 
         public override string UnitName => "未知";
+
+        public override void SaveUnitName(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

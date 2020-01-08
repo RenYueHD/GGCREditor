@@ -107,6 +107,12 @@ namespace GGCREditorLib
                 }
             }
         }
+
+        public override void SaveUnitName(string name)
+        {
+            throw new Exception("不允许直接修改人物数据");
+        }
+
         public string GroupName
         {
             get

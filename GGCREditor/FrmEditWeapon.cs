@@ -277,7 +277,7 @@ namespace GGCREditor
 
                 StringFormat sStringFormat = new StringFormat();
                 sStringFormat.LineAlignment = StringAlignment.Center;
-                e.Graphics.DrawString(master.UnitName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
+                e.Graphics.DrawString(master.IsMap ? ("(MAP)" + master.UnitName) : master.UnitName, e.Font, new SolidBrush(e.ForeColor), e.Bounds, sStringFormat);
             }
             e.DrawFocusRectangle();
         }
@@ -314,6 +314,11 @@ namespace GGCREditor
                 weapon.Spec = byte.Parse(cboSpec.SelectedValue.ToString());
 
                 weapon.Range = short.Parse(cboRange.SelectedValue.ToString());
+
+                if (txtName.Text != weapon.UnitName)
+                {
+                    weapon.SetUnitName(txtName.Text);
+                }
 
                 if (weapon is WeaponNormalInfo)
                 {

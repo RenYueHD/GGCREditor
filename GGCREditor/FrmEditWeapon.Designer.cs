@@ -33,6 +33,7 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
             this.panNormal = new System.Windows.Forms.Panel();
@@ -97,7 +98,6 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label29 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panNormal.SuspendLayout();
             this.panMap.SuspendLayout();
@@ -200,6 +200,17 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // label29
+            // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.Red;
+            this.label29.Location = new System.Drawing.Point(89, 513);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(293, 12);
+            this.label29.TabIndex = 36;
+            this.label29.Text = "若有修改,请先保存再导出 按住Ctrl可多选后批量导出";
             // 
             // button1
             // 
@@ -631,7 +642,6 @@
             // 
             this.txtName.Location = new System.Drawing.Point(80, 20);
             this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(144, 21);
             this.txtName.TabIndex = 3;
             // 
@@ -775,17 +785,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(192, 17);
             this.toolStripStatusLabel1.Text = "感谢 mediar,泷泽透明 的武器数据";
-            // 
-            // label29
-            // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.Red;
-            this.label29.Location = new System.Drawing.Point(89, 513);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(293, 12);
-            this.label29.TabIndex = 36;
-            this.label29.Text = "若有修改,请先保存再导出 按住Ctrl可多选后批量导出";
             // 
             // FrmEditWeapon
             // 

@@ -33,6 +33,7 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExportAll = new System.Windows.Forms.Button();
             this.btnConvert = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.pic1 = new System.Windows.Forms.PictureBox();
@@ -42,6 +43,7 @@
             this.txtGroup = new System.Windows.Forms.TextBox();
             this.btnEditWeapon = new System.Windows.Forms.Button();
             this.cboSkill5 = new System.Windows.Forms.ComboBox();
+            this.cboEarthSize = new System.Windows.Forms.ComboBox();
             this.cboSize = new System.Windows.Forms.ComboBox();
             this.cboSkill4 = new System.Windows.Forms.ComboBox();
             this.cboSkill3 = new System.Windows.Forms.ComboBox();
@@ -101,8 +103,6 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnExportAll = new System.Windows.Forms.Button();
-            this.cboEarthSize = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -223,6 +223,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
             // 
+            // btnExportAll
+            // 
+            this.btnExportAll.Location = new System.Drawing.Point(409, 588);
+            this.btnExportAll.Name = "btnExportAll";
+            this.btnExportAll.Size = new System.Drawing.Size(51, 81);
+            this.btnExportAll.TabIndex = 27;
+            this.btnExportAll.Text = "导出\r\n所有";
+            this.btnExportAll.UseVisualStyleBackColor = true;
+            this.btnExportAll.Click += new System.EventHandler(this.btnExportAll_Click);
+            // 
             // btnConvert
             // 
             this.btnConvert.Location = new System.Drawing.Point(316, 57);
@@ -311,6 +321,15 @@
             this.cboSkill5.Name = "cboSkill5";
             this.cboSkill5.Size = new System.Drawing.Size(144, 20);
             this.cboSkill5.TabIndex = 19;
+            // 
+            // cboEarthSize
+            // 
+            this.cboEarthSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEarthSize.FormattingEnabled = true;
+            this.cboEarthSize.Location = new System.Drawing.Point(98, 475);
+            this.cboEarthSize.Name = "cboEarthSize";
+            this.cboEarthSize.Size = new System.Drawing.Size(144, 20);
+            this.cboEarthSize.TabIndex = 19;
             // 
             // cboSize
             // 
@@ -627,7 +646,6 @@
             // 
             this.txtName.Location = new System.Drawing.Point(98, 143);
             this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(144, 21);
             this.txtName.TabIndex = 3;
             // 
@@ -819,25 +837,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
-            // 
-            // btnExportAll
-            // 
-            this.btnExportAll.Location = new System.Drawing.Point(409, 588);
-            this.btnExportAll.Name = "btnExportAll";
-            this.btnExportAll.Size = new System.Drawing.Size(51, 81);
-            this.btnExportAll.TabIndex = 27;
-            this.btnExportAll.Text = "导出\r\n所有";
-            this.btnExportAll.UseVisualStyleBackColor = true;
-            this.btnExportAll.Click += new System.EventHandler(this.btnExportAll_Click);
-            // 
-            // cboEarthSize
-            // 
-            this.cboEarthSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEarthSize.FormattingEnabled = true;
-            this.cboEarthSize.Location = new System.Drawing.Point(98, 475);
-            this.cboEarthSize.Name = "cboEarthSize";
-            this.cboEarthSize.Size = new System.Drawing.Size(144, 20);
-            this.cboEarthSize.TabIndex = 19;
             // 
             // FrmEditGundam
             // 
