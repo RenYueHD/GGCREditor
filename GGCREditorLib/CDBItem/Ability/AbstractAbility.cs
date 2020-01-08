@@ -19,7 +19,7 @@ namespace GGCREditorLib.CDBItem.Ability
         {
             get
             {
-                return PkdFile.AbilityText[No];
+                return PkdFile.AbilityText[BitConverter.ToInt16(this.Data, 2)];
             }
         }
 
