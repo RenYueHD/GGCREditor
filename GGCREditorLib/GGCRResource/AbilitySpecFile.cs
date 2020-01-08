@@ -57,22 +57,27 @@ namespace GGCREditorLib
                 byte[] data = new byte[ability.Data.Length];
                 ability.Data.CopyTo(data, 0);
 
+                int index = -1;
                 int count = -1;
                 if (ability is GundamAbility)
                 {
                     count = addText("自创机体能力");
-                    BitConverter.GetBytes((short)(BitConverter.ToInt32(this.Data, 8) + 1)).CopyTo(this.Data, 8);
-                }
-                else if (ability is PersonAbility)
-                {
-                    count = addText("自创人物技能");
-                    BitConverter.GetBytes((short)(BitConverter.ToInt32(this.Data, 16) + 1)).CopyTo(this.Data, 16);
+                    base.Write(8, BitConverter.GetBytes(MachineAbilityCount + 1));
+                    index = GGCRStaticConfig.GundamAbilityStart + GGCRStaticConfig.GundamAbilityLength * MachineAbilityCount;
                 }
                 else if (ability is OPInfo)
                 {
                     count = addText("自创OP");
-                    BitConverter.GetBytes((short)(BitConverter.ToInt32(this.Data, 12) + 1)).CopyTo(this.Data, 12);
+                    base.Write(12, BitConverter.GetBytes(OPCount + 1));
+                    index = GGCRStaticConfig.GundamAbilityStart + GGCRStaticConfig.GundamAbilityLength * MachineAbilityCount + GGCRStaticConfig.OPAbilityLength * OPCount;
                 }
+                else if (ability is PersonAbility)
+                {
+                    count = addText("自创人物技能");
+                    base.Write(16, BitConverter.GetBytes(PersonAbilityCount + 1));
+                    index = GGCRStaticConfig.GundamAbilityStart + GGCRStaticConfig.GundamAbilityLength * MachineAbilityCount + GGCRStaticConfig.OPAbilityLength * OPCount + GGCRStaticConfig.PeopleAbilityLength * PersonAbilityCount;
+                }
+
                 else
                 {
                     throw new Exception("不支持此物品复制");
@@ -80,7 +85,7 @@ namespace GGCREditorLib
 
                 BitConverter.GetBytes((short)(count - 1)).CopyTo(data, 2);
 
-                this.Insert(ability.Index + ability.UnitLength, data);
+                this.Insert(index, data);
             }
         }
 
@@ -202,44 +207,122 @@ namespace GGCREditorLib
         }
         public ReadOnlyCollection<string> ListOPs()
         {
-            //读取OP
-            List<string> ops = new List<string>();
+            int no = 0;
+            int idx = GGCRStaticConfig.GundamAbilityStart;
+
+            //读取机体能力
+            List<string> machineAbilitys = new List<string>();
+
+            for (int i = 0; i < MachineAbilityCount; i++)
+            {
+                idx += GGCRStaticConfig.GundamAbilityLength;
+                no++;
+            }
             for (int i = 0; i < OPCount; i++)
             {
-                ops.Add(AbilityText[i + MachineAbilityCount]);
+                machineAbilitys.Add(new OPInfo(this, idx, no).UnitName);
+                idx += GGCRStaticConfig.OPAbilityLength;
+                no++;
             }
-            return ops.AsReadOnly();
+
+            return machineAbilitys.AsReadOnly();
         }
         public ReadOnlyCollection<string> ListPersonAbilitys()
         {
-            //读取个人技能
-            List<string> personAbilitys = new List<string>();
+            int no = 0;
+            int idx = GGCRStaticConfig.GundamAbilityStart;
+
+            //读取机体能力
+            List<string> machineAbilitys = new List<string>();
+
+            for (int i = 0; i < MachineAbilityCount; i++)
+            {
+                idx += GGCRStaticConfig.GundamAbilityLength;
+                no++;
+            }
+            for (int i = 0; i < OPCount; i++)
+            {
+                idx += GGCRStaticConfig.OPAbilityLength;
+                no++;
+            }
             for (int i = 0; i < PersonAbilityCount; i++)
             {
-                personAbilitys.Add(AbilityText[i + MachineAbilityCount + OPCount]);
+                machineAbilitys.Add(new PersonAbility(this, idx, no).UnitName);
+                idx += GGCRStaticConfig.PeopleAbilityLength;
+                no++;
             }
-            return personAbilitys.AsReadOnly();
+
+            return machineAbilitys.AsReadOnly();
         }
         public ReadOnlyCollection<string> ListWarAbilitys()
         {
-            //读取战场技能
-            List<string> warAbilitys = new List<string>();
-            int skip = MachineAbilityCount + OPCount + PersonAbilityCount;
+            int no = 0;
+            int idx = GGCRStaticConfig.GundamAbilityStart;
+
+            //读取机体能力
+            List<string> machineAbilitys = new List<string>();
+
+            for (int i = 0; i < MachineAbilityCount; i++)
+            {
+                idx += GGCRStaticConfig.GundamAbilityLength;
+                no++;
+            }
+            for (int i = 0; i < OPCount; i++)
+            {
+                idx += GGCRStaticConfig.OPAbilityLength;
+                no++;
+            }
+            for (int i = 0; i < PersonAbilityCount; i++)
+            {
+                idx += GGCRStaticConfig.PeopleAbilityLength;
+                no++;
+            }
+
             for (int i = 0; i < WarAbilityCount; i++)
             {
-                warAbilitys.Add(AbilityText[skip + i * 2] + "(" + AbilityText[skip + i * 2 + 1] + ")");
+                machineAbilitys.Add(new WarAbility(this, idx, no).UnitName);
+                idx += GGCRStaticConfig.WarAbilityLength;
+                no += 2;
             }
-            return warAbilitys.AsReadOnly();
+            return machineAbilitys.AsReadOnly();
         }
         public ReadOnlyCollection<string> ListXiaoGuos()
         {
-            //技能效果
-            List<string> xiaoguo = new List<string>();
-            for (int i = MachineAbilityCount + OPCount + PersonAbilityCount + WarAbilityCount; i < MachineAbilityCount + OPCount + PersonAbilityCount + WarAbilityCount + XiaoGuoCount; i++)
+            int no = 0;
+            int idx = GGCRStaticConfig.GundamAbilityStart;
+
+            //读取机体能力
+            List<string> machineAbilitys = new List<string>();
+
+            for (int i = 0; i < MachineAbilityCount; i++)
             {
-                xiaoguo.Add(AbilityText[i + WarAbilityCount]);
+                idx += GGCRStaticConfig.GundamAbilityLength;
+                no++;
             }
-            return xiaoguo.AsReadOnly();
+            for (int i = 0; i < OPCount; i++)
+            {
+                idx += GGCRStaticConfig.OPAbilityLength;
+                no++;
+            }
+            for (int i = 0; i < PersonAbilityCount; i++)
+            {
+                idx += GGCRStaticConfig.PeopleAbilityLength;
+                no++;
+            }
+
+            for (int i = 0; i < WarAbilityCount; i++)
+            {
+                idx += GGCRStaticConfig.WarAbilityLength;
+                no += 2;
+            }
+            for (int i = 0; i < XiaoGuoCount; i++)
+            {
+                machineAbilitys.Add(new XiaoGuoAbility(this, idx, no).UnitName);
+                idx += GGCRStaticConfig.XiaoGuoLength;
+                no++;
+            }
+
+            return machineAbilitys.AsReadOnly();
         }
     }
 }
