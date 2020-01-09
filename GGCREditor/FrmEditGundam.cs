@@ -399,9 +399,10 @@ namespace GGCREditor
                         }
                         tsmiLblState.Text = "导出成功";
                         tsmiLblState.ForeColor = Color.Green;
+
+                        MessageBox.Show("导出成功", "操作提示");
                     }
                 }
-                MessageBox.Show("导出成功", "操作提示");
             }
             else if (list.Count > 0)
             {
@@ -418,8 +419,10 @@ namespace GGCREditor
                     }
                     tsmiLblState.Text = "导出成功";
                     tsmiLblState.ForeColor = Color.Green;
+
+                    MessageBox.Show("导出成功", "操作提示");
                 }
-                MessageBox.Show("导出成功", "操作提示");
+
             }
         }
 
@@ -463,7 +466,11 @@ namespace GGCREditor
                 else
                 {
                     select.Replace(data);
+                    lsGundam.SelectedItem = null;
                     lsGundam.SelectedItem = select;
+
+                    tsmiLblState.Text = "请保存";
+                    tsmiLblState.ForeColor = Color.Red;
                 }
             }
         }
@@ -570,7 +577,7 @@ namespace GGCREditor
 
                 bindAll();
 
-                MessageBox.Show("导入成功", "操作提示");
+                MessageBox.Show("导入成功,已自动保存", "操作提示");
                 // lsGundam.SelectedIndex = 0;
             }
         }

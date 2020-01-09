@@ -61,6 +61,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.cboGuYou3 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExportAll = new System.Windows.Forms.Button();
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
@@ -80,6 +81,7 @@
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.cboGrown = new System.Windows.Forms.ComboBox();
+            this.cboLast4 = new System.Windows.Forms.ComboBox();
             this.lsMasters = new System.Windows.Forms.ListBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -87,8 +89,7 @@
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnExportAll = new System.Windows.Forms.Button();
-            this.cboLast4 = new System.Windows.Forms.ComboBox();
+            this.btnImportBatch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -353,6 +354,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnImportBatch);
             this.groupBox1.Controls.Add(this.btnExportAll);
             this.groupBox1.Controls.Add(this.pic1);
             this.groupBox1.Controls.Add(this.button1);
@@ -411,6 +413,16 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // btnExportAll
+            // 
+            this.btnExportAll.Location = new System.Drawing.Point(413, 511);
+            this.btnExportAll.Name = "btnExportAll";
+            this.btnExportAll.Size = new System.Drawing.Size(51, 40);
+            this.btnExportAll.TabIndex = 29;
+            this.btnExportAll.Text = "导出\r\nTXT";
+            this.btnExportAll.UseVisualStyleBackColor = true;
+            this.btnExportAll.Click += new System.EventHandler(this.btnExportAll_Click);
             // 
             // pic1
             // 
@@ -592,6 +604,15 @@
             this.cboGrown.Size = new System.Drawing.Size(375, 20);
             this.cboGrown.TabIndex = 14;
             // 
+            // cboLast4
+            // 
+            this.cboLast4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLast4.FormattingEnabled = true;
+            this.cboLast4.Location = new System.Drawing.Point(320, 478);
+            this.cboLast4.Name = "cboLast4";
+            this.cboLast4.Size = new System.Drawing.Size(144, 20);
+            this.cboLast4.TabIndex = 14;
+            // 
             // lsMasters
             // 
             this.lsMasters.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -662,24 +683,15 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 22);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的人物数据";
             // 
-            // btnExportAll
+            // btnImportBatch
             // 
-            this.btnExportAll.Location = new System.Drawing.Point(413, 511);
-            this.btnExportAll.Name = "btnExportAll";
-            this.btnExportAll.Size = new System.Drawing.Size(51, 81);
-            this.btnExportAll.TabIndex = 29;
-            this.btnExportAll.Text = "导出\r\n所有";
-            this.btnExportAll.UseVisualStyleBackColor = true;
-            this.btnExportAll.Click += new System.EventHandler(this.btnExportAll_Click);
-            // 
-            // cboLast4
-            // 
-            this.cboLast4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLast4.FormattingEnabled = true;
-            this.cboLast4.Location = new System.Drawing.Point(320, 478);
-            this.cboLast4.Name = "cboLast4";
-            this.cboLast4.Size = new System.Drawing.Size(144, 20);
-            this.cboLast4.TabIndex = 14;
+            this.btnImportBatch.Location = new System.Drawing.Point(413, 552);
+            this.btnImportBatch.Name = "btnImportBatch";
+            this.btnImportBatch.Size = new System.Drawing.Size(51, 40);
+            this.btnImportBatch.TabIndex = 29;
+            this.btnImportBatch.Text = "批量\r\n导入";
+            this.btnImportBatch.UseVisualStyleBackColor = true;
+            this.btnImportBatch.Click += new System.EventHandler(this.btnImportBatch_Click);
             // 
             // FrmEditPeople
             // 
@@ -769,5 +781,6 @@
         private System.Windows.Forms.ComboBox cboGrown;
         private System.Windows.Forms.Button btnExportAll;
         private System.Windows.Forms.ComboBox cboLast4;
+        private System.Windows.Forms.Button btnImportBatch;
     }
 }

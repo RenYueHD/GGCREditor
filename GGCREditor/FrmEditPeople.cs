@@ -326,6 +326,8 @@ namespace GGCREditor
                     }
                     tsmiLblState.Text = "导出成功";
                     tsmiLblState.ForeColor = Color.Green;
+
+                    MessageBox.Show("导出成功", "操作提示");
                 }
             }
             else if (list.Count > 0)
@@ -343,6 +345,8 @@ namespace GGCREditor
                     }
                     tsmiLblState.Text = "导出成功";
                     tsmiLblState.ForeColor = Color.Green;
+
+                    MessageBox.Show("导出成功", "操作提示");
                 }
             }
         }
@@ -387,7 +391,11 @@ namespace GGCREditor
                 else
                 {
                     select.Replace(data);
+                    lsMasters.SelectedItem = null;
                     lsMasters.SelectedItem = select;
+
+                    tsmiLblState.Text = "请保存";
+                    tsmiLblState.ForeColor = Color.Red;
                 }
             }
         }
@@ -434,6 +442,50 @@ namespace GGCREditor
                         sw.WriteLine();
                     }
                 }
+            }
+        }
+
+        private void btnImportBatch_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.RestoreDirectory = true;
+            dialog.Filter = "人物数据|*.master";
+            dialog.Multiselect = true;
+
+            if (dialog.ShowDialog() == DialogResult.OK && dialog.FileNames.Length > 0)
+            {
+                txtSearch.Text = null;
+
+                foreach (string fileName in dialog.FileNames)
+                {
+                    byte[] data = File.ReadAllBytes(fileName);
+
+                    byte[] bt = new byte[GGCRStaticConfig.MasterUIDLength];
+                    Array.Copy(data, 0, bt, 0, bt.Length);
+                    string uid = ByteHelper.ByteArrayToHexString(bt).Trim();
+
+                    MasterInfo select = null;
+                    foreach (MasterInfo info in masters)
+                    {
+                        if (info.UUID == uid)
+                        {
+                            select = info;
+                            break;
+                        }
+                    }
+                    if (select != null)
+                    {
+                        select.Replace(data);
+                        select.Save();
+                    }
+                }
+
+                lsMasters.SelectedItem = null;
+
+                bindAll();
+
+                MessageBox.Show("导入成功,已自动保存", "操作提示");
+                // lsGundam.SelectedIndex = 0;
             }
         }
     }
