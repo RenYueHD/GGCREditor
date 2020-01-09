@@ -411,6 +411,8 @@ namespace GGCREditor
                     }
                     tsmiLblState.Text = "导出成功";
                     tsmiLblState.ForeColor = Color.Green;
+
+                    MessageBox.Show("导出成功", "操作提示");
                 }
             }
         }
@@ -455,8 +457,56 @@ namespace GGCREditor
                 else
                 {
                     select.Replace(data);
+                    lsGundam.SelectedItem = null;
                     lsGundam.SelectedItem = select;
+
+                    tsmiLblState.Text = "请保存";
+                    tsmiLblState.ForeColor = Color.Red;
                 }
+            }
+        }
+
+        private void btnBatchImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.RestoreDirectory = true;
+            dialog.Filter = "武器数据|*.weapon";
+            dialog.Multiselect = true;
+
+            if (dialog.ShowDialog() == DialogResult.OK && dialog.FileNames.Length > 0)
+            {
+                txtSearch.Text = null;
+
+                foreach (string fileName in dialog.FileNames)
+                {
+                    byte[] data = File.ReadAllBytes(fileName);
+
+                    byte[] bt = new byte[GGCRStaticConfig.WeaponUIDLength];
+                    Array.Copy(data, 0, bt, 0, bt.Length);
+                    string uid = ByteHelper.ByteArrayToHexString(bt).Trim();
+
+                    WeaponInfo select = null;
+                    foreach (WeaponInfo info in weapons)
+                    {
+                        if (info.UUID == uid)
+                        {
+                            select = info;
+                            break;
+                        }
+                    }
+                    if (select != null)
+                    {
+                        select.Replace(data);
+                        select.Save();
+                    }
+                }
+
+                lsGundam.SelectedItem = null;
+
+                bindAll();
+
+                MessageBox.Show("导入成功,已自动保存", "操作提示");
+                // lsGundam.SelectedIndex = 0;
             }
         }
     }

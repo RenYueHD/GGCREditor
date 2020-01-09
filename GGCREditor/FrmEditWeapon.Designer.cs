@@ -98,6 +98,7 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnBatchImport = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panNormal.SuspendLayout();
             this.panMap.SuspendLayout();
@@ -145,6 +146,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnBatchImport);
             this.groupBox1.Controls.Add(this.label29);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label30);
@@ -206,7 +208,7 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
             this.label29.ForeColor = System.Drawing.Color.Red;
-            this.label29.Location = new System.Drawing.Point(89, 513);
+            this.label29.Location = new System.Drawing.Point(31, 513);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(293, 12);
             this.label29.TabIndex = 36;
@@ -215,7 +217,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(389, 537);
+            this.button1.Location = new System.Drawing.Point(331, 537);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 35;
@@ -228,7 +230,7 @@
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
             this.label30.ForeColor = System.Drawing.Color.Red;
-            this.label30.Location = new System.Drawing.Point(96, 542);
+            this.label30.Location = new System.Drawing.Point(38, 542);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(287, 12);
             this.label30.TabIndex = 34;
@@ -361,7 +363,7 @@
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Location = new System.Drawing.Point(389, 508);
+            this.btnExport.Location = new System.Drawing.Point(331, 508);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 31;
@@ -559,7 +561,7 @@
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(168, 484);
+            this.label18.Location = new System.Drawing.Point(110, 484);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(215, 12);
             this.label18.TabIndex = 6;
@@ -569,7 +571,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(389, 479);
+            this.btnSave.Location = new System.Drawing.Point(331, 479);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 16;
@@ -786,6 +788,16 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(192, 17);
             this.toolStripStatusLabel1.Text = "感谢 mediar,泷泽透明 的武器数据";
             // 
+            // btnBatchImport
+            // 
+            this.btnBatchImport.Location = new System.Drawing.Point(413, 479);
+            this.btnBatchImport.Name = "btnBatchImport";
+            this.btnBatchImport.Size = new System.Drawing.Size(51, 81);
+            this.btnBatchImport.TabIndex = 37;
+            this.btnBatchImport.Text = "批量\r\n导入";
+            this.btnBatchImport.UseVisualStyleBackColor = true;
+            this.btnBatchImport.Click += new System.EventHandler(this.btnBatchImport_Click);
+            // 
             // FrmEditWeapon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -886,5 +898,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button btnBatchImport;
     }
 }
