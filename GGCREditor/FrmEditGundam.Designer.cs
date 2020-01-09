@@ -103,6 +103,7 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnBatchImport = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -150,6 +151,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnBatchImport);
             this.groupBox1.Controls.Add(this.btnExportAll);
             this.groupBox1.Controls.Add(this.btnConvert);
             this.groupBox1.Controls.Add(this.label32);
@@ -227,7 +229,7 @@
             // 
             this.btnExportAll.Location = new System.Drawing.Point(409, 588);
             this.btnExportAll.Name = "btnExportAll";
-            this.btnExportAll.Size = new System.Drawing.Size(51, 81);
+            this.btnExportAll.Size = new System.Drawing.Size(51, 40);
             this.btnExportAll.TabIndex = 27;
             this.btnExportAll.Text = "导出\r\n所有";
             this.btnExportAll.UseVisualStyleBackColor = true;
@@ -838,6 +840,16 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 17);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的机体数据";
             // 
+            // btnBatchImport
+            // 
+            this.btnBatchImport.Location = new System.Drawing.Point(409, 629);
+            this.btnBatchImport.Name = "btnBatchImport";
+            this.btnBatchImport.Size = new System.Drawing.Size(51, 40);
+            this.btnBatchImport.TabIndex = 27;
+            this.btnBatchImport.Text = "批量\r\n导入";
+            this.btnBatchImport.UseVisualStyleBackColor = true;
+            this.btnBatchImport.Click += new System.EventHandler(this.btnBatchImport_Click);
+            // 
             // FrmEditGundam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -940,5 +952,6 @@
         private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.Button btnExportAll;
         private System.Windows.Forms.ComboBox cboEarthSize;
+        private System.Windows.Forms.Button btnBatchImport;
     }
 }

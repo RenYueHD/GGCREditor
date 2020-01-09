@@ -401,6 +401,7 @@ namespace GGCREditor
                         tsmiLblState.ForeColor = Color.Green;
                     }
                 }
+                MessageBox.Show("导出成功", "操作提示");
             }
             else if (list.Count > 0)
             {
@@ -418,6 +419,7 @@ namespace GGCREditor
                     tsmiLblState.Text = "导出成功";
                     tsmiLblState.ForeColor = Color.Green;
                 }
+                MessageBox.Show("导出成功", "操作提示");
             }
         }
 
@@ -526,6 +528,50 @@ namespace GGCREditor
                         sw.WriteLine();
                     }
                 }
+            }
+        }
+
+        private void btnBatchImport_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.RestoreDirectory = true;
+            dialog.Filter = "机体数据|*.machine";
+            dialog.Multiselect = true;
+
+            if (dialog.ShowDialog() == DialogResult.OK && dialog.FileNames.Length > 0)
+            {
+                txtSearch.Text = null;
+
+                foreach (string fileName in dialog.FileNames)
+                {
+                    byte[] data = File.ReadAllBytes(fileName);
+
+                    byte[] bt = new byte[GGCRStaticConfig.GundamUIDLength];
+                    Array.Copy(data, 0, bt, 0, bt.Length);
+                    string uid = ByteHelper.ByteArrayToHexString(bt).Trim();
+
+                    GundamInfo select = null;
+                    foreach (GundamInfo info in gundams)
+                    {
+                        if (info.UUID == uid)
+                        {
+                            select = info;
+                            break;
+                        }
+                    }
+                    if (select != null)
+                    {
+                        select.Replace(data);
+                        select.Save();
+                    }
+                }
+
+                lsGundam.SelectedItem = null;
+
+                bindAll();
+
+                MessageBox.Show("导入成功", "操作提示");
+                // lsGundam.SelectedIndex = 0;
             }
         }
     }
