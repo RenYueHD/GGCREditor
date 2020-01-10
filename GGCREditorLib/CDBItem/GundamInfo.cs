@@ -80,6 +80,18 @@ namespace GGCREditorLib
             }
         }
 
+        public short UnitNameTblIndex
+        {
+            get
+            {
+                return BitConverter.ToInt16(this.Data, NAME_IDX);
+            }
+            set
+            {
+                save(NAME_IDX, value);
+            }
+        }
+
         public override void SaveUnitName(string name)
         {
             int idx = BitConverter.ToInt16(this.Data, NAME_IDX);

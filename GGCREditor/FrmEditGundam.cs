@@ -465,7 +465,9 @@ namespace GGCREditor
                 }
                 else
                 {
+                    short nameId = select.UnitNameTblIndex;
                     select.Replace(data);
+                    select.UnitNameTblIndex = nameId;
                     lsGundam.SelectedItem = null;
                     lsGundam.SelectedItem = select;
 
@@ -568,7 +570,9 @@ namespace GGCREditor
                     }
                     if (select != null)
                     {
+                        short nameId = select.UnitNameTblIndex;
                         select.Replace(data);
+                        select.UnitNameTblIndex = nameId;
                         select.Save();
                     }
                 }
