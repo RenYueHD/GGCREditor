@@ -19,10 +19,7 @@ namespace GGCREditor
         private FrmEditPeople()
         {
             InitializeComponent();
-            masterFile = new MasterFile();
-            tslblFIle.Text = masterFile.FileName;
-
-            head = ZipHelper.ZipDeCompressToDic(GGCRStaticConfig.PATH + "\\images\\schips.txd");
+            
         }
 
         public static FrmEditPeople CreateForm()
@@ -41,6 +38,11 @@ namespace GGCREditor
 
         private void bindAll()
         {
+            masterFile = new MasterFile();
+            tslblFIle.Text = masterFile.FileName;
+
+            head = ZipHelper.ZipDeCompressToDic(GGCRStaticConfig.PATH + "\\images\\schips.txd");
+
             cboGuYou1.DataSource = GGCRUtil.ListPeopleSkill();
             cboGuYou1.ValueMember = "Key";
             cboGuYou1.DisplayMember = "Value";
