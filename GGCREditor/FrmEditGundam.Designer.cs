@@ -227,6 +227,7 @@
             // 
             // btnBatchImport
             // 
+            this.btnBatchImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBatchImport.Location = new System.Drawing.Point(409, 629);
             this.btnBatchImport.Name = "btnBatchImport";
             this.btnBatchImport.Size = new System.Drawing.Size(51, 40);
@@ -237,6 +238,7 @@
             // 
             // btnExportAll
             // 
+            this.btnExportAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportAll.Location = new System.Drawing.Point(409, 588);
             this.btnExportAll.Name = "btnExportAll";
             this.btnExportAll.Size = new System.Drawing.Size(51, 40);

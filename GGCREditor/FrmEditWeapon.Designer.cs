@@ -33,6 +33,7 @@
             this.lsGundam = new System.Windows.Forms.ListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBatchImport = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label30 = new System.Windows.Forms.Label();
@@ -98,7 +99,6 @@
             this.tslblFile = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnBatchImport = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panNormal.SuspendLayout();
             this.panMap.SuspendLayout();
@@ -202,6 +202,17 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
+            // 
+            // btnBatchImport
+            // 
+            this.btnBatchImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBatchImport.Location = new System.Drawing.Point(413, 479);
+            this.btnBatchImport.Name = "btnBatchImport";
+            this.btnBatchImport.Size = new System.Drawing.Size(51, 81);
+            this.btnBatchImport.TabIndex = 37;
+            this.btnBatchImport.Text = "批量\r\n导入";
+            this.btnBatchImport.UseVisualStyleBackColor = true;
+            this.btnBatchImport.Click += new System.EventHandler(this.btnBatchImport_Click);
             // 
             // label29
             // 
@@ -787,16 +798,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(192, 17);
             this.toolStripStatusLabel1.Text = "感谢 mediar,泷泽透明 的武器数据";
-            // 
-            // btnBatchImport
-            // 
-            this.btnBatchImport.Location = new System.Drawing.Point(413, 479);
-            this.btnBatchImport.Name = "btnBatchImport";
-            this.btnBatchImport.Size = new System.Drawing.Size(51, 81);
-            this.btnBatchImport.TabIndex = 37;
-            this.btnBatchImport.Text = "批量\r\n导入";
-            this.btnBatchImport.UseVisualStyleBackColor = true;
-            this.btnBatchImport.Click += new System.EventHandler(this.btnBatchImport_Click);
             // 
             // FrmEditWeapon
             // 

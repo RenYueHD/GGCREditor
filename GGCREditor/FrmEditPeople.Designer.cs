@@ -61,6 +61,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.cboGuYou3 = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImportBatch = new System.Windows.Forms.Button();
             this.btnExportAll = new System.Windows.Forms.Button();
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -89,7 +90,6 @@
             this.tslblFIle = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsmiLblState = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnImportBatch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -414,8 +414,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "属性";
             // 
+            // btnImportBatch
+            // 
+            this.btnImportBatch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnImportBatch.Location = new System.Drawing.Point(413, 552);
+            this.btnImportBatch.Name = "btnImportBatch";
+            this.btnImportBatch.Size = new System.Drawing.Size(51, 40);
+            this.btnImportBatch.TabIndex = 29;
+            this.btnImportBatch.Text = "批量\r\n导入";
+            this.btnImportBatch.UseVisualStyleBackColor = true;
+            this.btnImportBatch.Click += new System.EventHandler(this.btnImportBatch_Click);
+            // 
             // btnExportAll
             // 
+            this.btnExportAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportAll.Location = new System.Drawing.Point(413, 511);
             this.btnExportAll.Name = "btnExportAll";
             this.btnExportAll.Size = new System.Drawing.Size(51, 40);
@@ -682,16 +694,6 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(140, 22);
             this.toolStripStatusLabel1.Text = "感谢lxdlxd99的人物数据";
-            // 
-            // btnImportBatch
-            // 
-            this.btnImportBatch.Location = new System.Drawing.Point(413, 552);
-            this.btnImportBatch.Name = "btnImportBatch";
-            this.btnImportBatch.Size = new System.Drawing.Size(51, 40);
-            this.btnImportBatch.TabIndex = 29;
-            this.btnImportBatch.Text = "批量\r\n导入";
-            this.btnImportBatch.UseVisualStyleBackColor = true;
-            this.btnImportBatch.Click += new System.EventHandler(this.btnImportBatch_Click);
             // 
             // FrmEditPeople
             // 
