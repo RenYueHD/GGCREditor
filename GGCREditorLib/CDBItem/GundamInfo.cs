@@ -11,6 +11,8 @@ namespace GGCREditorLib
     public class GundamInfo : GGCRUnitInfo<GundamFile>, IComparable<GundamInfo>
     {
         private const int GROUP_IDX = 0;
+        //机体详细说明所在UUID,8位
+        private const int SPEC_PROFILE_UUID_IDX = GROUP_IDX + 8;
         //开发列表ID(8位)
         private const int DEV_UUID_IDX = GROUP_IDX + 16;
         private const int ID_IDX = GROUP_IDX + 22;
@@ -89,6 +91,16 @@ namespace GGCREditorLib
             set
             {
                 save(NAME_IDX, value);
+            }
+        }
+
+        public string SpecProfileUUID
+        {
+            get
+            {
+                byte[] bt = new byte[8];
+                Array.Copy(this.Data, SPEC_PROFILE_UUID_IDX, bt, 0, 8);
+                return ByteHelper.ByteArrayToHexString(bt).Trim();
             }
         }
 

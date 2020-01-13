@@ -5,7 +5,7 @@ using System.Text;
 namespace GGCREditorLib
 {
     public abstract class GGCRUnitInfo<T>
-        where T : GGCRPkdFile
+        where T : GGCRResourceFile
     {
         /// <summary>
         /// 该单位的实际数据(Copy)

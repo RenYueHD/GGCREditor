@@ -72,6 +72,14 @@ namespace GGCREditor
             }
         }
 
+        public static string SpecProfileFile
+        {
+            get
+            {
+                return PATH + "\\resident\\SpecProfileList.cdb";
+            }
+        }
+
         public static string AbilityTxtFile
         {
             get
@@ -95,5 +103,6 @@ namespace GGCREditor
                 return PATH + @"\language\" + GGCRStaticConfig.Language + @"\CharacterSpecList.tbl";
             }
         }
+
     }
 }
