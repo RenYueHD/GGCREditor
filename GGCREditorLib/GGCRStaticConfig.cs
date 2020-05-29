@@ -31,11 +31,11 @@ namespace GGCREditor
 
         public static int GundamAbilityStart = 48;
 
-        public static int GundamAbilityLength = 8;
+        public static int GundamAbilityLength = 16;
 
-        public static int PeopleAbilityLength = 34;
+        public static int PeopleAbilityLength = 40;
 
-        public static int OPAbilityLength = 40;
+        public static int OPAbilityLength = 60;
 
         public static int WarAbilityLength = 14;
 

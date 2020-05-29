@@ -325,11 +325,12 @@ namespace GGCREditor
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
                         export(gundam, dialog.FileName);
-                    }
-                    tsmiLblState.Text = "导出成功";
-                    tsmiLblState.ForeColor = Color.Green;
+                        tsmiLblState.Text = "导出成功";
+                        tsmiLblState.ForeColor = Color.Green;
 
-                    MessageBox.Show("导出成功", "操作提示");
+                        MessageBox.Show("导出成功", "操作提示");
+                    }
+                    
                 }
             }
             else if (list.Count > 0)
