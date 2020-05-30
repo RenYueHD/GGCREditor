@@ -99,7 +99,11 @@ namespace GGCREditorLib
 
             this.xiaoguoCount++;
             base.Write(24, BitConverter.GetBytes(xiaoguoCount));
-            base.Write(this.Data.Length, newXiaoGuo);
+            // base.Write(this.Data.Length, newXiaoGuo);
+            int index = GGCRStaticConfig.GundamAbilityStart + MachineAbilityCount * GGCRStaticConfig.GundamAbilityLength
+                + OPCount * GGCRStaticConfig.OPAbilityLength + PersonAbilityCount * GGCRStaticConfig.PeopleAbilityLength
+                + WarAbilityCount * GGCRStaticConfig.WarAbilityLength + GGCRStaticConfig.XiaoGuoLength * (xiaoguoCount - 1);
+            this.Insert(index, newXiaoGuo);
         }
 
         private int addText(string text)

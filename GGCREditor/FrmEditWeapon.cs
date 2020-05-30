@@ -106,19 +106,48 @@ namespace GGCREditor
 
             weapons = new List<WeaponInfo>();
 
-            foreach (WeaponInfo w in gundamFile.ListWeapons())
+            List<WeaponInfo> allWeapons = gundamFile.ListWeapons();
+
+            List<KeyValuePair<string, string>> ranges = GGCRUtil.ListWeaponRange();
+
+            Dictionary<short, WeaponInfo> noranges = new Dictionary<short, WeaponInfo>();
+
+            foreach (WeaponInfo w in allWeapons)
             {
                 if (limit == null || limit.Contains(w.ID))
                 {
                     weapons.Add(w);
                 }
+
+                bool find = false;
+                foreach (KeyValuePair<string, string> rngs in ranges)
+                {
+                    if (rngs.Key == w.Range.ToString())
+                    {
+                        find = true;
+                        break;
+                    }
+                }
+                if (!find)
+                {
+                    if (!noranges.ContainsKey(w.Range))
+                    {
+                        noranges.Add(w.Range, w);
+                    }
+                }
             }
+
+            foreach (KeyValuePair<short, WeaponInfo> kv in noranges)
+            {
+                GGCRUtil.AddWeaponRange(kv.Key, kv.Key + " " + (kv.Value.IsMap ? ("MAP " + kv.Value.UnitName) : ("普通 " + kv.Value.UnitName)));
+            }
+
+            bindAll();
 
             lsGundam.DataSource = weapons;
             lsGundam.DisplayMember = "UnitName";
             lsGundam.ValueMember = "Address";
         }
-
 
 
         private void LoadData(WeaponInfo weapon)
